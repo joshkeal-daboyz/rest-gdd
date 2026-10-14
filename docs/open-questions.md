@@ -23,7 +23,10 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 ## Gameplay
 
 - [ ] Perspective: third person, or another camera?
-- [ ] Is there any combat in version one, or only avoidance?
+- [ ] The Hum: does Enoch kill it, or drive it off and seal it in the deep?
+- [ ] Is the Hum an alligator, or is a giant boar a better fit? Could the boar be a mid-chapter boss in the Yards?
+- [ ] Beyond the boss battle, is there any combat in version one, or only avoidance?
+- [ ] Do the Drafts need more types of abomination beside them, or are Drafts and Gnawers enough for Chapter One?
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
 - [ ] Is there a day-and-night cycle, or is the game set entirely at night?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?

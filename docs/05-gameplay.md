@@ -34,7 +34,7 @@ The city's grid is a single connected system the player can read and reason abou
 
 There is never enough power to light everything. As Enoch restores districts, he must choose which circuits stay on.
 
-- Powering more endpoints than the grid can carry causes **brownouts**: lights flicker, repairs fail, and live lines draw abominations.
+- Powering more endpoints than the grid can carry causes **brownouts**: lights flicker, repairs fail, and darkened streets fall back to the abominations.
 - Some endpoints matter to the tribe (shrines, homes), some to traversal (lifts, doors, bridges), and some to discovery (old machines that only the serpent can read, and only once they have power).
 - The priests have opinions about which lights are holy, and they are not always the useful ones.
 

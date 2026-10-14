@@ -19,7 +19,8 @@ All entries in this section are Draft.
 - **Enoch:** a tool belt, a satchel, a work apron, and a small lantern. His hands should be the most detailed part of the model.
 - **The serpent:** small and expressive, with a soft glow along its scales that acts as its face.
 - **The priests:** robes in light and gold, with lamps worn as vestments.
-- **Abominations:** wrong, but not gory. Bodies warped by power: too many limbs, flickering bioluminescence, crackling skin.
+- **Abominations:** wrong, but not gory. They are failed genetic experiments, so they should look like unfinished animals: proportions that don't quite work, features that didn't form, and traces of the tribes they were meant to become. The Drafts should be just recognizable as raccoons.
+- **The Hum:** an enormous, ancient alligator, scarred and overgrown, closer to a landscape than an animal when it is still. Its scale should read from the first moment it moves.
 
 ## Lighting as a system
 
@@ -28,7 +29,7 @@ Light carries gameplay information, so it must be consistent:
 | Light | Meaning |
 | --- | --- |
 | Warm, steady amber | Safe, restored, the tribe's light |
-| Flickering | Failing, under load, or drawn on by abominations |
+| Flickering | Failing, under load, or with lines chewed by Gnawers |
 | Cold white or blue | The machine: the depths, the core, the truth |
 | The serpent's glow | Its mood: bright when calm, flickering when afraid |
 | Darkness | Unknown and unrestored |

@@ -54,7 +54,7 @@ Enoch has no serpent in Act 1. He is one mechanic among many, working with his o
 Enoch restores power district by district. Each district is a self-contained repair problem with its own fault, its own salvage, and its own cracks in the faith. The districts are described in [World](04-world.md).
 
 - **Return to Lamp Row.** With the serpent, Enoch can now read the machines he walked past in Act 1. For the first time, technology speaks to him, and what it says is plainer than anything the priests have taught.
-- **The Yards.** He brings a substation back online. The repair is larger and teaches load and capacity. Restored power draws the first abominations to the live lines.
+- **The Yards.** He brings a substation back online. The repair is larger and teaches load and capacity. The Yards have been dark for generations, and Enoch meets the first abominations there: Drafts in the shadows and Gnawers in the cables.
 - **The Spires.** He climbs a tower to restart a beacon, the way Light speaks to the whole city. From the top, he sees the scale of the ruin for the first time, and on the horizon, smoke: something burns at the edge of Light's lands. The serpent will not talk about it.
 - **The choice of what stays dark.** There is not enough power for everything. Enoch has to decide which districts and lights to keep on, and the priests have their own opinions about which ones matter.
 
@@ -62,6 +62,7 @@ Enoch restores power district by district. Each district is a self-contained rep
 
 - **The descent.** The fault is not in the city. It is below it. Enoch follows the main lines into the Underworks, a place the priests call sacred and forbidden, where Light dwells.
 - **The temple is a warehouse.** The deeper he goes, the less the place looks like a holy site and the more it looks like a building: corridors, doors, numbered racks. The serpent's fear peaks: *"We could die. We shouldn't stray from the path."*
+- **The Hum.** The deep hum the priests call Light's breath grows louder. In a flooded junction hall, Enoch finds its source: an Old One, a giant alligator that has lived in the dark water since before the gods' Flood. He has to outwit it with power and water to reach the core (see [Threats and Hazards](07-threats.md)).
 - **The core.** Enoch reaches Light's seat: the machine core of a former Light Energy data center. He repairs the portion of the system he was sent to fix and runs the diagnosis.
 
 ### Climax: The first temptation

@@ -43,7 +43,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** a substation and transformer yard surrounded by fences, warning signs, and a field of old solar panels.
 - **Grid role:** feeds most of the city. Restoring it makes several districts possible.
-- **Gameplay role:** the first large repair. It teaches load, capacity, and switching. Abominations appear around live lines here first.
+- **Gameplay role:** the first large repair. It teaches load, capacity, and switching. The Yards have been dark for generations, so this is where Enoch first meets the abominations.
 - **Crack in the faith:** maintenance logs and schedules that read like a liturgy.
 
 ### The Spires

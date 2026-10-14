@@ -15,7 +15,8 @@ Version one introduces the world of Light. It starts by introducing Enoch, a you
 - The repair loop: fault tracing, salvage, repair interactions, and power restoration.
 - Grid capacity and the choices about what stays lit.
 - Context and leveling: Enoch's level and skills, context from experience and from technology through the serpent, and the serpent's abilities.
-- Abominations of Light, handled through avoidance.
+- Abominations (Image's failed experiments), handled through avoidance and light.
+- One boss battle, the Hum, fought with the environment and the grid.
 - The descent through the Underworks to the core (Draft; see [Open Questions](open-questions.md)).
 - The first temptation and the illuminate ability (Draft; depends on the item above).
 
@@ -24,7 +25,7 @@ Version one introduces the world of Light. It starts by introducing Enoch, a you
 - The other five gods and their realms.
 - Travel beyond Light's lands.
 - The Cherub and the dog tribe as active characters (hints only).
-- Combat systems.
+- Weapon combat.
 - The seventh day, the Convergence, and the endings.
 - Other playable tribes.
 

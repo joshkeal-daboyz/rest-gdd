@@ -16,7 +16,7 @@ You play **Enoch**, a young raccoon and repairman in service to Light, the god o
 | 4 | [World: The City of Light](docs/04-world.md) | Districts, landmarks, and how the city tells the story |
 | 5 | [Gameplay](docs/05-gameplay.md) | Core loop, repair systems, the power grid, traversal |
 | 6 | [Progression](docs/06-progression.md) | Context, leveling and skills, the serpent as a conduit to technology, abilities |
-| 7 | [Threats and Hazards](docs/07-threats.md) | Abominations of Light, environmental danger, avoidance |
+| 7 | [Threats and Hazards](docs/07-threats.md) | Abominations (Image's failed experiments), the Hum boss battle, environmental danger |
 | 8 | [Art and Audio](docs/08-art-audio.md) | Visual direction, lighting as language, sound |
 | 9 | [UI and UX](docs/09-ui-ux.md) | HUD, the serpent as interface, menus |
 | 10 | [Scope and Roadmap](docs/10-scope-roadmap.md) | What version one includes and excludes, milestones |
