@@ -1,26 +1,39 @@
 # Course Compliance Checklist
 
-How this GDD meets the [Capstone GDD Guidelines](GDD_Guidelines.md) for Assignment #1.
+How this GDD meets **Assignment #1: First Draft of GDD**, and the [Capstone GDD Guidelines](GDD_Guidelines.md).
 
-**Submission:** the GitHub repo link, https://github.com/joshkeal-daboyz/rest-gdd, to Google Classroom by **October 20**. The short GDD is the [README](../README.md).
+**Submission:** the GitHub repo link, https://github.com/joshkeal-daboyz/rest-gdd. The short GDD is the [README](../README.md), in Markdown (the instructor confirmed a PDF is not required). **Due:** 20 October 2026, 11:59 PM ET.
 
-## Draft checklist
+## Required sections
 
-| Requirement | Where it's met | Status |
+| Section required by the assignment | Where it's met |
+| --- | --- |
+| Executive Summary | [README §1](../README.md#1-executive-summary) |
+| Game Mechanics (player-facing actions and loop) | [README §2](../README.md#2-game-mechanics) |
+| AI Architecture (what each agent does, described through its effect on gameplay) | [README §3](../README.md#3-ai-architecture); detail in [docs/11](../docs/11-ai-architecture.md) |
+| Technical Strategy (agent roles, token budget, API constraints) | [README §4](../README.md#4-technical-strategy); detail in [docs/12](../docs/12-technical-strategy.md) |
+
+## Rubric
+
+| Criterion | Points | How the GDD addresses it |
 | --- | --- | --- |
-| Summary section | [README §1](../README.md#1-summary) | Done |
-| Game Mechanics section | [README §2](../README.md#2-game-mechanics) | Done |
-| AI Architecture section | [README §3](../README.md#3-ai-architecture), detail in [docs/11](../docs/11-ai-architecture.md) | Done |
-| Technical Strategy section | [README §4](../README.md#4-technical-strategy), detail in [docs/12](../docs/12-technical-strategy.md) | Done |
-| Every section specific to the game, describing what the player sees and does | README §2 opens with what the player sees; every agent sentence ends with what the player sees | Done |
-| Scope passes the weekend test; future features in later phases | [README §5](../README.md#5-scope-and-phases), [docs/10](../docs/10-scope-roadmap.md) | Done |
-| "Wow" moment and One Wow agent identified | The Relight; the Lighting Director (README §1 and §3) | Done |
-| Each agent: name + one sentence (does X when Y, player sees Z) | README §3 crew table | Done |
-| Human review gates and creative-control boundaries | README §3, gates G1–G5 | Done |
-| Engine, tools, asset sources, and biggest constraints | README §4 | Done |
-| Token budget projection | README §4, detail in docs/12 | Done |
-| 5 pages or less, with longer detail in linked docs | The README is the short GDD; `docs/` is the long GDD | Check page count before submitting |
-| Submitted by Oct 20 | Google Classroom | To do |
+| **Game Specificity**: named game, identifiable core loop, stated win/loss condition | 3.0 | Named game (*Rest*) and character (Enoch); core loop stated in §1 and played out in §2; **win** (the street relights) and **loss** (dawn breaks first) stated in §1 and §2 |
+| **Player Experience Clarity**: what the player sees and does; agent behavior through gameplay effect | 2.5 | §2 is written from the player's point of view, starting on the dark street; every agent sentence in §3 ends with what the player sees or feels |
+| **Agent Role Clarity**: each agent named, its development role in one sentence; abstract terms only where specific | 2.0 | Ten prototype agents in §3, one sentence each; coordination terms in §4 are tied to Rest (why the Lighting Director only listens for `grid:changed`) |
+| **Technical Feasibility**: realistic scope; at least one constraint named and explained; plausible token budget | 1.5 | Prototype scoped to one street (§5); two constraints named and explained, plus an API constraints table (§4); token budget by agent and phase (§4) |
+| **Presentation**: required sections present, free of major errors | 1.0 | Required sections use the assignment's names; tables over prose; long detail moved to `docs/` |
+
+## Anti-slop gate
+
+Every course concept is tied to a specific mechanic in Rest:
+
+| Concept | Rest's version |
+| --- | --- |
+| One Wow moment | The Relight: power traveling down Lamp Row as the lamps ignite |
+| One Wow agent | The Lighting Director |
+| Weekend test | One street, three repairs, three parts, about ten grid nodes |
+| Human review gates | G4 reviews the Relight itself; G3 reviews every line against the Lore Bible |
+| Constraints direct agents | Three.js has no engine features, so every library is named; the 8-light rule is a rule agents must follow |
 
 ## The three-pillar checkpoint
 
@@ -28,12 +41,8 @@ How this GDD meets the [Capstone GDD Guidelines](GDD_Guidelines.md) for Assignme
 2. **Constraints:** "My biggest constraint is that Three.js is a rendering library, not an engine, because it provides no editor, physics, character controller, or animation tooling, so each must come from a named library, or agents will invent their own."
 3. **Budget:** about 3M tokens for the prototype, about 10M for the MVP.
 
-## Rubric notes
+## Before submitting
 
-| Rubric point | How the GDD addresses it |
-| --- | --- |
-| Game specificity | Every agent is defined by a Rest system (the grid, repairs, the Relight), not a generic role |
-| Player experience clarity | README §2 is written from the player's point of view; acceptance criteria are player-facing |
-| Agent role definitions | Ten prototype agents and five MVP agents, each with one sentence, an input, an output, and a folder it owns |
-| Technical feasibility | A prototype of one street; named libraries; validation steps; risks with plans |
-| Presentation | Short GDD as an index to the long GDD; tables over prose |
+- [ ] Confirm whether the assignment's "provided template" exists. These guidelines say no template is provided; if one is, the README's sections may need to be reordered to match it.
+- [ ] Read the README start to finish as it renders on GitHub.
+- [ ] Submit the repo link to Google Classroom by 20 October, 11:59 PM ET.

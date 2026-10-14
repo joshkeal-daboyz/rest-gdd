@@ -16,7 +16,8 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 - The **test lamp**, which reads a line as live, dead, or damaged.
 - **Salvage:** three part types (fuses, wire, bulbs) from about six salvage spots, with a small satchel.
 - **Three faults**, one for each repair type: a blown fuse (**replace**), a chewed cable (**splice**), and a dead circuit to bypass (**reroute**).
-- **The Relight:** the wow moment when the street comes back to light.
+- **The Relight:** the wow moment when the street comes back to light. This is the win.
+- **Dawn:** a night of about 20 minutes, shown by the sky. If dawn breaks first, the night restarts. This is the loss.
 - Placeholder lines for Enoch and a job description from the temple.
 
 ### Out of scope for the prototype
@@ -25,7 +26,8 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 
 ### Acceptance criteria
 
-- [ ] A new player relights Lamp Row in 10–15 minutes without outside help.
+- [ ] A new player relights Lamp Row in 10–15 minutes without outside help, before dawn.
+- [ ] A player who loses to dawn understands why and does better on the next night.
 - [ ] Every fault can be found by following cables and using the test lamp.
 - [ ] A failed repair is safe and clearly readable.
 - [ ] The Relight passes gate G4.

@@ -83,7 +83,7 @@ Design goals for repairs:
 - **Readable.** The player should understand why something is broken by looking at it.
 - **Short.** Most repairs take under a minute. The puzzle is in finding the fault, not in the repair itself.
 - **Physical.** Close camera on Enoch's hands, with tactile sound and feedback.
-- **Failure is safe but felt.** A wrong connection sparks, shocks, or causes a brief brownout. No game over.
+- **Failure is safe but felt.** A wrong connection sparks, shocks, or causes a brief brownout. It costs time, and time matters, because each job must be finished before dawn (see [Threats and Hazards](07-threats.md#win-and-loss-draft)).
 
 ## Traversal (Draft)
 

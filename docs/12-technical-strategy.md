@@ -38,6 +38,17 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 4. **Browser only.** Everything must work in current Chrome, Edge, and Firefox with no install.
 5. **Dev-time AI only.** No API calls from the game.
 
+## API constraints
+
+| Service | Constraint | How Rest handles it |
+| --- | --- | --- |
+| **Claude** (the agent crew) | Plan usage limits per session and per week; finite context windows | Agents run in sequence, not all at once; the top-tier model is reserved for the Lead Architect; agents load the short GDD plus only the docs their ticket links; each agent owns one folder, so files stay small |
+| **Meshy / Tripo** | Credit-limited generation | Generate only Enoch and what the Asset Scout can't find; every generation passes gate G2 first |
+| **Mixamo** | No public API | Rigging and animation are a manual human step in the pipeline |
+| **Freesound** | API key required; rate limited; CC-BY sounds need credit | The Asset Scout batches searches and records every license in the manifest |
+| **GitHub Pages** | Size limits on sites and files | Draco-compressed models, compressed audio, and a first-load budget under 30 MB |
+| **The game itself** | None | No runtime API calls: no keys in the browser, no per-player cost, no rate limits for players |
+
 ## Technical risks
 
 | Risk | Why it's a risk | Plan |

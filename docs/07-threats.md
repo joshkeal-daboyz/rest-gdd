@@ -55,12 +55,14 @@ Enoch cannot fight the Hum with weapons. He fights it with what he knows: power,
 | Falls | The city is vertical, and the Spires especially so. |
 | Collapse | Ruined floors and passages give way. |
 | Water and power | Flooded basements near live lines are lethal until the power is cut. |
-| Daylight (Draft) | Soft pressure to return to the Hollow before dawn. |
+| Dawn (Draft) | Raccoons are nocturnal. Each job must be finished before dawn; see Win and loss below. |
 
-## Failure (Draft)
+## Win and loss (Draft)
 
-- Being caught or badly shocked sends Enoch back to the last lit safe point, such as a shrine or repaired junction. Repairs already completed stay completed.
-- There is no permanent loss and no game over screen. The world's tone is melancholy, not punishing.
+- **Win:** every fault on the job is repaired and the district relights. In the prototype, that means all of Lamp Row is lit and the Relight plays.
+- **Loss: dawn.** Each job takes place over one night, and the sky shows it: the moon crosses the sky, then the horizon pales. If dawn breaks before the job is done, the raccoons must retreat underground, and the job fails. The night restarts with the faults back in place, but the player keeps what they learned about where the faults are. In the prototype, a night lasts about 20 minutes of play, against a 10–15 minute target.
+- **Setbacks, not losses:** being caught or badly shocked sends Enoch back to the last lit safe point, such as a shrine or repaired junction, and costs him time before dawn. Repairs already completed that night stay completed.
+- The tone stays melancholy, not punishing: no harsh game over screen, just the sun rising on a street that is still dark.
 
 ## Foreshadowing the full game
 

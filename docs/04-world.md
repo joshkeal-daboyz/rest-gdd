@@ -69,7 +69,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 ## Day and night (Draft)
 
 - Raccoons are nocturnal, so the tribe's day is the night. The game mostly takes place after dark, which is when the lights matter.
-- Daylight drives the raccoons indoors. It could serve as a soft time limit on outings or simply as a mood shift between story beats.
+- Daylight drives the raccoons underground, so each job is a race against dawn. This is the game's loss condition (see [Threats and Hazards](07-threats.md#win-and-loss-draft)).
 
 ## Beyond Light's lands (Version one)
 

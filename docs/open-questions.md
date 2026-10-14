@@ -35,7 +35,7 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Beyond the boss battle, is there any combat in version one, or only avoidance?
 - [ ] Do the Drafts need more types of abomination beside them, or are Drafts and Gnawers enough for Chapter One?
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
-- [ ] Is there a day-and-night cycle, or is the game set entirely at night?
+- [ ] Is dawn the right loss condition? How long should a night last, and does a lost night reset the faults?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?
 - [ ] How many context sources (and readable machines) are in Chapter One, and how many are required versus optional?
 - [ ] Are three skills (Hands, Eyes, Feet) with five ranks each the right leveling structure, and is a level cap of 10 right for Chapter One?
