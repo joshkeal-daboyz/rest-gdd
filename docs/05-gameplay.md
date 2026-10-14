@@ -103,17 +103,19 @@ In Act 1, before Enoch earns the serpent, his mentor teaches the basics: movemen
 
 Enoch is not a fighter. See [Threats and Hazards](07-threats.md) for abominations and environmental danger.
 
-## Controls (Draft, controller layout)
+## Controls (Draft)
 
-| Input | Action |
-| --- | --- |
-| Left stick | Move |
-| Right stick | Camera |
-| A / Cross | Jump, climb |
-| X / Square | Interact, repair |
-| Y / Triangle | Test line (Act 1); serpent: sense current, ask (from Act 2) |
-| B / Circle | Crouch, squeeze |
-| LB / L1 | Lantern on and off |
-| RB / R1 | Ability (illuminate, after the core) |
-| D-pad | Satchel quick select |
-| View / Touchpad | Grid map |
+Rest runs in the browser, so keyboard and mouse come first. Gamepad support is planned after the MVP.
+
+| Keyboard and mouse | Gamepad (after the MVP) | Action |
+| --- | --- | --- |
+| W A S D | Left stick | Move |
+| Mouse | Right stick | Camera |
+| Space | A / Cross | Jump, climb |
+| E | X / Square | Interact, repair |
+| Q | Y / Triangle | Test line (Act 1); serpent: sense current, ask (from Act 2) |
+| Ctrl | B / Circle | Crouch, squeeze |
+| F | LB / L1 | Lantern on and off |
+| R | RB / R1 | Ability (illuminate, after the core) |
+| 1–4 | D-pad | Satchel quick select |
+| Tab | View / Touchpad | Grid map |

@@ -15,16 +15,16 @@ Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city'
 | | |
 | --- | --- |
 | **Title** | Rest |
-| **Version one** | Chapter One: Light |
+| **Version one** | Chapter One: Light, built in phases: Prototype (Lamp Row) → MVP (Acts 1 and 2) → Chapter One (see [Scope and Roadmap](10-scope-roadmap.md)) |
 | **Genre** | Narrative exploration and repair adventure (Draft) |
-| **Perspective** | Third person (Draft) |
+| **Perspective** | Third-person 3D |
 | **Player character** | Enoch, a young raccoon and repairman |
 | **Companion** | The serpent, a gift from Light and the player's guide |
 | **Setting** | A ruined human city kept lit long after its people died |
 | **Core activity** | Diagnosing and repairing the power grid and the city's lights |
 | **Session goal** | Restore power to the city's districts and reach Light's core |
-| **Platform** | To be decided |
-| **Target length** | 3–5 hours for version one (Draft) |
+| **Platform** | Browser, built with Three.js (see [Technical Strategy](12-technical-strategy.md)) |
+| **Target length** | Prototype 10–15 minutes; full Chapter One 3–5 hours (Draft) |
 
 ## Design pillars
 

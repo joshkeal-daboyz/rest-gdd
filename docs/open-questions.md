@@ -6,9 +6,17 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 
 ## Scope
 
-- [ ] Does version one end at the core, with the first temptation and the illuminate ability, or does it end earlier, with the city restored and the descent ahead?
-- [ ] Target platform(s) and engine.
-- [ ] Target length for version one.
+- [ ] Does Chapter One end at the core, with the first temptation and the illuminate ability, or does it end earlier, with the city restored and the descent ahead?
+- [x] Platform and engine: browser, Three.js. *(Decided.)*
+- [x] Prototype scope: Lamp Row only. *(Decided.)*
+- [x] AI in the game: dev-time agents only. *(Decided.)*
+
+## Technical
+
+- [ ] Can a generated raccoon model hold up in close-up repair shots, or do repairs need first-person hand models?
+- [ ] CC0 packs only, or buy a licensed city pack (such as Synty) for the MVP?
+- [ ] Who builds the levels in Blender: the creative director, or a Level Builder agent working from a written layout?
+- [ ] Are the token projections close? Revisit after the prototype.
 
 ## Story and characters
 
@@ -22,7 +30,6 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 
 ## Gameplay
 
-- [ ] Perspective: third person, or another camera?
 - [ ] The Hum: does Enoch kill it, or drive it off and seal it in the deep?
 - [ ] Is the Hum an alligator, or is a giant boar a better fit? Could the boar be a mid-chapter boss in the Yards?
 - [ ] Beyond the boss battle, is there any combat in version one, or only avoidance?
