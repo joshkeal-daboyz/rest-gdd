@@ -38,7 +38,8 @@ Enoch has no serpent in Act 1. He is one mechanic among many, working with his o
 - **Mission: Lamp Row.** Relight a street of old human storefronts beyond the settlement. The tribe follows him into newly lit ground, and the priests bless the light. Other mechanics failed here first; Enoch finds the fault they missed.
 - **Mission: the shrine circuit (Draft).** A shrine at the edge of Lamp Row has gone dark, and the priests treat it as an omen. Enoch fixes it in a way no one expected: he reroutes power around a dead junction instead of replacing it. The shrine's lamp blazes brighter than anyone remembers.
 - **Light notices.** After each of his repairs, the lights he restored pulse once, briefly, as if in answer. The priests read it as Light's favor. The player may read it differently: Light is watching which mechanic is worth investing in.
-- **The first cracks.** He finds signage and logos bearing the word *Light*, but with no serpent he cannot take context from them. He sees them, and his faith explains them away. (These locations become fragments the player can return to later.)
+- **The first cracks.** He finds signage and logos bearing the word *Light*, and he learns from them on his own, but his faith explains them away. He also passes old machines that hum with power he can't read. (He'll return to them once he has the serpent.)
+- **Growing through the work.** Every repair, discovery, and close call gives Enoch context, and he levels up through Act 1 (see [Progression](06-progression.md)). His growing skill is part of what sets him apart.
 
 ### Act 2: The chosen (Draft)
 
@@ -52,7 +53,7 @@ Enoch has no serpent in Act 1. He is one mechanic among many, working with his o
 
 Enoch restores power district by district. Each district is a self-contained repair problem with its own fault, its own salvage, and its own cracks in the faith. The districts are described in [World](04-world.md).
 
-- **Return to Lamp Row.** With the serpent, Enoch can now take context from the logos and signs he walked past in Act 1. First context fragments.
+- **Return to Lamp Row.** With the serpent, Enoch can now read the machines he walked past in Act 1. For the first time, technology speaks to him, and what it says is plainer than anything the priests have taught.
 - **The Yards.** He brings a substation back online. The repair is larger and teaches load and capacity. Restored power draws the first abominations to the live lines.
 - **The Spires.** He climbs a tower to restart a beacon, the way Light speaks to the whole city. From the top, he sees the scale of the ruin for the first time, and on the horizon, smoke: something burns at the edge of Light's lands. The serpent will not talk about it.
 - **The choice of what stays dark.** There is not enough power for everything. Enoch has to decide which districts and lights to keep on, and the priests have their own opinions about which ones matter.

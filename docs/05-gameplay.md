@@ -19,7 +19,7 @@ Read the dimming → Trace the fault → Salvage parts → Repair → Restore po
 5. **Restore power.** He brings the section back online and decides how much to draw from the grid.
 6. **The city changes.** Lights come on, the tribe moves into the lit ground, the priests respond, and the next problem appears.
 
-Along the way, Enoch finds **context fragments** that level up the serpent (see [Progression](06-progression.md)).
+Every step of the loop gives Enoch **context**, which levels him up and improves his skills. Once he has the serpent, he can also draw context from the old world's technology, often from machines his repairs just brought back to life (see [Progression](06-progression.md)).
 
 ## The power grid (Draft)
 
@@ -35,7 +35,7 @@ The city's grid is a single connected system the player can read and reason abou
 There is never enough power to light everything. As Enoch restores districts, he must choose which circuits stay on.
 
 - Powering more endpoints than the grid can carry causes **brownouts**: lights flicker, repairs fail, and live lines draw abominations.
-- Some endpoints matter to the tribe (shrines, homes), some to traversal (lifts, doors, bridges), and some to discovery (old machines that hold fragments).
+- Some endpoints matter to the tribe (shrines, homes), some to traversal (lifts, doors, bridges), and some to discovery (old machines that only the serpent can read, and only once they have power).
 - The priests have opinions about which lights are holy, and they are not always the useful ones.
 
 This is the chapter's quiet version of the game's theme. The original sin is a lack of self-control, and the grid makes the player feel the cost of wanting everything.

@@ -17,6 +17,8 @@ All entries in this section are Draft.
 | Interaction prompt | Near something Enoch can repair, salvage, or touch |
 | Satchel quick select | When choosing a part for a repair |
 | Grid capacity meter | When near a junction or when making power choices |
+| Context gained | Briefly, when Enoch gains context, with a short line of what he learned |
+| Level up | When the context bar fills; opens the skill choice |
 | Subtitles | Always available, on by default |
 
 There is no health bar. Enoch's condition is shown through his animation and the screen's edges dimming after a shock.
@@ -30,8 +32,9 @@ There is no health bar. Enoch's condition is shown through his animation and the
 
 ## The journal
 
-- **Fragments:** each context fragment Enoch has taken, described in his own words.
-- **Scripture:** the priests' teachings as Enoch remembers them. Fragments can be placed beside the scripture they contradict (Draft).
+- **Context:** what Enoch has learned, in his own words. Entries from his own experience are written through his faith. Entries read from technology through the serpent are written plainly, and when both exist for the same place, they appear side by side.
+- **Scripture:** the priests' teachings as Enoch remembers them. Context entries can be placed beside the scripture they contradict (Draft).
+- **Skills:** Enoch's level, his context toward the next level, and his ranks in Hands, Eyes, and Feet.
 - **Tasks:** current repair jobs, written as a work list.
 - **Relics:** the serpent's shed skins.
 

@@ -23,7 +23,8 @@ An engineered companion animal, a gift from Light given to Enoch through the pri
 
 - **Earned, not given:** Enoch does not start with the serpent. He earns it in Act 2, after his repairs mark him as a talented electrician favored by Light (see [Story](02-story.md)). To the tribe it is the highest honor a raccoon can receive. To Light, it is an investment and a leash.
 - **Purpose:** a guide and teacher. From the moment Enoch receives it, it explains the world and teaches the mechanics.
-- **A living vessel:** it is biologically engineered to store context. It transfers knowledge into a raccoon's mind through physical touch, like a neural link.
+- **A conduit to technology:** this is the most important thing the serpent does. It interfaces biologically with the old world's machines and transfers the context they hold into a raccoon's mind through physical touch, like a neural link. Enoch learns from the world on his own, but without the serpent, technology is closed to him.
+- **A living vessel:** it is biologically engineered to store context, and it carries what it transfers.
 - **Its nature:** sentient, but it only knows what it carries. Its personality was built by Light to serve Light's purposes. It will do anything it can to keep Enoch from knowing more than Light allows, and since it is just a little snake, "anything it can" means words: withholding, misdirecting, warning, steering him away.
 - **Sincere:** its fear was manufactured, but it feels real to the snake. It is as trapped as the raccoons.
 - **The name's echo:** *Lucifer* is Latin for "light-bearer." The game never says it.
@@ -33,7 +34,7 @@ An engineered companion animal, a gift from Light given to Enoch through the pri
 | Stage | Example lines |
 | --- | --- |
 | Mild, early in the chapter | "Shouldn't we go back?" "This isn't the way we were supposed to go." |
-| Rising, near fragments and forbidden ruins | "We could get attacked by one of those things." "We could get hurt." |
+| Rising, near old machines and forbidden ruins | "We could get attacked by one of those things." "We could get hurt." |
 | Desperate, at Light's core | "We could die." "We shouldn't stray from the path." |
 | After Light's full context | "Isn't that enough?" "You know now. What are you going to tell the others?" "They'll never believe you. They might even kill you." |
 
