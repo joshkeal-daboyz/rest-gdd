@@ -44,7 +44,8 @@ This is the chapter's quiet version of the game's theme. The original sin is a l
 
 - **Following the lines.** Cables are visible in the world: overhead, along walls, and under grates. Enoch can follow them on foot.
 - **Reading the glow.** Live lines hum and glow faintly; dead ones are dark and silent. Damaged lines spark.
-- **The serpent's sense.** The serpent can feel current. Holding it near a line tells Enoch whether it is live, dead, or damaged, which is the serpent's first role as a teaching tool.
+- **Testing by hand (Act 1).** Before the serpent, Enoch tests lines the way the gaze's mechanics always have: a salvaged test lamp touched to a line, sparks, and educated guesses. It works, but it is slow and sometimes earns him a shock.
+- **The serpent's sense (from Act 2).** The serpent can feel current. Holding it near a line tells Enoch whether it is live, dead, or damaged, faster and more safely than his test lamp. This is the serpent's first role as a teaching tool, and it makes the gift feel like a real upgrade.
 - **The grid map.** A hand-drawn map that fills in as Enoch traces lines. It shows known nodes, their state, and the path of power (see [UI and UX](09-ui-ux.md)).
 
 ## Salvage (Draft)
@@ -93,7 +94,7 @@ Design goals for repairs:
 
 ## The serpent as teacher
 
-Early in the game, the serpent explains the world and the mechanics. Tutorials are delivered as the serpent's guidance, not as on-screen pop-ups.
+In Act 1, before Enoch earns the serpent, his mentor teaches the basics: movement, repairs, testing lines, and salvage. Once the serpent arrives, it takes over as the teacher, explaining the world and the new mechanics it unlocks. In both cases, tutorials are delivered as a character's guidance, not as on-screen pop-ups.
 
 - **Exploration barks:** lines trigger when the player leaves the intended path. The more anxious the serpent gets, the closer the player is to something it does not want found. Its fear becomes a compass toward the truth.
 - **Withholding:** the serpent sometimes refuses to explain what Enoch is looking at, changes the subject, or gives an answer that the environment later contradicts.
@@ -110,7 +111,7 @@ Enoch is not a fighter. See [Threats and Hazards](07-threats.md) for abomination
 | Right stick | Camera |
 | A / Cross | Jump, climb |
 | X / Square | Interact, repair |
-| Y / Triangle | Serpent: sense current, ask |
+| Y / Triangle | Test line (Act 1); serpent: sense current, ask (from Act 2) |
 | B / Circle | Crouch, squeeze |
 | LB / L1 | Lantern on and off |
 | RB / R1 | Ability (illuminate, after the core) |

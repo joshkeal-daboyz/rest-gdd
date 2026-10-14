@@ -21,7 +21,8 @@ A young raccoon of the gaze, and its most capable repairman. He is the player ch
 
 An engineered companion animal, a gift from Light given to Enoch through the priests. It travels with him and talks to him throughout the game.
 
-- **Purpose:** a guide and teacher. Early in the game it explains the world and teaches the mechanics.
+- **Earned, not given:** Enoch does not start with the serpent. He earns it in Act 2, after his repairs mark him as a talented electrician favored by Light (see [Story](02-story.md)). To the tribe it is the highest honor a raccoon can receive. To Light, it is an investment and a leash.
+- **Purpose:** a guide and teacher. From the moment Enoch receives it, it explains the world and teaches the mechanics.
 - **A living vessel:** it is biologically engineered to store context. It transfers knowledge into a raccoon's mind through physical touch, like a neural link.
 - **Its nature:** sentient, but it only knows what it carries. Its personality was built by Light to serve Light's purposes. It will do anything it can to keep Enoch from knowing more than Light allows, and since it is just a little snake, "anything it can" means words: withholding, misdirecting, warning, steering him away.
 - **Sincere:** its fear was manufactured, but it feels real to the snake. It is as trapped as the raccoons.
@@ -63,7 +64,7 @@ The gaze is the raccoon tribe (a group of raccoons is called a gaze).
 
 **Supporting characters (Draft):**
 
-- **Enoch's mentor (Draft name: Old Solder).** A retired repairman whose hands have grown too stiff for the work. He taught Enoch everything, and he taught him to never go below. Gives the tutorial jobs.
+- **Enoch's mentor (Draft name: Old Solder).** A retired repairman whose hands have grown too stiff for the work. He taught Enoch everything, and he taught him to never go below. He is Enoch's teacher in Act 1, before the serpent replaces him, and he is proud of Enoch and quietly uneasy when the priests choose him.
 - **A young apprentice (Draft).** A kit who idolizes Enoch and follows him into newly lit districts. The player sees the tribe's faith through their eyes.
 - **Scavengers (Draft).** Raccoons who work the ruins for offerings. They trade parts with Enoch and gossip about forbidden places.
 

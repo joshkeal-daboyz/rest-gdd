@@ -13,6 +13,7 @@ Collecting fragments of context is how the player levels up in each chapter. Fra
 
 - **Where they're found:** ruins, old machines, records, and places the priests' taboos keep animals away from. Many are artifacts of the old world: logos, signage, and other corporate traces.
 - **Fragments versus scripture:** what the player finds in the ruins doesn't always match what the priests teach. Leveling up and discovering the deception are the same activity.
+- **Not before the serpent:** in Act 1, Enoch can see the places and artifacts that hold fragments, but he has no way to take them. Fragments begin once he earns the serpent, which gives the player a reason to revisit Lamp Row.
 - **How Enoch takes them (Draft):** he touches an old machine or record with the serpent, and the serpent absorbs it. Some fragments need power to read, which ties them back to the grid.
 - **What the player sees (Draft):** a short image, sound, or text the serpent passes to Enoch, plus an entry in the journal written in Enoch's words, as he understands it. His interpretation is filtered through faith early and becomes plainer later.
 
@@ -34,9 +35,10 @@ The full game has one major ability per god. For Chapter One, the draft below sp
 
 | Threshold | When | Ability (Draft) | What it does |
 | --- | --- | --- | --- |
-| 0 | Receiving the serpent | **Sense current** | Hold the serpent near a line to read whether it is live, dead, or damaged |
-| 1 | After Lamp Row | **Steady hands** | Live-line repairs no longer shock Enoch, which opens repairs that previously required cutting power |
-| 2 | After the Yards | **Carry charge** | Enoch holds a short charge in his hands to jump a gap in a circuit or briefly power a door or lift |
+| — | Act 1, before the serpent | None | Enoch works with his own tools and skill. He can see fragments but cannot take them. |
+| 0 | Earning the serpent (Act 2) | **Sense current** | Hold the serpent near a line to read whether it is live, dead, or damaged |
+| 1 | After the Yards | **Steady hands** | Live-line repairs no longer shock Enoch, which opens repairs that previously required cutting power |
+| 2 | After the Spires | **Carry charge** | Enoch holds a short charge in his hands to jump a gap in a circuit or briefly power a door or lift |
 | 3 | At the core, after taking Light's full context | **Illuminate** | Reveal hidden paths, buried machinery, and things the gods don't want seen |
 
 ### Illuminate
@@ -66,10 +68,12 @@ Enoch begins as an expert, so the game should not make him clumsy. His toolkit e
 
 | District | Repairs introduced | Threshold | Approximate time |
 | --- | --- | --- | --- |
-| The Hollow | Replace | 0 (serpent) | 20 min |
-| Lamp Row | Splice, Reroute | 1 | 45 min |
-| The Yards | Switch, Align | 2 | 60 min |
-| The Spires | Align, Restart | — | 45 min |
+| Act 1: The Hollow | Replace | — | 20 min |
+| Act 1: Lamp Row and the shrine circuit | Splice, Reroute | — | 45 min |
+| Act 2: The chosen | — | 0 (serpent earned) | 15 min |
+| Return to Lamp Row | — (taking fragments) | — | 15 min |
+| The Yards | Switch, Align | 1 | 60 min |
+| The Spires | Align, Restart | 2 | 45 min |
 | The Underworks | Mixed | — | 45 min |
 | The Core | Restart | 3 (illuminate) | 30 min |
 | Epilogue | — | — | 15 min |

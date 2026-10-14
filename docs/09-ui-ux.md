@@ -7,7 +7,7 @@ All entries in this section are Draft.
 ## Principles
 
 - **Minimal HUD.** The world carries the information: the glow of lines, the state of lamps, the serpent's light. On-screen UI appears only when needed.
-- **The serpent is the interface.** Tutorials, hints, and objectives come from the serpent. Its glow doubles as a status indicator.
+- **A character is the interface.** In Act 1, Enoch's mentor and the temple's job postings give tutorials and objectives. From Act 2, the serpent takes over: tutorials, hints, and objectives come from it, and its glow doubles as a status indicator.
 - **Diegetic where possible.** The map is Enoch's hand-drawn chart, and the journal is his own notebook.
 
 ## HUD

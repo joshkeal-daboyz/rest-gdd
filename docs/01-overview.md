@@ -8,7 +8,7 @@ A young raccoon mechanic repairs the dying lights of a dead human city for a god
 
 ## Elevator pitch
 
-Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city's lights are dimming, and the priests read it as Light's will that Enoch descend into the city to mend it. With a talking serpent from the god as his guide, he traces dead lines, salvages parts from human ruins, and brings district after district back to light. Every repair takes him closer to the core beneath the city, and to the forbidden truth of what Light really is.
+Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city's lights are dimming, and the priests send the tribe's mechanics out to mend them. Enoch's work sets him apart, and he earns the tribe's highest honor: a talking serpent from the god, and the duty to descend into the city where no other mechanic is sent. With the serpent as his guide, he traces dead lines, salvages parts from human ruins, and brings district after district back to light. Every repair takes him closer to the core beneath the city, and to the forbidden truth of what Light really is.
 
 ## Version one at a glance
 

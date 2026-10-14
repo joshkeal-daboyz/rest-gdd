@@ -29,7 +29,7 @@ This gives the repair loop a built-in tension: **every repair makes the city mor
 
 | Hazard | Description |
 | --- | --- |
-| Live lines | Touching a live line shocks Enoch and knocks him back. Steady hands (threshold 1) removes this for repairs. |
+| Live lines | Touching a live line shocks Enoch and knocks him back. Steady hands (threshold 1, after the Yards) removes this for repairs. |
 | Surges | Switching in the wrong order sends a surge down the line, blowing fuses and endpoints. |
 | Falls | The city is vertical, and the Spires especially so. |
 | Collapse | Ruined floors and passages give way. |

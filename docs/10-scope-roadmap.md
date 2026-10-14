@@ -8,7 +8,9 @@ Version one introduces the world of Light. It starts by introducing Enoch, a you
 
 ### In scope
 
-- The prologue in the Hollow, and receiving the serpent.
+- The prologue in the Hollow.
+- Act 1: several repair missions without the serpent, through which Enoch earns recognition.
+- Act 2: Enoch is chosen and earns the serpent.
 - The city of Light and its districts (see [World](04-world.md)).
 - The repair loop: fault tracing, salvage, repair interactions, and power restoration.
 - Grid capacity and the choices about what stays lit.

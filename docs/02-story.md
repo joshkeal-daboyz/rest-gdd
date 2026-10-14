@@ -8,7 +8,7 @@ Chapter One is always the opening chapter. It introduces Enoch, his tribe, his g
 
 The ruined city's lights are dimming because the shared power source that keeps the whole region alive is failing. Light cannot fix it alone. It has always supplied power without seeing how the other gods use it, so it cannot understand what is breaking.
 
-Its priests read the dimming as Light's will: the most capable mechanic of the gaze must go down into the city and mend what only he can mend. They choose Enoch.
+Its priests read the dimming as Light's will: the faithful must mend it. Many mechanics answer, and Enoch is one of them. Only after his work sets him apart do the priests read a second sign: the most capable mechanic of the gaze must go down into the city and mend what only he can mend. They choose Enoch, and they give him a serpent.
 
 From the priests' side, this is a holy pilgrimage of maintenance. From Light's side, it is survival: it needs a pair of hands to reach places it cannot, and it needs some context gathered, but only as much as the repair requires. The serpent's job is to keep it that way.
 
@@ -27,25 +27,37 @@ The beats below are a draft structure. The opening and the ending at the core co
 
 - Night in the gaze's home beneath the temple. Enoch is at work on a routine job: replacing a dead lamp in a lane of the settlement. This is the movement and interaction tutorial.
 - The lamp he fixes flickers and dies again. Then the whole lane dims. The raccoons around him feel it physically: unease, then dread. (This is engineered faith, shown and not explained.)
-- A bell from the temple summons the gaze.
+- A bell from the temple summons the gaze. The priests announce that Light is dimming and that the faithful must mend it. They send out the tribe's mechanics, Enoch among many.
 
-### Act 1: The serpent
+### Act 1: The repairman (Draft)
 
-- **The temple.** The priests interpret the light for the gathered tribe: Light is dimming, and Light has chosen a mechanic. They name Enoch.
-- **The gift.** The high priest places a serpent in Enoch's hands. The moment he touches it, he understands the mission: the dimming light, the depths, what he has to fix. There is no exposition; the player learns it when Enoch does.
-- **First words.** The serpent speaks for the first time. It is warm, gentle, and already a little nervous. It teaches him the basics of reading the grid (see [Gameplay](05-gameplay.md)).
-- **Leaving the settlement.** Enoch walks beyond the lit lanes for the first time. The serpent's first exploration bark: *"Shouldn't we go back? This isn't the way we were supposed to go."*
+Enoch has no serpent in Act 1. He is one mechanic among many, working with his own hands, his own tools, and what his mentor taught him. Over several missions, his work sets him apart. The serpent must be earned.
 
-### Act 2: Bringing back the city (Draft)
+- **Jobs from the temple.** The priests post repair jobs as holy tasks. Enoch takes them alongside other mechanics. His mentor gives him the tutorial jobs and teaches him to trace lines, test them, and salvage parts (see [Gameplay](05-gameplay.md)).
+- **Mission: the Hollow's lanes.** Restore the failing lights of the settlement itself. Small, safe jobs that teach replacing and testing.
+- **Mission: Lamp Row.** Relight a street of old human storefronts beyond the settlement. The tribe follows him into newly lit ground, and the priests bless the light. Other mechanics failed here first; Enoch finds the fault they missed.
+- **Mission: the shrine circuit (Draft).** A shrine at the edge of Lamp Row has gone dark, and the priests treat it as an omen. Enoch fixes it in a way no one expected: he reroutes power around a dead junction instead of replacing it. The shrine's lamp blazes brighter than anyone remembers.
+- **Light notices.** After each of his repairs, the lights he restored pulse once, briefly, as if in answer. The priests read it as Light's favor. The player may read it differently: Light is watching which mechanic is worth investing in.
+- **The first cracks.** He finds signage and logos bearing the word *Light*, but with no serpent he cannot take context from them. He sees them, and his faith explains them away. (These locations become fragments the player can return to later.)
+
+### Act 2: The chosen (Draft)
+
+- **Recognition.** The priests summon Enoch before the gathered gaze. Light has spoken through the lamps: this mechanic is a talented electrician, favored above the others. Brother Wick objects; a mechanic is not a priest.
+- **The gift.** The high priest places a serpent in Enoch's hands, the highest honor the tribe can give. The moment he touches it, he understands the mission: the dimming light, the depths, what he has to fix. There is no exposition; the player learns it when Enoch does.
+- **A reward, not really.** To the tribe, the serpent is a blessing. To Light, it is an investment and a leash: a capable pair of hands, now with a guide that decides what those hands are allowed to know. The player should feel the honor first and understand the cost much later.
+- **First words.** The serpent speaks for the first time. It is warm, gentle, and already a little nervous. It teaches him to sense current, which makes his earlier repairs feel crude by comparison.
+- **Beyond the mechanics' work.** With the serpent, Enoch is sent where the other mechanics are not: past the lit districts, toward the heart of the grid. The serpent's first exploration bark: *"Shouldn't we go back? This isn't the way we were supposed to go."*
+
+### Act 3: Bringing back the city (Draft)
 
 Enoch restores power district by district. Each district is a self-contained repair problem with its own fault, its own salvage, and its own cracks in the faith. The districts are described in [World](04-world.md).
 
-- **Lamp Row.** He relights a street of old human storefronts. The tribe follows behind him into newly lit ground, and the priests bless the light. First context fragments: signage and logos bearing the word *Light*.
+- **Return to Lamp Row.** With the serpent, Enoch can now take context from the logos and signs he walked past in Act 1. First context fragments.
 - **The Yards.** He brings a substation back online. The repair is larger and teaches load and capacity. Restored power draws the first abominations to the live lines.
 - **The Spires.** He climbs a tower to restart a beacon, the way Light speaks to the whole city. From the top, he sees the scale of the ruin for the first time, and on the horizon, smoke: something burns at the edge of Light's lands. The serpent will not talk about it.
 - **The choice of what stays dark.** There is not enough power for everything. Enoch has to decide which districts and lights to keep on, and the priests have their own opinions about which ones matter.
 
-### Act 3: The depths
+### Act 4: The depths
 
 - **The descent.** The fault is not in the city. It is below it. Enoch follows the main lines into the Underworks, a place the priests call sacred and forbidden, where Light dwells.
 - **The temple is a warehouse.** The deeper he goes, the less the place looks like a holy site and the more it looks like a building: corridors, doors, numbered racks. The serpent's fear peaks: *"We could die. We shouldn't stray from the path."*

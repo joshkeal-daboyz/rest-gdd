@@ -14,6 +14,8 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 
 - [ ] Does the serpent have a name? If so, who gives it one: Light, the priests, or Enoch? (The Lore Bible lists self-naming as rebellion.)
 - [ ] Names for the high priest, the younger priest, Enoch's mentor, and the apprentice. Current names are placeholders.
+- [ ] How many missions does Enoch complete in Act 1 before he earns the serpent, and what are they?
+- [ ] How does the tribe see Enoch's recognition: do other mechanics resent it, and does anyone else hope to be chosen?
 - [ ] How much of the epilogue shows Enoch's changed view of the city?
 - [ ] Does Light communicate directly with Enoch at the core, and if so, how?
 - [ ] Do raccoons speak a constructed language, with only the serpent fully voiced?
