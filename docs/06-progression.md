@@ -18,7 +18,7 @@ Enoch learns by doing, with or without the serpent. This is how he grows in Act 
 
 | Source | Example | Context (Draft) |
 | --- | --- | --- |
-| Repairs | Splicing a line, replacing a fuse | Small |
+| Repairs | Fixing a chewed cable, replacing a fuse | Small |
 | First-time repairs | The first time he solves a new kind of fault | Medium |
 | Restoring a section | Bringing a street, substation, or beacon back online | Large |
 | Exploring | Reaching a new place for the first time | Small |
@@ -105,7 +105,7 @@ After each shed, the serpent changes a little: a new turn of phrase, a new color
 
 Alongside his skills, Enoch's toolkit expands:
 
-- New tools found or traded, such as a better splicer, a fuse puller, or insulated gloves.
+- New tools found or traded, such as a better splicer, a fuse puller, or insulated gloves, which shorten repair holds or allow repairs on live lines.
 - New repair types introduced by each district.
 - Satchel upgrades for carrying more parts.
 
@@ -114,7 +114,7 @@ Alongside his skills, Enoch's toolkit expands:
 | Section | Repairs introduced | Serpent ability | Enoch's level by the end | Approximate time |
 | --- | --- | --- | --- | --- |
 | Act 1: The Hollow | Replace | — | 2 | 20 min |
-| Act 1: Lamp Row and the shrine circuit | Splice, Reroute | — | 3 | 45 min |
+| Act 1: Lamp Row and the shrine circuit | Chewed cable, dead junction | — | 3 | 45 min |
 | Act 2: The chosen | — | Sense current | 3 | 15 min |
 | Return to Lamp Row | — (conduit context) | — | 4 | 15 min |
 | The Yards | Switch, Align | Steady hands | 5 | 60 min |

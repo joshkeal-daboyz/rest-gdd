@@ -15,9 +15,10 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 - A grid of about 10 nodes: a feed from the Hollow, junctions, and lamp circuits.
 - The **test lamp**, which reads a line as live, dead, or damaged.
 - **Salvage:** three part types (fuses, wire, bulbs) from about six salvage spots, with a small satchel.
-- **Three faults**, one for each repair type: a blown fuse (**replace**), a chewed cable (**splice**), and a dead circuit to bypass (**reroute**).
+- **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a chewed cable up a pole (wire).
 - **The Relight:** the wow moment when the street comes back to light. This is the win.
-- **Dawn:** a night of about 20 minutes, shown by the sky. If dawn breaks first, the night restarts. This is the loss.
+- **Dawn:** a night of 15 minutes at most, shown by the sky. If dawn breaks first, the night restarts. This is the loss.
+- **Assets:** canned packs for the city and AI-generated models for Enoch and anything missing. No hand modeling.
 - Placeholder lines for Enoch and a job description from the temple.
 
 ### Out of scope for the prototype
@@ -26,10 +27,11 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 
 ### Acceptance criteria
 
-- [ ] A new player relights Lamp Row in 10–15 minutes without outside help, before dawn.
+- [ ] A new player relights Lamp Row in 8–12 minutes without outside help, inside the 15-minute night.
+- [ ] The player always knows which part a fault needs.
 - [ ] A player who loses to dawn understands why and does better on the next night.
 - [ ] Every fault can be found by following cables and using the test lamp.
-- [ ] A failed repair is safe and clearly readable.
+- [ ] Letting go of a repair early is clearly readable and costs only time.
 - [ ] The Relight passes gate G4.
 - [ ] 60 fps on a mid-range laptop; first load under 30 MB.
 - [ ] The build is playable at a GitHub Pages link.

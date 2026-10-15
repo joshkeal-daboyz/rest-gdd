@@ -54,7 +54,7 @@ The raccoons' offering to Light is salvage from the ruins. Enoch scavenges for t
 
 | Part | Use | Where it's found |
 | --- | --- | --- |
-| Wire | Splicing and replacing damaged lines | Walls, conduits, wrecked vehicles |
+| Wire | Repairing chewed cables and rerouting junctions | Walls, conduits, wrecked vehicles |
 | Fuses | Replacing blown fuses in junctions | Old electrical boxes, shops |
 | Insulators | Repairing lines on poles and towers | Poles, the Yards |
 | Bulbs and lenses | Relighting lamps and beacons | Storefronts, streetlights, the Spires |
@@ -65,25 +65,40 @@ The raccoons' offering to Light is salvage from the ruins. Enoch scavenges for t
 - **Hands, not inventory screens.** Enoch carries a satchel with limited space, so the player chooses what to bring for each repair.
 - **Trade.** Scavengers in the Hollow trade parts and rumors.
 
-## Repair interactions (Draft)
+## Repairs: click and hold
 
-Repairs are short, tactile interactions focused on Enoch's hands. Each district introduces one new type.
+Every repair uses one simple interaction. *(Decided.)*
 
-| Repair | How it plays | Introduced in |
-| --- | --- | --- |
-| Replace | Remove a dead bulb, fuse, or component and seat a new one | The Hollow |
-| Splice | Strip, twist, and bind damaged wire | Lamp Row |
-| Reroute | Connect inputs to outputs on a junction board within its capacity | Lamp Row |
-| Switch | Reset breakers and switches in the right order to avoid surges | The Yards |
-| Align | Turn panels, mirrors, or lenses to direct light or power | The Yards, the Spires |
-| Restart | A multi-step sequence to bring a large machine back online | The Spires, the Core |
+1. **Find the fault** and stand at it. A prompt appears.
+2. **Check the part.** If Enoch's satchel has the required part, the prompt reads *Hold to repair*. If not, it reads *Needs: fuse* (or whatever is missing), and the repair can't start.
+3. **Click and hold.** Enoch plays a working animation, and a ring fills around the fault over a few seconds.
+4. **Let go early** and the repair cancels; the part is not used up.
+5. **Finish** and the part is consumed, the fault clears, and the grid updates.
+
+The puzzle is in finding faults and planning salvage, not in the repair itself.
+
+### Fault types
+
+Fault types differ by the part they need, how long the hold takes, and where they are. Each district introduces new ones.
+
+| Fault | Required part | Hold (Draft) | Introduced in |
+| --- | --- | --- | --- |
+| Dead lamp | Bulb | 2 s | Lamp Row (prototype) |
+| Blown fuse | Fuse | 3 s | Lamp Row (prototype) |
+| Chewed cable | Wire (and a climb to reach it) | 4 s | Lamp Row (prototype) |
+| Dead junction (reroute) | Wire × 2 | 5 s | The shrine circuit (MVP) |
+| Cracked insulator | Insulator | 4 s | The Yards |
+| Damaged panel | Panel | 5 s | The Yards |
+| Failed relay | Component | 6 s | The Spires, the Underworks |
+
+Later phases can add variety without changing the interaction: repairs that need two parts, repairs that need the power cut first, or repairs on a live line that only steady hands allows.
 
 Design goals for repairs:
 
-- **Readable.** The player should understand why something is broken by looking at it.
-- **Short.** Most repairs take under a minute. The puzzle is in finding the fault, not in the repair itself.
-- **Physical.** Close camera on Enoch's hands, with tactile sound and feedback.
-- **Failure is safe but felt.** A wrong connection sparks, shocks, or causes a brief brownout. It costs time, and time matters, because each job must be finished before dawn (see [Threats and Hazards](07-threats.md#win-and-loss-draft)).
+- **Readable.** The player should understand why something is broken by looking at it, and the prompt always says what's needed.
+- **Short.** Every hold is a few seconds.
+- **Felt.** Tactile sound while the ring fills, and a clear spark and hum when the fault clears.
+- **Time matters.** Each job must be finished before dawn (see [Threats and Hazards](07-threats.md#win-and-loss-draft)), so a wasted trip for a missing part is the real cost.
 
 ## Traversal (Draft)
 

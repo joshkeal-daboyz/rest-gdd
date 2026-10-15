@@ -13,9 +13,11 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 
 ## Technical
 
-- [ ] Can a generated raccoon model hold up in close-up repair shots, or do repairs need first-person hand models?
-- [ ] CC0 packs only, or buy a licensed city pack (such as Synty) for the MVP?
-- [ ] Who builds the levels in Blender: the creative director, or a Level Builder agent working from a written layout?
+- [x] Repairs: a simple click and hold that can't start without the required part. No close-ups. *(Decided.)*
+- [x] Assets: canned packs and AI-generated models only; no hand modeling. *(Decided.)*
+- [x] Levels: laid out by the Level Builder agent from written layout files, reviewed through screenshots. *(Decided.)*
+- [ ] Which pack family sets the look: CC0 (Quaternius, KayKit) or a licensed city pack (such as Synty)?
+- [ ] Meshy or Tripo for Enoch? Test both in validation step 1.
 - [ ] Are the token projections close? Revisit after the prototype.
 
 ## Story and characters
@@ -35,7 +37,8 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Beyond the boss battle, is there any combat in version one, or only avoidance?
 - [ ] Do the Drafts need more types of abomination beside them, or are Drafts and Gnawers enough for Chapter One?
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
-- [ ] Is dawn the right loss condition? How long should a night last, and does a lost night reset the faults?
+- [x] A night lasts 15 minutes at most. *(Decided.)*
+- [ ] Is dawn the right loss condition, and does a lost night reset the faults?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?
 - [ ] How many context sources (and readable machines) are in Chapter One, and how many are required versus optional?
 - [ ] Are three skills (Hands, Eyes, Feet) with five ranks each the right leveling structure, and is a level cap of 10 right for Chapter One?

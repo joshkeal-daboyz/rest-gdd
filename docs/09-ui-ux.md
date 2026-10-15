@@ -40,14 +40,14 @@ There is no health bar. Enoch's condition is shown through his animation and the
 
 ## Repair interface
 
-- Close-up camera on Enoch's hands and the component.
-- Inputs are simple and physical: hold, turn, pull, and connect.
-- The serpent can be asked for a hint during a repair.
+- Click and hold: a ring fills around the fault while Enoch works. The camera stays in its normal third-person view.
+- The prompt names the part needed (*Needs: fuse*) when it isn't in the satchel.
+- The serpent can be asked for a hint about where to find a missing part (from the MVP).
 
 ## Accessibility
 
 - Subtitles, with speaker names and sizes.
 - Light states must never depend on color alone. Use flicker patterns, sound, and icons as well, for players with color vision differences.
 - Options to reduce flicker and flashing effects, which matters in a game about failing lights.
-- Repair interactions that support hold or toggle input, and an option to skip timing-based steps.
+- An option to switch click-and-hold repairs to a single click (toggle) for players who can't hold a button.
 - Remappable controls.

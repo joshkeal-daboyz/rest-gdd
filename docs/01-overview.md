@@ -24,7 +24,7 @@ Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city'
 | **Core activity** | Diagnosing and repairing the power grid and the city's lights |
 | **Session goal** | Restore power to the city's districts and reach Light's core |
 | **Platform** | Browser, built with Three.js (see [Technical Strategy](12-technical-strategy.md)) |
-| **Target length** | Prototype 10–15 minutes; full Chapter One 3–5 hours (Draft) |
+| **Target length** | Prototype: one night of 15 minutes at most; full Chapter One 3–5 hours (Draft) |
 
 ## Design pillars
 

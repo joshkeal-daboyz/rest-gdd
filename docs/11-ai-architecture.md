@@ -37,14 +37,15 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Owns:** `assets/manifest.json`, `assets/licenses/`.
 
 **Level Builder** · mid tier (Sonnet)
-- **One sentence:** assembles Lamp Row from the Blender layout and grid data when the layout changes, so the player sees the street, its cables, and its salvage spots.
-- **Input:** `levels/lamp-row.glb` (with named markers such as `lamp_03`, `junction_A`, `salvage_02`), `levels/lamp-row.grid.json`, the asset manifest.
-- **Output:** the level loader and scene code; cables drawn between grid nodes.
+- **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, and its salvage spots.
+- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `junction_A`, `salvage_02`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
+- **Output:** the level loader and scene code; cables drawn between grid nodes; a top-down debug view and screenshots so the creative director can review the layout without opening any 3D tool.
+- **Why data, not Blender:** no one on the team models or uses Blender, so the level is a file agents can read, write, and diff.
 - **Owns:** `src/level/`.
 
 **Player Controller** · mid tier (Sonnet)
 - **One sentence:** builds Enoch's movement, pole climbing, and camera on Rapier's character controller, so the player can run, climb, and look around.
-- **Input:** Enoch's model and animations (from the Mixamo pipeline), climbable markers from the level.
+- **Input:** Enoch's AI-generated model and Mixamo animations (including a working animation for repairs), climbable spots from the level.
 - **Output:** movement, climbing, camera follow and collision, the animation state machine.
 - **Owns:** `src/player/`, `src/camera/`.
 - **Does not:** write its own physics.
@@ -56,9 +57,9 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Owns:** `src/grid/`. Pure logic with no rendering, so it can be unit tested.
 
 **Repair Interaction** · mid tier (Sonnet)
-- **One sentence:** builds the replace, splice, and reroute close-ups when a repair type is added, so the player sees Enoch's hands at work.
-- **Input:** fault definitions from the grid data, satchel contents.
-- **Output:** the close-up camera, input handling, success and failure, and `repair:completed` and `repair:failed` events.
+- **One sentence:** builds the click-and-hold repair and its part check when a fault type is added, so the player sees Enoch work while the ring fills and is told exactly which part they still need.
+- **Input:** fault definitions from the grid data (required part, hold time), satchel contents.
+- **Output:** the hold interaction, the part check, and `repair:completed` and `repair:cancelled` events.
 - **Owns:** `src/repair/`.
 
 **Lighting Director** ★ One Wow agent · mid tier (Sonnet)
@@ -113,8 +114,9 @@ Creative Director ──▶ GDD ──▶ Lead Architect ──▶ GitHub Issues
 
 | Contract | Written by | Read by |
 | --- | --- | --- |
-| `levels/*.grid.json`: grid nodes, lines, faults | Creative Director (with the Level Builder) | Grid Simulator, Level Builder, Repair Interaction |
-| `grid:changed`, `repair:completed`, `repair:failed` events | Lead Architect (defined in `src/core/events.ts`) | Lighting Director, UI, Repair Interaction |
+| `levels/*.grid.json`: grid nodes, lines, faults (with required part and hold time) | Level Builder, approved by the Creative Director |
+| `levels/*.layout.json`: which asset pieces go where | Level Builder, approved by the Creative Director | Grid Simulator, Level Builder, Repair Interaction |
+| `grid:changed`, `repair:completed`, `repair:cancelled` events | Lead Architect (defined in `src/core/events.ts`) | Lighting Director, UI, Repair Interaction |
 | `assets/manifest.json` | Asset Scout | Level Builder, Player Controller, Lighting Director |
 | `content/lines/*.json` | Writer, Serpent Voice | UI |
 
