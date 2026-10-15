@@ -16,7 +16,7 @@ All entries in this section are Draft.
 ## Characters
 
 - **Raccoons:** upright and humanoid, with usable hands and speech, while keeping a raccoon's build, mask, and tail. Clothing is practical and layered, made of salvage.
-- **Enoch:** a tool belt, a satchel, a work apron, and a small lantern. He is AI-generated to match the city's asset pack; his working animation sells the repairs.
+- **Enoch:** a tool belt, a satchel, a work apron, and a small lantern. He is designed by the creative director in hand-drawn concept art, drawn in the city pack's style, and generated in Tripo from those drawings. His working animation sells the repairs.
 - **The serpent:** small and expressive, with a soft glow along its scales that acts as its face.
 - **The priests:** robes in light and gold, with lamps worn as vestments.
 - **Abominations:** wrong, but not gory. They are failed genetic experiments, so they should look like unfinished animals: proportions that don't quite work, features that didn't form, and traces of the tribes they were meant to become. The Drafts should be just recognizable as raccoons.

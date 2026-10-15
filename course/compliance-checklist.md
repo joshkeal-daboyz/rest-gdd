@@ -43,6 +43,7 @@ Every course concept is tied to a specific mechanic in Rest:
 
 ## Before submitting
 
-- [ ] Confirm whether the assignment's "provided template" exists. These guidelines say no template is provided; if one is, the README's sections may need to be reordered to match it.
+- [x] Template: the instructor intentionally provides none; the structure is our own.
+- [x] Length: about 2,500 words (4–5 pages), confirmed acceptable.
 - [ ] Read the README start to finish as it renders on GitHub.
 - [ ] Submit the repo link to Google Classroom by 20 October, 11:59 PM ET.

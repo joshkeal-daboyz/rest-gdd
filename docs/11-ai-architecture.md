@@ -21,6 +21,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 **Creative Director (human: Josh)**
 - **Role:** owns the vision. Approves every gate below.
 - **Owns:** the Lore Bible, the story, characters, dialogue, art direction, and the feel of the Relight.
+- **Creates:** Enoch's concept art, drawn by hand and photographed for Tripo.
 
 **Lead Architect** · top tier (Opus)
 - **One sentence:** breaks each GDD feature into tickets and interfaces when a phase starts, so the player gets systems that fit together.

@@ -60,7 +60,7 @@ Enoch cannot fight the Hum with weapons. He fights it with what he knows: power,
 ## Win and loss (Draft)
 
 - **Win:** every fault on the job is repaired and the district relights. In the prototype, that means all of Lamp Row is lit and the Relight plays.
-- **Loss: dawn.** Each job takes place over one night, and the sky shows it: the moon crosses the sky, then the horizon pales. If dawn breaks before the job is done, the raccoons must retreat underground, and the job fails. The night restarts with the faults back in place, but the player keeps what they learned about where the faults are. A night lasts **15 minutes at most** *(Decided)*. In the prototype, the target is to relight Lamp Row in 8–12 minutes.
+- **Loss: dawn.** Each job takes place over one night, and the sky shows it: the moon crosses the sky, then the horizon pales. If dawn breaks before the job is done, the player watches the sun come up over a street that is still dark while Enoch retreats underground, and the job fails. *(Decided.)* The night restarts with the faults back in place, but the player keeps what they learned about where the faults are. A night lasts **15 minutes at most** *(Decided)*. In the prototype, the target is to relight Lamp Row in 8–12 minutes.
 - **Setbacks, not losses:** being caught or badly shocked sends Enoch back to the last lit safe point, such as a shrine or repaired junction, and costs him time before dawn. Repairs already completed that night stay completed.
 - The tone stays melancholy, not punishing: no harsh game over screen, just the sun rising on a street that is still dark.
 

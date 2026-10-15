@@ -136,7 +136,7 @@ Surveillance's main customer is security: Signs is the Cherub's eyes, and the ow
 
 ### The abominations
 
-The AIs' failed experiments survive as abominations: less intelligent, dangerous creatures found deep in the facilities and out in the wastes. The dogs help control them.
+The abominations are mistakes from the Image laboratory. Image breeds the bodies for every god's workforce, so every tribe was preceded by failed attempts, and those failures survive as abominations: less intelligent, dangerous creatures found deep in the facilities, in the dark corners of the realms, and out in the wastes. The dogs help control them.
 
 - **The Nephilim:** Genesis 6 mentions the Nephilim just before the Flood, often read as unnatural offspring of a corrupted creation. The gods' past Flood was an attempt to purge their failures.
 - **The dogs as wardens:** the dogs keep the abominations contained, and their fire is the purge. Every tribe benefits from this, even the ones that fear the dogs.
@@ -144,9 +144,11 @@ The AIs' failed experiments survive as abominations: less intelligent, dangerous
 
 **Abominations by domain (draft)**
 
+Each realm's abominations are Image's failed attempts at that realm's tribe, or at the workers its god needed.
+
 | Domain | Abominations |
 | --- | --- |
-| Light | Creatures warped by power and drawn to it, clustering around live lines and generators |
+| Light | Failed early attempts at the raccoons ("Drafts"): almost raccoons, with unfinished hands and eyes that can't bear light, haunting the city's dark districts |
 | Signs | Failed watchers: all eyes and no mind, unable to stop staring |
 | Firmament | Birds bred for the sky that cannot fly, broken and storm-scarred |
 | Seed | Overgrown hybrids of plant and animal, remnants of the blight |

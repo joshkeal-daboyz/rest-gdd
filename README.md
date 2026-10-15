@@ -44,7 +44,7 @@ Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the
 ### Win and loss
 
 - **Win:** the last fault closes and **the Relight** plays. Lamp Row is lit, the tribe moves into the newly lit street, and the job is done.
-- **Loss:** raccoons are nocturnal, and each job lasts one night of **15 minutes at most**. The sky is the timer: the moon crosses it, then the horizon pales. If dawn breaks first, Enoch must retreat underground and the night restarts with the faults back in place. The player keeps what they learned, so the next night goes faster.
+- **Loss:** raccoons are nocturnal, and each job lasts one night of **15 minutes at most**. The sky is the timer: the moon crosses it, then the horizon pales. If dawn breaks first, the player watches the sun come up over a street that is still dark as Enoch retreats underground. Then the night restarts with the faults back in place. The player keeps what they learned, so the next night goes faster.
 - **What costs time:** tracing the wrong cable, walking back for a missing part, and letting go of a repair too early. The puzzle is in finding faults and planning salvage, not in the repair itself.
 
 ### The grid
@@ -85,7 +85,7 @@ The **MVP** adds a **Progression** agent (context and skills), an **Abomination 
 
 ### Creative control and human review gates
 
-The human creative director owns **lore, story, characters, dialogue, art direction, and the feel of the Relight**. Agents may propose changes to these but never decide them. Agents own implementation, integration, tests, and asset search.
+The human creative director owns **lore, story, characters, dialogue, art direction, and the feel of the Relight**, and draws Enoch's concept art by hand. Agents may propose changes to these but never decide them. Agents own implementation, integration, tests, and asset search.
 
 | Gate | Before | Approve → / Reject → |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ The human creative director owns **lore, story, characters, dialogue, art direct
 | Physics and movement | **Rapier** character controller | Agents don't rewrite movement and collision |
 | Glow | **`postprocessing`** (selective bloom) | Lamps glow without a real light per lamp |
 | Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, and salvage spots, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
-| Assets | **Canned packs** first (Quaternius, KayKit, Synty) for the city; **AI-generated models** (Meshy or Tripo) for Enoch and anything a pack doesn't have, auto-rigged and animated with **Mixamo** | No hand modeling is required anywhere in the pipeline |
+| Assets | **Free CC0 packs** (Quaternius, KayKit, Kenney) for the city; **Enoch generated in Tripo** from the creative director's hand-drawn concept art (Meshy as the backup), auto-rigged and animated with **Mixamo** | Free to start; no hand modeling anywhere in the pipeline |
 | Hosting | **GitHub Pages** | A free, shareable link for playtests |
 
 ### Agent roles and the pipeline
@@ -129,7 +129,7 @@ Agents hand off work through **files**, not conversation: the grid JSON, two eve
 
 **My biggest constraint is that Three.js is a rendering library, not an engine,** because it provides no editor, physics, character controller, animation tooling, or scene management. Every one of those must come from a library named in this document, or the agents will each invent their own.
 
-**My second constraint is that I don't create 3D models,** because every asset has to be canned or AI-generated. The risk is a mismatched look, so the city comes from one pack family, Enoch is generated using screenshots of that pack as a style reference, and every asset passes gate G2.
+**My second constraint is that I don't create 3D models,** because every asset has to be canned or AI-generated. The risk is a mismatched look. To prevent it, the city comes from one free pack family. Enoch is generated from my own drawings of him (front, side, and back, photographed for Tripo's image-to-3D), drawn to match the pack's style. Every asset passes gate G2.
 
 **My third constraint is light itself,** because a game about dozens of streetlamps can't give each lamp a real light in WebGL. Only the 8 lights nearest Enoch are real. Every other lamp is an emissive material with bloom and a painted light pool on the ground.
 
@@ -138,7 +138,7 @@ Agents hand off work through **files**, not conversation: the grid JSON, two eve
 | Service | Constraint | How Rest handles it |
 | --- | --- | --- |
 | **Claude** (the agent crew) | Plan usage limits per session and per week; finite context windows | Agents run in sequence, not all at once; the top-tier model is reserved for the Lead Architect; agents load the short GDD plus only the docs their ticket links |
-| **Meshy / Tripo** | Credit-limited generation | Generate only Enoch and what the Asset Scout can't find; every generation passes gate G2 first |
+| **Tripo / Meshy** | Credit-limited generation | Generate only Enoch (from the creative director's drawings) and what the free packs don't have; every generation passes gate G2 |
 | **Mixamo** | No public API | Auto-rigging and picking animations is a short manual step (upload, place markers, download), with no modeling skill needed |
 | **Freesound** | API key required; rate limited; CC-BY sounds need credit | The Asset Scout batches searches and records every license in the manifest |
 | **GitHub Pages** | Size limits on sites and files | Compressed models and audio; a first-load budget under 30 MB |
