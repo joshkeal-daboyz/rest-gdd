@@ -13,7 +13,7 @@ A young raccoon of the gaze, and its most capable repairman. He is the player ch
 - **Hands:** raccoons have the most humanlike hands of any animal in the game. Enoch's hands are his main tool, and the game's camera and animation should give them attention.
 - **The mask:** born masked, like all raccoons. A creature with a mask in a story about hidden truths.
 - **A creature of the dark serving Light:** raccoons are nocturnal, yet their god is the god of light.
-- **The washer:** *Procyon lotor* means "washer." Enoch washes salvaged parts before using them (see [Gameplay](05-gameplay.md)), which sets up the final image of the full game: whether he washes his hands of the guilt.
+- **The washer:** *Procyon lotor* means "washer." The name sets up the final image of the full game: whether he washes his hands of the guilt.
 
 **His arc in Chapter One (Draft):** devout and dutiful at the start, proud to be chosen, and good at his job. He notices the cracks but explains them away, as his faith tells him to. At the core, curiosity wins over obedience for the first time. He ends the chapter knowing something he cannot share.
 

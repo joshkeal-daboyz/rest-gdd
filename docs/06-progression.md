@@ -67,7 +67,7 @@ Enoch begins as a capable mechanic, so his skills improve what he is already goo
 
 | Skill | What it improves | Example ranks (Draft) |
 | --- | --- | --- |
-| **Hands** | Repairs and salvage | Faster repairs; fewer failed steps; more parts from salvage; washing parts makes them last longer; at rank 5, field repairs without a part in some cases |
+| **Hands** | Repairs and salvage | Faster repairs; fewer failed steps; more parts from salvage; at rank 5, field repairs without a part in some cases |
 | **Eyes** | Reading the world | Spot faults from farther away; see lines in the dark (raccoons are nocturnal); notice examinable artifacts; at rank 5, see current within a short range without raising the lamp |
 | **Feet** | Movement and survival | Climb faster; longer stamina; squeeze through tighter gaps; survive higher falls; move more quietly past abominations |
 

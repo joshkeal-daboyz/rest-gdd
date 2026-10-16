@@ -27,7 +27,7 @@ Lamp Row is the tutorial job: short enough that a walk from the head of the stre
 
 ### Out of scope for the prototype
 
-The serpent, leveling, abominations, capacity choices, other districts, washing parts, the journal, and the grid map.
+The serpent, leveling, abominations, capacity choices, other districts, the journal, and the grid map.
 
 ### Acceptance criteria
 
@@ -51,7 +51,6 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 - **The journal:** faith-filtered and conduit entries side by side.
 - **Grid capacity:** choosing which circuits stay on.
 - **Abominations:** the Drafts, which avoid light.
-- **Washing parts.**
 
 **Done when:** Act 1 and Act 2 are playable start to finish, and a playtester can explain why Enoch was chosen.
 

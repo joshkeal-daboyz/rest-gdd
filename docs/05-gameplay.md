@@ -109,7 +109,6 @@ The raccoons' offering to Light is salvage from the ruins. Parts come from two p
 | Panels | Repairing solar arrays | The Yards, rooftops |
 | Components | Circuit boards and relays for complex repairs | Machines, the Underworks |
 
-- **Washing parts.** Salvaged parts are often corroded. Enoch washes them in water before use, a nod to the raccoon's name, *Procyon lotor*, "the washer." Clean parts last longer and fail less. This builds a habit the full game's final image depends on.
 - **Hands, not inventory screens.** Enoch carries a satchel with limited space, so the player chooses what to bring out for each job.
 - **Rumors.** Scavengers in the Hollow trade rumors about where good salvage lies (MVP).
 
