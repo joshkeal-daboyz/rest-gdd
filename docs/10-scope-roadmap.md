@@ -14,10 +14,10 @@ Lamp Row is the tutorial job: short enough that a walk from the head of the stre
 
 - One street: Lamp Row ([World](04-world.md)), with about 20 lamps.
 - Enoch walks, runs, and climbs poles, with a third-person camera.
-- A grid of about 10 nodes: a feed from the Hollow, two breakers (the main one beside the vendor, one on a side branch), fuse boxes, and lamp circuits. No switches.
+- A grid of about 10 nodes: a feed from the Hollow, two breakers (the main one beside the offering stall, one on a side branch), fuse boxes, and lamp circuits. No switches.
 - **The lamp:** held up, it shows current as pulses in cables within about 5 meters. Damaged cables spark and live ones hum without it.
 - **Neon ribbons** to mark found faults; they stay across nights.
-- **The part economy:** three part types (fuses, wire, bulbs). About six salvage spots on Lamp Row that restock each night, and a vendor stall at the head of the street, standing in for the Hollow, that buys and sells any part for scrap and never runs out. Enoch starts with no scrap, and finishing Lamp Row pays him scrap. A small satchel; parts can be dropped. No night limit.
+- **The part economy:** three part types (fuses, wire, bulbs). About six salvage spots on Lamp Row that restock each night, and a temple offering stall at the head of the street, standing in for the Hollow's temple stores, that trades any part for favor and never runs out. Enoch starts with no favor, and finishing Lamp Row pays him favor. A small satchel; parts can be dropped. No night limit.
 - **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a damaged cable up a pole (wire).
 - **Live repairs:** a timing check on the ring; a miss is a shock, and two shocks in a night kill Enoch and undo that night's repairs.
 - **The Relight:** the wow moment when the street comes back to light. This is the win.
@@ -34,7 +34,7 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 - [ ] A new player relights Lamp Row within two nights without outside help, and understands from the mentor that more than one night is expected.
 - [ ] The player always knows which part a fault needs.
 - [ ] A player who loses to dawn understands why, sees that their repairs held, and finishes the job on the next night.
-- [ ] A player can never be left without a way to finish: the vendor always stocks every part, and salvage restocks each night.
+- [ ] A player can never be left without a way to finish: the temple stores always hold every part, and salvage restocks each night.
 - [ ] Every fault can be found by following cables with the lamp raised, and players recognize cables as part of the game within the first minute.
 - [ ] A player who dies from a live repair understands why the night's repairs were lost and that the breaker was the safe choice.
 - [ ] Letting go of a repair early is clearly readable and costs only time.

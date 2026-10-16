@@ -38,8 +38,8 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Owns:** `assets/manifest.json`, `assets/licenses/`.
 
 **Level Builder** · mid tier (Sonnet)
-- **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, its salvage spots, and the vendor.
-- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `fusebox_A`, `breaker_main`, `salvage_02`, `vendor`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
+- **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, its salvage spots, and the temple's offering stall.
+- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `fusebox_A`, `breaker_main`, `salvage_02`, `temple_stores`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
 - **Output:** the level loader and scene code; cables drawn between grid nodes; a top-down debug view and screenshots so the creative director can review the layout without opening any 3D tool.
 - **Why data, not Blender:** no one on the team models or uses Blender, so the level is a file agents can read, write, and diff.
 - **Owns:** `src/level/`.
@@ -72,7 +72,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Why it's the wow:** the Relight is the moment players will remember and share, and the technical strategy is built around making it work.
 
 **UI** · fast tier (Haiku)
-- **One sentence:** builds interaction prompts, the satchel, the vendor's buy and sell screen, and the neon ribbons when a system needs to be shown, so the player knows what they can do.
+- **One sentence:** builds interaction prompts, the satchel, the temple stores' offering screen, and the neon ribbons when a system needs to be shown, so the player knows what they can do.
 - **Input:** events from the player, repair, and grid systems; the UI rules in [UI and UX](09-ui-ux.md).
 - **Output:** HTML/CSS overlay components.
 - **Owns:** `src/ui/`.

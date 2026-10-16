@@ -35,7 +35,7 @@ Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the
 
 Jobs are meant to take more than one night. Enoch's mentor says so when he hands over the first one: look first, come back ready.
 
-1. **Prep in town.** Parts come in three kinds: **fuses, wire, and bulbs**. In the Hollow, a **vendor** buys any part for **scrap** and sells any part for scrap, and never runs out of stock. Scrap takes no room in the satchel, so selling spare parts banks their value for later. The satchel is small, so the player plans what to carry out before the job. Enoch starts the tutorial with no scrap: he funds it by salvaging and selling. **Every finished job pays scrap,** starting with the tutorial. Jobs have no night limit, so farming salvage across nights is a valid strategy. In the prototype, the Hollow is a vendor stall at the head of Lamp Row.
+1. **Prep in town.** Parts come in three kinds: **fuses, wire, and bulbs**. In the Hollow, the **temple stores** trade in **favor**: any part given as an offering earns favor, and favor draws any part from the stores, which never run out. Favor takes no room in the satchel, so offering spare parts banks their value for later. The satchel is small, so the player plans what to carry out before the job. Enoch starts the tutorial with no favor: he earns it by salvaging and offering. **Every finished job pays favor,** starting with the tutorial. Jobs have no night limit, so farming salvage across nights is a valid strategy. In the prototype, the Hollow is a temple offering stall at the head of Lamp Row.
 2. **Read the lines.** With the breaker on, the player **holds up the lamp**, and any cable within a few meters shows its current: pulses of light flowing away from the source. Dead cables show nothing. Damaged cables spark on their own, even without the lamp. Live cables never glow on their own, so the street stays dark until Enoch looks. Each fault has a signature:
    - **Blown fuse:** pulses run into a fuse box, and none come out. Needs a **fuse**.
    - **Damaged cable:** pulses run up to a sparking break and stop. Needs **wire**, and Enoch may have to climb to it.
@@ -87,7 +87,7 @@ All AI in Rest is **development-time**. A crew of specialized agents builds the 
 | **Grid Simulator** | Computes how power flows and where it stops whenever a repair or a breaker changes the grid, and declares the job complete when the breaker goes on with no faults left, so the player sees the right lamps go dark or light and the lamp shows true current. |
 | **Repair Interaction** | Builds the click-and-hold repair, its part check, and the live-repair timing check and shocks, so the player sees Enoch work while the ring fills, is told exactly which part they still need, and feels the danger of skipping the breaker. |
 | **Lighting Director** ★ | Drives every lamp's glow, the current pulses Enoch's lamp reveals, and the Relight, so the player watches power travel down the cables and the street come back to light. **This is the One Wow agent.** |
-| **UI** | Builds interaction prompts, the satchel, the vendor's buy and sell screen, and the neon ribbons, so the player always knows what they can pick up, trade, mark, or fix. |
+| **UI** | Builds interaction prompts, the satchel, the temple stores' offering screen, and the neon ribbons, so the player always knows what they can pick up, trade, mark, or fix. |
 | **Writer** | Drafts Enoch's lines and the temple's job descriptions in the Lore Bible's voice, so the player hears a devout mechanic who explains the ruins through his faith. |
 | **QA Playtester** | Plays the build automatically after every change and checks it against the acceptance criteria, so the player never meets a fault that can't be found or a repair that can't be finished. |
 
@@ -119,7 +119,7 @@ The human creative director owns **lore, story, characters, dialogue, art direct
 | Language and build | **TypeScript + Vite** | Types give agents firm contracts; Vite gives fast reloads |
 | Physics and movement | **Rapier** character controller | Agents don't rewrite movement and collision |
 | Glow | **`postprocessing`** (selective bloom) | Lamps glow without a real light per lamp |
-| Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, salvage spots, and the vendor, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
+| Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, salvage spots, and the temple stores, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
 | Assets | **Free CC0 packs** (Quaternius, KayKit, Kenney) for the city; **Enoch generated in Tripo** from the creative director's hand-drawn concept art (Meshy as the backup), auto-rigged and animated with **Mixamo** | Free to start; no hand modeling anywhere in the pipeline |
 | Hosting | **GitHub Pages** | A free, shareable link for playtests |
 
@@ -177,11 +177,11 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 
 ## 5. Scope and Phases
 
-**Weekend test:** two developers with this crew can build the prototype in a weekend, because it is one street, one click-and-hold repair, three part types, one vendor, two breakers, and about ten grid nodes, built entirely from canned and generated assets. ([Phase detail](docs/10-scope-roadmap.md))
+**Weekend test:** two developers with this crew can build the prototype in a weekend, because it is one street, one click-and-hold repair, three part types, one offering stall, two breakers, and about ten grid nodes, built entirely from canned and generated assets. ([Phase detail](docs/10-scope-roadmap.md))
 
 | Phase | Content | Done when |
 | --- | --- | --- |
-| **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the vendor, click-and-hold and live repairs, dawn, the Relight | A new player relights Lamp Row within two nights, without help |
+| **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the temple stores, click-and-hold and live repairs, dawn, the Relight | A new player relights Lamp Row within two nights, without help |
 | **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit) and Act 2 (earning the serpent): leveling, capacity choices, Drafts, the serpent reading machines | Acts 1 and 2 play start to finish |
 | **Chapter One** | The Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
 | **Future** | The other five gods, the Cherub, the seventh day | The full game in the [Lore Bible](Rest%20%E2%80%94%20Lore%20Bible.md) |

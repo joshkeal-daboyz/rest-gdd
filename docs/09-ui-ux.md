@@ -16,8 +16,8 @@ All entries in this section are Draft.
 | --- | --- |
 | Interaction prompt | Near something Enoch can repair, salvage, mark, or throw (a breaker or switch) |
 | Satchel quick select | When choosing a part for a repair |
-| Scrap | Beside the satchel, and at the vendor |
-| Vendor screen | At the vendor in the Hollow: the satchel on one side, the vendor's stock on the other, with buy and sell prices |
+| Favor | Beside the satchel, and at the temple stores |
+| Offering screen | At the temple stores in the Hollow: the satchel on one side, the stores on the other, with the favor each offering earns and each part costs |
 | Grid capacity meter | When near a switch or when making power choices |
 | Context gained | Briefly, when Enoch gains context, with a short line of what he learned |
 | Level up | When the context bar fills; opens the skill choice |

@@ -74,7 +74,7 @@ Each step must work before the next starts.
 3. Lamp Row loads from its layout file, built from canned pieces, with 20+ lamps at 60 fps under the light budget.
 4. The grid simulator lights and darkens lamps from JSON, including breakers, and the raised lamp shows current pulses in nearby cables.
 5. One click-and-hold repair (a dead lamp needing a bulb) works end to end, including the part check.
-6. The blown fuse, the damaged cable, live repairs with shocks, and neon ribbons are added; salvage, the vendor, the satchel, and the 15-minute night work, and repairs carry over when dawn ends a night.
+6. The blown fuse, the damaged cable, live repairs with shocks, and neon ribbons are added; salvage, the temple stores, the satchel, and the 15-minute night work, and repairs carry over when dawn ends a night.
 7. The Relight passes gate G4.
 
 ## Token budget

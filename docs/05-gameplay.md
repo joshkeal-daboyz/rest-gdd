@@ -14,7 +14,7 @@ Read the dimming → Prep in town → Read the lines → Breaker off → Repair 
 ```
 
 1. **Read the dimming.** The priests, the serpent, and the state of the lights point Enoch to a failing section of the grid. The job names the street, not the faults.
-2. **Prep in town.** He sells spare parts and buys what he expects to need from the vendor in the Hollow, then packs his satchel.
+2. **Prep in town.** He offers spare parts to the temple stores in the Hollow, draws what he expects to need with his favor, then packs his satchel.
 3. **Read the lines.** With the power on, he raises his lamp to see current in the cables, finds where it stops, and ties a neon ribbon on each fault. He salvages parts along the way.
 4. **Breaker off.** He throws the breaker for the section so he can work safely.
 5. **Repair.** He fixes each marked fault, with the right part, through a click-and-hold repair.
@@ -44,7 +44,7 @@ Breakers and switches are found throughout the city. The tribe marks every one w
 | **Breaker** | Shuts a section off entirely, so faults in it can be repaired safely | Lamp Row (prototype) |
 | **Switch** | Sends power down one branch or another | The shrine circuit (MVP) |
 
-Lamp Row has two breakers: the main breaker at the head of the street, beside the vendor, and one on a side branch. Walking to a breaker and back is a real cost in time, so where breakers sit is part of each district's puzzle. Switches arrive with capacity: they are how the player chooses which branch gets power.
+Lamp Row has two breakers: the main breaker at the head of the street, beside the temple's offering stall, and one on a side branch. Walking to a breaker and back is a real cost in time, so where breakers sit is part of each district's puzzle. Switches arrive with capacity: they are how the player chooses which branch gets power.
 
 ### Capacity and restraint
 
@@ -90,13 +90,14 @@ The cables must read as the game, not as background:
 
 The raccoons' offering to Light is salvage from the ruins. Parts come from two places, the town and the city, and parts are the economy that connects them. *(Decided.)*
 
-- **The vendor (town).** A vendor in the Hollow buys any part and sells any part, for **scrap**. The vendor never runs out of stock. In the prototype, the Hollow is a **vendor stall** at the head of Lamp Row.
+- **The temple stores (town).** The priests keep the temple's stores in the Hollow. Any part can be given as an **offering** and earns **favor**, and favor draws any part from the stores. The stores never run out. In the prototype, the Hollow is a **temple offering stall** at the head of Lamp Row.
+- **Favor is faith on the surface and a ledger underneath.** To the tribe, favor is Light's blessing on a devout mechanic. To the player, it works exactly like money, and the priests keep careful accounts. It quietly supports *the cracks show*.
 - **Salvage (city).** Ruined storefronts, wrecked vans, and old electrical boxes on the job hold parts. Salvage spots restock each night.
-- **Parts as currency.** Any part can be sold, and the scrap buys any other part. Scrap takes no room in the satchel, so selling banks a part's value. The vendor buys for less than it sells, so a part that's already in the satchel is worth more than its scrap.
+- **Parts as currency.** Any part can be offered, and the favor draws any other part. Favor takes no room in the satchel, so offering banks a part's value. An offering earns less favor than drawing the same part costs, so a part that's already in the satchel is worth more than its favor.
 - **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can sell them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
-- **Where scrap comes from.** Enoch starts the tutorial (Lamp Row) with no scrap, so his first parts come from salvage, and selling spares is how he learns the vendor. **Every finished job pays scrap.** The tutorial's payment is his first stake for the jobs ahead. Between jobs, scrap comes from selling salvage. *(Decided.)*
-- **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and selling to build up scrap. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
-- **No dead ends.** The vendor always stocks every part, and salvage spots restock each night, so a player who is short can always salvage, sell, and buy what they need.
+- **Where favor comes from.** Enoch starts the tutorial (Lamp Row) with no favor, so his first parts come from salvage, and offering spares is how he learns the temple stores. **Every finished job pays favor:** the temple blesses the work. The tutorial's payment is his first stake for the jobs ahead. Between jobs, favor comes from offering salvage. *(Decided.)*
+- **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and offering to build up favor. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
+- **No dead ends.** The temple stores always hold every part, and salvage spots restock each night, so a player who is short can always salvage, offer, and draw what they need.
 - **Dropping parts.** Parts can be dropped anywhere to make room in the satchel and picked up again later.
 
 | Part | Use | Where it's salvaged |
