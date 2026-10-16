@@ -94,6 +94,8 @@ The raccoons' offering to Light is salvage from the ruins. Parts come from two p
 - **Salvage (city).** Ruined storefronts, wrecked vans, and old electrical boxes on the job hold parts. Salvage spots restock each night.
 - **Parts as currency.** Any part can be sold, and the scrip buys any other part. Scrip takes no room in the satchel, so selling banks a part's value. The vendor buys for less than it sells, so a part that's already in the satchel is worth more than its scrip.
 - **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can sell them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
+- **Where scrip comes from.** Enoch starts the tutorial (Lamp Row) with no scrip, so his first parts come from salvage, and selling spares is how he learns the vendor. **Finishing the tutorial pays him scrip,** his first stake for the jobs ahead. After that, scrip comes from selling salvage. *(Decided.)*
+- **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and selling to build up scrip. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
 - **No dead ends.** The vendor always stocks every part, and salvage spots restock each night, so a player who is short can always salvage, sell, and buy what they need.
 - **Dropping parts.** Parts can be dropped anywhere to make room in the satchel and picked up again later.
 

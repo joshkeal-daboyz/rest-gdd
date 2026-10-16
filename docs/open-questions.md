@@ -46,7 +46,9 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Enoch's lamp shows current within reach when raised; live cables don't glow otherwise. The separate test lamp is gone. *(Decided.)*
 - [x] Breakers shut a section off, switches divert power, and fuse boxes take fuses. The tribe marks breakers and switches. *(Decided.)*
 - [x] Neon ribbons (one color) mark found faults and stay across nights. *(Decided.)*
-- [ ] How many nights does a full job get, if any limit? Without one, players can farm salvage across nights.
+- [x] Jobs have no night limit; farming salvage across nights is a valid strategy. *(Decided.)*
+- [x] Enoch starts with no scrip; finishing the tutorial pays him scrip. *(Decided.)*
+- [ ] Do later jobs pay scrip on completion too, or is the tutorial payment the only one?
 - [x] Parts come from salvage in the city and from a vendor in the Hollow, who buys and sells any part for scrip and never runs out. *(Decided.)*
 - [ ] What is the currency called? "Scrip" is a placeholder. Does it fit the faith, for example as temple tokens or offerings?
 - [ ] Prices: how much less does the vendor pay than it charges, and are some parts worth more than others?
