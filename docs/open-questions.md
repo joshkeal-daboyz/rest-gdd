@@ -45,7 +45,7 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Jobs are meant to take several nights, and the mentor tells the player so. Lamp Row is the tutorial. *(Decided.)*
 - [x] Enoch's lamp shows current within reach when raised; live cables don't glow otherwise. The separate test lamp is gone. *(Decided.)*
 - [x] Breakers shut a section off, switches divert power, and fuse boxes take fuses. The tribe marks breakers and switches. *(Decided.)*
-- [x] Neon ribbons (one color) mark found faults and stay across nights. *(Decided.)*
+- [x] Prayer ribbon is the tribe's flagging tape. Enoch carries a spool (one color) to mark found faults, and the ribbons stay across nights. *(Decided.)*
 - [x] Jobs have no night limit; farming salvage across nights is a valid strategy. *(Decided.)*
 - [x] Enoch starts with no favor; every finished job pays favor, starting with the tutorial. *(Decided.)*
 - [x] Parts come from salvage in the city and from the temple stores in the Hollow, which trade any part for favor and never run out. *(Decided.)*

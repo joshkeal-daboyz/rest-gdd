@@ -31,7 +31,7 @@ You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves
 
 ### What the player sees and does
 
-Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the Hollow end of the street with a satchel, a spool of neon ribbon, and his **lamp**, and the moon is just rising. Every cable in the street is part of the grid, and the player can follow them.
+Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the Hollow end of the street with a satchel, a spool of prayer ribbon, and his **lamp**, and the moon is just rising. Every cable in the street is part of the grid, and the player can follow them.
 
 Jobs are meant to take more than one night. Enoch's mentor says so when he hands over the first one: look first, come back ready.
 
@@ -41,7 +41,7 @@ Jobs are meant to take more than one night. Enoch's mentor says so when he hands
    - **Damaged cable:** pulses run up to a sparking break and stop. Needs **wire**, and Enoch may have to climb to it.
    - **Dead lamp:** pulses reach the lamp post, but the lamp stays dark. Needs a **bulb**.
 
-   When Enoch finds a fault, he ties a **neon ribbon** to it. The ribbons glow in the dark, so the faults stay marked once the power is cut, and they stay marked across nights.
+   When Enoch finds a fault, he ties a length of **prayer ribbon** to it. Prayer ribbon is the tribe's flagging tape: the gaze ties it on holy lines and breakers, and Enoch carries a spool. The ribbons glow in the dark, so the faults stay marked once the power is cut, and they stay marked across nights.
 3. **Salvage.** Ruined storefronts, wrecked vans, and old electrical boxes in the city hold parts too. Salvage spots restock each night, so a player who is short can always salvage, sell, and buy what they need. Parts found now can be sold or kept for later jobs.
 4. **Breaker off.** Breakers are found throughout the city, and the tribe marks every one so it is easy to spot. Throwing a **breaker** cuts the power to its section, and the street goes fully dark except for the ribbons.
 5. **Repair.** At a marked fault, the player **clicks and holds**. Enoch goes to work, and a ring fills around the fault. Letting go early cancels the repair, and the part is not used up. A repair can't start without the right part: the prompt shows what's missing (*Needs: wire*). Parts can be dropped anywhere to make room.
@@ -87,7 +87,7 @@ All AI in Rest is **development-time**. A crew of specialized agents builds the 
 | **Grid Simulator** | Computes how power flows and where it stops whenever a repair or a breaker changes the grid, and declares the job complete when the breaker goes on with no faults left, so the player sees the right lamps go dark or light and the lamp shows true current. |
 | **Repair Interaction** | Builds the click-and-hold repair, its part check, and the live-repair timing check and shocks, so the player sees Enoch work while the ring fills, is told exactly which part they still need, and feels the danger of skipping the breaker. |
 | **Lighting Director** ★ | Drives every lamp's glow, the current pulses Enoch's lamp reveals, and the Relight, so the player watches power travel down the cables and the street come back to light. **This is the One Wow agent.** |
-| **UI** | Builds interaction prompts, the satchel, the temple stores' offering screen, and the neon ribbons, so the player always knows what they can pick up, trade, mark, or fix. |
+| **UI** | Builds interaction prompts, the satchel, the temple stores' offering screen, and the prayer ribbons, so the player always knows what they can pick up, trade, mark, or fix. |
 | **Writer** | Drafts Enoch's lines and the temple's job descriptions in the Lore Bible's voice, so the player hears a devout mechanic who explains the ruins through his faith. |
 | **QA Playtester** | Plays the build automatically after every change and checks it against the acceptance criteria, so the player never meets a fault that can't be found or a repair that can't be finished. |
 

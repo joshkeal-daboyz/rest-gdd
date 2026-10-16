@@ -16,7 +16,7 @@ Lamp Row is the tutorial job: short enough that a walk from the head of the stre
 - Enoch walks, runs, and climbs poles, with a third-person camera.
 - A grid of about 10 nodes: a feed from the Hollow, two breakers (the main one beside the offering stall, one on a side branch), fuse boxes, and lamp circuits. No switches.
 - **The lamp:** held up, it shows current as pulses in cables within about 5 meters. Damaged cables spark and live ones hum without it.
-- **Neon ribbons** to mark found faults; they stay across nights.
+- **Prayer ribbons** to mark found faults; they stay across nights.
 - **The part economy:** three part types (fuses, wire, bulbs). About six salvage spots on Lamp Row that restock each night, and a temple offering stall at the head of the street, standing in for the Hollow's temple stores, that trades any part for favor and never runs out. Enoch starts with no favor, and finishing Lamp Row pays him favor. A small satchel; parts can be dropped. No night limit.
 - **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a damaged cable up a pole (wire).
 - **Live repairs:** a timing check on the ring; a miss is a shock, and two shocks in a night kill Enoch and undo that night's repairs.

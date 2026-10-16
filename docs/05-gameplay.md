@@ -15,7 +15,7 @@ Read the dimming → Prep in town → Read the lines → Breaker off → Repair 
 
 1. **Read the dimming.** The priests, the serpent, and the state of the lights point Enoch to a failing section of the grid. The job names the street, not the faults.
 2. **Prep in town.** He offers spare parts to the temple stores in the Hollow, draws what he expects to need with his favor, then packs his satchel.
-3. **Read the lines.** With the power on, he raises his lamp to see current in the cables, finds where it stops, and ties a neon ribbon on each fault. He salvages parts along the way.
+3. **Read the lines.** With the power on, he raises his lamp to see current in the cables, finds where it stops, and ties a prayer ribbon on each fault. He salvages parts along the way.
 4. **Breaker off.** He throws the breaker for the section so he can work safely.
 5. **Repair.** He fixes each marked fault, with the right part, through a click-and-hold repair.
 6. **Breaker on.** Power pushes further. Fixing one fault can uncover another beyond it, so the loop returns to reading the lines until the section is lit.
@@ -72,7 +72,7 @@ Enoch is attuned to Light's power (see [Characters](03-characters.md)), and his 
 
   Each fault always needs the same part, so a correct reading tells the player exactly what to carry.
 - **Faults hide faults.** Everything past a fault is dead, so a second fault further down can't be seen until the first is fixed and the power is back on. Each round of repairs reveals the next layer.
-- **Neon ribbons.** Enoch carries a spool of neon ribbon. Tying one to a fault marks it, and the ribbon glows in the dark, so the fault stays visible after the power is cut and across nights. A ribbon comes off when its fault is repaired. One color is enough.
+- **Prayer ribbons.** Prayer ribbon is the gaze's flagging tape: a bright, glowing tape the tribe ties wherever the grid needs marking, from holy lines to breakers. Enoch carries a spool of it. Tying a length to a fault marks it, and the ribbon glows in the dark, so the fault stays visible after the power is cut and across nights. A ribbon comes off when its fault is repaired. One color is enough.
 - **Repaired parts look new.** A fresh bulb, clean wire, or a bright new fuse shows that a repair held, even while the line is still dead.
 - **The serpent's sense (from Act 2).** The serpent feels current at a distance, through walls and the ground, without raising the lamp, and it can tell how much is flowing, which matters once capacity arrives. It makes the lamp feel crude by comparison.
 - **The grid map.** A hand-drawn map that fills in as Enoch traces lines (MVP). It shows known nodes, their state, and the path of power (see [UI and UX](09-ui-ux.md)).
@@ -191,7 +191,7 @@ Rest runs in the browser, so keyboard and mouse come first. Gamepad support is p
 | Space | A / Cross | Jump, climb |
 | E | X / Square | Interact, repair, throw a breaker or switch |
 | Left click (during a live repair) | X / Square | Timing check |
-| Q | Y / Triangle | Tie or untie a neon ribbon |
+| Q | Y / Triangle | Tie or untie a prayer ribbon |
 | C | Right stick click | Serpent: sense current, ask (from Act 2) |
 | Ctrl | B / Circle | Crouch, squeeze |
 | F (hold) | LB / L1 (hold) | Raise the lamp to see current |

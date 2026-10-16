@@ -6,7 +6,7 @@ All entries in this section are Draft.
 
 ## Principles
 
-- **Minimal HUD.** The world carries the information: the current Enoch's lamp reveals, the neon ribbons, the state of lamps, the serpent's light. On-screen UI appears only when needed.
+- **Minimal HUD.** The world carries the information: the current Enoch's lamp reveals, the prayer ribbons, the state of lamps, the serpent's light. On-screen UI appears only when needed.
 - **A character is the interface.** In Act 1, Enoch's mentor and the temple's job postings give tutorials and objectives. From Act 2, the serpent takes over: tutorials, hints, and objectives come from it, and its glow doubles as a status indicator.
 - **Diegetic where possible.** The map is Enoch's hand-drawn chart, and the journal is his own notebook.
 
@@ -51,7 +51,7 @@ There is no health bar. Enoch's condition is shown through his animation and the
 ## Reading the lines
 
 - Holding the lamp up shows current as pulses in cables within about 5 meters. Nothing is overlaid on screen; the information is in the world.
-- Neon ribbons mark found faults. They stay visible in the dark and across nights, and they come off when the fault is repaired.
+- Prayer ribbons mark found faults. They stay visible in the dark and across nights, and they come off when the fault is repaired.
 
 ## Accessibility
 

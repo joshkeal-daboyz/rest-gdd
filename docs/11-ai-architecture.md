@@ -72,7 +72,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Why it's the wow:** the Relight is the moment players will remember and share, and the technical strategy is built around making it work.
 
 **UI** · fast tier (Haiku)
-- **One sentence:** builds interaction prompts, the satchel, the temple stores' offering screen, and the neon ribbons when a system needs to be shown, so the player knows what they can do.
+- **One sentence:** builds interaction prompts, the satchel, the temple stores' offering screen, and the prayer ribbons when a system needs to be shown, so the player knows what they can do.
 - **Input:** events from the player, repair, and grid systems; the UI rules in [UI and UX](09-ui-ux.md).
 - **Output:** HTML/CSS overlay components.
 - **Owns:** `src/ui/`.
