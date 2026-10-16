@@ -14,10 +14,10 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 - Enoch walks, runs, and climbs poles, with a third-person camera.
 - A grid of about 10 nodes: a feed from the Hollow, junctions, and lamp circuits.
 - The **test lamp**, which reads a line as live, dead, or damaged.
-- **Salvage:** three part types (fuses, wire, bulbs) from about six salvage spots, with a small satchel.
+- **Parts from town:** three part types (fuses, wire, bulbs) from a supply cache at the head of Lamp Row that never runs out, standing in for the Hollow. A small satchel; parts can be dropped.
 - **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a chewed cable up a pole (wire).
 - **The Relight:** the wow moment when the street comes back to light. This is the win.
-- **Dawn:** a night of 15 minutes at most, shown by the sky. If dawn breaks first, the night restarts. This is the loss.
+- **Dawn:** a night of 15 minutes at most, shown by the sky. If dawn breaks first, the night is lost, but completed repairs stay. This is the loss.
 - **Assets:** canned packs for the city and AI-generated models for Enoch and anything missing. No hand modeling.
 - Placeholder lines for Enoch and a job description from the temple.
 
@@ -29,7 +29,8 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 
 - [ ] A new player relights Lamp Row in 8–12 minutes without outside help, inside the 15-minute night.
 - [ ] The player always knows which part a fault needs.
-- [ ] A player who loses to dawn understands why and does better on the next night.
+- [ ] A player who loses to dawn understands why, sees that their repairs held, and finishes the job on the next night.
+- [ ] A player can never be left without a way to finish: every part is always available in the supply cache.
 - [ ] Every fault can be found by following cables and using the test lamp.
 - [ ] Letting go of a repair early is clearly readable and costs only time.
 - [ ] The Relight passes gate G4.

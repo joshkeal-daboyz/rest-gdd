@@ -23,7 +23,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** the raccoon settlement, built in a sunken plaza and the basements around it, beneath the Temple of Light.
 - **Grid role:** always powered, the last thing Light lets go dark. It begins to flicker in the prologue.
-- **Gameplay role:** hub and tutorial. Mentor, traders, and the priests are here.
+- **Gameplay role:** hub and tutorial. Mentor, traders, and the priests are here. The tribe's salvage stores are here too: Enoch gathers his parts in the Hollow before every job.
 - **Crack in the faith:** the temple's great lamp is an old stadium floodlight.
 
 ### The Temple of Light
@@ -36,7 +36,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** a long commercial street of collapsed storefronts and streetlights.
 - **Grid role:** a simple lighting circuit fed from the Hollow.
-- **Gameplay role:** the first open repair area. It teaches fault tracing, salvage, and simple repairs.
+- **Gameplay role:** the first open repair area. It teaches fault tracing, planning what to carry, and simple repairs.
 - **Crack in the faith:** shop signs and advertisements of people using light for ordinary things.
 
 ### The Yards
@@ -69,7 +69,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 ## Day and night (Draft)
 
 - Raccoons are nocturnal, so the tribe's day is the night. The game mostly takes place after dark, which is when the lights matter.
-- Daylight drives the raccoons underground, so each job is a race against dawn. This is the game's loss condition (see [Threats and Hazards](07-threats.md#win-and-loss-draft)).
+- Daylight drives the raccoons underground, so each night is a race against dawn. Losing a night costs time, not work: repairs hold until Enoch returns. This is the game's loss condition (see [Threats and Hazards](07-threats.md#win-and-loss-draft)).
 
 ## Beyond Light's lands (Version one)
 

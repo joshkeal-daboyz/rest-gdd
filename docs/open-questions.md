@@ -40,7 +40,10 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
 - [x] A night lasts 15 minutes at most. *(Decided.)*
 - [x] Dawn is the loss condition, and the player watches the sun come up. *(Decided.)*
-- [ ] Does a lost night reset the faults? (Currently yes.)
+- [x] A lost night does not reset the faults: completed repairs stay. *(Decided.)*
+- [x] Parts are gathered in town (the Hollow) and carried to the job; town stores never run out. *(Decided.)*
+- [ ] With repairs kept, losing a night costs only time. Does dawn need any further cost, such as a fault that degrades again or priests who react?
+- [ ] In the MVP, is context earned once per fault, so no fault can be farmed?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?
 - [ ] How many context sources (and readable machines) are in Chapter One, and how many are required versus optional?
 - [ ] Are three skills (Hands, Eyes, Feet) with five ranks each the right leveling structure, and is a level cap of 10 right for Chapter One?

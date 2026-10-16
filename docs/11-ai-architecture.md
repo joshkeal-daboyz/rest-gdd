@@ -38,8 +38,8 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Owns:** `assets/manifest.json`, `assets/licenses/`.
 
 **Level Builder** · mid tier (Sonnet)
-- **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, and its salvage spots.
-- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `junction_A`, `salvage_02`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
+- **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, and the supply cache.
+- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `junction_A`, `supply_cache`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
 - **Output:** the level loader and scene code; cables drawn between grid nodes; a top-down debug view and screenshots so the creative director can review the layout without opening any 3D tool.
 - **Why data, not Blender:** no one on the team models or uses Blender, so the level is a file agents can read, write, and diff.
 - **Owns:** `src/level/`.

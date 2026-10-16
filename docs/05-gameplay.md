@@ -7,14 +7,14 @@ Chapter One is about repair. Enoch's goal is to make repairs to the city's power
 ## Core loop (Draft)
 
 ```
-Read the dimming → Trace the fault → Salvage parts → Repair → Restore power → The city changes
+Read the dimming → Gather parts in town → Trace the fault → Repair → Restore power → The city changes
         ↑                                                                              │
         └──────────────── New district opens, new fault appears ←──────────────────────┘
 ```
 
 1. **Read the dimming.** The priests, the serpent, and the state of the lights point Enoch to a failing section of the grid.
-2. **Trace the fault.** He follows dead lines through the district to find what is broken.
-3. **Salvage parts.** He scavenges the ruins for the components the repair needs.
+2. **Gather parts in town.** He stocks his satchel from the tribe's salvage stores in the Hollow and carries the parts out to the job.
+3. **Trace the fault.** He follows dead lines through the district to find what is broken.
 4. **Repair.** He fixes the fault through hands-on repair interactions.
 5. **Restore power.** He brings the section back online and decides how much to draw from the grid.
 6. **The city changes.** Lights come on, the tribe moves into the lit ground, the priests respond, and the next problem appears.
@@ -50,7 +50,13 @@ This is the chapter's quiet version of the game's theme. The original sin is a l
 
 ## Salvage (Draft)
 
-The raccoons' offering to Light is salvage from the ruins. Enoch scavenges for the parts he needs.
+The raccoons' offering to Light is salvage from the ruins. The tribe has been bringing it in for generations, so the Hollow's salvage stores are full. Enoch doesn't scavenge on the job: he gathers parts in town and carries them out. *(Decided.)*
+
+- **Parts come from town.** The Hollow's stores, traders, and the mentor's workshop hold the parts each job needs, and they never run out. In the prototype, the Hollow is a **supply cache** at the head of Lamp Row.
+- **The job site has no parts.** A missing part means walking back to town, and that walk is the real cost of poor planning.
+- **Dropping parts.** Parts can be dropped anywhere to make room in the satchel and picked up again later.
+
+The table shows where the tribe's salvagers find each part, and which town stores stock it.
 
 | Part | Use | Where it's found |
 | --- | --- | --- |
@@ -62,7 +68,7 @@ The raccoons' offering to Light is salvage from the ruins. Enoch scavenges for t
 | Components | Circuit boards and relays for complex repairs | Machines, the Underworks |
 
 - **Washing parts.** Salvaged parts are often corroded. Enoch washes them in water before use, a nod to the raccoon's name, *Procyon lotor*, "the washer." Clean parts last longer and fail less. This builds a habit the full game's final image depends on.
-- **Hands, not inventory screens.** Enoch carries a satchel with limited space, so the player chooses what to bring for each repair.
+- **Hands, not inventory screens.** Enoch carries a satchel with limited space, so the player chooses what to bring out for each job.
 - **Trade.** Scavengers in the Hollow trade parts and rumors.
 
 ## Repairs: click and hold
@@ -75,7 +81,7 @@ Every repair uses one simple interaction. *(Decided.)*
 4. **Let go early** and the repair cancels; the part is not used up.
 5. **Finish** and the part is consumed, the fault clears, and the grid updates.
 
-The puzzle is in finding faults and planning salvage, not in the repair itself.
+The puzzle is in finding faults and planning what to carry, not in the repair itself.
 
 ### Fault types
 
@@ -98,7 +104,7 @@ Design goals for repairs:
 - **Readable.** The player should understand why something is broken by looking at it, and the prompt always says what's needed.
 - **Short.** Every hold is a few seconds.
 - **Felt.** Tactile sound while the ring fills, and a clear spark and hum when the fault clears.
-- **Time matters.** Each job must be finished before dawn (see [Threats and Hazards](07-threats.md#win-and-loss-draft)), so a wasted trip for a missing part is the real cost.
+- **Time matters.** Each job must be finished before dawn (see [Threats and Hazards](07-threats.md#win-and-loss-draft)), so a wasted trip back to town for a missing part is the real cost. Repairs are never lost: a finished repair stays finished across nights.
 
 ## Traversal (Draft)
 
