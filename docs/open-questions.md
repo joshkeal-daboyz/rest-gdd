@@ -47,9 +47,9 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Breakers shut a section off, switches divert power, and fuse boxes take fuses. The tribe marks breakers and switches. *(Decided.)*
 - [x] Neon ribbons (one color) mark found faults and stay across nights. *(Decided.)*
 - [x] Jobs have no night limit; farming salvage across nights is a valid strategy. *(Decided.)*
-- [x] Enoch starts with no scrip; every finished job pays scrip, starting with the tutorial. *(Decided.)*
-- [x] Parts come from salvage in the city and from a vendor in the Hollow, who buys and sells any part for scrip and never runs out. *(Decided.)*
-- [ ] What is the currency called? "Scrip" is a placeholder. Does it fit the faith, for example as temple tokens or offerings?
+- [x] Enoch starts with no scrap; every finished job pays scrap, starting with the tutorial. *(Decided.)*
+- [x] Parts come from salvage in the city and from a vendor in the Hollow, who buys and sells any part for scrap and never runs out. *(Decided.)*
+- [x] The currency is called **scrap**. *(Decided.)*
 - [ ] Prices: how much less does the vendor pay than it charges, and are some parts worth more than others?
 - [ ] Can parts be stored in the Hollow, or is selling the only way to bank them?
 - [ ] With repairs kept, losing a night costs only time. Does dawn need any further cost, such as a fault that degrades again or priests who react?

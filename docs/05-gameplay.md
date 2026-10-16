@@ -90,12 +90,12 @@ The cables must read as the game, not as background:
 
 The raccoons' offering to Light is salvage from the ruins. Parts come from two places, the town and the city, and parts are the economy that connects them. *(Decided.)*
 
-- **The vendor (town).** A vendor in the Hollow buys any part and sells any part, for **scrip** (placeholder name). The vendor never runs out of stock. In the prototype, the Hollow is a **vendor stall** at the head of Lamp Row.
+- **The vendor (town).** A vendor in the Hollow buys any part and sells any part, for **scrap**. The vendor never runs out of stock. In the prototype, the Hollow is a **vendor stall** at the head of Lamp Row.
 - **Salvage (city).** Ruined storefronts, wrecked vans, and old electrical boxes on the job hold parts. Salvage spots restock each night.
-- **Parts as currency.** Any part can be sold, and the scrip buys any other part. Scrip takes no room in the satchel, so selling banks a part's value. The vendor buys for less than it sells, so a part that's already in the satchel is worth more than its scrip.
+- **Parts as currency.** Any part can be sold, and the scrap buys any other part. Scrap takes no room in the satchel, so selling banks a part's value. The vendor buys for less than it sells, so a part that's already in the satchel is worth more than its scrap.
 - **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can sell them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
-- **Where scrip comes from.** Enoch starts the tutorial (Lamp Row) with no scrip, so his first parts come from salvage, and selling spares is how he learns the vendor. **Every finished job pays scrip.** The tutorial's payment is his first stake for the jobs ahead. Between jobs, scrip comes from selling salvage. *(Decided.)*
-- **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and selling to build up scrip. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
+- **Where scrap comes from.** Enoch starts the tutorial (Lamp Row) with no scrap, so his first parts come from salvage, and selling spares is how he learns the vendor. **Every finished job pays scrap.** The tutorial's payment is his first stake for the jobs ahead. Between jobs, scrap comes from selling salvage. *(Decided.)*
+- **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and selling to build up scrap. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
 - **No dead ends.** The vendor always stocks every part, and salvage spots restock each night, so a player who is short can always salvage, sell, and buy what they need.
 - **Dropping parts.** Parts can be dropped anywhere to make room in the satchel and picked up again later.
 
