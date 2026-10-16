@@ -41,7 +41,10 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] A night lasts 15 minutes at most. *(Decided.)*
 - [x] Dawn is the loss condition, and the player watches the sun come up. *(Decided.)*
 - [x] A lost night does not reset the faults: completed repairs stay. *(Decided.)*
-- [x] Parts are gathered in town (the Hollow) and carried to the job; town stores never run out. *(Decided.)*
+- [x] Parts come from salvage in the city and from a vendor in the Hollow, who buys and sells any part for scrip and never runs out. *(Decided.)*
+- [ ] What is the currency called? "Scrip" is a placeholder. Does it fit the faith, for example as temple tokens or offerings?
+- [ ] Prices: how much less does the vendor pay than it charges, and are some parts worth more than others?
+- [ ] Can parts be stored in the Hollow, or is selling the only way to bank them?
 - [ ] With repairs kept, losing a night costs only time. Does dawn need any further cost, such as a fault that degrades again or priests who react?
 - [ ] In the MVP, is context earned once per fault, so no fault can be farmed?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?

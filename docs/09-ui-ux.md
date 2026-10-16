@@ -16,6 +16,8 @@ All entries in this section are Draft.
 | --- | --- |
 | Interaction prompt | Near something Enoch can repair, salvage, or touch |
 | Satchel quick select | When choosing a part for a repair |
+| Scrip | Beside the satchel, and at the vendor |
+| Vendor screen | At the vendor in the Hollow: the satchel on one side, the vendor's stock on the other, with buy and sell prices |
 | Grid capacity meter | When near a junction or when making power choices |
 | Context gained | Briefly, when Enoch gains context, with a short line of what he learned |
 | Level up | When the context bar fills; opens the skill choice |

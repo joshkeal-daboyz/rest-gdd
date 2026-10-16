@@ -23,7 +23,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** the raccoon settlement, built in a sunken plaza and the basements around it, beneath the Temple of Light.
 - **Grid role:** always powered, the last thing Light lets go dark. It begins to flicker in the prologue.
-- **Gameplay role:** hub and tutorial. Mentor, traders, and the priests are here. The tribe's salvage stores are here too: Enoch gathers his parts in the Hollow before every job.
+- **Gameplay role:** hub and tutorial. Mentor, traders, and the priests are here. The vendor is here too: Enoch sells salvage and buys the parts each job needs before he heads out.
 - **Crack in the faith:** the temple's great lamp is an old stadium floodlight.
 
 ### The Temple of Light
@@ -36,7 +36,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** a long commercial street of collapsed storefronts and streetlights.
 - **Grid role:** a simple lighting circuit fed from the Hollow.
-- **Gameplay role:** the first open repair area. It teaches fault tracing, planning what to carry, and simple repairs.
+- **Gameplay role:** the first open repair area. It teaches fault tracing, salvage, planning what to carry, and simple repairs.
 - **Crack in the faith:** shop signs and advertisements of people using light for ordinary things.
 
 ### The Yards

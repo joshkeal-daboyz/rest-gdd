@@ -10,12 +10,12 @@ This README is the **short GDD**: the submitted draft, and the document loaded i
 
 **Rest** is a third-person 3D exploration and repair game that runs in the browser. Several hundred years after humanity's collapse, masterless AIs have engineered intelligent animals to rebuild the world, and the animals worship those AIs as gods.
 
-You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves **Light**, the god of power. The ruined city's lights are dying. Each night, Enoch takes a repair job from the temple: gather parts in the Hollow, carry them out to the job, find the faults in the power grid, repair the lines, and bring a street back to light. Dawn drives the nocturnal raccoons underground, so a job can stretch across nights, and every repair holds until he returns. The deeper he goes into the grid, the more he learns that his god is a machine.
+You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves **Light**, the god of power. The ruined city's lights are dying. Each night, Enoch takes a repair job from the temple: plan what to carry, trade for parts in the Hollow, salvage more from human ruins, find the faults in the power grid, repair the lines, and bring a street back to light. Dawn drives the nocturnal raccoons underground, so a job can stretch across nights, and every repair holds until he returns. The deeper he goes into the grid, the more he learns that his god is a machine.
 
 | | |
 | --- | --- |
 | **Player fantasy** | A skilled mechanic bringing a dark, beautiful ruin back to light with his own hands |
-| **Core loop** | Gather parts in town → trace the fault → repair it → restore power |
+| **Core loop** | Prep in town → trace the fault → salvage and repair → restore power |
 | **Win** | Every fault on the job is fixed and the street relights |
 | **Loss** | Dawn breaks before the job is done: the night is lost, but every repair made so far stays |
 | **Prototype** | One street, Lamp Row, relit in 8–12 minutes within a 15-minute night |
@@ -33,19 +33,20 @@ You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves
 
 Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the Hollow end of the street with a satchel and a salvaged **test lamp**, and the moon is just rising. Cables run overhead and along the walls, and the player can follow them.
 
-1. **Gather parts.** Parts come from town, not from the job. The tribe's salvage stores in the Hollow hold plenty of **fuses, wire, and bulbs**, and they never run out. The satchel is small, so the player chooses what to carry out to the street. In the prototype, the Hollow is a supply cache at the head of Lamp Row.
+1. **Prep in town.** Parts come in three kinds: **fuses, wire, and bulbs**. In the Hollow, a **vendor** buys any part for **scrip** and sells any part for scrip, and never runs out of stock. Scrip takes no room in the satchel, so selling spare parts banks their value for later. The satchel is small, so the player plans what to carry out before the job. In the prototype, the Hollow is a vendor stall at the head of Lamp Row.
 2. **Trace the fault.** The player follows dead cables from the dark lamps back toward the power. Touching the test lamp to a line shows whether it is live (a steady glow), dead (nothing), or damaged (sparks).
-3. **Repair.** At a fault, the player **clicks and holds**. Enoch goes to work, and a ring fills around the fault. Letting go early cancels the repair, and the part is not used up. A repair can't start without the right part: the prompt shows what's missing (*Needs: fuse*), and the player has to walk back to the Hollow for one. Parts can be dropped anywhere to make room. Lamp Row has three kinds of fault:
+3. **Salvage.** Ruined storefronts, wrecked vans, and old electrical boxes in the city hold parts too. Salvage spots restock each night, so a player who is short can always salvage, sell, and buy what they need. Parts found now can be sold or kept for later jobs.
+4. **Repair.** At a fault, the player **clicks and holds**. Enoch goes to work, and a ring fills around the fault. Letting go early cancels the repair, and the part is not used up. A repair can't start without the right part: the prompt shows what's missing (*Needs: fuse*), and the player has to salvage one or walk back to the vendor. Parts can be dropped anywhere to make room. Lamp Row has three kinds of fault:
    - **Blown fuse** in a junction box: needs a **fuse**.
    - **Chewed cable** between poles: needs **wire**, and Enoch has to climb to it.
    - **Dead lamp:** needs a **bulb**.
-4. **Restore.** Each fixed fault brings part of the street back to light, and the player sees their progress spread down the block.
+5. **Restore.** Each fixed fault brings part of the street back to light, and the player sees their progress spread down the block.
 
 ### Win and loss
 
 - **Win:** the last fault closes and **the Relight** plays. Lamp Row is lit, the tribe moves into the newly lit street, and the job is done.
 - **Loss:** raccoons are nocturnal, and a night lasts **15 minutes at most**. The sky is the timer: the moon crosses it, then the horizon pales. If dawn breaks before the job is done, the night is lost: the player watches the sun come up over a street that is only partly lit as Enoch retreats underground. **The work stays done.** Every repair holds, and the next night starts in the Hollow with only the remaining faults left. A repair in progress at dawn is cancelled, and its part stays in the satchel.
-- **What costs time:** tracing the wrong cable, walking back to the Hollow for a missing part, and letting go of a repair too early. The puzzle is in finding faults and planning what to carry, not in the repair itself.
+- **What costs time:** tracing the wrong cable, hunting or walking back for a missing part, and letting go of a repair too early. The puzzle is in finding faults and planning the part economy (what to buy, what to carry, what to salvage and sell for later jobs), not in the repair itself.
 
 ### The grid
 
@@ -77,7 +78,7 @@ All AI in Rest is **development-time**. A crew of specialized agents builds the 
 | **Grid Simulator** | Computes how power flows and where it stops whenever a repair changes the grid, so the player sees the right lamps go dark, flicker, or light, and the test lamp reads true. |
 | **Repair Interaction** | Builds the click-and-hold repair and its part check, so the player sees Enoch work while the ring fills, and is told exactly which part they still need. |
 | **Lighting Director** ★ | Drives every lamp's glow and flicker and choreographs the Relight, so the player watches power travel down the cables and the street come back to light. **This is the One Wow agent.** |
-| **UI** | Builds interaction prompts, the satchel, and the test-lamp readout, so the player always knows what they can pick up, test, or fix. |
+| **UI** | Builds interaction prompts, the satchel, the vendor's buy and sell screen, and the test-lamp readout, so the player always knows what they can pick up, trade, test, or fix. |
 | **Writer** | Drafts Enoch's lines and the temple's job descriptions in the Lore Bible's voice, so the player hears a devout mechanic who explains the ruins through his faith. |
 | **QA Playtester** | Plays the build automatically after every change and checks it against the acceptance criteria, so the player never meets a fault that can't be found or a repair that can't be finished. |
 
@@ -109,7 +110,7 @@ The human creative director owns **lore, story, characters, dialogue, art direct
 | Language and build | **TypeScript + Vite** | Types give agents firm contracts; Vite gives fast reloads |
 | Physics and movement | **Rapier** character controller | Agents don't rewrite movement and collision |
 | Glow | **`postprocessing`** (selective bloom) | Lamps glow without a real light per lamp |
-| Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, and the supply cache, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
+| Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, salvage spots, and the vendor, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
 | Assets | **Free CC0 packs** (Quaternius, KayKit, Kenney) for the city; **Enoch generated in Tripo** from the creative director's hand-drawn concept art (Meshy as the backup), auto-rigged and animated with **Mixamo** | Free to start; no hand modeling anywhere in the pipeline |
 | Hosting | **GitHub Pages** | A free, shareable link for playtests |
 
@@ -167,11 +168,11 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 
 ## 5. Scope and Phases
 
-**Weekend test:** two developers with this crew can build the prototype in a weekend, because it is one street, one click-and-hold repair, three part types, and about ten grid nodes, built entirely from canned and generated assets. ([Phase detail](docs/10-scope-roadmap.md))
+**Weekend test:** two developers with this crew can build the prototype in a weekend, because it is one street, one click-and-hold repair, three part types, one vendor, and about ten grid nodes, built entirely from canned and generated assets. ([Phase detail](docs/10-scope-roadmap.md))
 
 | Phase | Content | Done when |
 | --- | --- | --- |
-| **Prototype** | Lamp Row: walk, climb, test lines, carry parts from the supply cache, click-and-hold repairs, dawn, the Relight | A new player relights Lamp Row in 8–12 minutes, inside the 15-minute night, without help |
+| **Prototype** | Lamp Row: walk, climb, test lines, salvage, buy and sell parts at the vendor, click-and-hold repairs, dawn, the Relight | A new player relights Lamp Row in 8–12 minutes, inside the 15-minute night, without help |
 | **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit) and Act 2 (earning the serpent): leveling, capacity choices, Drafts, the serpent reading machines | Acts 1 and 2 play start to finish |
 | **Chapter One** | The Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
 | **Future** | The other five gods, the Cherub, the seventh day | The full game in the [Lore Bible](Rest%20%E2%80%94%20Lore%20Bible.md) |
