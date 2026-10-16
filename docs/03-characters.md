@@ -7,6 +7,8 @@
 A young raccoon of the gaze, and its most capable repairman. He is the player character.
 
 - **Role:** a mechanic who maintains the power that feeds the machine. His skill with his hands and with old technology is why he is sent.
+- **Attuned to Light (Draft):** all raccoons were built to feel Light's power, and Enoch feels it more strongly than any of them. Through his lamp, he can *see* current flowing in the lines. The tribe calls it a blessing. In truth, his sensitivity is engineered, and the lamp is human technology: a salvaged neon tester that glows near live current, which the tribe treats as a holy lantern. Late in Chapter One, the serpent can read the markings on its casing.
+- **The lamp:** his most important tool and the game's main way of reading the grid (see [Gameplay](05-gameplay.md#fault-tracing-draft)).
 - **Name:** in Genesis, Enoch walked with God and then was no more, taken beyond the world rather than dying. It fits the raccoon who goes deeper than any of his kind ever has and comes back no longer belonging to his tribe.
 - **Hands:** raccoons have the most humanlike hands of any animal in the game. Enoch's hands are his main tool, and the game's camera and animation should give them attention.
 - **The mask:** born masked, like all raccoons. A creature with a mask in a story about hidden truths.

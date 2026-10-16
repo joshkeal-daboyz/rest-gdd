@@ -327,6 +327,7 @@ The raccoons cannot read the light directly, so a priesthood interprets it on th
 
 - **Why no one doubts:** doubt feels physically wrong, so no raccoon has ever questioned Light.
 - **A deeper betrayal:** the hero learns not just that his god is a machine, but that his devotion was installed in him.
+- **Attunement (draft):** because the raccoons were built to feel Light's power, a few feel it more strongly than others. Enoch is one of them: he senses current where others feel only a vague unease, and through his lamp he can *see* it flowing in the lines. The tribe calls it a blessing, and it is part of why the priests choose him. In truth it is engineering, and the lamp is ordinary human technology, a neon tester that glows near live current. What the tribe treats as a gift is a feature, and a tool.
 - **Tied to the theme:** the original sin is a lack of self-control, and the gods rigged the raccoons to have less of it. Turning against feelings built into his own body is the hardest kind of restraint.
 
 Light needs some context gathered to fix itself, but only as much as the repair requires. The serpent's job is to keep it that way.

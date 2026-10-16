@@ -18,7 +18,7 @@ Enoch learns by doing, with or without the serpent. This is how he grows in Act 
 
 | Source | Example | Context (Draft) |
 | --- | --- | --- |
-| Repairs | Fixing a chewed cable, replacing a fuse | Small |
+| Repairs | Fixing a damaged cable, replacing a fuse | Small |
 | First-time repairs | The first time he solves a new kind of fault | Medium |
 | Restoring a section | Bringing a street, substation, or beacon back online | Large |
 | Exploring | Reaching a new place for the first time | Small |
@@ -68,7 +68,7 @@ Enoch begins as a capable mechanic, so his skills improve what he is already goo
 | Skill | What it improves | Example ranks (Draft) |
 | --- | --- | --- |
 | **Hands** | Repairs and salvage | Faster repairs; fewer failed steps; more parts from salvage; washing parts makes them last longer; at rank 5, field repairs without a part in some cases |
-| **Eyes** | Reading the world | Spot faults from farther away; see lines in the dark (raccoons are nocturnal); notice examinable artifacts; at rank 5, read a line's state at a glance without testing it |
+| **Eyes** | Reading the world | Spot faults from farther away; see lines in the dark (raccoons are nocturnal); notice examinable artifacts; at rank 5, see current within a short range without raising the lamp |
 | **Feet** | Movement and survival | Climb faster; longer stamina; squeeze through tighter gaps; survive higher falls; move more quietly past abominations |
 
 Some repairs and places require a minimum rank, such as a fragile junction that needs Hands 3 or a sheer tower face that needs Feet 2. Those requirements are always optional or have another route, so a player's choices never block the story.
@@ -81,8 +81,8 @@ These are tied to the story rather than to Enoch's level, so every player gets t
 
 | When | Ability (Draft) | What it does |
 | --- | --- | --- |
-| Earning the serpent (Act 2) | **Sense current** | Hold the serpent near a line to read whether it is live, dead, or damaged |
-| After the Yards | **Steady hands** | Live-line repairs no longer shock Enoch, which opens repairs that previously required cutting power |
+| Earning the serpent (Act 2) | **Sense current** | Feel current at a distance, through walls and the ground, without raising the lamp, including how much is flowing |
+| After the Yards | **Steady hands** | Live-line repairs no longer shock Enoch, so he no longer has to choose between the breaker and the risk |
 | After the Spires | **Carry charge** | Enoch holds a short charge in his hands to jump a gap in a circuit or briefly power a door or lift |
 | At the core, after taking Light's full context | **Illuminate** | Reveal hidden paths, buried machinery, and things the gods don't want seen |
 
@@ -105,7 +105,7 @@ After each shed, the serpent changes a little: a new turn of phrase, a new color
 
 Alongside his skills, Enoch's toolkit expands:
 
-- New tools found or traded, such as a better splicer, a fuse puller, or insulated gloves, which shorten repair holds or allow repairs on live lines.
+- New tools found or traded, such as a better splicer, a fuse puller, or insulated gloves, which shorten repair holds or make live repairs safer (gloves widen the timing check).
 - New repair types introduced by each district.
 - Satchel upgrades for carrying more parts.
 
@@ -114,7 +114,7 @@ Alongside his skills, Enoch's toolkit expands:
 | Section | Repairs introduced | Serpent ability | Enoch's level by the end | Approximate time |
 | --- | --- | --- | --- | --- |
 | Act 1: The Hollow | Replace | — | 2 | 20 min |
-| Act 1: Lamp Row and the shrine circuit | Chewed cable, dead junction | — | 3 | 45 min |
+| Act 1: Lamp Row and the shrine circuit | Damaged cable, breakers, switches, dead junction | — | 3 | 45 min |
 | Act 2: The chosen | — | Sense current | 3 | 15 min |
 | Return to Lamp Row | — (conduit context) | — | 4 | 15 min |
 | The Yards | Switch, Align | Steady hands | 5 | 60 min |

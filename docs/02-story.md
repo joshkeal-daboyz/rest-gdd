@@ -33,12 +33,13 @@ The beats below are a draft structure. The opening and the ending at the core co
 
 Enoch has no serpent in Act 1. He is one mechanic among many, working with his own hands, his own tools, and what his mentor taught him. Over several missions, his work sets him apart. The serpent must be earned.
 
-- **Jobs from the temple.** The priests post repair jobs as holy tasks. Enoch takes them alongside other mechanics. His mentor gives him the tutorial jobs and teaches him to trace lines, test them, and salvage parts (see [Gameplay](05-gameplay.md)).
+- **Jobs from the temple.** The priests post repair jobs as holy tasks. Enoch takes them alongside other mechanics. His mentor gives him the tutorial jobs and teaches him to read lines with his lamp, cut the power before he works, and salvage parts (see [Gameplay](05-gameplay.md)). He also tells Enoch that no one relights a street in one night.
 - **Mission: the Hollow's lanes.** Restore the failing lights of the settlement itself. Small, safe jobs that teach replacing and testing.
 - **Mission: Lamp Row.** Relight a street of old human storefronts beyond the settlement. The tribe follows him into newly lit ground, and the priests bless the light. Other mechanics failed here first; Enoch finds the fault they missed.
 - **Mission: the shrine circuit (Draft).** A shrine at the edge of Lamp Row has gone dark, and the priests treat it as an omen. Enoch fixes it in a way no one expected: he reroutes power around a dead junction instead of replacing it. The shrine's lamp blazes brighter than anyone remembers.
 - **Light notices.** After each of his repairs, the lights he restored pulse once, briefly, as if in answer. The priests read it as Light's favor. The player may read it differently: Light is watching which mechanic is worth investing in.
 - **The first cracks.** He finds signage and logos bearing the word *Light*, and he learns from them on his own, but his faith explains them away. He also passes old machines that hum with power he can't read. (He'll return to them once he has the serpent.)
+- **The lamp's markings (Draft).** With the serpent, Enoch can read the writing on his own lamp's casing. The holy lantern has a part number. It is the smallest crack of the chapter, and the most personal.
 - **Growing through the work.** Every repair, discovery, and close call gives Enoch context, and he levels up through Act 1 (see [Progression](06-progression.md)). His growing skill is part of what sets him apart.
 
 ### Act 2: The chosen (Draft)
@@ -46,7 +47,7 @@ Enoch has no serpent in Act 1. He is one mechanic among many, working with his o
 - **Recognition.** The priests summon Enoch before the gathered gaze. Light has spoken through the lamps: this mechanic is a talented electrician, favored above the others. Brother Wick objects; a mechanic is not a priest.
 - **The gift.** The high priest places a serpent in Enoch's hands, the highest honor the tribe can give. The moment he touches it, he understands the mission: the dimming light, the depths, what he has to fix. There is no exposition; the player learns it when Enoch does.
 - **A reward, not really.** To the tribe, the serpent is a blessing. To Light, it is an investment and a leash: a capable pair of hands, now with a guide that decides what those hands are allowed to know. The player should feel the honor first and understand the cost much later.
-- **First words.** The serpent speaks for the first time. It is warm, gentle, and already a little nervous. It teaches him to sense current, which makes his earlier repairs feel crude by comparison.
+- **First words.** The serpent speaks for the first time. It is warm, gentle, and already a little nervous. It teaches him to sense current at a distance, without his lamp, which makes his lamp feel crude by comparison.
 - **Beyond the mechanics' work.** With the serpent, Enoch is sent where the other mechanics are not: past the lit districts, toward the heart of the grid. The serpent's first exploration bark: *"Shouldn't we go back? This isn't the way we were supposed to go."*
 
 ### Act 3: Bringing back the city (Draft)

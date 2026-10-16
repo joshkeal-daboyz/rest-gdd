@@ -10,7 +10,7 @@ Light powers the other gods, so its city is the hub of the region's grid. Main l
 
 ## How the city tells the story
 
-- **Faith built on infrastructure.** Shrines are built around substations, altars around junction boxes, and holy lamps on old streetlight poles.
+- **Faith built on infrastructure.** Shrines are built around substations, altars around fuse boxes, and holy lamps on old streetlight poles.
 - **Brand names as scripture.** The word *Light* appears everywhere on old signage: on poles, panels, vans, and buildings. To the raccoons it is the god's name written by the ancients. The player will recognize it as a logo.
 - **Lit and unlit.** Where the power runs, the raccoons live. Where it doesn't, the city belongs to the dark and the things in it. Restoring power literally expands the tribe's world.
 - **Taboos as walls.** The priests forbid the depths, the sealed doors, and certain marked buildings. Every taboo protects machinery Light doesn't want seen.
@@ -36,7 +36,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 
 - **What it is:** a long commercial street of collapsed storefronts and streetlights.
 - **Grid role:** a simple lighting circuit fed from the Hollow.
-- **Gameplay role:** the first open repair area. It teaches fault tracing, salvage, planning what to carry, and simple repairs.
+- **Gameplay role:** the tutorial job and the first open repair area. It teaches reading lines with the lamp, marking faults, cutting the power at a breaker, salvage, planning what to carry, and simple repairs. It is short: the head of the street to its far end and back takes about a minute.
 - **Crack in the faith:** shop signs and advertisements of people using light for ordinary things.
 
 ### The Yards

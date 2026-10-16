@@ -50,18 +50,21 @@ Enoch cannot fight the Hum with weapons. He fights it with what he knows: power,
 
 | Hazard | Description |
 | --- | --- |
-| Live lines | Touching a live line shocks Enoch and knocks him back. Steady hands (threshold 1, after the Yards) removes this for repairs. |
+| Live lines | Repairing without cutting the power risks a shock that knocks Enoch back. Two shocks in a night kill him, and one kills on a high-power line; death undoes that night's repairs. Steady hands (after the Yards) makes live repairs safe. See [Gameplay](05-gameplay.md#live-repairs-and-shocks). |
 | Surges | Switching in the wrong order sends a surge down the line, blowing fuses and endpoints. |
 | Falls | The city is vertical, and the Spires especially so. |
 | Collapse | Ruined floors and passages give way. |
 | Water and power | Flooded basements near live lines are lethal until the power is cut. |
-| Dawn (Draft) | Raccoons are nocturnal. Each job must be finished before dawn; see Win and loss below. |
+| Dawn (Draft) | Raccoons are nocturnal. Each night ends at dawn; see Win and loss below. |
 
 ## Win and loss (Draft)
 
-- **Win:** every fault on the job is repaired and the district relights. In the prototype, that means all of Lamp Row is lit and the Relight plays.
-- **Loss: dawn.** Each job takes place over one night, and the sky shows it: the moon crosses the sky, then the horizon pales. If dawn breaks before the job is done, the night is lost: the player watches the sun come up over a street that is only partly lit while Enoch retreats underground. *(Decided.)* **The work stays done.** Every repair holds, and the next night starts in the Hollow with only the remaining faults left. A repair in progress at dawn is cancelled, and its part stays in the satchel. *(Decided.)* A night lasts **15 minutes at most** *(Decided)*. In the prototype, the target is to relight Lamp Row in 8–12 minutes.
-- **Setbacks, not losses:** being caught or badly shocked sends Enoch back to the last lit safe point, such as a shrine or repaired junction, and costs him time before dawn. Completed repairs stay completed.
+- **Win:** every fault on the job is repaired, the breaker is thrown, and the district relights. In the prototype, that means all of Lamp Row is lit and the Relight plays.
+- **Jobs take several nights.** A job is not meant to be finished on the first visit; Enoch's mentor tells him so with his first job (see [Gameplay](05-gameplay.md#core-loop-draft)).
+- **Loss: dawn.** A night lasts **15 minutes at most** *(Decided)*, and the sky shows it: the moon crosses the sky, then the horizon pales. If dawn breaks before the job is done, the night is lost: the player watches the sun come up over a street that is only partly lit while Enoch retreats underground. *(Decided.)* **The work stays done.** Every repair holds, and the next night starts in the Hollow with only the remaining faults left. *(Decided.)*
+- **Loss: death by shock.** A failed live repair shocks Enoch. A second shock in one night kills him, and one shock on a high-power line kills him outright. The night is lost, and **every repair made that night is undone**, with the parts used on them gone. Repairs from earlier nights stay. *(Decided.)* This makes live repairs a high-risk, high-reward choice.
+- **What always carries over:** the neon ribbons stay tied, so the player keeps what they learned even after a death. A repair in progress when a night is lost is cancelled, and its part stays in the satchel.
+- **Setbacks, not losses:** being caught by an abomination sends Enoch back to the last lit safe point, such as a shrine or a repaired fuse box, and costs him time before dawn. Completed repairs stay completed.
 - The tone stays melancholy, not punishing: no harsh game over screen, just the sun rising on a street that is still dark.
 
 ## Foreshadowing the full game

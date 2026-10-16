@@ -40,7 +40,13 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
 - [x] A night lasts 15 minutes at most. *(Decided.)*
 - [x] Dawn is the loss condition, and the player watches the sun come up. *(Decided.)*
-- [x] A lost night does not reset the faults: completed repairs stay. *(Decided.)*
+- [x] Dawn does not reset the faults: completed repairs stay. *(Decided.)*
+- [x] Death by shock (two shocks in a night, or one on a high-power line) undoes that night's repairs. *(Decided.)*
+- [x] Jobs are meant to take several nights, and the mentor tells the player so. Lamp Row is the tutorial. *(Decided.)*
+- [x] Enoch's lamp shows current within reach when raised; live cables don't glow otherwise. The separate test lamp is gone. *(Decided.)*
+- [x] Breakers shut a section off, switches divert power, and fuse boxes take fuses. The tribe marks breakers and switches. *(Decided.)*
+- [x] Neon ribbons (one color) mark found faults and stay across nights. *(Decided.)*
+- [ ] How many nights does a full job get, if any limit? Without one, players can farm salvage across nights.
 - [x] Parts come from salvage in the city and from a vendor in the Hollow, who buys and sells any part for scrip and never runs out. *(Decided.)*
 - [ ] What is the currency called? "Scrip" is a placeholder. Does it fit the faith, for example as temple tokens or offerings?
 - [ ] Prices: how much less does the vendor pay than it charges, and are some parts worth more than others?

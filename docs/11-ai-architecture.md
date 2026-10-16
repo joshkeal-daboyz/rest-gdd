@@ -39,7 +39,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 
 **Level Builder** · mid tier (Sonnet)
 - **One sentence:** lays out Lamp Row from canned asset pieces using a written layout file and the grid data when the layout changes, so the player sees the street, its cables, its salvage spots, and the vendor.
-- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `junction_A`, `salvage_02`, `vendor`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
+- **Input:** `levels/lamp-row.layout.json` (which pack pieces go where, plus named spots such as `lamp_03`, `fusebox_A`, `breaker_main`, `salvage_02`, `vendor`), `levels/lamp-row.grid.json`, the asset manifest, and a written description of the street from [World](04-world.md).
 - **Output:** the level loader and scene code; cables drawn between grid nodes; a top-down debug view and screenshots so the creative director can review the layout without opening any 3D tool.
 - **Why data, not Blender:** no one on the team models or uses Blender, so the level is a file agents can read, write, and diff.
 - **Owns:** `src/level/`.
@@ -52,26 +52,27 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Does not:** write its own physics.
 
 **Grid Simulator** · mid tier (Sonnet)
-- **One sentence:** computes power flow and fault states from the grid data whenever a repair changes it, so the player sees which lamps are dead, live, or damaged.
-- **Input:** the grid JSON (nodes, lines, faults), `repair:completed` events.
-- **Output:** the grid state and `grid:changed` events. The test lamp's reading comes from this state.
+- **One sentence:** computes power flow and fault states from the grid data whenever a repair, breaker, or switch changes it, so the player sees which lamps are dead, live, or damaged.
+- **Input:** the grid JSON (nodes, lines, faults, breakers, switches), `repair:completed` and `breaker:thrown` events.
+- **Output:** the grid state, `grid:changed` events, and `job:completed` when a breaker goes on with no faults left. The current Enoch's lamp reveals comes from this state.
+- **Also owns:** the night: the dawn timer, the shock count, and what resets when a night is lost (on death, that night's repairs are rolled back).
 - **Owns:** `src/grid/`. Pure logic with no rendering, so it can be unit tested.
 
 **Repair Interaction** · mid tier (Sonnet)
 - **One sentence:** builds the click-and-hold repair and its part check when a fault type is added, so the player sees Enoch work while the ring fills and is told exactly which part they still need.
 - **Input:** fault definitions from the grid data (required part, hold time), satchel contents.
-- **Output:** the hold interaction, the part check, and `repair:completed` and `repair:cancelled` events.
+- **Output:** the hold interaction, the part check, the live-repair timing check, and `repair:completed`, `repair:cancelled`, and `player:shocked` events.
 - **Owns:** `src/repair/`.
 
 **Lighting Director** ★ One Wow agent · mid tier (Sonnet)
 - **One sentence:** drives every lamp's glow, flicker, and the Relight cascade when the grid changes state, so the player sees the street come back to light.
-- **Input:** `grid:changed` events, the light-state table in [Art and Audio](08-art-audio.md), the light budget (8 real lights at most).
-- **Output:** emissive materials, selective bloom, real-light pooling near Enoch, flicker patterns, and the Relight: power traveling visibly along cables, lamps igniting in sequence, and the hum resolving into a chord.
+- **Input:** `grid:changed` and `job:completed` events, the light-state table in [Art and Audio](08-art-audio.md), the light budget (8 real lights at most).
+- **Output:** emissive materials, selective bloom, real-light pooling near Enoch, flicker patterns, the current pulses revealed by Enoch's raised lamp, and the Relight: power traveling visibly along cables, lamps igniting in sequence, and the hum resolving into a chord.
 - **Owns:** `src/lighting/`, `src/audio/grid-hum/`.
 - **Why it's the wow:** the Relight is the moment players will remember and share, and the technical strategy is built around making it work.
 
 **UI** · fast tier (Haiku)
-- **One sentence:** builds interaction prompts, the satchel, the vendor's buy and sell screen, and the test-lamp readout when a system needs to be shown, so the player knows what they can do.
+- **One sentence:** builds interaction prompts, the satchel, the vendor's buy and sell screen, and the neon ribbons when a system needs to be shown, so the player knows what they can do.
 - **Input:** events from the player, repair, and grid systems; the UI rules in [UI and UX](09-ui-ux.md).
 - **Output:** HTML/CSS overlay components.
 - **Owns:** `src/ui/`.
@@ -117,7 +118,7 @@ Creative Director ──▶ GDD ──▶ Lead Architect ──▶ GitHub Issues
 | --- | --- | --- |
 | `levels/*.grid.json`: grid nodes, lines, faults (with required part and hold time) | Level Builder, approved by the Creative Director |
 | `levels/*.layout.json`: which asset pieces go where | Level Builder, approved by the Creative Director | Grid Simulator, Level Builder, Repair Interaction |
-| `grid:changed`, `repair:completed`, `repair:cancelled` events | Lead Architect (defined in `src/core/events.ts`) | Lighting Director, UI, Repair Interaction |
+| `grid:changed`, `repair:completed`, `repair:cancelled`, `breaker:thrown`, `player:shocked`, `job:completed` events | Lead Architect (defined in `src/core/events.ts`) | Lighting Director, UI, Repair Interaction |
 | `assets/manifest.json` | Asset Scout | Level Builder, Player Controller, Lighting Director |
 | `content/lines/*.json` | Writer, Serpent Voice | UI |
 

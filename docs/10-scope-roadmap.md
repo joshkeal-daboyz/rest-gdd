@@ -6,18 +6,22 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 
 ## Phase 1: Prototype — Lamp Row
 
+Lamp Row is the tutorial job: short enough that a walk from the head of the street to its far end and back takes about a minute.
+
 **The weekend test:** two developers with the agent crew can build this in a weekend.
 
 ### In scope
 
 - One street: Lamp Row ([World](04-world.md)), with about 20 lamps.
 - Enoch walks, runs, and climbs poles, with a third-person camera.
-- A grid of about 10 nodes: a feed from the Hollow, junctions, and lamp circuits.
-- The **test lamp**, which reads a line as live, dead, or damaged.
+- A grid of about 10 nodes: a feed from the Hollow, two breakers (the main one beside the vendor, one on a side branch), fuse boxes, and lamp circuits. No switches.
+- **The lamp:** held up, it shows current as pulses in cables within about 5 meters. Damaged cables spark and live ones hum without it.
+- **Neon ribbons** to mark found faults; they stay across nights.
 - **The part economy:** three part types (fuses, wire, bulbs). About six salvage spots on Lamp Row that restock each night, and a vendor stall at the head of the street, standing in for the Hollow, that buys and sells any part for scrip and never runs out. A small satchel; parts can be dropped.
-- **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a chewed cable up a pole (wire).
+- **Click-and-hold repairs** that can't start without the required part, across three fault types: dead lamps (bulb), a blown fuse (fuse), and a damaged cable up a pole (wire).
+- **Live repairs:** a timing check on the ring; a miss is a shock, and two shocks in a night kill Enoch and undo that night's repairs.
 - **The Relight:** the wow moment when the street comes back to light. This is the win.
-- **Dawn:** a night of 15 minutes at most, shown by the sky. If dawn breaks first, the night is lost, but completed repairs stay. This is the loss.
+- **Losing a night:** a night lasts 15 minutes at most, shown by the sky. If dawn breaks first, the night is lost, but completed repairs stay. If Enoch dies of shock, the night is lost and that night's repairs are undone.
 - **Assets:** canned packs for the city and AI-generated models for Enoch and anything missing. No hand modeling.
 - Placeholder lines for Enoch and a job description from the temple.
 
@@ -27,11 +31,12 @@ The serpent, leveling, abominations, capacity choices, other districts, washing 
 
 ### Acceptance criteria
 
-- [ ] A new player relights Lamp Row in 8–12 minutes without outside help, inside the 15-minute night.
+- [ ] A new player relights Lamp Row within two nights without outside help, and understands from the mentor that more than one night is expected.
 - [ ] The player always knows which part a fault needs.
 - [ ] A player who loses to dawn understands why, sees that their repairs held, and finishes the job on the next night.
 - [ ] A player can never be left without a way to finish: the vendor always stocks every part, and salvage restocks each night.
-- [ ] Every fault can be found by following cables and using the test lamp.
+- [ ] Every fault can be found by following cables with the lamp raised, and players recognize cables as part of the game within the first minute.
+- [ ] A player who dies from a live repair understands why the night's repairs were lost and that the breaker was the safe choice.
 - [ ] Letting go of a repair early is clearly readable and costs only time.
 - [ ] The Relight passes gate G4.
 - [ ] 60 fps on a mid-range laptop; first load under 30 MB.
@@ -74,7 +79,7 @@ See the [Lore Bible](../Rest%20%E2%80%94%20Lore%20Bible.md).
 | --- | --- |
 | The core loop isn't fun on its own | The prototype has no progression or story systems to lean on; if relighting one street isn't satisfying, fix that before anything else |
 | Repair gameplay becomes repetitive | A new repair type per district; short repairs; finding the fault is the main puzzle |
-| The grid is hard to read | Clear cable visuals and the test lamp in the prototype; the grid map in the MVP |
+| The grid is hard to read | Every cable is a grid cable, the tribe marks breakers, the lamp shows current, and ribbons mark faults in the prototype; the grid map in the MVP |
 | The story's reveals arrive too fast or too slow | Pace reveals through machines read by the serpent; curious players find more, but nothing is required |
 | Ending Chapter One at the core gives away too much | Keep the reveal to "Light is a machine"; hold back humanity's fate and the Cherub |
 

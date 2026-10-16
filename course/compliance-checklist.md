@@ -17,7 +17,7 @@ How this GDD meets **Assignment #1: First Draft of GDD**, and the [Capstone GDD 
 
 | Criterion | Points | How the GDD addresses it |
 | --- | --- | --- |
-| **Game Specificity**: named game, identifiable core loop, stated win/loss condition | 3.0 | Named game (*Rest*) and character (Enoch); core loop stated in §1 and played out in §2; **win** (the street relights) and **loss** (dawn breaks first) stated in §1 and §2 |
+| **Game Specificity**: named game, identifiable core loop, stated win/loss condition | 3.0 | Named game (*Rest*) and character (Enoch); core loop stated in §1 and played out in §2; **win** (the street relights) and **loss** (the night is lost to dawn or to death by shock) stated in §1 and §2 |
 | **Player Experience Clarity**: what the player sees and does; agent behavior through gameplay effect | 2.5 | §2 is written from the player's point of view, starting on the dark street; every agent sentence in §3 ends with what the player sees or feels |
 | **Agent Role Clarity**: each agent named, its development role in one sentence; abstract terms only where specific | 2.0 | Ten prototype agents in §3, one sentence each; coordination terms in §4 are tied to Rest (why the Lighting Director only listens for `grid:changed`) |
 | **Technical Feasibility**: realistic scope; at least one constraint named and explained; plausible token budget | 1.5 | Prototype scoped to one street (§5); three constraints named and explained, including that the team doesn't model, plus an API constraints table (§4); token budget by agent and phase (§4) |
