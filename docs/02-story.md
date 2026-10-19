@@ -44,8 +44,8 @@ Enoch has no serpent in Act 1. He is one mechanic among many, working with his o
 
 ### Act 2: The chosen (Draft)
 
-- **Recognition.** The priests summon Enoch before the gathered gaze. Light has spoken through the lamps: this mechanic is a talented electrician, favored above the others. Brother Wick objects; a mechanic is not a priest.
-- **The gift.** The high priest places a serpent in Enoch's hands, the highest honor the tribe can give. The moment he touches it, he understands the mission: the dimming light, the depths, what he has to fix. There is no exposition; the player learns it when Enoch does.
+- **Recognition.** The priests summon Enoch before the gathered gaze. Light has spoken through the lamps: this mechanic is a talented electrician, favored above the others. The gathered gaze bows to him as Light's chosen. Their reverence is sincere and physical, the engineered faith at work. Only Brother Wick stays standing a moment too long before he bows; a mechanic is not a priest.
+- **The gift.** Mother Lumen places a serpent in Enoch's hands, the highest honor the tribe can give, and speaks the name Light gave it: **Vesper** (placeholder). The moment he touches it, he understands the mission: the dimming light, the depths, what he has to fix. There is no exposition; the player learns it when Enoch does.
 - **A reward, not really.** To the tribe, the serpent is a blessing. To Light, it is an investment and a leash: a capable pair of hands, now with a guide that decides what those hands are allowed to know. The player should feel the honor first and understand the cost much later.
 - **First words.** The serpent speaks for the first time. It is warm, gentle, and already a little nervous. It teaches him to sense current at a distance, without his lamp, which makes his lamp feel crude by comparison.
 - **Beyond the mechanics' work.** With the serpent, Enoch is sent where the other mechanics are not: past the lit districts, toward the heart of the grid. The serpent's first exploration bark: *"Shouldn't we go back? This isn't the way we were supposed to go."*

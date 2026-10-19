@@ -23,13 +23,14 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 
 ## Story and characters
 
-- [ ] Does the serpent have a name? If so, who gives it one: Light, the priests, or Enoch? (The Lore Bible lists self-naming as rebellion.)
-- [ ] Names for the high priest, the younger priest, Enoch's mentor, and the apprentice. Current names are placeholders.
+- [x] The serpent is named by Light and the name is spoken by the priests at the gift: **Vesper** (placeholder). *(Decided.)*
+- [x] Placeholder names: Mother Lumen (high priest), Brother Wick (younger priest, keeps the temple stores), Old Solder (mentor), Flux (apprentice). *(Placeholders.)*
 - [ ] How many missions does Enoch complete in Act 1 before he earns the serpent, and what are they?
-- [ ] How does the tribe see Enoch's recognition: do other mechanics resent it, and does anyone else hope to be chosen?
+- [x] The tribe shows reverence to Light's chosen: they bow. *(Decided.)*
 - [ ] How much of the epilogue shows Enoch's changed view of the city?
-- [ ] Does Light communicate directly with Enoch at the core, and if so, how?
-- [ ] Do raccoons speak a constructed language, with only the serpent fully voiced?
+- [x] Light speaks to Enoch at the core. *(Decided.)*
+- [ ] How does Light speak at the core: text on a screen, a voice, pulses of light, or a mix?
+- [x] Every character speaks English, for the sake of storytelling. *(Decided.)*
 
 ## Gameplay
 

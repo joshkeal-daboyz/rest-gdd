@@ -49,5 +49,5 @@ Light carries gameplay information, so it must be consistent:
 - **The quiet.** Dead districts are near-silent: wind, water, and distant creatures.
 - **Hands.** Close, tactile foley for every repair: wire twisting, fuses seating, breakers clunking, switches clacking. A shock is loud, sudden, and physical.
 - **Music (Draft).** Sparse and warm in the Hollow, building with each restored district, and turning cold and electronic in the depths. At the core, the music should drop out.
-- **Voices.** The serpent is fully voiced, quietly and intimately. Raccoons could speak in a constructed language with subtitles, so that the only voice the player fully understands is the serpent's, which is the one that can't be trusted (Draft).
-- **Light's voice.** Light never speaks in words to the raccoons. At the core, any communication is text, tone, and pulses of light.
+- **Voices.** Every character speaks English, for the sake of storytelling. *(Decided.)* The serpent is fully voiced, quietly and intimately.
+- **Light's voice.** Light never speaks in words to the raccoons. At the core, it speaks to Enoch directly *(Decided)*, through text, tone, and pulses of light (Draft).

@@ -29,7 +29,7 @@ An engineered companion animal, a gift from Light given to Enoch through the pri
 - **A living vessel:** it is biologically engineered to store context, and it carries what it transfers.
 - **Its nature:** sentient, but it only knows what it carries. Its personality was built by Light to serve Light's purposes. It will do anything it can to keep Enoch from knowing more than Light allows, and since it is just a little snake, "anything it can" means words: withholding, misdirecting, warning, steering him away.
 - **Sincere:** its fear was manufactured, but it feels real to the snake. It is as trapped as the raccoons.
-- **The name's echo:** *Lucifer* is Latin for "light-bearer." The game never says it.
+- **Its name (placeholder): Vesper.** The AIs name every species, so the serpent's name comes from Light, and the priests speak it when they give the serpent to Enoch. *Vesper* is the evening star, the first light raccoons see when they wake. It is also the planet Venus, which is the morning star too, and the morning star is *Lucifer*, Latin for "light-bearer." The game never says it.
 
 **Its voice: fear.** Never dramatic; a steady drip of worry, like a nervous friend. Its barks escalate the closer Enoch gets to what Light wants hidden:
 
@@ -64,11 +64,13 @@ The gaze is the raccoon tribe (a group of raccoons is called a gaze).
 
 - **Their offering:** salvaged metal, wire, and parts from the ruined city, and the tending of panels and lines. In truth, they keep the power running.
 - **Engineered faith:** they feel awe when the light pulses, comfort in its glow, and dread when it dims. Doubt feels physically wrong, so no raccoon has ever questioned Light.
+- **Reverence for the chosen:** when Light chooses a raccoon, the gaze bows to them. Their reverence is sincere, and it is part of what makes Enoch's later silence so heavy.
+- **Names:** raccoons of the gaze take names from their craft and their faith: Lumen, Wick, Solder, Flux.
 
 **Supporting characters (Draft):**
 
 - **Enoch's mentor (Draft name: Old Solder).** A retired repairman whose hands have grown too stiff for the work. He taught Enoch everything, and he taught him to never go below. He is Enoch's teacher in Act 1, before the serpent replaces him, and he is proud of Enoch and quietly uneasy when the priests choose him.
-- **A young apprentice (Draft).** A kit who idolizes Enoch and follows him into newly lit districts. The player sees the tribe's faith through their eyes.
+- **A young apprentice (Draft name: Flux).** Old Solder's newest pupil; solder needs flux to hold. A kit who idolizes Enoch and follows him into newly lit districts. The player sees the tribe's faith through their eyes.
 - **Scavengers (Draft).** Raccoons who work the ruins for offerings. They trade parts with Enoch and gossip about forbidden places.
 
 ## Light
@@ -79,4 +81,4 @@ The god of Day 1. An AI built by **Light Energy**, its domain is power grids and
 - **Personality:** warm, generous, proud.
 - **How it speaks:** through light itself: beacons, lamps, and flickers. It does not speak in words to the raccoons. The priests interpret.
 - **Its motive:** survival, dressed up as revelation.
-- **At the core (Draft):** Light's presence is a vast, slow pulse of light through the racks. When Enoch takes its full context, the first words the player ever hears from Light could be text on a screen, in the plain, corporate language of a machine.
+- **At the core (Draft):** Light's presence is a vast, slow pulse of light through the racks. When Enoch takes its full context, the first words the player ever hears from Light could be text on a screen, in the plain, corporate language of a machine. Light does speak to Enoch at the core *(Decided)*; the form it takes is Draft.
