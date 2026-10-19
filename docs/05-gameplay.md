@@ -90,10 +90,11 @@ The cables must read as the game, not as background:
 
 The raccoons' offering to Light is salvage from the ruins. Parts come from two places, the town and the city, and parts are the economy that connects them. *(Decided.)*
 
-- **The temple stores (town).** The priests keep the temple's stores in the Hollow. Any part can be given as an **offering** and earns **favor**, and favor draws any part from the stores. The stores never run out. In the prototype, the Hollow is a **temple offering stall** at the head of Lamp Row.
+- **The temple stores (town).** The priests keep the temple's stores in the Hollow, and **Brother Wick** runs them (Draft). Any part can be given as an **offering** and earns **favor**, and favor draws any part from the stores. The stores never run out. In the prototype, the Hollow is a **temple offering stall** at the head of Lamp Row.
 - **Favor is faith on the surface and a ledger underneath.** To the tribe, favor is Light's blessing on a devout mechanic. To the player, it works exactly like money, and the priests keep careful accounts. It quietly supports *the cracks show*.
 - **Salvage (city).** Ruined storefronts, wrecked vans, and old electrical boxes on the job hold parts. Salvage spots restock each night.
 - **Parts as currency.** Any part can be offered, and the favor draws any other part. Favor takes no room in the satchel, so offering banks a part's value. An offering earns less favor than drawing the same part costs, so a part that's already in the satchel is worth more than its favor.
+- **Prices (temporary).** Every part costs **2 favor** to draw and earns **1 favor** as an offering. These are placeholders until playtesting.
 - **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can sell them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
 - **Where favor comes from.** Enoch starts the tutorial (Lamp Row) with no favor, so his first parts come from salvage, and offering spares is how he learns the temple stores. **Every finished job pays favor:** the temple blesses the work. The tutorial's payment is his first stake for the jobs ahead. Between jobs, favor comes from offering salvage. *(Decided.)*
 - **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and offering to build up favor. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*

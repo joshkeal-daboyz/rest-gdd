@@ -56,7 +56,7 @@ The raccoons cannot read the light directly, so a priesthood interprets it for t
 **Named priests (Draft):**
 
 - **The high priest (Draft name: Mother Lumen).** Elderly, gentle, and certain. She gives Enoch the serpent. She is the face of sincere faith, and when Enoch returns changed she is the one he most wants to tell and least can.
-- **A younger priest (Draft name: Brother Wick).** Ambitious and rigid. He questions whether a mechanic should be trusted with a serpent, and he argues with Enoch about which lights deserve power. He is a soft antagonist inside the tribe.
+- **A younger priest (Draft name: Brother Wick).** Ambitious and rigid. He questions whether a mechanic should be trusted with a serpent, and he argues with Enoch about which lights deserve power. He is a soft antagonist inside the tribe. He also keeps the temple stores, so every offering Enoch makes passes through his hands (Draft).
 
 ## The gaze
 

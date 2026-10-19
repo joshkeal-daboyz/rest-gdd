@@ -50,9 +50,9 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Enoch starts with no favor; every finished job pays favor, starting with the tutorial. *(Decided.)*
 - [x] Parts come from salvage in the city and from the temple stores in the Hollow, which trade any part for favor and never run out. *(Decided.)*
 - [x] The currency is **favor**, kept by the temple. *(Decided.)*
-- [ ] Prices: how much less favor does an offering earn than drawing the part costs, and are some parts worth more than others?
-- [ ] Who keeps the temple stores: one of the named priests, or a new character?
-- [ ] Can parts be stored in the Hollow, or is selling the only way to bank them?
+- [ ] Prices: for now every part costs 2 favor and earns 1 as an offering (temporary). Revisit after playtesting: should some parts be worth more than others?
+- [ ] Brother Wick keeps the temple stores (tentative). Does it fit, or should it be someone else?
+- [ ] Can parts be stored in the Hollow, or is offering them the only way to bank their value?
 - [ ] With repairs kept, losing a night costs only time. Does dawn need any further cost, such as a fault that degrades again or priests who react?
 - [ ] In the MVP, is context earned once per fault, so no fault can be farmed?
 - [ ] Are the thresholds and abilities before illuminate (sense current, steady hands, carry charge) the right ones?
