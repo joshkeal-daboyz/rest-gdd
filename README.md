@@ -125,7 +125,7 @@ The **cold playtest** is how "without help" is measured, because the QA Playtest
 | Physics and movement | **Rapier** character controller | Agents don't rewrite movement and collision |
 | Glow | **`postprocessing`** (selective bloom) | Lamps glow without a real light per lamp |
 | Level layout | A **written layout file** (JSON) placing canned pieces, lamps, grid nodes, salvage spots, and the temple stores, plus a top-down debug view for review | Three.js has no editor, and no one on the team models, so levels are data |
-| Assets | **Free CC0 packs** (Quaternius, KayKit, Kenney) for the city; **Enoch generated in Tripo** from the creative director's hand-drawn concept art (Meshy as the backup), auto-rigged and animated with **Mixamo** | Free to start; no hand modeling anywhere in the pipeline |
+| Assets | **Free CC0 packs** (Quaternius, KayKit, Kenney) for the city; **Enoch generated in Tripo** from the creative director's hand-drawn concept art (Meshy as the backup), **auto-rigged in Tripo** (tail included), and animated with stock **Mixamo** animations. Fallback: a Tripo sample character close to Enoch's look | Free to start; no hand modeling anywhere in the pipeline |
 | Hosting | **GitHub Pages** | A free, shareable link for playtests |
 
 ### Agent roles and the pipeline
@@ -154,7 +154,7 @@ Agents hand off work through **files**, not conversation: the grid JSON, a handf
 | --- | --- | --- |
 | **Claude** (the agent crew) | Plan usage limits per session and per week; finite context windows | Agents run in sequence, not all at once; the top-tier model is reserved for the Lead Architect; agents load the short GDD plus only the docs their ticket links |
 | **Tripo / Meshy** | Credit-limited generation | Generate only Enoch (from the creative director's drawings) and what the free packs don't have; every generation passes gate G2 |
-| **Mixamo** | No public API | Auto-rigging and picking animations is a short manual step (upload, place markers, download), with no modeling skill needed |
+| **Mixamo** | No public API | Picking animations for Tripo's rig is a short manual step (upload, pick, download), with no modeling skill needed |
 | **Freesound** | API key required; rate limited; CC-BY sounds need credit | The Asset Scout batches searches and records every license in the manifest |
 | **GitHub Pages** | Size limits on sites and files | Compressed models and audio; a first-load budget under 30 MB |
 | **The game itself** | None | No runtime API calls: no keys in the browser, no per-player cost, no rate limits for players |

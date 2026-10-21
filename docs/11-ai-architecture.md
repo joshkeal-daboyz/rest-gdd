@@ -46,7 +46,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 
 **Player Controller** · mid tier (Sonnet)
 - **One sentence:** builds Enoch's movement, pole climbing, and camera on Rapier's character controller, so the player can run, climb, and look around.
-- **Input:** Enoch's AI-generated model and Mixamo animations (including a working animation for repairs), climbable spots from the level.
+- **Input:** Enoch's AI-generated model, rigged in Tripo, and Mixamo animations (including a working animation for repairs), climbable spots from the level.
 - **Output:** movement, climbing, camera follow and collision, the animation state machine.
 - **Owns:** `src/player/`, `src/camera/`.
 - **Does not:** write its own physics.

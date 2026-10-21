@@ -13,7 +13,7 @@
 | Post-processing | **`postprocessing`** (pmndrs) | Selective bloom on emissive lamp materials |
 | Models | **glTF / GLB** via `GLTFLoader`, Draco-compressed | One format for every asset |
 | Level layout | **Written layout files** (`levels/*.layout.json`) | Three.js has no editor and no one on the team models, so levels are data: which pack piece goes where. A top-down debug view and screenshots let the creative director review layouts without a 3D tool |
-| Character pipeline | Hand-drawn concept art → **Tripo** image-to-3D (Meshy as backup) → **Mixamo** auto-rig and animations | No hand modeling: the creative director draws Enoch (front, side, back), photographs the drawings, and Tripo generates the model; Mixamo's humanoid rig adds stock animations (walk, run, climb, a working loop for repairs) |
+| Character pipeline | Hand-drawn concept art → **Tripo** image-to-3D (Meshy as backup) → **Tripo auto-rig** → **Mixamo** animations | No hand modeling: the creative director draws Enoch (front, side, back), photographs the drawings, and Tripo generates the model. Tripo's auto-rig handles humans, animals, and stylized characters, so it rigs Enoch's tail as well as his body, and exports FBX or GLB that Mixamo accepts. Mixamo adds stock animations (walk, run, climb, a working loop for repairs). Mixamo animations drive only the body, so the tail gets a simple sway in code |
 | Asset processing | **glTF-Transform** (command line) | Agents compress and resize models with scripts, not by hand |
 | Audio | Web Audio API, through Three.js `PositionalAudio` | The grid hum is positional, so live lines sound alive near Enoch |
 | Testing | **Vitest** (logic), **Playwright** (scripted playthroughs) | Run by the QA Playtester on every pull request |
@@ -48,7 +48,7 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 | --- | --- | --- |
 | **Claude** (the agent crew) | Plan usage limits per session and per week; finite context windows | Agents run in sequence, not all at once; the top-tier model is reserved for the Lead Architect; agents load the short GDD plus only the docs their ticket links; each agent owns one folder, so files stay small |
 | **Tripo / Meshy** | Credit-limited generation | Generate only Enoch (from the creative director's drawings) and what the free packs don't have; every generation passes gate G2 |
-| **Mixamo** | No public API | Auto-rigging and picking animations is a short manual step (upload, place markers, download), with no modeling skill needed |
+| **Mixamo** | No public API | Picking animations for Tripo's rig is a short manual step (upload, pick, download), with no modeling skill needed |
 | **Freesound** | API key required; rate limited; CC-BY sounds need credit | The Asset Scout batches searches and records every license in the manifest |
 | **GitHub Pages** | Size limits on sites and files | Draco-compressed models, compressed audio, and a first-load budget under 30 MB |
 | **The game itself** | None | No runtime API calls: no keys in the browser, no per-player cost, no rate limits for players |
@@ -57,11 +57,11 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 
 | Risk | Why it's a risk | Plan |
 | --- | --- | --- |
-| **The AI-generated character** | A generated raccoon may come out with a broken mesh, a bad rig, or a style that doesn't match the city pack, and no one on the team can fix it by hand | Validate it first: generate, auto-rig, and animate Enoch before any gameplay. Redraw or regenerate until it passes gate G2; clean, front-facing turnaround drawings give image-to-3D the best results. Fallback: a stock animal character from a pack, re-textured as a raccoon. Repairs use a third-person working animation, so no close-ups of his hands are needed |
+| **The AI-generated character** | A generated raccoon may come out with a broken mesh, a bad rig, or a style that doesn't match the city pack, and no one on the team can fix it by hand | Validate it first: generate, auto-rig, and animate Enoch before any gameplay. Redraw or regenerate until it passes gate G2; clean, front-facing turnaround drawings give image-to-3D the best results. **Timebox:** if Enoch isn't walking in Three.js after one evening, switch to the fallback. **Fallback:** one of Tripo's sample characters close to Enoch's look, rigged the same way; gate G2 checks that its license allows use in a published game. Repairs use a third-person working animation, so no close-ups of his hands are needed |
 | **A mismatched look** | Canned and generated assets come from different sources | One free pack family for the city; Enoch drawn in that pack's style; gate G2 |
 | **Many lights** | A street of lamps can tank performance | Prove the 8-light rule and bloom in the first validation step, with 20+ lamps on screen |
 | **No level editor** | Agents can't "see" a level they lay out, and the team doesn't use 3D tools | Levels are written layout files; the QA Playtester captures screenshots and a top-down view for the creative director to review |
-| **Camera and climbing feel** | Third-person cameras in tight streets clip and frustrate | Use Rapier for collision; a camera that pulls in near walls; playtest at G5 |
+| **Camera and climbing feel** | Third-person cameras in tight streets clip and frustrate. Rapier has no climbing, so the climb state is custom code, and Mixamo has ladder and wall climbs but no pole climb | Use Rapier for collision; a camera that pulls in near walls; adapt a ladder climb for poles; playtest at G5. Climbing is first on the [cut list](10-scope-roadmap.md#cut-list) if the build falls behind |
 | **Never used Three.js for a game** | Unknown pitfalls | Validation steps keep each risk small and visible |
 | **Token overrun** | 3D work costs far more tokens than 2D | Track usage per agent; cut scope before the budget runs out |
 
@@ -69,7 +69,7 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 
 Each step must work before the next starts.
 
-1. Enoch's model is generated in Tripo from the creative director's drawings, auto-rigged in Mixamo, and walking in an empty Three.js scene.
+1. Enoch's model is generated in Tripo from the creative director's drawings, auto-rigged in Tripo, animated with Mixamo, and walking in an empty Three.js scene, with his tail bending cleanly and not pulling the legs or mesh. Timeboxed to one evening before switching to the fallback.
 2. Enoch runs and climbs a pole on Rapier, with a working camera.
 3. Lamp Row loads from its layout file, built from canned pieces, with 20+ lamps at 60 fps under the light budget.
 4. The grid simulator lights and darkens lamps from JSON, including breakers, and the raised lamp shows current pulses in nearby cables.
