@@ -55,7 +55,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **One sentence:** computes power flow and fault states from the grid data whenever a repair, breaker, or switch changes it, so the player sees which lamps are dead, live, or damaged.
 - **Input:** the grid JSON (nodes, lines, faults, breakers, switches), `repair:completed` and `breaker:thrown` events.
 - **Output:** the grid state, `grid:changed` events, and `job:completed` when a breaker goes on with no faults left. The current Enoch's lamp reveals comes from this state.
-- **Also owns:** the night: the dawn timer, the shock count, and what resets when a night is lost (on death, that night's repairs are rolled back).
+- **Also owns:** the night: the dawn timer (on game time, with a capped step), pausing on Esc, a hidden tab, or lost focus, the shock count, and what resets when a night is lost (on death, that night's repairs are rolled back).
 - **Owns:** `src/grid/`. Pure logic with no rendering, so it can be unit tested.
 
 **Repair Interaction** · mid tier (Sonnet)

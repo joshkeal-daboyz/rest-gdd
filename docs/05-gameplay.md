@@ -212,3 +212,4 @@ Rest runs in the browser, so keyboard and mouse come first. Gamepad support is p
 | R | RB / R1 | Ability (illuminate, after the core) |
 | 1–4 | D-pad | Satchel quick select |
 | Tab | View / Touchpad | Grid map |
+| Esc | Start / Options | Pause (the night clock stops) |
