@@ -39,7 +39,7 @@ Every course concept is tied to a specific mechanic in Rest:
 
 1. **Pipeline:** "The Grid Simulator takes the grid JSON and repair events, produces grid state and `grid:changed` events, and the player sees lamps go dead, flicker, or light. The Lighting Director takes those events and produces the Relight, and the player sees the street come back to light."
 2. **Constraints:** "My biggest constraint is that Three.js is a rendering library, not an engine, because it provides no editor, physics, character controller, or animation tooling, so each must come from a named library, or agents will invent their own."
-3. **Budget:** about 2.9M tokens for the prototype, about 10M for the MVP.
+3. **Budget:** about 2.6M tokens for the prototype, about 10M for the MVP.
 
 ## Before submitting
 

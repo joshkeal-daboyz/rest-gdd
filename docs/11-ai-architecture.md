@@ -84,11 +84,7 @@ The model tier is a default: the top tier for reasoning across the whole project
 - **Output:** `content/lines/*.json`. Text only, never code.
 - **Owns:** `content/`.
 
-**QA Playtester** · fast tier (Haiku)
-- **One sentence:** plays the build automatically after every merge and checks it against the GDD's acceptance criteria and performance budget, so the player gets a stable game.
-- **Input:** acceptance criteria from tickets and [Scope and Roadmap](10-scope-roadmap.md); the built site.
-- **Output:** a test report on the pull request: scripted playthroughs (Playwright), frame rate, draw calls, console errors.
-- **Owns:** `tests/`.
+**QA is human.** Rest has one developer, the creative director, and there is no QA agent. The creative director plays every build by hand against the acceptance criteria in [Scope and Roadmap](10-scope-roadmap.md) before it merges, and checks frame rate on their own laptop. Each specialist writes Vitest logic tests for its own code; the Grid Simulator's tests cover the Lamp Row rules (every fault reachable and fixable, the job always finishable, the hidden fuse box, dawn and death rollback).
 
 ### Added in the MVP
 
@@ -114,7 +110,7 @@ Creative Director ──▶ GDD ──▶ Lead Architect ──▶ GitHub Issues
                               Specialist agent works on its own branch, in its own folder
                                                        │
                                                        ▼
-                              Pull request ──▶ QA Playtester report ──▶ Human gate ──▶ main
+                              Pull request ──▶ logic tests ──▶ creative director plays it (QA) ──▶ Human gate ──▶ main
 ```
 
 ### Contracts
@@ -137,7 +133,7 @@ Creative Director ──▶ GDD ──▶ Lead Architect ──▶ GitHub Issues
 | **G4 The Wow** | The Relight, played in the browser | It merges | Merged | The Lighting Director reworks timing, color, and sound |
 | **G5 Playtest** | A full playthrough of the phase, plus one cold playtest | The phase is called done | The next phase starts | A fix list is ticketed |
 
-**The cold playtest.** The QA Playtester already knows the rules, so it can't show where a new player gets lost. At G5, one person who has never seen the game plays the phase with no coaching. The creative director runs a stopwatch, notes every place they stall and what they tried, and asks one question at the end: *"What did you think the temple was?"* The stalls become the fix list, and the answer shows whether the premise is landing.
+**The cold playtest.** The developer already knows the rules, so their own playtests can't show where a new player gets lost. At G5, a classmate who has never seen the game plays the phase with no coaching. The creative director runs a stopwatch, notes every place they stall and what they tried, and asks one question at the end: *"What did you think the temple was?"* The stalls become the fix list, and the answer shows whether the premise is landing.
 
 ## Reference documents agents rely on
 

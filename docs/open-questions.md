@@ -10,7 +10,7 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Platform and engine: browser, Three.js. *(Decided.)*
 - [x] Prototype scope: Lamp Row only. *(Decided.)*
 - [x] Prototype cut list: pole climbing, then live repairs, then the temple stores, then the hidden fuse box, then the side breaker. The core is never cut. *(Decided.)*
-- [ ] Time budget: how many hours or days do the two developers have for the prototype? The budget is only in tokens so far.
+- [ ] Time budget: how many hours or days does the developer have for the prototype? The budget is only in tokens so far.
 - [x] AI in the game: dev-time agents only. *(Decided.)*
 
 ## Technical

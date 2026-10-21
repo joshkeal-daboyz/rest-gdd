@@ -92,13 +92,12 @@ All AI in Rest is **development-time**. A crew of specialized agents builds the 
 | **Lighting Director** ★ | Drives every lamp's glow, the current pulses Enoch's lamp reveals, and the Relight, so the player watches power travel down the cables and the street come back to light. **This is the One Wow agent.** |
 | **UI** | Builds interaction prompts, the satchel, the temple stores' offering screen, and the prayer ribbons, so the player always knows what they can pick up, trade, mark, or fix. |
 | **Writer** | Drafts Enoch's lines and the temple's job descriptions in the Lore Bible's voice, so the player hears a devout mechanic who explains the ruins through his faith. |
-| **QA Playtester** | Plays the build automatically after every change and checks it against the acceptance criteria, so the player never meets a fault that can't be found or a repair that can't be finished. |
 
 The **MVP** adds a **Progression** agent (context and skills), an **Abomination Behavior** agent (the Drafts), a **Journal** agent, and a **UI Juice** agent ([detail](docs/11-ai-architecture.md#added-in-the-mvp)). **Chapter One** adds a **Serpent Voice** writer ([detail](docs/11-ai-architecture.md#added-in-chapter-one)).
 
 ### Creative control and human review gates
 
-The human creative director owns **lore, story, characters, dialogue, art direction, and the feel of the Relight**, and draws Enoch's concept art by hand. Agents may propose changes to these but never decide them. Agents own implementation, integration, tests, and asset search.
+The human creative director owns **lore, story, characters, dialogue, art direction, and the feel of the Relight**, and draws Enoch's concept art by hand. Agents may propose changes to these but never decide them. Agents own implementation, integration, tests, and asset search. Rest is built by **one developer**, the creative director, who is also the **QA playtester**: every build is played by hand against the acceptance criteria before it merges. Each specialist writes logic tests for its own code.
 
 | Gate | Before | Approve → / Reject → |
 | --- | --- | --- |
@@ -108,7 +107,7 @@ The human creative director owns **lore, story, characters, dialogue, art direct
 | **G4 The Wow** | The Relight is merged | Merged / Lighting Director reworks timing, color, and sound |
 | **G5 Playtest** | A phase is called done; includes a **cold playtest** by someone new to the game | Next phase / fix list |
 
-The **cold playtest** is how "without help" is measured, because the QA Playtester already knows the rules and can't get confused. One person who has never seen the game plays it with no coaching. The creative director times them, notes where they stall, and asks one question at the end: *"What did you think the temple was?"*
+The **cold playtest** is how "without help" is measured, because the developer already knows the rules and can't play as a new player. A classmate who has never seen the game plays it with no coaching. The creative director times them, notes where they stall, and asks one question at the end: *"What did you think the temple was?"*
 
 ---
 
@@ -134,7 +133,7 @@ The **cold playtest** is how "without help" is measured, because the QA Playtest
 Creative Director (human) ─▶ GDD ─▶ Lead Architect ─▶ tickets (GitHub Issues)
                                                          │
      Asset Scout ─▶ asset manifest ─┐                    ▼
-                                    ├─▶ specialists build on branches ─▶ QA Playtester ─▶ human gate ─▶ main
+                                    ├─▶ specialists build on branches ─▶ creative director plays it (QA) ─▶ human gate ─▶ main
      Grid data (JSON) ─▶ Grid Simulator ─▶ grid events ─▶ Lighting Director, UI, Repair Interaction
 ```
 
@@ -170,11 +169,10 @@ Agents hand off work through **files**, not conversation: the grid JSON, a handf
 | Repair Interaction | Mid (Sonnet) | 150K |
 | Grid Simulator | Mid (Sonnet) | 150K |
 | Writer | Mid (Sonnet) | 50K |
-| QA Playtester | Fast (Haiku) | 300K |
 | UI | Fast (Haiku) | 150K |
 | Asset Scout | Fast (Haiku) | 100K |
 | Overhead and rework | — | 250K |
-| **Prototype total** | | **~2.9M** |
+| **Prototype total** | | **~2.6M** |
 
 The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Rest is 3D, so it sits well above the course's ~1M estimate for a simple Phaser game. This first estimate will be wrong; usage is recorded per agent and the projection is revised after the prototype.
 

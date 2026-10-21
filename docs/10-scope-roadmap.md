@@ -8,7 +8,7 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 
 Lamp Row is the tutorial job: short enough that a walk from the head of the street to its far end and back takes about a minute.
 
-**The weekend test:** the prototype's core (below) is what two developers with the agent crew build in a weekend. The full scope may take a week or two, the course's limit. Agents run one at a time under usage limits, so the [cut list](#cut-list) says what goes first if the build falls behind.
+**The weekend test:** the course's benchmark is two developers in a weekend. Rest has one developer, the creative director, with the agent crew, so the prototype's core (below) is the weekend build. The full scope may take a week or two, the course's limit. Agents run one at a time under usage limits, so the [cut list](#cut-list) says what goes first if the build falls behind.
 
 ### In scope
 

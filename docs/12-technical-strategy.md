@@ -16,7 +16,7 @@
 | Character pipeline | Hand-drawn concept art → **Tripo** image-to-3D (Meshy as backup) → **Tripo auto-rig** → **Mixamo** animations | No hand modeling: the creative director draws Enoch (front, side, back), photographs the drawings, and Tripo generates the model. Tripo's auto-rig handles humans, animals, and stylized characters, so it rigs Enoch's tail as well as his body, and exports FBX or GLB that Mixamo accepts. Mixamo adds stock animations (walk, run, climb, a working loop for repairs). Mixamo animations drive only the body, so the tail gets a simple sway in code |
 | Asset processing | **glTF-Transform** (command line) | Agents compress and resize models with scripts, not by hand |
 | Audio | Web Audio API, through Three.js `PositionalAudio` | The grid hum is positional, so live lines sound alive near Enoch |
-| Testing | **Vitest** (logic), **Playwright** (scripted playthroughs) | Run by the QA Playtester on every pull request |
+| Testing | **Vitest** (logic tests each specialist writes for its own code), plus hand playtesting | Logic tests run on every pull request; the creative director plays every build before it merges |
 | Hosting | **GitHub Pages** | The playable build lives at a shareable link |
 | Input | Keyboard and mouse | Gamepad support after the MVP |
 
@@ -60,7 +60,7 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 | **The AI-generated character** | A generated raccoon may come out with a broken mesh, a bad rig, or a style that doesn't match the city pack, and no one on the team can fix it by hand | Validate it first: generate, auto-rig, and animate Enoch before any gameplay. Redraw or regenerate until it passes gate G2; clean, front-facing turnaround drawings give image-to-3D the best results. **Timebox:** if Enoch isn't walking in Three.js after one evening, switch to the fallback. **Fallback:** one of Tripo's sample characters close to Enoch's look, rigged the same way; gate G2 checks that its license allows use in a published game. Repairs use a third-person working animation, so no close-ups of his hands are needed |
 | **A mismatched look** | Canned and generated assets come from different sources | One free pack family for the city; Enoch drawn in that pack's style; gate G2 |
 | **Many lights** | A street of lamps can tank performance | Prove the 8-light rule and bloom in the first validation step, with 20+ lamps on screen |
-| **No level editor** | Agents can't "see" a level they lay out, and the team doesn't use 3D tools | Levels are written layout files; the QA Playtester captures screenshots and a top-down view for the creative director to review |
+| **No level editor** | Agents can't "see" a level they lay out, and the team doesn't use 3D tools | Levels are written layout files; the Level Builder captures screenshots and a top-down view for the creative director to review |
 | **Camera and climbing feel** | Third-person cameras in tight streets clip and frustrate. Rapier has no climbing, so the climb state is custom code, and Mixamo has ladder and wall climbs but no pole climb | Use Rapier for collision; a camera that pulls in near walls; adapt a ladder climb for poles; playtest at G5. Climbing is first on the [cut list](10-scope-roadmap.md#cut-list) if the build falls behind |
 | **Never used Three.js for a game** | Unknown pitfalls | Validation steps keep each risk small and visible |
 | **Token overrun** | 3D work costs far more tokens than 2D | Track usage per agent; cut scope before the budget runs out |
@@ -93,15 +93,14 @@ Each step must work before the next starts.
 | Lighting Director | 600K | The wow moment; the most iteration |
 | UI | 150K | Small overlay |
 | Writer | 50K | A few dozen lines |
-| QA Playtester | 300K | Runs on every pull request |
 | Overhead | 250K | Context loading, rework after rejected gates |
-| **Total** | **~2.9M** | |
+| **Total** | **~2.6M** | |
 
 ### Projection by phase
 
 | Phase | Projection |
 | --- | --- |
-| Prototype | ~2.9M |
+| Prototype | ~2.6M |
 | MVP | ~10M |
 | Chapter One | ~25M+ |
 
