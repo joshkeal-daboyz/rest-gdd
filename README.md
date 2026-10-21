@@ -33,7 +33,7 @@ You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves
 
 Night falls on Lamp Row. A few lamps flicker; most are dead. Enoch stands at the Hollow end of the street with a satchel, a spool of prayer ribbon, and his **lamp**, and the moon is just rising. Every cable in the street is part of the grid, and the player can follow them.
 
-Jobs are meant to take more than one night. Enoch's mentor says so when he hands over the first one: look first, come back ready.
+Jobs are meant to take more than one night. Enoch's mentor says so when he hands over the first one: look first, come back ready. On the first night, the mentor teaches each step below the first time the player needs it, never all at once ([onboarding](docs/09-ui-ux.md#onboarding-the-first-night)).
 
 1. **Prep in town.** Parts come in three kinds: **fuses, wire, and bulbs**. In the Hollow, the **temple stores** trade in **favor**: any part given as an offering earns favor, and favor draws any part from the stores, which never run out. Favor takes no room in the satchel, so offering spare parts banks their value for later. The satchel holds only **4 parts**, so the player plans what to carry out before the job. Enoch starts the tutorial with no favor: he earns it by salvaging and offering. **Every finished job pays favor,** starting with the tutorial. For now, every part costs **2 favor** to draw and earns **1 favor** as an offering (temporary, until playtesting). Jobs have no night limit, so farming salvage across nights is a valid strategy. In the prototype, the Hollow is a temple offering stall at the head of Lamp Row.
 2. **Read the lines.** With the breaker on, the player **holds up the lamp**, and any cable within about 5 meters shows its current: pulses of light flowing away from the source. Dead cables show nothing. Damaged cables spark on their own, even without the lamp. Live cables never glow on their own, so the street stays dark until Enoch looks. Enoch walks slower with the lamp raised. Each fault has a signature:
@@ -105,7 +105,9 @@ The human creative director owns **lore, story, characters, dialogue, art direct
 | **G2 Style** | Any asset enters the project | Asset imported / Scout searches again |
 | **G3 Words** | Any line of dialogue or text ships | Line merged / Writer revises against the Lore Bible |
 | **G4 The Wow** | The Relight is merged | Merged / Lighting Director reworks timing, color, and sound |
-| **G5 Playtest** | A phase is called done | Next phase / fix list |
+| **G5 Playtest** | A phase is called done; includes a **cold playtest** by someone new to the game | Next phase / fix list |
+
+The **cold playtest** is how "without help" is measured, because the QA Playtester already knows the rules and can't get confused. One person who has never seen the game plays it with no coaching. The creative director times them, notes where they stall, and asks one question at the end: *"What did you think the temple was?"*
 
 ---
 

@@ -84,7 +84,7 @@ The cables must read as the game, not as background:
 - **Every cable is a grid cable** (see above).
 - **The tribe marks the grid.** Holy lines carry prayer ribbons, and breakers, switches, and fuse boxes are painted with the gaze's symbols.
 - **Lines at eye level.** Fuse boxes, breakers, and most cables run along walls and at street level, where the third-person camera sees them. Overhead runs are kept for cables Enoch has to climb to, and their sparks are visible from the ground.
-- **The first 30 seconds teach it.** The first night opens at the Hollow's feed. Enoch raises his lamp, and the line lights up with pulses running off down Lamp Row. His mentor says: *"Follow it until it goes quiet."*
+- **The first 30 seconds teach it.** The first night opens at the Hollow's feed. Enoch raises his lamp, and the line lights up with pulses running off down Lamp Row. His mentor says: *"Follow it until it goes quiet."* The rest of the first night's teaching follows the same rule: each step is taught when the player first needs it (see [UI and UX](09-ui-ux.md#onboarding-the-first-night)).
 
 ## Salvage (Draft)
 

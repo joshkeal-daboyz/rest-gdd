@@ -76,6 +76,7 @@ Each step must work before the next starts.
 5. One click-and-hold repair (a dead lamp needing a bulb) works end to end, including the part check.
 6. The blown fuse, the damaged cable, live repairs with shocks, and prayer ribbons are added; salvage, the temple stores, the satchel, and the 15-minute night work, and repairs carry over when dawn ends a night.
 7. The Relight passes gate G4.
+8. A cold playtest at gate G5: someone new to the game relights Lamp Row within two nights with no coaching.
 
 ## Token budget
 

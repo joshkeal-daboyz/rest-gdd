@@ -31,7 +31,7 @@ The serpent, leveling, abominations, capacity choices, other districts, the jour
 
 ### Acceptance criteria
 
-- [ ] A new player relights Lamp Row within two nights without outside help, and understands from the mentor that more than one night is expected.
+- [ ] A new player relights Lamp Row within two nights without outside help, and understands from the mentor that more than one night is expected. Measured by the cold playtest at gate G5 ([AI Architecture](11-ai-architecture.md#creative-control-and-review-gates)).
 - [ ] The player always knows which part a fault needs.
 - [ ] A player who loses to dawn understands why, sees that their repairs held, and finishes the job on the next night.
 - [ ] A player can never be left without a way to finish: the temple stores always hold every part, and salvage restocks each night.

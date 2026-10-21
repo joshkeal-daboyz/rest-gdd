@@ -10,6 +10,22 @@ All entries in this section are Draft.
 - **A character is the interface.** In Act 1, Enoch's mentor and the temple's job postings give tutorials and objectives. From Act 2, the serpent takes over: tutorials, hints, and objectives come from it, and its glow doubles as a status indicator.
 - **Diegetic where possible.** The map is Enoch's hand-drawn chart, and the journal is his own notebook.
 
+## Onboarding: the first night
+
+Old Solder, Enoch's mentor, stands at the offering stall at the head of Lamp Row. He teaches each step **the first time the player needs it**, never all at once, and says nothing about steps the player has already worked out. The beats are set here; their lines are written by the creative director and the Writer and pass gate G3.
+
+| # | Moment | What it teaches |
+| --- | --- | --- |
+| 1 | The night opens at the feed | Raise the lamp and follow the current until it goes quiet |
+| 2 | The player reaches the first dead lamp | The pulses stop here, so this is a fault: tie a ribbon |
+| 3 | The first repair attempt without the part | *Needs: bulb* shows, and Solder points to salvage nearby |
+| 4 | The player reaches a live fault | The prompt warns *Live line*, and Solder says to cut the power first |
+| 5 | The first breaker thrown off | The street goes dark and the ribbons glow, so marking first pays off |
+| 6 | The satchel is full, or a part is missing | The offering stall: offer spares for favor, draw what's needed |
+| 7 | The first dawn, if it comes | The repairs held and the ribbons stayed; come back ready |
+
+Whether this works is checked by a **cold playtest** at gate G5 (see [AI Architecture](11-ai-architecture.md#creative-control-and-review-gates)).
+
 ## HUD
 
 | Element | When shown |

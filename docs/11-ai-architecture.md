@@ -135,7 +135,9 @@ Creative Director ──▶ GDD ──▶ Lead Architect ──▶ GitHub Issues
 | **G2 Style** | Every asset in the manifest; every generated model | The asset enters the project | Imported | The Asset Scout searches again, or a generation is redone |
 | **G3 Words** | Every line of dialogue and text | It ships | Merged | The Writer revises against the Lore Bible |
 | **G4 The Wow** | The Relight, played in the browser | It merges | Merged | The Lighting Director reworks timing, color, and sound |
-| **G5 Playtest** | A full playthrough of the phase | The phase is called done | The next phase starts | A fix list is ticketed |
+| **G5 Playtest** | A full playthrough of the phase, plus one cold playtest | The phase is called done | The next phase starts | A fix list is ticketed |
+
+**The cold playtest.** The QA Playtester already knows the rules, so it can't show where a new player gets lost. At G5, one person who has never seen the game plays the phase with no coaching. The creative director runs a stopwatch, notes every place they stall and what they tried, and asks one question at the end: *"What did you think the temple was?"* The stalls become the fix list, and the answer shows whether the premise is landing.
 
 ## Reference documents agents rely on
 
