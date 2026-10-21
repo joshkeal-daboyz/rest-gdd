@@ -95,7 +95,17 @@ The raccoons' offering to Light is salvage from the ruins. Parts come from two p
 - **Salvage (city).** Ruined storefronts, wrecked vans, and old electrical boxes on the job hold parts. Salvage spots restock each night.
 - **Parts as currency.** Any part can be offered, and the favor draws any other part. Favor takes no room in the satchel, so offering banks a part's value. An offering earns less favor than drawing the same part costs, so a part that's already in the satchel is worth more than its favor.
 - **Prices (temporary).** Every part costs **2 favor** to draw and earns **1 favor** as an offering. These are placeholders until playtesting.
-- **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can sell them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
+- **Lamp Row by the numbers (temporary).** These are starting values for the prototype, to be tuned in playtesting:
+
+  | | Value |
+  | --- | --- |
+  | Satchel | Holds **4 parts**, one per quick-select key |
+  | Faults | **8 in all:** 5 dead lamps (bulbs), 2 blown fuses (fuses), 1 damaged cable (wire). One fuse box is hidden until a dead lamp beyond it is fixed and the breaker goes back on. |
+  | Salvage | **6 spots**, each holding **1 part** of a fixed type each night: 3 bulb spots, 1 fuse spot, 1 wire spot, and 1 spot with a random part |
+  | Job payment | Finishing Lamp Row pays **6 favor**, enough to draw 3 parts for the next job |
+
+  The job needs 8 parts and the satchel holds 4, so it takes at least two trips, which fits a job meant to take two nights. One night's salvage covers most of the job but not all of it, so the player has to use the temple stores.
+- **Prep for the future.** Salvage turns up parts the current job doesn't need. The player can offer them, or keep them for a later job. In the MVP and beyond, the city holds parts for districts the player hasn't reached yet, so exploring pays off later.
 - **Where favor comes from.** Enoch starts the tutorial (Lamp Row) with no favor, so his first parts come from salvage, and offering spares is how he learns the temple stores. **Every finished job pays favor:** the temple blesses the work. The tutorial's payment is his first stake for the jobs ahead. Between jobs, favor comes from offering salvage. *(Decided.)*
 - **Farming is allowed.** Jobs have no night limit, and salvage restocks each night, so a player can spend nights salvaging and offering to build up favor. That is a valid strategy, not an exploit: it trades time for preparation. *(Decided.)*
 - **No dead ends.** The temple stores always hold every part, and salvage spots restock each night, so a player who is short can always salvage, offer, and draw what they need.

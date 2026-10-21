@@ -52,6 +52,7 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [x] Parts come from salvage in the city and from the temple stores in the Hollow, which trade any part for favor and never run out. *(Decided.)*
 - [x] The currency is **favor**, kept by the temple. *(Decided.)*
 - [ ] Prices: for now every part costs 2 favor and earns 1 as an offering (temporary). Revisit after playtesting: should some parts be worth more than others?
+- [ ] Lamp Row's numbers: for now a 4-part satchel, 8 faults, 6 salvage spots, and a 6-favor job payment (temporary). Revisit after playtesting.
 - [ ] Brother Wick keeps the temple stores (tentative). Does it fit, or should it be someone else?
 - [ ] Can parts be stored in the Hollow, or is offering them the only way to bank their value?
 - [ ] With repairs kept, losing a night costs only time. Does dawn need any further cost, such as a fault that degrades again or priests who react?
