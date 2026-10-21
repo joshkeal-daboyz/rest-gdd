@@ -4,7 +4,7 @@
 
 ## High concept
 
-A young raccoon mechanic repairs the dying lights of a dead human city for a god he has never seen, and the deeper he goes into the grid, the more he learns that his god is a machine.
+A young raccoon mechanic repairs the dying lights of a dead human city for a god he has never seen, and every job that sends him closer to the city's core brings him closer to the truth of what that god really is.
 
 ## Elevator pitch
 
@@ -24,7 +24,7 @@ Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city'
 | **Core activity** | Diagnosing and repairing the power grid and the city's lights |
 | **Session goal** | Restore power to the city's districts and reach Light's core |
 | **Platform** | Browser, built with Three.js (see [Technical Strategy](12-technical-strategy.md)) |
-| **Target length** | Prototype: one night of 15 minutes at most; full Chapter One 3–5 hours (Draft) |
+| **Target length** | Prototype: about two nights of 15 minutes at most; full Chapter One 3–5 hours (Draft) |
 
 ## Design pillars
 
@@ -33,6 +33,15 @@ Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city'
 3. **The cracks show.** The world is built so that the player notices what Enoch's faith explains away: logos on temple walls, warehouses used as shrines, machinery behind miracles. The truth is found, not told.
 4. **Restraint is the virtue.** The power source is failing, and there is never enough to light everything. Choosing what not to take is as important as taking. This sets up the game's central theme: lack of self-control is the original sin.
 5. **Fear as a compass.** The serpent's worry rises the closer Enoch gets to what Light wants hidden. The guide meant to keep him on the path is what leads him off it.
+
+## What the player knows *(Decided)*
+
+As far as the player can tell, Rest is a post-apocalyptic world and nothing more. The rest of this section is for the team.
+
+- **The GDD holds the truth so the team can design for it.** Nothing the player sees or hears states it, including the link description, the title screen, and any store page.
+- **Light is never seen or heard until the very end.** The raccoons are simply attuned to it. The priests are more attuned than the rest, and they draw messages from it. Light speaks to Enoch only at the core (see [Art and Audio](08-art-audio.md)).
+- **The truth gets closer only as the jobs do.** Enoch comes closer to the truth only when the priests direct him to repairs nearer the data center at the core of the city.
+- **No story exposition.** The world is shown, never explained. Cracks like Lamp Row's shop signs sit in the world without comment, from Enoch or anyone else.
 
 ## Themes in version one
 

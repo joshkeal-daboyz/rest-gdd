@@ -23,7 +23,8 @@ Lamp Row is the tutorial job: short enough that a walk from the head of the stre
 - **The Relight:** the wow moment when the street comes back to light. This is the win.
 - **Losing a night:** a night lasts 15 minutes at most, shown by the sky. If dawn breaks first, the night is lost, but completed repairs stay. If Enoch dies of shock, the night is lost and that night's repairs are undone.
 - **Assets:** canned packs for the city and AI-generated models for Enoch and anything missing. No hand modeling.
-- Placeholder lines for Enoch and a job description from the temple.
+- **The crack in the faith:** a few shop signs and advertisements on Lamp Row's storefronts showing people using light for ordinary things. They are decals or textures on pieces the Level Builder already places, and no one comments on them ([World](04-world.md#lamp-row)).
+- Placeholder lines for Enoch and a job description from the temple. No story exposition ([Overview](01-overview.md#what-the-player-knows-decided)).
 
 ### Out of scope for the prototype
 

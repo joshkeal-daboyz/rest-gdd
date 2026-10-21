@@ -37,7 +37,7 @@ The city is divided into districts, each tied to a section of the grid. Each one
 - **What it is:** a long commercial street of collapsed storefronts and streetlights.
 - **Grid role:** a simple lighting circuit fed from the Hollow.
 - **Gameplay role:** the tutorial job and the first open repair area. It teaches reading lines with the lamp, marking faults, cutting the power at a breaker, salvage, planning what to carry, and simple repairs. It is short: the head of the street to its far end and back takes about a minute.
-- **Crack in the faith:** shop signs and advertisements of people using light for ordinary things.
+- **Crack in the faith:** shop signs and advertisements of people using light for ordinary things. They are in the prototype, and nothing in the game remarks on them.
 
 ### The Yards
 

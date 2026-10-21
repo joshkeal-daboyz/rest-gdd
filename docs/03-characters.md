@@ -46,7 +46,7 @@ An engineered companion animal, a gift from Light given to Enoch through the pri
 
 ## The priests of Light
 
-The raccoons cannot read the light directly, so a priesthood interprets it for them. Light has the most structured, hierarchical religion of the tribes.
+All raccoons are attuned to Light, but only the priests are attuned enough to draw messages from it, so a priesthood interprets it for the rest. Light has the most structured, hierarchical religion of the tribes.
 
 - **Sincere:** the priests have no idea Light is an AI. They have never seen the core and never go that deep.
 - **Authority:** they decide what Light wants, which makes them the authority that effectively runs the tribe.

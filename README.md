@@ -10,7 +10,7 @@ This README is the **short GDD**: the submitted draft, and the document loaded i
 
 **Rest** is a third-person 3D exploration and repair game that runs in the browser. Several hundred years after humanity's collapse, masterless AIs have engineered intelligent animals to rebuild the world, and the animals worship those AIs as gods.
 
-You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves **Light**, the god of power. The ruined city's lights are dying. Enoch is attuned to Light's power, and through his lamp he can *see* current flowing in the lines. Each night, he takes a repair job from the temple: plan what to carry, trade for parts in the Hollow, salvage more from human ruins, read the lines to find the faults, cut the power, repair them, and throw the breaker to bring a street back to light. Dawn drives the nocturnal raccoons underground, so jobs are meant to take several nights, and every repair holds until he returns. The deeper he goes into the grid, the more he learns that his god is a machine.
+You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves **Light**, the god of power. The ruined city's lights are dying. Enoch is attuned to Light's power, and through his lamp he can *see* current flowing in the lines. Each night, he takes a repair job from the temple: plan what to carry, trade for parts in the Hollow, salvage more from human ruins, read the lines to find the faults, cut the power, repair them, and throw the breaker to bring a street back to light. Dawn drives the nocturnal raccoons underground, so jobs are meant to take several nights, and every repair holds until he returns. Every job that sends him closer to the data center at the city's core brings him closer to the truth of what Light really is.
 
 | | |
 | --- | --- |
@@ -22,6 +22,7 @@ You play **Enoch**, a young raccoon repairman of the gaze, the tribe that serves
 | **The wow moment** | **The Relight:** with every fault fixed, Enoch throws the breaker, and power runs visibly down the street, relighting it lamp by lamp as the grid's hum resolves into a chord |
 | **Engine and platform** | Three.js (WebGL) in the browser, shared as a link |
 | **Tone** | Quiet, melancholy, reverent; the horror is in what you slowly understand |
+| **What the player knows** | Only that this is a post-apocalyptic world. The truth about Light is in this document so the team can design for it; nothing the player sees states it, Light is never seen or heard until the very end, and there is no story exposition ([detail](docs/01-overview.md#what-the-player-knows-decided)) |
 
 **Design pillars** ([detail](docs/01-overview.md)): *hands, not weapons* · *light is language* · *the cracks show* · *restraint is the virtue* · *fear as a compass*.
 
@@ -185,7 +186,7 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 
 | Phase | Content | Done when |
 | --- | --- | --- |
-| **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the temple stores, click-and-hold and live repairs, dawn, the Relight | A new player relights Lamp Row within two nights, without help |
+| **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the temple stores, click-and-hold and live repairs, dawn, the Relight, and shop signs as the first crack in the faith | A new player relights Lamp Row within two nights, without help |
 | **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit): leveling, capacity choices, Drafts | Act 1 plays start to finish |
 | **Chapter One** | Act 2 (receiving the serpent) and the return to Lamp Row, then the Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
 | **Future** | The other five gods, the Cherub, the seventh day | The full game in the [Lore Bible](Rest%20%E2%80%94%20Lore%20Bible.md) |
