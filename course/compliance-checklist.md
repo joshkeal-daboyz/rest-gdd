@@ -31,7 +31,7 @@ Every course concept is tied to a specific mechanic in Rest:
 | --- | --- |
 | One Wow moment | The Relight: power traveling down Lamp Row as the lamps ignite |
 | One Wow agent | The Lighting Director |
-| Weekend test | One street, one click-and-hold repair across three fault types, three parts, about ten grid nodes, canned and AI-generated assets only |
+| Weekend test | The never-cut core is the weekend build: one street, about ten grid nodes, the lamp, ribbons, a breaker, click-and-hold repairs, salvage, dawn, and the Relight, from canned and AI-generated assets only. The full prototype fits a week or two, with a cut list in order |
 | Human review gates | G4 reviews the Relight itself; G3 reviews every line against the Lore Bible |
 | Constraints direct agents | Three.js has no engine features, so every library is named; the 8-light rule is a rule agents must follow |
 

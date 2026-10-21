@@ -182,7 +182,13 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 
 ## 5. Scope and Phases
 
-**Weekend test:** two developers with this crew can build the prototype in a weekend, because it is one street, one click-and-hold repair, three part types, one offering stall, two breakers, and about ten grid nodes, built entirely from canned and generated assets. ([Phase detail](docs/10-scope-roadmap.md))
+**Weekend test:** the weekend build is the prototype's **core**, which is never cut: reading lines with the lamp, ribbons, the breaker, click-and-hold repairs, salvage, the satchel, dawn, and the Relight, on one street of about ten grid nodes built entirely from canned and generated assets. The full prototype adds more and may take a week or two. Agents run one at a time under usage limits, so if the build falls behind, features are cut in this order ([cut list](docs/10-scope-roadmap.md#cut-list)):
+
+1. Pole climbing (the damaged cable moves to a ground-level junction box)
+2. Live repairs, the timing check, shocks, and death (repairs need the breaker off; dawn is the only loss)
+3. The temple stores and favor (salvage only; spots still restock each night)
+4. The hidden fuse box (all 8 faults visible from the start)
+5. The side-branch breaker (one main breaker)
 
 | Phase | Content | Done when |
 | --- | --- | --- |

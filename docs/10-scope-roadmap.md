@@ -8,7 +8,7 @@ Rest is built in phases. The core loop is proven first, at its most basic, and e
 
 Lamp Row is the tutorial job: short enough that a walk from the head of the street to its far end and back takes about a minute.
 
-**The weekend test:** two developers with the agent crew can build this in a weekend.
+**The weekend test:** the prototype's core (below) is what two developers with the agent crew build in a weekend. The full scope may take a week or two, the course's limit. Agents run one at a time under usage limits, so the [cut list](#cut-list) says what goes first if the build falls behind.
 
 ### In scope
 
@@ -25,6 +25,22 @@ Lamp Row is the tutorial job: short enough that a walk from the head of the stre
 - **Assets:** canned packs for the city and AI-generated models for Enoch and anything missing. No hand modeling.
 - **The crack in the faith:** a few shop signs and advertisements on Lamp Row's storefronts showing people using light for ordinary things. They are decals or textures on pieces the Level Builder already places, and no one comments on them ([World](04-world.md#lamp-row)).
 - Placeholder lines for Enoch and a job description from the temple. No story exposition ([Overview](01-overview.md#what-the-player-knows-decided)).
+
+### Cut list
+
+If the build falls behind, features are cut in this order. Each cut leaves a working game, and none touches the core loop. *(Decided.)*
+
+| Cut order | Feature | What replaces it |
+| --- | --- | --- |
+| 1 | Pole climbing | The damaged cable moves to a ground-level junction box |
+| 2 | Live repairs, the timing check, shocks, and death | Repairs need the breaker off; dawn is the only loss |
+| 3 | The temple stores and favor | Salvage only. Spots restock each night, so there are still no dead ends |
+| 4 | The hidden fuse box | All 8 faults are visible from the start |
+| 5 | The side-branch breaker | One main breaker |
+
+**Never cut (the core):** reading lines with the lamp, ribbons, the breaker, click-and-hold repairs, salvage, the satchel, dawn, and the Relight.
+
+A cut also cuts its acceptance criteria and the onboarding beat that teaches it (see [UI and UX](09-ui-ux.md#onboarding-the-first-night)).
 
 ### Out of scope for the prototype
 

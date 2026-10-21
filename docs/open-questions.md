@@ -9,6 +9,8 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Does Chapter One end at the core, with the first temptation and the illuminate ability, or does it end earlier, with the city restored and the descent ahead?
 - [x] Platform and engine: browser, Three.js. *(Decided.)*
 - [x] Prototype scope: Lamp Row only. *(Decided.)*
+- [x] Prototype cut list: pole climbing, then live repairs, then the temple stores, then the hidden fuse box, then the side breaker. The core is never cut. *(Decided.)*
+- [ ] Time budget: how many hours or days do the two developers have for the prototype? The budget is only in tokens so far.
 - [x] AI in the game: dev-time agents only. *(Decided.)*
 
 ## Technical
