@@ -38,8 +38,11 @@ Every asset's source and license is recorded in `assets/manifest.json`.
 1. **Three.js is a rendering library, not an engine.** It provides no editor, physics, character controller, animation tools, or scene management. Each of those comes from a library named above, or from a small module owned by one agent. Agents must not introduce new libraries without a ticket approved at gate G1.
 2. **The light budget.** WebGL forward rendering can't afford a real light for every lamp. The rule is **8 real lights at most**, the ones nearest Enoch. Every other lamp is emissive, with bloom and a painted light pool on the ground. The Lighting Director swaps real lights onto the nearest lamps as Enoch moves.
 3. **No hand-made models.** Every asset is canned or AI-generated (see Assets). The main risk is a mismatched look, handled by using one pack family and style-referenced generation.
-4. **Performance budget.** 60 fps on a mid-range laptop with integrated graphics; under 300 draw calls; first load under 30 MB.
-5. **Browser only.** Everything must work in current Chrome, Edge, and Firefox with no install.
+4. **Performance budget.** 60 fps on the **minimum test machine**, a desktop PC with an **NVIDIA GTX 1050**; under 300 draw calls; first load under 30 MB. Development happens on a second PC with an **RTX 3080**, so every build is also checked on the 1050 before it passes, because the 3080 hides performance problems. Built-in safeguards:
+   - the render resolution is capped (pixel ratio at most 1.5);
+   - bloom renders at half resolution;
+   - a **Low quality** toggle on the pause screen turns bloom down and cuts the real lights from 8 to 4.
+5. **Browser only.** Everything must work in current desktop Chrome, Edge, and Firefox with WebGL 2 and no install. Phones and tablets are not supported in the prototype.
 6. **Dev-time AI only.** No API calls from the game.
 
 ## API constraints
@@ -71,7 +74,7 @@ Each step must work before the next starts.
 
 1. Enoch's model is generated in Tripo from the creative director's drawings, auto-rigged in Tripo, animated with Mixamo, and walking in an empty Three.js scene, with his tail bending cleanly and not pulling the legs or mesh. Timeboxed to one evening before switching to the fallback.
 2. Enoch runs and climbs a pole on Rapier, with a working camera.
-3. Lamp Row loads from its layout file, built from canned pieces, with 20+ lamps at 60 fps under the light budget.
+3. Lamp Row loads from its layout file, built from canned pieces, with 20+ lamps at 60 fps on the GTX 1050 PC under the light budget.
 4. The grid simulator lights and darkens lamps from JSON, including breakers, and the raised lamp shows current pulses in nearby cables.
 5. One click-and-hold repair (a dead lamp needing a bulb) works end to end, including the part check.
 6. The blown fuse, the damaged cable, live repairs with shocks, and prayer ribbons are added; salvage, the temple stores, the satchel, and the 15-minute night work, and repairs carry over when dawn ends a night.

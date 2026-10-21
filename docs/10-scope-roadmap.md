@@ -56,7 +56,7 @@ The serpent, leveling, abominations, capacity choices, other districts, the jour
 - [ ] A player who dies from a live repair understands why the night's repairs were lost and that the breaker was the safe choice.
 - [ ] Letting go of a repair early is clearly readable and costs only time.
 - [ ] The Relight passes gate G4.
-- [ ] 60 fps on a mid-range laptop; first load under 30 MB.
+- [ ] 60 fps on the minimum test machine (a GTX 1050 PC) in desktop Chrome, Edge, and Firefox; first load under 30 MB.
 - [ ] The build is playable at a GitHub Pages link.
 
 ## Phase 2: MVP — Act 1

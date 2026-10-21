@@ -38,7 +38,7 @@ Whether this works is checked by a **cold playtest** at gate G5 (see [AI Archite
 | Context gained | Briefly, when Enoch gains context, with a short line of what he learned |
 | Level up | When the context bar fills; opens the skill choice |
 | Subtitles | Always available, on by default |
-| Pause screen | When the game pauses (Esc, a hidden tab, or a window that loses focus); it dims the street, and the night clock stops |
+| Pause screen | When the game pauses (Esc, a hidden tab, or a window that loses focus); it dims the street, and the night clock stops. It holds the **Low quality** toggle (less bloom, 4 real lights instead of 8) |
 
 There is no health bar. Enoch's condition is shown through his animation and the screen's edges: after one shock, the edges dim and his hands shake for the rest of the night, which tells the player a second shock will kill him.
 

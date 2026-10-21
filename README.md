@@ -148,6 +148,8 @@ Agents hand off work through **files**, not conversation: the grid JSON, a handf
 
 **My third constraint is light itself,** because a game about dozens of streetlamps can't give each lamp a real light in WebGL. Only the 8 lights nearest Enoch are real. Every other lamp is an emissive material with bloom and a painted light pool on the ground.
 
+**Performance target:** 60 fps on the minimum test machine, a PC with a **GTX 1050**, in desktop Chrome, Edge, and Firefox (WebGL 2); first load under 30 MB. I develop on an **RTX 3080** PC and check every build on the 1050. To protect the frame rate, render resolution is capped, bloom renders at half resolution, and the pause screen has a **Low quality** toggle (less bloom, 4 real lights). Phones and tablets are not supported in the prototype. ([Detail](docs/12-technical-strategy.md#constraints))
+
 ### API constraints
 
 | Service | Constraint | How Rest handles it |
