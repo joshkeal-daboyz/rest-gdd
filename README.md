@@ -66,7 +66,7 @@ The city's power is a single connected system: **nodes** (the feed, breakers, sw
 | System | Phase | What the player gets |
 | --- | --- | --- |
 | Context and leveling | MVP | Repairs and discoveries give **context**, which levels Enoch up in three skills: **Hands, Eyes, Feet** ([detail](docs/06-progression.md)) |
-| The serpent | MVP | A talking companion earned after Act 1 and a **conduit to technology**: through it, Enoch reads old machines he can't understand alone |
+| The serpent | Chapter One | A talking companion given in Act 2, once his Act 1 work sets him apart, and a **conduit to technology**: through it, Enoch reads old machines he can't understand alone |
 | Abominations | MVP | Failed experiments of the Image laboratory. **Drafts** flee light, so every repair reclaims ground ([detail](docs/07-threats.md)) |
 | The Hum | Chapter One | A boss battle against an ancient giant alligator, won with power, pumps, and water, not weapons |
 
@@ -91,7 +91,7 @@ All AI in Rest is **development-time**. A crew of specialized agents builds the 
 | **Writer** | Drafts Enoch's lines and the temple's job descriptions in the Lore Bible's voice, so the player hears a devout mechanic who explains the ruins through his faith. |
 | **QA Playtester** | Plays the build automatically after every change and checks it against the acceptance criteria, so the player never meets a fault that can't be found or a repair that can't be finished. |
 
-The **MVP** adds a **Progression** agent (context and skills), an **Abomination Behavior** agent (the Drafts), a **Serpent Voice** writer, a **Journal** agent, and a **UI Juice** agent ([detail](docs/11-ai-architecture.md#added-in-the-mvp)).
+The **MVP** adds a **Progression** agent (context and skills), an **Abomination Behavior** agent (the Drafts), a **Journal** agent, and a **UI Juice** agent ([detail](docs/11-ai-architecture.md#added-in-the-mvp)). **Chapter One** adds a **Serpent Voice** writer ([detail](docs/11-ai-architecture.md#added-in-chapter-one)).
 
 ### Creative control and human review gates
 
@@ -182,8 +182,8 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 | Phase | Content | Done when |
 | --- | --- | --- |
 | **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the temple stores, click-and-hold and live repairs, dawn, the Relight | A new player relights Lamp Row within two nights, without help |
-| **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit) and Act 2 (earning the serpent): leveling, capacity choices, Drafts, the serpent reading machines | Acts 1 and 2 play start to finish |
-| **Chapter One** | The Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
+| **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit): leveling, capacity choices, Drafts | Act 1 plays start to finish |
+| **Chapter One** | Act 2 (receiving the serpent) and the return to Lamp Row, then the Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
 | **Future** | The other five gods, the Cherub, the seventh day | The full game in the [Lore Bible](Rest%20%E2%80%94%20Lore%20Bible.md) |
 
 ---

@@ -96,9 +96,14 @@ The model tier is a default: the top tier for reasoning across the whole project
 | --- | --- |
 | **Progression** | Tracks context and applies skill ranks when Enoch learns something, so the player sees him level up and get better at his work. |
 | **Abomination Behavior** | Builds the Drafts' light-avoiding, scavenging behavior when a district has dark zones, so the player sees the dark held by something that flees the light. |
-| **Serpent Voice** | Writes the serpent's barks and dialogue, escalating with its fear, when a scene or a forbidden place needs them, so the player hears a guide whose worry points toward the truth. |
 | **Journal** | Pairs each machine's faith-filtered and conduit entries when Enoch reads a machine, so the player sees what he believed beside what the machine told him. |
 | **UI Juice** | Adds animation and polish to UI components when they're functionally done, so the game feels finished. |
+
+### Added in Chapter One
+
+| Agent | One sentence |
+| --- | --- |
+| **Serpent Voice** | Writes the serpent's barks and dialogue, escalating with its fear, when a scene or a forbidden place needs them, so the player hears a guide whose worry points toward the truth. |
 
 ## Handoffs
 

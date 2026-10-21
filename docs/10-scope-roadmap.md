@@ -42,20 +42,20 @@ The serpent, leveling, abominations, capacity choices, other districts, the jour
 - [ ] 60 fps on a mid-range laptop; first load under 30 MB.
 - [ ] The build is playable at a GitHub Pages link.
 
-## Phase 2: MVP — Act 1 and the serpent
+## Phase 2: MVP — Act 1
 
 - **Districts:** the Hollow (tutorial), Lamp Row, and the shrine circuit.
-- **Story:** Act 1 (the repairman) and Act 2 (the chosen), ending with the return to Lamp Row ([Story](02-story.md)).
+- **Story:** Act 1 (the repairman) ([Story](02-story.md)).
 - **Progression:** context from experience; levels; Hands, Eyes, and Feet ([Progression](06-progression.md)).
-- **The serpent:** the gift, sense current, reading powered machines as a conduit, and escalating fear barks.
 - **The journal:** faith-filtered and conduit entries side by side.
 - **Grid capacity:** choosing which circuits stay on.
 - **Abominations:** the Drafts, which avoid light.
 
-**Done when:** Act 1 and Act 2 are playable start to finish, and a playtester can explain why Enoch was chosen.
+**Done when:** Act 1 is playable start to finish.
 
 ## Phase 3: Chapter One — Light
 
+- **Act 2 (the chosen)** and the return to Lamp Row ([Story](02-story.md)). The serpent arrives: the gift, sense current, reading powered machines as a conduit, and escalating fear barks. A playtester can explain why Enoch was chosen.
 - The Yards, the Spires, the Underworks, and the core ([World](04-world.md)).
 - The Gnawers, and the Hum boss battle ([Threats](07-threats.md)).
 - Serpent abilities: steady hands, carry charge, illuminate.

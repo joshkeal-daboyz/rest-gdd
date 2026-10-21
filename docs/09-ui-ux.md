@@ -46,7 +46,7 @@ There is no health bar. Enoch's condition is shown through his animation and the
 - The prompt names the part needed (*Needs: fuse*) when it isn't in the satchel.
 - At a live fault, the prompt warns: *Live line. Cut the power, or hold to risk it.*
 - During a live repair, a mark appears on the ring; clicking as the ring passes it completes the repair. A miss is a shock.
-- The serpent can be asked for a hint about where to find a missing part (from the MVP).
+- The serpent can be asked for a hint about where to find a missing part (from Act 2, in Chapter One).
 
 ## Reading the lines
 

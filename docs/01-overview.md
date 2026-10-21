@@ -15,7 +15,7 @@ Enoch is a repairman of the gaze, the raccoon tribe that serves Light. The city'
 | | |
 | --- | --- |
 | **Title** | Rest |
-| **Version one** | Chapter One: Light, built in phases: Prototype (Lamp Row) → MVP (Acts 1 and 2) → Chapter One (see [Scope and Roadmap](10-scope-roadmap.md)) |
+| **Version one** | Chapter One: Light, built in phases: Prototype (Lamp Row) → MVP (Act 1) → Chapter One (from Act 2) (see [Scope and Roadmap](10-scope-roadmap.md)) |
 | **Genre** | Narrative exploration and repair adventure (Draft) |
 | **Perspective** | Third-person 3D |
 | **Player character** | Enoch, a young raccoon and repairman |
