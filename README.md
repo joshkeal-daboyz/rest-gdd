@@ -62,7 +62,7 @@ Jobs are meant to take more than one night. Enoch's mentor says so when he hands
 
 ### The grid
 
-The city's power is a single connected system: **nodes** (the feed, breakers, switches, fuse boxes, lamps) joined by **lines**. Power flows outward from the source, so a fault darkens everything downstream. Tracing a fault means following the current until it stops. Two controls change where power goes: a **breaker** shuts a section off entirely, and a **switch** sends power down one branch or another. The tribe marks both. Lamp Row, the tutorial, has only breakers. In later phases, the failing source gives the grid a **capacity limit**, so the player has to use switches to choose what stays dark. ([Gameplay detail](docs/05-gameplay.md))
+The city's power is a single connected system: **nodes** (the feed, breakers, switches, fuse boxes, lamps) joined by **lines**. Power flows outward from the source, so a fault darkens everything downstream. Tracing a fault means following the current until it stops. Two controls change where power goes: a **breaker** shuts a section off entirely, and a **switch** sends power down one branch or another. The tribe marks both. Lamp Row, the tutorial, has only breakers. From the Yards in Chapter One, the failing source gives the grid a **capacity limit**. A capacity job is won once every fault is repaired and the breaker is thrown; the player then uses switches to choose what gets power, and the Relight plays on that. Repairing power sources raises capacity over the game, but never enough to light everything. ([Gameplay detail](docs/05-gameplay.md#capacity-and-restraint))
 
 ### Beyond the prototype
 
@@ -193,8 +193,8 @@ The **MVP** projects to about 10M tokens and **Chapter One** to 25M or more. Res
 | Phase | Content | Done when |
 | --- | --- | --- |
 | **Prototype** | Lamp Row, the tutorial job: walk, climb, read lines with the lamp, ribbons, breakers, salvage, the temple stores, click-and-hold and live repairs, dawn, the Relight, and shop signs as the first crack in the faith | A new player relights Lamp Row within two nights, without help |
-| **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit): leveling, capacity choices, Drafts | Act 1 plays start to finish |
-| **Chapter One** | Act 2 (receiving the serpent) and the return to Lamp Row, then the Yards, the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
+| **MVP** | Act 1 (the Hollow, Lamp Row, the shrine circuit): leveling, switches, Drafts | Act 1 plays start to finish |
+| **Chapter One** | Act 2 (receiving the serpent) and the return to Lamp Row, then the Yards (capacity choices and power sources), the Spires, the Underworks, the Hum, the core, illuminate | Chapter One is complete ([story](docs/02-story.md)) |
 | **Future** | The other five gods, the Cherub, the seventh day | The full game in the [Lore Bible](Rest%20%E2%80%94%20Lore%20Bible.md) |
 
 ---

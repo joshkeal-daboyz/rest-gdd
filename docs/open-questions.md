@@ -41,6 +41,7 @@ Questions for the full game are tracked in the [Lore Bible](../Rest%20%E2%80%94%
 - [ ] Beyond the boss battle, is there any combat in version one, or only avoidance?
 - [ ] Do the Drafts need more types of abomination beside them, or are Drafts and Gnawers enough for Chapter One?
 - [ ] Do the capacity choices have lasting consequences, such as districts that stay dark or priests who react?
+- [ ] When the player chooses to leave a circuit dark, does it cost them (the Drafts take that ground) or earn them something (restraint is the virtue)? Decide what restoring Light means in the story first. Deferred until Chapter One is designed.
 - [x] A night lasts 15 minutes at most. *(Decided.)*
 - [x] Dawn is the loss condition, and the player watches the sun come up. *(Decided.)*
 - [x] Dawn does not reset the faults: completed repairs stay. *(Decided.)*

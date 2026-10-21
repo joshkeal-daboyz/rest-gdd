@@ -44,11 +44,14 @@ Breakers and switches are found throughout the city. The tribe marks every one w
 | **Breaker** | Shuts a section off entirely, so faults in it can be repaired safely | Lamp Row (prototype) |
 | **Switch** | Sends power down one branch or another | The shrine circuit (MVP) |
 
-Lamp Row has two breakers: the main breaker at the head of the street, beside the temple's offering stall, and one on a side branch. Walking to a breaker and back is a real cost in time, so where breakers sit is part of each district's puzzle. Switches arrive with capacity: they are how the player chooses which branch gets power.
+Lamp Row has two breakers: the main breaker at the head of the street, beside the temple's offering stall, and one on a side branch. Walking to a breaker and back is a real cost in time, so where breakers sit is part of each district's puzzle. Switches arrive in the shrine circuit (MVP), where they reroute power around a dead junction. Once capacity arrives at the Yards, they are how the player chooses which branch gets power.
 
 ### Capacity and restraint
 
-There is never enough power to light everything. As Enoch restores districts, he must use switches and breakers to choose which circuits stay on.
+There is never enough power to light everything. From the Yards in Chapter One, as Enoch restores districts, he must use switches and breakers to choose which circuits stay on. Lamp Row, the shrine circuit, and the rest of Act 1 have no capacity limit.
+
+- **Fixing and powering are separate.** On a capacity job, the job is won once every fault is repaired and the breaker is thrown. The player then sets the switches to choose what gets power, and the Relight plays on what they chose. *(Draft.)*
+- **Power sources raise capacity.** Some jobs repair a power source (a substation, a generator, a solar field), and each one raises the grid's capacity. Over the game, the player can light more, but never everything. *(Draft.)*
 
 - Powering more endpoints than the grid can carry causes **brownouts**: lights flicker, repairs fail, and darkened streets fall back to the abominations.
 - Some endpoints matter to the tribe (shrines, homes), some to traversal (lifts, doors, bridges), and some to discovery (old machines that only the serpent can read, and only once they have power).

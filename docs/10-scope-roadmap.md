@@ -65,7 +65,7 @@ The serpent, leveling, abominations, capacity choices, other districts, the jour
 - **Story:** Act 1 (the repairman) ([Story](02-story.md)).
 - **Progression:** context from experience; levels; Hands, Eyes, and Feet ([Progression](06-progression.md)).
 - **The journal:** faith-filtered and conduit entries side by side.
-- **Grid capacity:** choosing which circuits stay on.
+- **Switches:** rerouting power around a dead junction in the shrine circuit. No capacity limit yet.
 - **Abominations:** the Drafts, which avoid light.
 
 **Done when:** Act 1 is playable start to finish.
@@ -74,6 +74,7 @@ The serpent, leveling, abominations, capacity choices, other districts, the jour
 
 - **Act 2 (the chosen)** and the return to Lamp Row ([Story](02-story.md)). The serpent arrives: the gift, sense current, reading powered machines as a conduit, and escalating fear barks. A playtester can explain why Enoch was chosen.
 - The Yards, the Spires, the Underworks, and the core ([World](04-world.md)).
+- **Grid capacity**, from the Yards: choosing which circuits get power once a job's faults are fixed, and repairing power sources to raise capacity ([Gameplay](05-gameplay.md#capacity-and-restraint)).
 - The Gnawers, and the Hum boss battle ([Threats](07-threats.md)).
 - Serpent abilities: steady hands, carry charge, illuminate.
 - The first temptation at the core, and the epilogue.
