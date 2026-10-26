@@ -2,6 +2,8 @@
 
 **Approved character sheet:** [enoch_character_sheet.png](enoch_character_sheet.png) (locked 2026-10-26). Every new image of Enoch should match it.
 
+The rules shared by every raccoon, and how males and females differ, are in the [raccoon style guide](../raccoon-style-guide.md).
+
 The rules for every image of Enoch. When an image breaks a rule, it gets regenerated, not patched. To change how he looks, change a rule here and its prompt fragment in [enoch.prompt.txt](enoch.prompt.txt) and [enoch.negative.txt](enoch.negative.txt), then regenerate.
 
 How the approved sheet was made:
@@ -19,8 +21,9 @@ These images are reference art. The final design is still the creative director'
 ## Build
 
 - Lean and wiry, slightly muscular: toned arms and chest, not bulky.
-- Broad-ish shoulders, narrow straight hips. No popping or swaying hips.
+- Wide shoulders, narrow straight hips. No popping or swaying hips.
 - **Square body:** from shoulders to hips the sides of the torso run in a mostly straight line. No pinched waist and no hourglass curve. This is the main thing that makes him read as male.
+- **Shoulders as wide as the thighs:** the shoulders line up with the outer edge of the thighs, so one straight line runs from shoulder to knee. Widen the shoulders to get there; don't slim the thighs.
 - Upright, rigid posture: squared shoulders, weight on both feet, arms straight at his sides.
 
 ## Proportions
@@ -66,6 +69,7 @@ Sampled from flat areas of her sheet, not averaged over the whole image (averagi
 ## Markings and line work
 
 - Navy on the legs starts halfway up the calf, just below the knee, with a short jagged fur edge. It covers about the bottom quarter of his height.
+- Sleeves: the navy on his forearms starts with a zigzag fur edge (a female raccoon's sleeve edge is flat).
 - Small spiky fur tufts stick out sideways where the neck meets each shoulder (front and back views), like hers.
 - Outlines are about 0.33% of figure height, the same weight as hers (measured on the high-res sheet).
 
@@ -96,10 +100,10 @@ Sampled from flat areas of her sheet, not averaged over the whole image (averagi
 Check every image before it's used:
 
 1. Calm face, slight smile, not angry.
-2. Square body: torso sides straight from shoulders to hips, no waist.
+2. Square body: sides straight from shoulders to hips, no waist, and shoulders as wide as the thighs.
 3. Adult proportions: head about 0.19 of his height, short arms, long legs (see Proportions).
 4. On his toes, not flat-footed.
 5. Tail: four navy rings, from a navy base to a navy tip.
-6. Colors match the table.
+6. Colors match the table, and the sleeve edges are zigzag.
 7. Nothing extra: no text, swatches, props, clothing, or anatomical detail.
 8. Side view is a true profile.
