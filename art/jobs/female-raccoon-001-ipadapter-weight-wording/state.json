@@ -1,0 +1,24 @@
+{
+  "explained_at": "2026-10-27T16:49:02",
+  "explained_hash": "648832c8a3dee4fb",
+  "briefed_hash": "648832c8a3dee4fb",
+  "briefed_at": "2026-10-27T16:49:02",
+  "response": "agree",
+  "response_note": "Ready to run. Two revision rounds applied. Final review's rec 1 (add monochrome, lineart, uncolored to negative) is optional and goes to Josh; rec 2's next colour levers (dark navy->navy, pale mint->mint, earlier teal) are deliberately held for the next job so this one tests weight 0.8 cleanly.",
+  "response_hash": "648832c8a3dee4fb",
+  "responded_at": "2026-10-27T16:50:38",
+  "approved_at": "2026-10-27T16:51:12",
+  "approved_hash": "648832c8a3dee4fb",
+  "approved_via": "chat",
+  "approval_words": "Approved, run it as is.",
+  "ran_at": "2026-10-27T16:52:39",
+  "outputs": [
+    "art/jobs/female-raccoon-001-ipadapter-weight-wording/out/female-raccoon_20261027.png",
+    "art/jobs/female-raccoon-001-ipadapter-weight-wording/out/female-raccoon_20261028.png",
+    "art/jobs/female-raccoon-001-ipadapter-weight-wording/out/female-raccoon_20261029.png",
+    "art/jobs/female-raccoon-001-ipadapter-weight-wording/out/female-raccoon_20261030.png"
+  ],
+  "verdict": "off-track",
+  "verdict_note": "Off-track.",
+  "reviewed_at": "2026-10-27T16:54:23"
+}

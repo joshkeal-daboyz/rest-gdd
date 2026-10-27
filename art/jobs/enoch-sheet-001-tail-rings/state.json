@@ -1,0 +1,24 @@
+{
+  "explained_at": "2026-10-27T16:43:28",
+  "explained_hash": "0d9d7f63f67cdcb0",
+  "briefed_hash": "0d9d7f63f67cdcb0",
+  "briefed_at": "2026-10-27T16:43:29",
+  "response": "agree",
+  "response_note": "Agree with the review: the wording is right and the job is valid, but an unmasked img2img at 0.6 may keep the old bands. Revision cap reached; recs 2-4 (1536x768, drop zigzag negative, BREAK chunk) and the tail-mask inpaint are put to Josh to choose.",
+  "response_hash": "0d9d7f63f67cdcb0",
+  "responded_at": "2026-10-27T16:45:13",
+  "approved_at": "2026-10-27T16:49:34",
+  "approved_hash": "0d9d7f63f67cdcb0",
+  "approved_via": "chat",
+  "approval_words": "Approve enoch-sheet-001-tail-rings, run it as it stands.",
+  "ran_at": "2026-10-27T16:51:15",
+  "outputs": [
+    "art/jobs/enoch-sheet-001-tail-rings/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-001-tail-rings/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-001-tail-rings/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-001-tail-rings/out/enoch-sheet_231506249.png"
+  ],
+  "verdict": "off-track",
+  "verdict_note": "Off-track. Draft job 2 with the reviewer's wording 1 and the jewelry negatives.",
+  "reviewed_at": "2026-10-27T16:58:57"
+}

@@ -1,0 +1,30 @@
+job: female-raccoon-001-baseline-ipadapter
+job-hash: c4bee42b9e44d271
+assessment: partly
+
+## Reason for the change, as I understood it
+Make a fresh three-view (front, side, back) female base-body sheet in Indigo Void that keeps the look and palette of baseline-highres.png: teal, navy and mint markings, four tail rings, hourglass build, digitigrade feet, flat toon style. Head size is openly not expected to pass without an edge guide, so this job should be judged on colour and look.
+
+## Will this job do it?
+Mostly, for the colours. The model, kind and LoRA are right: Indigo Void, `kind: character-sheet` for a real three-view sheet request, `charsheet_lora_v1:0.6`, and `charsheet` as the first token. The palette is spelled out in the positive: `teal fur`, `dark navy raccoon mask markings`, `pale mint muzzle/belly`, `dark navy hands`, `dark navy lower legs`, `(dark navy tail tip:1.3)`, `white inner ears`, `red-brown eyes`. Together with `(grey fur:1.2), charcoal grey` in the negative, that should hold teal and navy even without the IP-Adapter. The style words `(toon style:1.2), thick outlines, flat colors, clean lineart, cartoon` are in the first chunk, and the negative has `(realistic:1.3), (detailed fur:1.2), gradient shading`. That's the right push against Indigo Void's realistic furry drift. The female markers are all present and keep moderate weights: `(hourglass figure:1.2), (narrow waist:1.1), (wide hips:1.1), (narrow shoulders:1.1), eyelashes, (flat even fur edge on forearms:1.2), (pale mint patch on lower back:1.1), weight on one leg`. No weight is above 1.4. Trimming the negative to general terms follows the censor-mark rule in enoch-rules.md. CFG 6, 30 steps, Euler a, 1536x1024, and fixed seeds counting up all suit a baseline.
+
+These things weaken it:
+- **The IP-Adapter probably sees mostly the wrong part of the reference.** The CLIP-ViT-H encoder works on a 224x224 square. The usual preprocessing resizes the short side and centre-crops, so a 3:2 image loses its left and right edges. On baseline-highres.png the centre square holds the colour swatches, the side view, the floating side bust and part of the back view. The front view, which has the best face, is mostly cut off. So the IP-Adapter is likely to carry the swatches and the bust (which `(color swatch:1.2)`, `(color palette:1.3)`, `bust` and `head studies` fight) more than her face. At 0.5 with Balanced mode it won't copy the layout, but "carries her face" is the weakest part of the reasoning. Colours and flat style should still come through.
+- **`(multiple heads:1.3)` in the negative works against the layout.** On a Danbooru-trained NoobAI model, "multiple heads" is close in meaning to "several figures/heads in one image", which is what a three-view sheet is. `bust` and `head studies` already guard against the extra bust.
+- **The main Danbooru sheet tag `multiple views` is missing.** `(character reference sheet:1.3)` and `(turnaround:1.2)` help, but NoobAI responds most reliably to `multiple views` and `reference sheet`.
+- **`(no clothes, no accessories:1.2)` in the positive** puts the tokens `clothes` and `accessories` into the positive conditioning at 1.2. CLIP handles "no X" poorly, so this can invite the very things it means to ban. It also works against `clothes` in the negative. `(featureless body:1.3)` and the negative already cover this.
+
+## Risks and rule conflicts
+- Head size: heads at about 0.13 of height break the 0.19–0.21 rule. The brief admits this. A sheet from this job can't become a candidate baseline. The fix is a female edge guide, which only Josh can make. Enoch's three-pose guide would push the male square torso.
+- The reference breaks the sheet-layout rule (four views, a side bust, colour swatches including a yellow one). The back view also has a stray oval mark on the lower back/hip. The IP-Adapter may carry any of these over: a fourth figure, a bust, swatch dots, a yellow accent, or a mark on the back.
+- The job changes more than one thing: IP-Adapter, toon words and a trimmed negative all arrive together. As the first job on the track that's acceptable, because it sets the baseline. But the results won't show whether the look came from the IP-Adapter or from the prompt. Fixed seeds make a later one-change comparison possible.
+- Tail: `(four navy rings:1.1)` is a count, and SDXL doesn't count reliably. Ring counts will need checking in every view. `(zigzag tail rings:1.2)` in the negative is good.
+- `(adult woman:1.2)` leans toward a human woman. `human` in the negative and `anthro raccoon` balance it, but watch for human faces or hair.
+- Nothing locked is touched, and no unapproved model, LoRA or ControlNet is used.
+
+## Recommendations
+1. Remove `(multiple heads:1.3)` from the negative. Keep `bust, head studies, close-up`. Expected effect: no pull against the three-figure layout, while still guarding against the extra bust.
+2. Add `multiple views` to the positive straight after `(turnaround:1.2)`, unweighted. Expected effect: NoobAI's own sheet tag makes clearly separated front, side and back figures more likely.
+3. Remove `(no clothes, no accessories:1.2)` from the positive and add `accessories, jewelry` to the negative. `clothes` is already there. Expected effect: no clothing or accessory tokens in the positive. `(featureless body:1.3)` keeps the plain body.
+4. Keep the IP-Adapter at 0.5, Balanced, as written. When judging the outputs, read a fourth figure, a bust or swatch dots as the reference leaking, not as a prompt failure. **Question for Josh:** would he supply a cleaner IP-Adapter reference made in Forge or by hand, for example a front view only or a square image of one figure? With one, the 224-px centre crop would see her face and front markings. I'm not recommending a scripted crop of the reference.
+5. For the next job on this track, not this one: rerun these same seeds with the IP-Adapter removed and nothing else changed. That will show what the IP-Adapter actually adds. Before any job that aims to pass the head-size rule, ask Josh for a female three-pose edge guide.

@@ -1,0 +1,36 @@
+# Forge job enoch-sheet-001-tail-rings
+
+**Asset:** enoch-sheet | **Track:** c2-refine | **Kind:** character-sheet | **Size:** small (4 images)
+
+## What we're trying to change
+On the C2 candidate sheet (eyetest/C2/enoch_231506246.png), the side-view and back-view tails show exactly four navy rings, navy at the base and a navy tip (navy, teal, navy, teal, navy, teal, navy tip), instead of 5-6 thin bands, while the four views, brown eyes with solid pupils, solid navy mask with white brow stripe, bright teal/navy, square lean build, smooth linework, white background and the tailless back view's tail-base spot stay as they are.
+
+## Why this job should do it
+There is no tail mask for this parent, so an inpaint of just the tails isn't possible; the job is a whole-sheet img2img of the parent at its own size (2304x1152, the size its hires pass was drawn at, so this PC handled it) with denoise 0.6. At 0.6 the parent's layout, poses and palette still carry over through the init image, while the band pattern inside each tail is redrawn rather than traced; at 0.5 or below the existing 5-6 bands would likely be traced again. This run is judged on the tails only: some drift in the face and eyes is accepted for this test, and a later job (or an inpaint, once Josh gives a mask) can protect them. The ring count is pushed by the prompt's tail fragment, which is the only wording change from the parent's prompt (charsheet-eyes-c.prompt.txt): '(ringed tail:1.3), striped tail, multicolored tail, big fluffy tail, dark blue tail tip' is replaced by 'big fluffy tail, ringed tail, (four thick dark navy rings on tail:1.3), (wide teal bands between the rings:1.2), (dark navy ring at the tail base:1.2), (dark navy tail tip:1.3)'. 'ringed tail' stays at plain weight (down from 1.3) because it is the model's own tag for a raccoon's banded tail and keeps the rings appearing at all, without pushing their number up; the long count phrase is at 1.3 rather than 1.4 so it steers the band width without overcooking the tail at denoise 0.6. 'striped tail' and 'multicolored tail' stay out because on Danbooru-tagged NoobAI they mean many thin stripes, which is what produced 5-6 bands. SDXL counts badly, so the real lever is 'thick' rings with 'wide' teal bands: fewer, wider bands fit in the same tail length. The negative is charsheet-eyes-c2.negative.txt plus '(many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1)'; the tail words are kept tail-specific so they don't fight the white brow stripe above the mask. The IP-Adapter is the same as the parent's recipe (ip-adapter-plus_sdxl_vit-h, CLIP-ViT-H, enoch_sheet_v14.png, weight 0.4, end 0.6, Resize and Fill so the whole 3:2 sheet is seen rather than a centre crop); v14's tails have exactly four thick rings, so it pulls the same way. Differences from the parent's recipe forced by the rules, not chosen as tests: the canny guide shoulder_guide_4pose.png is dropped (not cleared; in img2img the init image holds the layout instead). That guide's tails have about 6-7 bands, so it is the likely source of C2's extra rings, and dropping it removes that pull, the charsheet LoRA goes from 0.5 to its approved 0.6, and there is no hires pass (small job). Fixed seed 231506246 counting up over 4 images, so the next job on this track can reuse these seeds and change one thing against them.
+
+## What Forge will do
+Redraw `art/enoch-sheet/eyetest/C2/enoch_231506246.png` 4 time(s). Denoise 0.6: a heavy redraw: only the rough layout carries over.
+ControlNet `CLIP-ViT-H (IPAdapter)` / `ip-adapter-plus_sdxl_vit-h` at weight 0.4, using `art/enoch-sheet/enoch_sheet_v14.png`. Reference image, as in the parent's recipe: carries Enoch's colours and v14's four thick tail rings without copying v14's three-view layout.
+
+## Settings
+- Model: `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors`
+- LoRAs: `charsheet_lora_v1:0.6` (approved weight 0.6, trigger `charsheet`)
+- 30 steps, CFG 6, sampler Euler a, size parent's size
+- Seed: 231506246, counting up per image
+
+## Prompt
+
+```
+charsheet, masterpiece, best quality, newest, absurdres, safe, solo, male, anthro, furry, raccoon, multiple views, reference sheet, turnaround, front view, side view, rear view, back view, full body, standing, arms at sides, digitigrade, simple background, white background, plain white background, flat color, cel shading, thick outlines
+BREAK (brown eyes:1.3), (red eyes:0.6), black pupils, (large pupils:1.1), eye shine, white sclera
+BREAK (teal body:1.3), (teal fur:1.2), (wide solid dark navy raccoon mask band across both eyes:1.3), (navy mask directly touching the eyes:1.2), (thin white stripe above the mask:1.2), smile, closed mouth
+BREAK white countershading, white muzzle, white belly, dark blue inner ears, gloves \(marking\), socks \(marking\), dark blue hands, dark blue lower legs, big fluffy tail, ringed tail, (four thick dark navy rings on tail:1.3), (wide teal bands between the rings:1.2), (dark navy ring at the tail base:1.2), (dark navy tail tip:1.3), lean, broad shoulders, flat chest, narrow hips, featureless crotch, <lora:charsheet_lora_v1:0.6>
+```
+
+Negative:
+```
+nsfw, worst quality, low quality, lowres, old, early, (text:1.3), english text, arrow \(symbol\), speech bubble, signature, watermark, color swatch, female, breasts, (wide hips:1.2), (hourglass figure:1.2), child, chibi, (grey fur:1.3), realistic, detailed fur, plantigrade, clothes, 3d, empty eyes, no pupils, blank eyes, hollow eyes, ringed eyes, white pupils, (blue eyes:1.3), (color palette:1.2), (multiple views of face:1.1), eye study, close-up, head only, disembodied hand, inset, pink background, grey background, blush, headband, headwear, hairband, (many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1)
+```
+
+## Output
+Images go to `art/jobs/enoch-sheet-001-tail-rings/out/` exactly as Forge returns them. Nothing is edited afterwards; only the job id is written into each file's PNG notes.
