@@ -20,13 +20,16 @@ usage (run from the repo root with `py art/tools/forge_jobs.py ...`):
   respond <job> agree|disagree "note"       Claude's answer to the reviewer (disagree = talk to Josh)
   approve <job> [--chat "Josh's words"]     record Josh's approval (from chat, or typed at a terminal)
   run <job>                                 send an approved job to Forge
-  verdict <job> on-track|off-track [note]   Josh: is a small job heading the right way?
-  status <image.png> exploration|candidate|locked|rejected [note]
+  verdict <job> on-track|off-track --chat "Josh's words" [note]
+                                            record Josh's verdict on a job that ran, in his words
+  status <image.png> exploration|candidate|rejected [note]   (a locked image also needs --chat)
+  lock <job out image> --chat "Josh's words" [note]   copy Josh's pick to art/locked/<asset>/ and lock it
+  measure <job>                             head size and line weight of a job's outputs (read-only; also runs after run)
   list                                      every job and where it stands
   catalog                                   write art/catalog.json (every image, its job, Forge settings, status)
   gallery                                   write art/gallery.html to compare images side by side
 """
-import argparse, base64, datetime, hashlib, html, json, math, pathlib, struct, sys, urllib.request, zlib
+import argparse, base64, contextlib, datetime, hashlib, html, json, math, os, pathlib, struct, sys, time, urllib.request, zlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ART = ROOT / "art"
@@ -63,8 +66,48 @@ def read_json(p, default=None):
     return json.loads(p.read_text(encoding="utf-8-sig")) if p.exists() else default
 
 
+def write_atomic(p, data):
+    """Write to a temporary file next to p, then swap it in, so p is never left half-written."""
+    p = pathlib.Path(p)
+    tmp = p.with_name(f".{p.name}.{os.getpid()}.tmp")
+    tmp.write_bytes(data.encode("utf-8") if isinstance(data, str) else data)
+    for _ in range(20):  # on Windows the swap fails while another process is reading p; retry briefly
+        try:
+            os.replace(tmp, p); return
+        except PermissionError:
+            time.sleep(0.1)
+    tmp.unlink(missing_ok=True)
+    die(f"couldn't save {rel(p)}: another program kept it open")
+
+
 def write_json(p, data):
-    pathlib.Path(p).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    write_atomic(p, json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+
+
+BUSY_STALE_MIN = 90  # a busy marker older than this is left over from a crash, and is taken over
+
+
+@contextlib.contextmanager
+def busy(target, step):
+    """Mark a job (or the shared status file) busy while a step changes it, so a second session
+    working in the same folder is told to wait instead of colliding."""
+    marker = (JOBS / target / ".busy") if target != "status" else (ART / ".status.busy")
+    info = f"{step} | pid {os.getpid()} | {now()}"
+    for _ in range(2):
+        try:
+            fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.write(fd, info.encode()); os.close(fd); break
+        except FileExistsError:
+            age = (time.time() - marker.stat().st_mtime) / 60
+            if age < BUSY_STALE_MIN:
+                held = marker.read_text(errors="replace").strip()
+                die(f"{target} is busy ({held}). Another session is probably working on it; "
+                    f"wait, or check with Josh. A marker older than {BUSY_STALE_MIN} minutes is cleared automatically.")
+            marker.unlink(missing_ok=True)  # stale: left by a crash
+    try:
+        yield
+    finally:
+        marker.unlink(missing_ok=True)
 
 
 def job_dir(job_id):
@@ -174,15 +217,32 @@ def parse_infotext(text):
 
 # ---------- building the request ----------
 
+# Every job starts from these; a prompt file's settings, then the job's own settings, override them.
+# They match how every image so far was made.
+BASE_SETTINGS = {"steps": 30, "cfg_scale": 6, "sampler_name": "Euler a", "scheduler": "Automatic"}
+# Forge-wide settings that change results but aren't part of a job. Sent with every request so a rerun
+# matches even if Forge's own settings change. Jobs can't override these.
+PINNED_OVERRIDES = {"sd_vae": "Automatic", "CLIP_stop_at_last_layers": 1, "eta_noise_seed_delta": 0,
+                    "randn_source": "GPU", "token_merging_ratio": 0}
+
+
+def upscaler_for(job):
+    """The upscaler a hires-fix or upscale job uses: the job's choice, else the first approved one."""
+    s, u = job.get("settings", {}), job.get("upscale", {})
+    first = next(iter(approved().get("upscalers", {})), None)
+    return u.get("upscaler") if job["mode"] == "upscale" and u.get("upscaler") else s.get("hr_upscaler", first)
+
+
 def prompt_parts(job):
     """Returns (prompt, negative, default settings)."""
-    p, defaults = job["prompt"], {}
+    p, defaults = job["prompt"], dict(BASE_SETTINGS)
     if isinstance(p, dict):
         src = read_json(ROOT / p["from"])
         pieces = ([src["views"][p["view"]]] if p.get("view") else []) + [src[k] for k in PROMPT_ORDER if src.get(k)]
         if p.get("extra"):
             pieces.append(p["extra"])
-        prompt, neg, defaults = ", ".join(pieces), src.get("negative", ""), src.get("settings", {})
+        prompt, neg = ", ".join(pieces), src.get("negative", "")
+        defaults.update(src.get("settings", {}))
     else:
         prompt, neg = p, ""
     if job.get("negative") is not None:
@@ -217,7 +277,8 @@ def forge_installed():
             _installed = {
                 "checkpoints": {base_name(m["title"]) for m in get("/sdapi/v1/sd-models")},
                 "loras": {base_name(l["name"]) for l in get("/sdapi/v1/loras")},
-                "controlnet": {base_name(m) for m in get("/controlnet/model_list")["model_list"] if m != "None"}}
+                "controlnet": {base_name(m) for m in get("/controlnet/model_list")["model_list"] if m != "None"},
+                "upscalers": {u["name"] for u in get("/sdapi/v1/upscalers")}}
         except Exception as e:
             die(f"can't reach Forge at {FORGE} to check its installed models ({e}). Start Forge and try again.")
     return _installed
@@ -257,6 +318,13 @@ def model_errors(job):
                 errs.append(f"LoRA '{name}' needs its trigger word '{ok_lora[name]['trigger']}' in the prompt")
     for c in job.get("controlnet", []):
         need("ControlNet model", "controlnet", base_name(c.get("model", "")), ok_cn)
+    if job["mode"] == "upscale" or job.get("hires"):
+        up = upscaler_for(job)
+        if not up:
+            errs.append("hires fix and upscale need an approved upscaler, and none is approved yet. "
+                        "Josh adds one under \"upscalers\" in art/tools/forge-approved.json")
+        else:
+            need("upscaler", "upscalers", up, set(ok.get("upscalers", {})))
     return errs
 
 
@@ -350,7 +418,7 @@ def explain_text(job_id, job):
                  f"Everything outside the mask is kept. Denoise {d}: {denoise_words(d)}.")
     else:
         u = job.get("upscale", {})
-        L.append(f"Enlarge `{job['parent']}` {u.get('scale', 2)}x with Forge's {u.get('upscaler', 'R-ESRGAN 4x+ Anime6B')} "
+        L.append(f"Enlarge `{job['parent']}` {u.get('scale', 2)}x with Forge's {upscaler_for(job)} "
                  "upscaler. Nothing is redrawn.")
     if job.get("hires"):
         L.append(f"Hires fix on: a second pass at {job['hires']}x size so detail is drawn, not just enlarged "
@@ -371,7 +439,9 @@ def explain_text(job_id, job):
         L += ["", "## Settings",
               f"- Model: `{job.get('model') or 'whatever Forge has loaded now'}`",
               f"- LoRAs: {lora_words(job) or 'none'}",
-              f"- {s.get('steps', '?')} steps, CFG {s.get('cfg_scale', '?')}, sampler {s.get('sampler_name', '?')}, size {size}",
+              f"- {s.get('steps', '?')} steps, CFG {s.get('cfg_scale', '?')}, sampler {s.get('sampler_name', '?')}, "
+              f"scheduler {s.get('scheduler', '?')}, size {size}",
+              "- Fixed for every job: " + ", ".join(f"{k} {v}" for k, v in PINNED_OVERRIDES.items()),
               f"- Seed: {'random (the seeds used are saved with each image)' if seed == -1 else f'{seed}, counting up per image'}"]
         prev = previous_job(job)
         L += ["", "## Prompt"]
@@ -410,16 +480,15 @@ def build_request(job):
     if mode == "upscale":
         u = job.get("upscale", {})
         return "extra-single-image", {"image": b64(job["parent"]), "resize_mode": 0,
-                                      "upscaling_resize": u.get("scale", 2),
-                                      "upscaler_1": u.get("upscaler", "R-ESRGAN 4x+ Anime6B")}
+                                      "upscaling_resize": u.get("scale", 2), "upscaler_1": upscaler_for(job)}
     per = 2 if count > 1 else 1
     payload = {"prompt": prompt, "negative_prompt": neg, "batch_size": per, "n_iter": math.ceil(count / per),
-               "seed": s.pop("seed", -1), **{k: v for k, v in s.items() if k != "hr_denoise"}}
-    if job.get("model"):
-        payload["override_settings"] = {"sd_model_checkpoint": job["model"]}
-        payload["override_settings_restore_afterwards"] = False
+               "seed": s.pop("seed", -1),
+               **{k: v for k, v in s.items() if k not in ("hr_denoise", "hr_upscaler", "override_settings")}}
+    payload["override_settings"] = {**PINNED_OVERRIDES, **({"sd_model_checkpoint": job["model"]} if job.get("model") else {})}
+    payload["override_settings_restore_afterwards"] = False
     if job.get("hires"):
-        payload.update({"enable_hr": True, "hr_scale": job["hires"], "hr_upscaler": "R-ESRGAN 4x+ Anime6B",
+        payload.update({"enable_hr": True, "hr_scale": job["hires"], "hr_upscaler": upscaler_for(job),
                         "denoising_strength": s.get("hr_denoise", 0.35), "hr_second_pass_steps": 15,
                         "hr_additional_modules": ["Use same choices"]})  # Forge errors without this
     if job.get("controlnet"):
@@ -457,8 +526,18 @@ def forge(endpoint, payload):
 
 def cmd_new(a):
     JOBS.mkdir(parents=True, exist_ok=True)
-    n = 1 + max([int(d.name.split("-")[1]) for d in JOBS.iterdir()
-                 if d.is_dir() and d.name.startswith(a.asset + "-") and d.name.split("-")[1].isdigit()] or [0])
+    def number(name):  # "female-raccoon-003-x" -> 3, for asset "female-raccoon"
+        rest = name[len(a.asset) + 1:].split("-")[0] if name.startswith(a.asset + "-") else ""
+        return int(rest) if rest.isdigit() else 0
+    n = 1 + max([number(d.name) for d in JOBS.iterdir() if d.is_dir()] or [0])
+    claims = JOBS / ".claims"; claims.mkdir(exist_ok=True)
+    while True:  # claim the number; mkdir succeeds for only one session, so two can't share it
+        if not any(d.name.startswith(f"{a.asset}-{n:03d}-") for d in JOBS.iterdir()):
+            try:
+                (claims / f"{a.asset}-{n:03d}").mkdir(); break
+            except FileExistsError:
+                pass
+        n += 1
     job_id = f"{a.asset}-{n:03d}-{a.slug}"
     if a.__dict__.get("from"):
         job = load_job(a.__dict__["from"])
@@ -477,7 +556,7 @@ def cmd_new(a):
 def cmd_explain(a):
     job = load_job(a.job); check(a.job, job)
     text = explain_text(a.job, job)
-    (JOBS / a.job / "explain.md").write_text(text, encoding="utf-8")
+    write_atomic(JOBS / a.job / "explain.md", text)
     st = load_state(a.job)
     st.update(explained_at=now(), explained_hash=job_hash(a.job, job))
     st.pop("approved_hash", None); st.pop("approved_at", None)
@@ -497,7 +576,7 @@ def needs_prompt_review(job):
 # ("enoch", "enoch-sheet" and "enoch-tail" all match "enoch").
 CHARACTERS = {
     "enoch": {"rules": "art/enoch-sheet/enoch-rules.md", "reference": "art/enoch-sheet/enoch_character_sheet.png"},
-    "female": {"rules": None, "reference": "art/female-raccoon/baseline-highres.png"},
+    "female": {"rules": "art/female-raccoon/female-rules.md", "reference": "art/female-raccoon/baseline-highres.png"},
 }
 HISTORY_JOBS, HISTORY_OUTPUTS = 2, 2  # earlier jobs on the track whose images the reviewer looks at
 
@@ -573,6 +652,11 @@ def cmd_brief(a):
         if j in recent:  # images only for the latest jobs; older ones stay as text below
             imgs += [f"- earlier output of `{j}`: `{o}`" for o in ost["outputs"][:HISTORY_OUTPUTS]]
         note = f": {ost['verdict_note']}" if ost.get("verdict_note") else ""
+        ms = [m for m in ost.get("measurements", {}).values() if m]
+        if ms:
+            heads = [m["head"] for m in ms if "head" in m]; lines = [m["line_pct"] for m in ms if "line_pct" in m]
+            note += (f"; measured head {min(heads):.3f}-{max(heads):.3f}" if heads else "") + \
+                    (f", line {min(lines):.2f}-{max(lines):.2f}%" if lines else "")
         hist.append(f"- `{j}`: goal \"{oj.get('goal', '')}\"; reviewer said {rv.get('assessment', 'n/a')}; "
                     f"Josh's verdict {ost.get('verdict', 'not run')}{note}")
     text = "\n".join([
@@ -586,7 +670,7 @@ def cmd_brief(a):
         "# Earlier jobs on this track", *(hist or ["- none"]), "",
         "# The job, explained", "",
         (JOBS / a.job / "explain.md").read_text(encoding="utf-8")])
-    (JOBS / a.job / "prompt-brief.md").write_text(text, encoding="utf-8")
+    write_atomic(JOBS / a.job / "prompt-brief.md", text)
     st.update(briefed_hash=h, briefed_at=now()); save_state(a.job, st)
     print(f"wrote {rel(JOBS / a.job / 'prompt-brief.md')}")
     print(f"--- next: give job id {a.job} to the forge-prompt-reviewer agent; it writes prompt-review.md")
@@ -661,6 +745,56 @@ def real_console():
     return bool(ctypes.windll.kernel32.GetConsoleMode(msvcrt.get_osfhandle(sys.stdin.fileno()), ctypes.byref(mode)))
 
 
+# Read-only measurements of a job's outputs, by measure_head.py and line_width.py. They need image
+# libraries that only Forge's own Python has. Targets come from the style guide.
+FORGE_PYTHON = os.environ.get("FORGE_PYTHON", r"D:\AI\Forge\system\python\python.exe")
+HEAD_RANGE = (0.19, 0.21)   # head, ears included, as a fraction of height
+LINE_TARGET = 0.33          # outline width, % of figure height (the female reference measures 0.33%)
+
+
+def measure_outputs(files):
+    """{file: {"head": ratio, "line_pct": percent}} for the front figure of each image. Never edits them."""
+    import subprocess
+    if not pathlib.Path(FORGE_PYTHON).exists():
+        print(f"  (no measurements: Forge's Python not found at {FORGE_PYTHON}; set FORGE_PYTHON)")
+        return {}
+    out = {f: {} for f in files}
+    for script, key in (("measure_head.py", "head"), ("line_width.py", "line_pct")):
+        # repo-relative paths: the repo folder name has a space, which would split the scripts' output lines
+        res = subprocess.run([FORGE_PYTHON, str(ROOT / "art/tools" / script), *files],
+                             capture_output=True, text=True, cwd=ROOT)
+        for ln in res.stdout.splitlines():
+            parts = ln.split()
+            path = parts[-1].replace("\\", "/") if parts else ""
+            if path not in out:
+                continue
+            try:
+                out[path][key] = float(parts[0]) if key == "head" else float(parts[parts.index("ratio") + 1].rstrip("%"))
+            except (ValueError, IndexError):
+                pass
+    return out
+
+
+def measure_words(m):
+    bits = []
+    if "head" in m:
+        lo, hi = HEAD_RANGE
+        bits.append(f"head {m['head']:.3f}" + ("" if lo <= m["head"] <= hi else (" (too small)" if m["head"] < lo else " (too big)")))
+    if "line_pct" in m:
+        bits.append(f"line {m['line_pct']:.2f}%" + ("" if 0.25 <= m["line_pct"] <= 0.5 else (" (thin)" if m["line_pct"] < 0.25 else " (heavy)")))
+    return ", ".join(bits) or "not measured"
+
+
+def cmd_measure(a):
+    job = load_job(a.job); st = load_state(a.job)
+    if not st.get("outputs"):
+        die("the job hasn't run yet")
+    st["measurements"] = measure_outputs(st["outputs"]); save_state(a.job, st)
+    print(f"targets: head {HEAD_RANGE[0]}-{HEAD_RANGE[1]}, line about {LINE_TARGET}%")
+    for f, m in st["measurements"].items():
+        print(f"  {measure_words(m):40} {f}")
+
+
 def cmd_run(a):
     job = load_job(a.job); check(a.job, job); st = load_state(a.job)
     if not st.get("approved_hash"):
@@ -688,8 +822,13 @@ def cmd_run(a):
         f = out / f"{job['asset']}_{seeds[i] if i < len(seeds) else i}.png"
         f.write_bytes(add_png_text(raw, notes)); saved.append(rel(f)); print(" ", rel(f))
     st.update(ran_at=now(), outputs=saved); save_state(a.job, st)
+    if job["kind"] in ("character-sheet", "single-character"):
+        st["measurements"] = measure_outputs(saved); save_state(a.job, st)
+        print(f"measured (targets: head {HEAD_RANGE[0]}-{HEAD_RANGE[1]}, line about {LINE_TARGET}%):")
+        for f, m in st["measurements"].items():
+            print(f"  {measure_words(m):40} {f}")
     if tier(job) == "small":
-        print(f"look at them, then:  py art/tools/forge_jobs.py verdict {a.job} on-track|off-track \"what you saw\"")
+        print(f"show Josh the images and ask: on-track or off-track? then: verdict {a.job} on-track|off-track --chat \"<his words>\"")
 
 
 def png_text_bytes(raw):
@@ -705,19 +844,54 @@ def cmd_verdict(a):
     load_job(a.job); st = load_state(a.job)
     if not st.get("ran_at"):
         die("the job hasn't run yet")
-    st.update(verdict=a.verdict, verdict_note=a.note, reviewed_at=now()); save_state(a.job, st)
-    print(f"{a.job}: {a.verdict}")
+    if not a.chat.strip():
+        die("--chat needs Josh's exact words; only Josh gives verdicts")
+    st.update(verdict=a.verdict, verdict_note=a.note or a.chat.strip(), verdict_words=a.chat.strip(),
+              reviewed_at=now()); save_state(a.job, st)
+    print(f"{a.job}: {a.verdict} (Josh: \"{a.chat.strip()}\")")
+
+
+def image_path(arg):
+    p = pathlib.Path(arg)
+    p = p if p.is_absolute() else (pathlib.Path.cwd() / p)
+    if not p.exists():
+        die(f"no image at {arg}")
+    return p
 
 
 def cmd_status(a):
-    p = pathlib.Path(a.image)
-    p = p if p.is_absolute() else (pathlib.Path.cwd() / p)
-    if not p.exists():
-        die(f"no image at {a.image}")
-    reg = read_json(STATUS_FILE, {})
-    reg[rel(p)] = {"status": a.status, "note": a.note, "at": now()}
+    p = image_path(a.image); reg = read_json(STATUS_FILE, {})
+    if a.status == "locked":
+        die("lock an image with: lock <image> --chat \"<Josh's words>\"")
+    if reg.get(rel(p), {}).get("status") == "locked" and not (a.chat or "").strip():
+        die("that image is locked; changing it needs --chat \"<Josh's exact words>\"")
+    reg[rel(p)] = {"status": a.status, "note": a.note, "at": now(), **({"words": a.chat.strip()} if a.chat else {})}
     write_json(STATUS_FILE, dict(sorted(reg.items())))
     print(f"{rel(p)}: {a.status}")
+
+
+def cmd_lock(a):
+    """Josh picks a winner: copy it byte for byte from the job's out/ (ignored by git) to
+    art/locked/<asset>/ (tracked), and mark both copies locked."""
+    p = image_path(a.image); r = rel(p)
+    if not a.chat.strip():
+        die("--chat needs Josh's exact words; only Josh locks images")
+    parts = r.split("/")
+    if len(parts) != 5 or parts[:2] != ["art", "jobs"] or parts[3] != "out":
+        die("lock takes an image from a job's out/ folder (art/jobs/<job>/out/<file>.png)")
+    job_id = parts[2]; job = load_job(job_id)
+    dest = ART / "locked" / job["asset"] / f"{job_id}_{p.name}"
+    if dest.exists():
+        die(f"already locked as {rel(dest)}")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(p.read_bytes())  # an exact copy; Forge's PNG notes come with it
+    reg = read_json(STATUS_FILE, {})
+    entry = {"status": "locked", "note": a.note, "words": a.chat.strip(), "at": now(), "job": job_id}
+    reg[r] = {**entry, "copy": rel(dest)}
+    reg[rel(dest)] = {**entry, "source": r}
+    write_json(STATUS_FILE, dict(sorted(reg.items())))
+    st = load_state(job_id); st.setdefault("locked", []).append(rel(dest)); save_state(job_id, st)
+    print(f"locked: {rel(dest)}  (copied from {r}; commit it with the job's records)")
 
 
 def all_jobs():
@@ -848,13 +1022,26 @@ def main():
     p.add_argument("note")
     p = sub.add_parser("run"); p.add_argument("job"); p.add_argument("--again", action="store_true")
     p = sub.add_parser("verdict"); p.add_argument("job"); p.add_argument("verdict", choices=["on-track", "off-track"])
-    p.add_argument("note", nargs="?", default="")
+    p.add_argument("--chat", required=True, help="Josh's exact words when he gave the verdict in chat")
+    p.add_argument("note", nargs="?", default="", help="what was learned (defaults to Josh's words)")
     p = sub.add_parser("status"); p.add_argument("image"); p.add_argument("status", choices=STATUSES)
+    p.add_argument("note", nargs="?", default=""); p.add_argument("--chat", help="Josh's words (needed to change a locked image)")
+    p = sub.add_parser("lock"); p.add_argument("image"); p.add_argument("--chat", required=True)
     p.add_argument("note", nargs="?", default="")
+    sub.add_parser("measure").add_argument("job")
     for name in ("list", "catalog", "gallery"):
         sub.add_parser(name)
     a = ap.parse_args()
-    globals()[f"cmd_{a.cmd}"](a)
+    fn = globals()[f"cmd_{a.cmd}"]
+    if a.cmd in ("explain", "brief", "respond", "approve", "run", "verdict", "measure"):
+        job_dir(a.job)  # a clear error for a wrong id, before marking anything busy
+        with busy(a.job, a.cmd):
+            fn(a)
+    elif a.cmd in ("status", "lock"):
+        with busy("status", a.cmd):
+            fn(a)
+    else:
+        fn(a)
 
 
 if __name__ == "__main__":

@@ -36,5 +36,5 @@ Make only the changes Claude passes on to you, then `explain` and `brief` again,
 ## Running a job (when given an approved job id)
 
 1. `py art/tools/forge_jobs.py run <job>`. If it refuses (not approved, changed since approval, or already ran), stop and report the refusal word for word. Don't try to get around it.
-2. Look at every output with Read. Compare each one against the goal and the checklist at the end of `art/raccoon-style-guide.md`.
-3. Reply with each output's path and seed, whether it achieved the goal, which checklist items it passes or fails, and which one (if any) looks best. This is advice for Josh's verdict, not the verdict itself.
+2. `run` measures character images automatically (head size and line weight, read-only) and prints the numbers. Targets: head 0.19–0.21 of height, line about 0.33%. Look at every output with Read. Compare each one against the goal, the checklist at the end of `art/raccoon-style-guide.md`, and its numbers. A number far off from what you see (such as a head of 0.35) is probably a mis-measure caused by a stray object; say so rather than trusting it.
+3. Reply with each output's path and seed, its measurements, whether it achieved the goal, which checklist items it passes or fails, and which one (if any) looks best. This is advice for Josh's verdict, not the verdict itself.

@@ -7,7 +7,7 @@ How the raccoons of *Rest* look: the rules every raccoon follows, and what sets 
 | ![Female raccoon reference sheet](female-raccoon/baseline-highres.png) | ![Enoch's character sheet](enoch-sheet/enoch_character_sheet.png) |
 | [female-raccoon/baseline-highres.png](female-raccoon/baseline-highres.png) | [enoch-sheet/enoch_character_sheet.png](enoch-sheet/enoch_character_sheet.png) |
 
-Enoch's full rules, and how his sheet was made, are in [enoch-sheet/enoch-rules.md](enoch-sheet/enoch-rules.md). New raccoon art is made through Forge jobs, each reviewed before it runs: see [Making and changing raccoon art](#making-and-changing-raccoon-art).
+Enoch's full rules, and how his sheet was made, are in [enoch-sheet/enoch-rules.md](enoch-sheet/enoch-rules.md). The female raccoon's rules, and what her Forge jobs have taught us, are in [female-raccoon/female-rules.md](female-raccoon/female-rules.md). New raccoon art is made through Forge jobs, each reviewed before it runs: see [Making and changing raccoon art](#making-and-changing-raccoon-art).
 
 ## Shared rules
 
@@ -132,7 +132,7 @@ Indigo Void has these faults with every raccoon, male or female. Images are kept
 
 ### Edge guides are per character
 
-An edge guide fixes the silhouette, so it has to match the character's sex and build. Enoch's guide ([enoch-sheet/shoulder_guide_3pose_v2.png](enoch-sheet/shoulder_guide_3pose_v2.png)) is male: a square torso and wide shoulders. **Use it only for Enoch.** On a female job it pushes her toward a male body. Until a female guide exists, a female sheet has no edge guide, so expect the small-head fault. Josh makes guides; they're never edited by script.
+An edge guide fixes the silhouette, so it has to match the character's sex and build. Enoch's guide ([enoch-sheet/shoulder_guide_3pose_v2.png](enoch-sheet/shoulder_guide_3pose_v2.png)) is male: a square torso and wide shoulders. **Use it only for Enoch.** On a female job it pushes her toward a male body. The female raccoon's guide is her own reference sheet: the canny ControlNet runs on it at generation time (see [female-raccoon/female-rules.md](female-raccoon/female-rules.md)). Without any guide, expect the small-head fault. Josh makes guides; they're never edited by script.
 
 ### Small jobs first
 
@@ -141,7 +141,8 @@ An edge guide fixes the silhouette, so it has to match the character's sex and b
 
 ### Tracking images
 
-- `status <image> exploration|candidate|locked|rejected` sets where an image stands. Locked images are never changed. A change to one is a new job with the locked image as its parent.
+- `lock <image> --chat "<Josh's words>"` keeps a winner. Josh picks it in chat, and the image is copied byte for byte from the job's `out/` folder (which git ignores) to `art/locked/<asset>/` (which git tracks) and marked locked. Locked images are never changed. A change to one is a new job with the locked copy as its parent.
+- `status <image> exploration|candidate|rejected` sets where any other image stands. Changing a locked image's status needs Josh's words too.
 - `list` shows every job and the step it's waiting on.
 - `gallery` writes `art/gallery.html`, which shows every image grouped by job, with its status and Forge settings.
 
