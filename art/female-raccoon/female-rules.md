@@ -13,6 +13,18 @@ The rules shared by every raccoon are in the [raccoon style guide](../raccoon-st
 - **Stance:** a softer pose; her weight can shift to one side.
 - Digitigrade: on her toes, with raccoon hind paws. Never flat feet.
 
+### Reference measurements
+
+Measured 2026-10-27 on her front (leftmost) figure, with the pipeline's read-only scripts `art/tools/measure_head.py` and `art/tools/line_width.py` (the same ones `run` and `measure` use on job outputs):
+
+| Image | Size | Head (ears to neck ÷ ears to feet) | Line weight (outline ÷ figure height) |
+| --- | --- | --- | --- |
+| [baseline-highres.png](baseline-highres.png) | 3064×2024 | **0.210** | **0.33%** (6.3 px on a 1943 px figure) |
+| [baseline.jpg](baseline.jpg) | 766×506 | **0.210** | 0.41% (2.0 px on a 486 px figure) |
+
+- **Head:** 0.21 on both, and about 0.20 by eye. Outputs should land at 0.19–0.21. This is a measurement of the reference's front figure only; on sheets with loose head studies the script can pick the wrong figure.
+- **Line weight depends on image size.** Outlines can't get much thinner than about 2 px, so small images read heavier. Judge an output against a reference of similar size: 0.33% is the target at full resolution, and outputs near 1536 px wide should land roughly between 0.33% and 0.41%.
+
 ## Face and eyes
 
 - A rounder face with a wide, friendly smile. Never angry or scowling.
