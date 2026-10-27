@@ -76,8 +76,8 @@ Job [`female-raccoon-003-img2img-sheet-recipe`](../jobs/female-raccoon-003-img2i
 From the `female-raccoon-001` jobs (IP-Adapter at 0.5 and 0.8, no edge guide), all marked off-track:
 
 - **Colours drift even with the reference.** Teal came out pale seafoam, the chest cream, and the navy near-black or purple. Name the colours plainly in the prompt (teal fur; pale cyan or mint chest; navy blue markings) and put `cream`, `white chest`, `black markings` and `purple` in the negative.
-- **Stray objects fill the empty space** around the figures: hourglasses, arrows, hooks, tiaras, devil tails, limb studies, logo tiles. The hourglasses are probably the prompt's `hourglass figure` being drawn literally. Describe her shape instead ("narrow waist, wide hips, full thighs"), and put `props`, `objects`, `symbols`, `icons` and `extra drawings` in the negative.
-- **Head size** hasn't been tested yet. The next job should add the canny edge guide on her reference sheet.
+- **Stray objects fill the empty space** around the figures: hourglasses, arrows, hooks, tiaras, devil tails, limb studies, logo tiles. The hourglasses are probably the prompt's `hourglass figure` being drawn literally. Put `props`, `objects`, `symbols`, `icons` and `extra drawings` in the negative. *(Superseded: this lesson first suggested "narrow waist, wide hips, full thighs" instead; those words gave her a human body. Use the body words under Body above.)*
+- *(Superseded: head size was untested here, and the plan was a canny guide. Job 003's img2img recipe fixed head size instead; see below.)*
 
 From `female-raccoon-001-teal-colour-wording` (IP-Adapter 0.8 on baseline.jpg, canny 0.6 ending at 0.6 on baseline-highres.png), off-track. Josh: "the body is too human."
 

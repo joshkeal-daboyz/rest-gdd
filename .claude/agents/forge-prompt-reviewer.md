@@ -60,4 +60,6 @@ must-fix: <how many items are under Must fix; 0 if none>
 
 **Settings.** The brief ends with every field and setting a job can use. Recommend only those.
 
+**Warnings.** The explanation may end with a **Warnings** list: known causes of failure, such as a character sheet drawn from scratch (txt2img), anatomy words in the negative, or words that gave this character a human body. Treat each as must-fix unless the job's "why" gives a real reason for it.
+
 Write only that file. Then reply with the assessment and your recommendations in a few lines.

@@ -14,13 +14,13 @@ Rules this script enforces:
 Jobs live in art/jobs/<id>/: job.json (what to do), explain.md, state.json, out/ (Forge's images).
 
 usage (run from the repo root with `py art/tools/forge_jobs.py ...`):
-  new <asset> <track> <slug> [--from JOB]   make a job skeleton to fill in
+  new <asset> <track> <slug> [--from JOB [--parent IMG]]   make a job; --from builds on JOB's locked/best image
   explain <job>                             check the job and write a plain-English explanation
   brief <job>                               write prompt-brief.md for the forge-prompt-reviewer agent
   respond <job> agree|disagree "note"       Claude's answer to the reviewer (disagree = talk to Josh)
   approve <job> [--chat "Josh's words"]     record Josh's approval (from chat, or typed at a terminal)
   run <job>                                 send an approved job to Forge
-  verdict <job> on-track|off-track --chat "Josh's words" "one-line reason"
+  verdict <job> on-track|off-track --chat "Josh's words" "one-line reason" [--best <output>]
                                             record Josh's verdict on a job that ran, in his words
   status <image.png> exploration|candidate|rejected [note]   (a locked image also needs --chat)
   lock <job out image> --chat "Josh's words" [note]   copy Josh's pick to art/locked/<asset>/ and lock it
@@ -450,6 +450,44 @@ def denoise_words(d):
     return "close to a fresh image: very little of the parent survives"
 
 
+# Words that set off a known model fault (see the style guide's "Known faults of the model").
+# Explicit anatomy only: Enoch's on-track negative has `breasts` and drew no censor mark.
+BODY_WORDS = ("anatomy", "genital", "nipple", "anus", "penis", "vagina", "pussy", "buttock", "groin")
+CHARACTER_AVOID = {  # prompt words that gave this character the wrong body (from its rules file)
+    "female": ("hourglass figure", "wide hips", "full thighs", "narrow waist", "stocky"),
+}
+
+
+def warnings_for(job_id, job):
+    import re as _re
+    W = []
+    prompt, neg, _ = prompt_parts(job) if job.get("prompt") else ("", "", {})
+    words = lambda text: _re.sub(r"[()\[\]:0-9.\\]", " ", text.lower())
+    if job.get("kind") == "character-sheet" and job.get("mode") == "txt2img":
+        tried = [j for j in all_jobs() if j != job_id and load_job(j).get("kind") == "character-sheet"
+                 and load_job(j).get("mode") == "txt2img" and load_state(j).get("verdict")]
+        on = [j for j in tried if load_state(j)["verdict"] == "on-track"]
+        W.append(f"Character sheet drawn from scratch (txt2img): {len(on)} of {len(tried)} such jobs so far were "
+                 "on-track. img2img from an approved sheet at denoise 0.6-0.7 is the proven route "
+                 "(enoch-sheet-005-less-human, female-raccoon-003-img2img-sheet-recipe).")
+    neg_body = words(neg).replace("bad anatomy", " ")  # a standard quality tag, not a fault trigger
+    found = sorted({w for w in BODY_WORDS if _re.search(rf"\b{w}s?\b", neg_body)})
+    if found:
+        W.append(f"Body words in the negative ({', '.join(found)}) can make the model draw a censor mark. "
+                 "Keep the negative to nsfw and general terms.")
+    if "hourglass" in words(prompt):
+        W.append("`hourglass` in the prompt gets drawn as hourglass objects and a pin-up body. "
+                 "Say `mild waist, soft rounded body, wider hips` instead.")
+    if "charcoal" in words(prompt):
+        W.append("`charcoal grey` comes out grey, not navy. Use `navy blue` for markings.")
+    c_key = next((k for k in CHARACTER_AVOID if job["asset"].lower() == k or job["asset"].lower().startswith(k + "-")), None)
+    if c_key:
+        bad = [w for w in CHARACTER_AVOID[c_key] if w in words(prompt)]
+        if bad:
+            W.append(f"Words that gave this character a human body: {', '.join(bad)} (see its rules file).")
+    return W
+
+
 def explain_text(job_id, job):
     prompt, neg, defaults = prompt_parts(job)
     s = {**defaults, **job.get("settings", {})}
@@ -509,6 +547,10 @@ def explain_text(job_id, job):
         L += ["", "## Why a large job is allowed now",
               f"It follows `{job['follows']}`, which Josh gave an on-track verdict: "
               f"{load_state(job['follows']).get('verdict_note') or '(no note)'}"]
+    warns = warnings_for(job_id, job)
+    if warns:
+        L += ["", "## Warnings", "Known causes of failure in this job. The reviewer treats each as must-fix "
+              "unless the job's \"why\" explains it.", *[f"- {w}" for w in warns]]
     L += ["", "## Output", f"Images go to `art/jobs/{job_id}/out/` exactly as Forge returns them. "
           "Nothing is edited afterwards; only the job id is written into each file's PNG notes."]
     return "\n".join(L) + "\n"
@@ -592,8 +634,22 @@ def cmd_new(a):
         n += 1
     job_id = f"{a.asset}-{n:03d}-{a.slug}"
     if a.__dict__.get("from"):
-        job = load_job(a.__dict__["from"])
-        job.update(goal="TODO", why="TODO", compare_to=a.__dict__["from"]); job.pop("follows", None)
+        src = a.__dict__["from"]; job = load_job(src); sst = load_state(src)
+        job.update(goal="TODO", why="TODO", compare_to=src); job.pop("follows", None)
+        # build on the winner, not on whatever the source job started from
+        if a.parent:
+            parent, why_parent = rel(image_path(a.parent)), "named with --parent"
+        elif sst.get("locked"):
+            parent, why_parent = sst["locked"][-1], f"the image locked from {src}"
+        elif sst.get("best"):
+            parent, why_parent = sst["best"], f"the image Josh picked as best in {src}'s verdict"
+        else:
+            parent, why_parent = job.get("parent"), f"{src}'s own parent (it has no locked or best image)"
+        if job.get("mode") in ("img2img", "inpaint") and parent:
+            job["parent"] = parent
+            print(f"parent: {parent}  ({why_parent})")
+    elif a.parent:
+        die("--parent goes with --from; for a new job, set mode and parent with set")
     else:
         job = {"mode": "txt2img",
                "prompt": {"from": "art/enoch-sheet/enoch-prompts.json", "view": "front", "extra": ""},
@@ -665,7 +721,8 @@ def needs_prompt_review(job):
 # ("enoch", "enoch-sheet" and "enoch-tail" all match "enoch").
 CHARACTERS = {
     "enoch": {"rules": "art/enoch-sheet/enoch-rules.md", "reference": "art/enoch-sheet/enoch_character_sheet.png"},
-    "female": {"rules": "art/female-raccoon/female-rules.md", "reference": "art/female-raccoon/baseline-highres.png"},
+    "female": {"rules": "art/female-raccoon/female-rules.md",
+               "reference": "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png"},
 }
 HISTORY_JOBS, HISTORY_OUTPUTS = 2, 2  # earlier jobs on the track whose images the reviewer looks at
 
@@ -1010,6 +1067,11 @@ def cmd_verdict(a):
         die("--chat needs Josh's exact words; only Josh gives verdicts")
     if not a.reason.strip():
         die("give a one-line reason: what made it on- or off-track")
+    if a.best:
+        b = rel(image_path(a.best))
+        if b not in st.get("outputs", []):
+            die(f"--best must be one of this job's outputs: {', '.join(st.get('outputs', []))}")
+        st["best"] = b
     st.update(verdict=a.verdict, verdict_note=a.reason.strip(), verdict_words=a.chat.strip(),
               reviewed_at=now()); save_state(a.job, st)
     print(f"{a.job}: {a.verdict} (Josh: \"{a.chat.strip()}\")")
@@ -1177,7 +1239,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("new"); p.add_argument("asset"); p.add_argument("track"); p.add_argument("slug")
-    p.add_argument("--from", help="copy settings from this job")
+    p.add_argument("--from", help="copy settings from this job; its locked or best image becomes the parent")
+    p.add_argument("--parent", help="with --from: use this image as the parent instead")
     for name in ("explain", "brief"):
         sub.add_parser(name).add_argument("job")
     p = sub.add_parser("approve"); p.add_argument("job")
@@ -1187,6 +1250,7 @@ def main():
     p = sub.add_parser("run"); p.add_argument("job"); p.add_argument("--again", action="store_true")
     p = sub.add_parser("verdict"); p.add_argument("job"); p.add_argument("verdict", choices=["on-track", "off-track"])
     p.add_argument("--chat", required=True, help="Josh's exact words when he gave the verdict in chat")
+    p.add_argument("--best", help="the output Josh liked most; `new --from` this job uses it as the parent")
     p.add_argument("reason", help="one line: why it's on- or off-track (shown to later reviewers)")
     p = sub.add_parser("status"); p.add_argument("image"); p.add_argument("status", choices=STATUSES)
     p.add_argument("note", nargs="?", default=""); p.add_argument("--chat", help="Josh's words (needed to change a locked image)")
