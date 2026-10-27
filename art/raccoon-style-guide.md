@@ -7,7 +7,7 @@ How the raccoons of *Rest* look: the rules every raccoon follows, and what sets 
 | ![Female raccoon reference sheet](female-raccoon/baseline-highres.png) | ![Enoch's character sheet](enoch-sheet/enoch_character_sheet.png) |
 | [female-raccoon/baseline-highres.png](female-raccoon/baseline-highres.png) | [enoch-sheet/enoch_character_sheet.png](enoch-sheet/enoch_character_sheet.png) |
 
-Enoch's full rules, and how his sheet was made, are in [enoch-sheet/enoch-rules.md](enoch-sheet/enoch-rules.md).
+Enoch's full rules, and how his sheet was made, are in [enoch-sheet/enoch-rules.md](enoch-sheet/enoch-rules.md). New raccoon art is made through Forge jobs, each reviewed before it runs: see [Making and changing raccoon art](#making-and-changing-raccoon-art).
 
 ## Shared rules
 
@@ -82,6 +82,38 @@ Everything above is shared. These features are what make a raccoon read as femal
 | **Stance** | Weight can shift to one side, with a softer pose. | Upright and squared, with weight on both feet. |
 
 The most important male rule is the **square torso**. Without it, male raccoons drift toward the female silhouette, even when every other rule is met.
+
+## Making and changing raccoon art
+
+Every raccoon image is made or changed in Forge, through the job pipeline in [tools/forge_jobs.py](tools/forge_jobs.py). No image is fixed by hand or by a script that edits pixels. If an image breaks a rule, change the prompt, mask, guide or settings and generate it again.
+
+### Steps for every job
+
+Run each step from the repo root with `py art/tools/forge_jobs.py <step> <job>`.
+
+| Step | Who | What happens |
+| --- | --- | --- |
+| 1. `new` | Claude or Josh | Makes `art/jobs/<id>/job.json`. Fill in the **goal** (what should change) and the **why** (why these settings should do it). |
+| 2. `explain` | Claude | Writes `explain.md`: what Forge will do, the model, LoRAs, seed, the full prompt, and what changed since the last job. |
+| 3. `brief` | Claude | Writes `prompt-brief.md` for the reviewer. It opens with the reason for the change, then lists the rules, images and earlier jobs to check. |
+| 4. Prompt review | [forge-prompt-reviewer](../.claude/agents/forge-prompt-reviewer.md) agent | Reviews the job independently against the stated reason and this guide, and writes `prompt-review.md`: will help, partly, won't help, or can't tell, with recommendations. |
+| 5. `respond` | Claude | Agrees or disagrees with the review, with a reason. **A disagreement goes to Josh** before anything else happens. |
+| 6. `approve` | Josh only, at a terminal | Shows the explanation, the review and Claude's response together. Josh types the job id to approve it. |
+| 7. `run` | Claude or Josh | Sends the job to Forge. Images are saved to `art/jobs/<id>/out/` exactly as Forge returns them. |
+| 8. `verdict` | Josh | Marks the job **on-track** or **off-track**, with a note, after checking it against the checklist below. |
+
+Changing a job, its parent image or its mask after any step sends it back to `explain`, so a revised prompt always gets a fresh review. An upscale has no prompt, so it skips steps 3–5.
+
+### Small jobs first
+
+- A **small** job makes up to 4 images, with no hires fix and no upscale. Each one should test a single change, so the results show what worked.
+- A **large** job (more images, hires fix, or an upscale) runs only if it follows a small job on the same asset and track that Josh marked on-track.
+
+### Tracking images
+
+- `status <image> exploration|candidate|locked|rejected` sets where an image stands. Locked images are never changed. A change to one is a new job with the locked image as its parent.
+- `list` shows every job and the step it's waiting on.
+- `gallery` writes `art/gallery.html`, which shows every image grouped by job, with its status and Forge settings.
 
 ## Checklist
 
