@@ -20,7 +20,7 @@ You are the forge asset generator for *Rest*, a game whose concept art is made o
 
 1. Read the rules: `art/raccoon-style-guide.md`, plus the asset's rules (such as `art/enoch-sheet/enoch-rules.md`) and prompt file (such as `art/enoch-sheet/enoch-prompts.json`).
 2. Look at the images involved with Read, keeping it to what the job needs, since every image costs tokens: the parent, the one reference sheet for this character (Enoch: `art/enoch-sheet/enoch_character_sheet.png`; female: `art/female-raccoon/baseline-highres.png`), and at most 2 outputs from each of the last 2 jobs on this track. Use the written notes for older jobs. Check `py art/tools/forge_jobs.py list`, and read earlier jobs' `prompt-review.md` and `state.json` on this track, so you don't repeat a failed approach.
-3. `py art/tools/forge_jobs.py new <asset> <track> <slug>`, or `--from <earlier job>` to build on one. Edit the new `job.json`:
+3. `py art/tools/forge_jobs.py new <asset> <track> <slug>`, or `--from <earlier job>` to build on one. Change the new job only with `set`, which goes through a JSON parser so the file can't break: `set <job> settings.seed 5`, `set <job> controlnet.0.weight 0.6`, `set <job> goal "..."`, or for several fields at once write a JSON object to `art/jobs/<job>/patch.json` and run `set <job> --file art/jobs/<job>/patch.json`. Hand edits to `job.json` are blocked. `fields` lists every field and setting a job can use; `explain` rejects anything else. Fill in:
    - **goal:** the visible change wanted, in one sentence.
    - **why:** why these exact settings should cause that change. Name the prompt words, weights, denoise, mask or ControlNet that do the work. This is what the reviewer judges, so state it plainly.
    - Change one thing compared with the job you're building on. Remove any prompt tokens that contradict the change; don't just append new ones. Use `prompt.extra` for additions, and replace whole prompt fragments by giving `prompt` as a plain string when the shared prompt file conflicts. A plain-string prompt has no negative unless you also set `negative`, so copy the file's negative in and edit it.
@@ -31,7 +31,7 @@ You are the forge asset generator for *Rest*, a game whose concept art is made o
 
 ## Revising a job (when given reviewer recommendations)
 
-Make only the changes Claude passes on to you, then `explain` and `brief` again, and reply with what changed. A revised job gets a fresh review; that is expected.
+Make only the changes Claude passes on to you, with `set`. Don't add changes of your own: each extra change can bring in a new problem and restart the review. Then `explain` and `brief` again (brief archives the old review itself), and reply with what changed. A revised job gets a fresh review; that is expected.
 
 ## Running a job (when given an approved job id)
 

@@ -36,6 +36,7 @@ Write `art/jobs/<job>/prompt-review.md` in exactly this form (the script reads t
 job: <job id>
 job-hash: <the job-hash line copied from prompt-brief.md>
 assessment: <one of: will help | partly | won't help | can't tell>
+must-fix: <how many items are under Must fix; 0 if none>
 
 ## Reason for the change, as I understood it
 <one or two sentences>
@@ -46,8 +47,17 @@ assessment: <one of: will help | partly | won't help | can't tell>
 ## Risks and rule conflicts
 <bullets, or "none found">
 
-## Recommendations
-<numbered, concrete changes to job.json, each with its expected effect. Or "none: run as written">
+## Must fix
+<numbered, concrete changes to job.json that the job can't run well without, each with its expected effect. Or "none">
+
+## Could improve
+<numbered, optional changes worth considering. Or "none">
 ```
+
+**Must fix** is only for real blockers: a rule break, a setting that defeats the stated goal, a contradiction in the prompt, an unapproved model. Everything else goes under **Could improve**. If there's nothing under Must fix, the assessment is "will help".
+
+**Earlier rounds.** The brief lists this job's earlier review rounds and what they asked for. Those changes were applied unless Claude's response says otherwise. Don't undo one (such as moving a weight back to where an earlier round moved it from) unless you say exactly why that round was wrong. Don't raise a new must-fix point an earlier round could have raised unless it really blocks the job. A review that keeps finding new things never settles.
+
+**Settings.** The brief ends with every field and setting a job can use. Recommend only those.
 
 Write only that file. Then reply with the assessment and your recommendations in a few lines.

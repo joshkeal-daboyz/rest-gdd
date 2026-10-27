@@ -57,6 +57,9 @@ def check_write(path, agent):
     p = path.replace("\\", "/").lower()
     if re.search(r"art/jobs/[^/]+/state\.json$", p):
         deny("state.json is written only by forge_jobs.py commands.")
+    if re.search(r"art/jobs/[^/]+/job\.json$", p):
+        deny("change a job with forge_jobs.py set (it can't leave job.json broken): "
+             "set <job> <path> <value>, or write a JSON object to art/jobs/<job>/patch.json and run set <job> --file that file.")
     if p.endswith("art/asset-status.json"):
         deny("image status is set only through forge_jobs.py status and lock.")
     if "art/locked/" in p:

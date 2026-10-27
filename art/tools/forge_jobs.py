@@ -20,10 +20,12 @@ usage (run from the repo root with `py art/tools/forge_jobs.py ...`):
   respond <job> agree|disagree "note"       Claude's answer to the reviewer (disagree = talk to Josh)
   approve <job> [--chat "Josh's words"]     record Josh's approval (from chat, or typed at a terminal)
   run <job>                                 send an approved job to Forge
-  verdict <job> on-track|off-track --chat "Josh's words" [note]
+  verdict <job> on-track|off-track --chat "Josh's words" "one-line reason"
                                             record Josh's verdict on a job that ran, in his words
   status <image.png> exploration|candidate|rejected [note]   (a locked image also needs --chat)
   lock <job out image> --chat "Josh's words" [note]   copy Josh's pick to art/locked/<asset>/ and lock it
+  set <job> <path> <value> | --file f.json  change job.json safely (e.g. set x settings.seed 5)
+  fields                                    every field and setting a job can use
   measure <job>                             head size and line weight of a job's outputs (read-only; also runs after run)
   list                                      every job and where it stands
   catalog                                   write art/catalog.json (every image, its job, Forge settings, status)
@@ -44,6 +46,49 @@ KINDS = ("character-sheet", "single-character", "prop", "other")  # what the job
 STATUSES = ("exploration", "candidate", "locked", "rejected")
 JOB_KEYS = {"asset", "track", "kind", "goal", "why", "mode", "parent", "mask", "prompt", "negative", "model", "loras",
             "settings", "count", "hires", "controlnet", "upscale", "follows", "compare_to"}
+# Every setting a job may carry, with what it does. check() rejects anything else (typos, guesses),
+# and the brief and `fields` list these so nobody has to dig through this script.
+SETTING_KEYS = {
+    "seed": "-1 for random; a fixed number repeats an image (consecutive seeds per image)",
+    "steps": "sampling steps (default 30)",
+    "cfg_scale": "how strictly the prompt is followed (default 6)",
+    "sampler_name": "default Euler a",
+    "scheduler": "default Automatic",
+    "width": "txt2img size; for img2img/inpaint, the size Forge draws at (default: the parent's)",
+    "height": "as width",
+    "denoising_strength": "img2img/inpaint: 0 keeps the parent, 1 replaces it",
+    "inpainting_fill": "inpaint: 1 starts from the original (default), 0 fill, 2 latent noise, 3 latent nothing",
+    "mask_blur": "inpaint: soften the mask edge, in pixels (default 4)",
+    "inpaint_full_res": "inpaint: true draws only the masked area, at width x height",
+    "inpaint_full_res_padding": "inpaint with inpaint_full_res: pixels of context around the mask",
+    "hr_denoise": "hires fix: denoise of the second pass (default 0.35)",
+    "hr_upscaler": "hires fix: an approved upscaler (default the first approved)",
+}
+CONTROLNET_KEYS = {
+    "module": "preprocessor: canny (edge guide from an image), None (image is already an edge map), CLIP-ViT-H (IPAdapter) (reference)",
+    "model": "an approved ControlNet model",
+    "image": "repo path of the guide or reference image",
+    "weight": "strength, about 0.3-1.0",
+    "guidance_start": "fraction of the steps where it starts (0-1, default 0)",
+    "guidance_end": "fraction of the steps where it stops (0-1, default 1)",
+    "control_mode": "Balanced | My prompt is more important | ControlNet is more important",
+    "resize_mode": "Crop and Resize (default) | Resize and Fill | Just Resize",
+    "pixel_perfect": "true (default) sizes the preprocessor to the image",
+    "processor_res": "preprocessor resolution, when pixel_perfect is false",
+    "threshold_a": "canny low threshold",
+    "threshold_b": "canny high threshold",
+    "purpose": "plain words: what this unit is for (shown in explain.md, not sent to Forge)",
+}
+
+
+def fields_text():
+    L = ["Top-level job fields: " + ", ".join(sorted(JOB_KEYS)), "", "settings:"]
+    L += [f"  {k}: {v}" for k, v in SETTING_KEYS.items()]
+    L += ["", "controlnet (a list; one entry per unit):"] + [f"  {k}: {v}" for k, v in CONTROLNET_KEYS.items()]
+    L += ["", "upscale (upscale mode): scale, upscaler", "hires: a number such as 1.5 turns on hires fix (large job)"]
+    return "\n".join(L)
+
+
 PROMPT_ORDER = ["style", "identity", "build", "posture", "face", "colors", "feet", "tail", "base_body"]
 
 
@@ -334,6 +379,13 @@ def check(job_id, job):
     unknown = set(job) - JOB_KEYS
     if unknown:
         errs.append(f"unknown fields {sorted(unknown)} (typo?)")
+    bad = set(job.get("settings", {})) - set(SETTING_KEYS)
+    if bad:
+        errs.append(f"unknown settings {sorted(bad)}; see `fields` for what a job can set")
+    for i, c in enumerate(job.get("controlnet", [])):
+        bad = set(c) - set(CONTROLNET_KEYS)
+        if bad:
+            errs.append(f"controlnet {i}: unknown keys {sorted(bad)}; see `fields`")
     for k in ("asset", "track", "goal", "why", "mode"):
         if not str(job.get(k, "")).strip() or str(job.get(k, "")).startswith("TODO"):
             errs.append(f"'{k}' must be filled in")
@@ -553,12 +605,49 @@ def cmd_new(a):
     print(f"made {rel(JOBS / job_id / 'job.json')}; fill in goal, why and the settings, then: explain {job_id}")
 
 
+def cmd_set(a):
+    """Change job.json through a JSON parser, so it can't be left invalid.
+    set <job> <path> <value>: path like settings.seed or controlnet.0.weight; value is JSON, or plain text.
+    set <job> --file patch.json: merge a JSON object's top-level keys into the job.
+    set <job> <path> --delete: remove a key."""
+    f = JOBS / a.job / "job.json"; job = load_job(a.job)
+    if a.file:
+        patch = read_json(pathlib.Path(a.file).resolve())
+        if not isinstance(patch, dict):
+            die("--file must hold a JSON object")
+        job.update(patch); what = f"merged {sorted(patch)}"
+    else:
+        if not a.path:
+            die("give a path (such as settings.seed) or --file")
+        keys = [int(k) if k.isdigit() else k for k in a.path.split(".")]
+        node = job
+        for k in keys[:-1]:
+            node = node[k] if isinstance(k, int) else node.setdefault(k, {})
+        if a.delete:
+            node.pop(keys[-1], None) if isinstance(node, dict) else node.pop(keys[-1]); what = f"removed {a.path}"
+        else:
+            if a.value is None:
+                die("give a value, or --delete")
+            try:
+                val = json.loads(a.value)
+            except ValueError:
+                val = a.value  # plain text, such as a prompt
+            node[keys[-1]] = val; what = f"{a.path} = {json.dumps(val)[:80]}"
+    write_json(f, job)
+    print(f"{a.job}: {what}. Run explain again; its hash is now {job_hash(a.job, job) if all((ROOT / x).exists() for x in input_files(job)) else '?'}")
+
+
+def cmd_fields(a):
+    print(fields_text())
+
+
 def cmd_explain(a):
     job = load_job(a.job); check(a.job, job)
-    text = explain_text(a.job, job)
+    h = job_hash(a.job, job)
+    text = explain_text(a.job, job) + f"\njob-hash: {h}\n"
     write_atomic(JOBS / a.job / "explain.md", text)
     st = load_state(a.job)
-    st.update(explained_at=now(), explained_hash=job_hash(a.job, job))
+    st.update(explained_at=now(), explained_hash=h)
     st.pop("approved_hash", None); st.pop("approved_at", None)
     save_state(a.job, st)
     print(text)
@@ -641,6 +730,7 @@ def cmd_brief(a):
         die("the job changed since it was last explained (or was never explained); run explain first")
     if not needs_prompt_review(job):
         die("an upscale has no prompt to review; Josh can approve it directly")
+    archive_review(a.job, st, h)
     imgs = [f"- parent: `{job['parent']}`"] if job.get("parent") else []
     imgs += [f"- mask (white = redrawn): `{job['mask']}`"] if job.get("mask") else []
     imgs += [f"- ControlNet image: `{c['image']}`" for c in job.get("controlnet", []) if c.get("image")]
@@ -668,12 +758,77 @@ def cmd_brief(a):
         "# Rules to check", *[f"- `{r}`" for r in rule_files(job)], "",
         "# Images to look at", *imgs, "",
         "# Earlier jobs on this track", *(hist or ["- none"]), "",
+        "# Earlier review rounds on this job", *rounds_text(a.job, st), "",
         "# The job, explained", "",
-        (JOBS / a.job / "explain.md").read_text(encoding="utf-8")])
+        (JOBS / a.job / "explain.md").read_text(encoding="utf-8"), "",
+        "# Settings a job can use", "", "```", fields_text(), "```"])
     write_atomic(JOBS / a.job / "prompt-brief.md", text)
     st.update(briefed_hash=h, briefed_at=now()); save_state(a.job, st)
     print(f"wrote {rel(JOBS / a.job / 'prompt-brief.md')}")
     print(f"--- next: give job id {a.job} to the forge-prompt-reviewer agent; it writes prompt-review.md")
+
+
+MAX_ROUNDS = 3  # review rounds on one job before it goes to Josh as it stands
+
+
+def archive_review(job_id, st, h):
+    """Before a new brief, move a review of an older version of the job to prompt-review.roundN.md,
+    and keep what came of it (assessment, must-fix count, Claude's response) in state.json."""
+    f = JOBS / job_id / "prompt-review.md"
+    rv = read_review(job_id)
+    if not rv or rv.get("job-hash") == h:
+        return
+    n = 1
+    while (JOBS / job_id / f"prompt-review.round{n}.md").exists():
+        n += 1
+    os.replace(f, JOBS / job_id / f"prompt-review.round{n}.md")
+    answered = st.get("response_hash") == rv.get("job-hash")
+    st.setdefault("review_rounds", []).append({
+        "round": n, "job_hash": rv.get("job-hash"), "assessment": rv.get("assessment"),
+        "must_fix": rv.get("must-fix"), "response": st.get("response") if answered else None,
+        "response_note": st.get("response_note") if answered else None})
+    save_state(job_id, st)
+    print(f"archived the previous review as prompt-review.round{n}.md")
+
+
+def section(text, title):
+    """The body of a '## <title>' section of a review, or ''."""
+    out, on = [], False
+    for ln in text.splitlines():
+        if ln.startswith("## "):
+            on = ln[3:].strip().lower().startswith(title.lower())
+            continue
+        if on:
+            out.append(ln)
+    return "\n".join(out).strip()
+
+
+def rounds_text(job_id, st):
+    # every archived review file counts, including ones renamed by hand before archiving was automatic
+    known = {r["round"]: r for r in st.get("review_rounds", [])}
+    rounds = []
+    for f in sorted((JOBS / job_id).glob("prompt-review.round*.md"),
+                    key=lambda x: int("".join(c for c in x.stem.split("round")[-1] if c.isdigit()) or 0)):
+        n = int("".join(c for c in f.stem.split("round")[-1] if c.isdigit()) or 0)
+        head = {k.strip().lower(): v.strip() for k, v in
+                (ln.split(":", 1) for ln in f.read_text(encoding="utf-8").splitlines()[:5] if ":" in ln)}
+        rounds.append(known.get(n) or {"round": n, "assessment": head.get("assessment"),
+                                       "must_fix": head.get("must-fix"), "response": None, "response_note": None})
+    if not rounds:
+        return ["- none: this is the first review of this job"]
+    L = [f"This job has had {len(rounds)} earlier review round(s); at most {MAX_ROUNDS} before it goes to Josh. "
+         "Earlier rounds' must-fix items were applied unless the response says otherwise. Don't reverse a change "
+         "an earlier round asked for unless you say exactly why that round was wrong. Put only real blockers "
+         "under Must fix; anything else is Could improve.", ""]
+    for r in rounds:
+        said = f"Claude {r['response']}d: {r.get('response_note') or ''}".rstrip(": ") if r.get("response")             else "Claude's response not recorded"
+        L.append(f"## Round {r['round']}: {r.get('assessment') or '?'}, must-fix {r.get('must_fix') or '?'}; {said}")
+        f = JOBS / job_id / f"prompt-review.round{r['round']}.md"
+        if f.exists():
+            body = f.read_text(encoding="utf-8")
+            asked = section(body, "Must fix") or section(body, "Recommendations")
+            L += ["What it asked for:", asked[:1500] or "(nothing)", ""]
+    return L
 
 
 def current_review(job_id, job):
@@ -690,7 +845,14 @@ def cmd_respond(a):
         die("say why you agree or disagree")
     st.update(response=a.response, response_note=a.note, response_hash=rv["job-hash"], responded_at=now())
     save_state(a.job, st)
-    print(f"reviewer: {rv.get('assessment')}  |  Claude: {a.response}")
+    print(f"reviewer: {rv.get('assessment')}, must-fix {rv.get('must-fix', '?')}  |  Claude: {a.response}")
+    rounds = len(st.get("review_rounds", [])) + 1
+    if a.response == "agree" and str(rv.get("must-fix", "")).strip() not in ("", "0") and rounds < MAX_ROUNDS:
+        print(f"--- the review has must-fix items: apply them (set), then explain, brief and review again "
+              f"(round {rounds + 1} of {MAX_ROUNDS})")
+        return
+    if rounds >= MAX_ROUNDS:
+        print(f"--- {MAX_ROUNDS} review rounds reached: take the job to Josh as it stands, with what's left")
     if a.response == "disagree":
         print("--- DISAGREEMENT: talk it through with Josh before he approves.")
     else:
@@ -828,7 +990,7 @@ def cmd_run(a):
         for f, m in st["measurements"].items():
             print(f"  {measure_words(m):40} {f}")
     if tier(job) == "small":
-        print(f"show Josh the images and ask: on-track or off-track? then: verdict {a.job} on-track|off-track --chat \"<his words>\"")
+        print(f"show Josh the images and ask: on-track or off-track? then: verdict {a.job} on-track|off-track --chat \"<his words>\" \"<one-line reason>\"")
 
 
 def png_text_bytes(raw):
@@ -846,7 +1008,9 @@ def cmd_verdict(a):
         die("the job hasn't run yet")
     if not a.chat.strip():
         die("--chat needs Josh's exact words; only Josh gives verdicts")
-    st.update(verdict=a.verdict, verdict_note=a.note or a.chat.strip(), verdict_words=a.chat.strip(),
+    if not a.reason.strip():
+        die("give a one-line reason: what made it on- or off-track")
+    st.update(verdict=a.verdict, verdict_note=a.reason.strip(), verdict_words=a.chat.strip(),
               reviewed_at=now()); save_state(a.job, st)
     print(f"{a.job}: {a.verdict} (Josh: \"{a.chat.strip()}\")")
 
@@ -1023,17 +1187,20 @@ def main():
     p = sub.add_parser("run"); p.add_argument("job"); p.add_argument("--again", action="store_true")
     p = sub.add_parser("verdict"); p.add_argument("job"); p.add_argument("verdict", choices=["on-track", "off-track"])
     p.add_argument("--chat", required=True, help="Josh's exact words when he gave the verdict in chat")
-    p.add_argument("note", nargs="?", default="", help="what was learned (defaults to Josh's words)")
+    p.add_argument("reason", help="one line: why it's on- or off-track (shown to later reviewers)")
     p = sub.add_parser("status"); p.add_argument("image"); p.add_argument("status", choices=STATUSES)
     p.add_argument("note", nargs="?", default=""); p.add_argument("--chat", help="Josh's words (needed to change a locked image)")
     p = sub.add_parser("lock"); p.add_argument("image"); p.add_argument("--chat", required=True)
     p.add_argument("note", nargs="?", default="")
     sub.add_parser("measure").add_argument("job")
+    p = sub.add_parser("set"); p.add_argument("job"); p.add_argument("path", nargs="?"); p.add_argument("value", nargs="?")
+    p.add_argument("--file"); p.add_argument("--delete", action="store_true")
+    sub.add_parser("fields")
     for name in ("list", "catalog", "gallery"):
         sub.add_parser(name)
     a = ap.parse_args()
     fn = globals()[f"cmd_{a.cmd}"]
-    if a.cmd in ("explain", "brief", "respond", "approve", "run", "verdict", "measure"):
+    if a.cmd in ("explain", "brief", "respond", "approve", "run", "verdict", "measure", "set"):
         job_dir(a.job)  # a clear error for a wrong id, before marking anything busy
         with busy(a.job, a.cmd):
             fn(a)
