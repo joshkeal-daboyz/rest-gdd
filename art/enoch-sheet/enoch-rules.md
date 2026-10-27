@@ -1,15 +1,18 @@
 # Enoch: character rules
 
-**Approved character sheet:** [enoch_character_sheet.png](enoch_character_sheet.png) (locked 2026-10-26). Every new image of Enoch should match it.
+**Approved character sheet:** [enoch_character_sheet.png](enoch_character_sheet.png) (v14, locked 2026-10-27; replaces the 2026-10-26 sheet). Every new image of Enoch should match it.
 
 The rules shared by every raccoon, and how males and females differ, are in the [raccoon style guide](../raccoon-style-guide.md).
 
-The rules for every image of Enoch. When an image breaks a rule, it gets regenerated, not patched. To change how he looks, change a rule here and its prompt fragment in [enoch.prompt.txt](enoch.prompt.txt) and [enoch.negative.txt](enoch.negative.txt), then regenerate.
+The rules for every image of Enoch. When an image breaks a rule, it gets regenerated, not patched by hand; the scripted fixes below are the only exceptions. To change how he looks, change a rule here and its prompt fragment in [enoch.prompt.txt](enoch.prompt.txt) and [enoch.negative.txt](enoch.negative.txt), then regenerate.
 
-How the approved sheet was made:
-1. [enoch_pipeline.py](../tools/enoch_pipeline.py) with the prompt files and the square-torso edge guide [square_guide.png](square_guide.png) (made by [square_guide.py](../tools/square_guide.py)). Finishing (palette, outlines, chest and background) is automatic.
-2. [color_eyes.py](../tools/color_eyes.py): her iris colour on the lower half of each pupil, plus a small shine.
-3. [final_pass.py](../tools/final_pass.py): a Forge pass at double resolution and low strength, then a snap back to the palette.
+How the approved sheet (v14) was made:
+1. [enoch_pipeline.py](../tools/enoch_pipeline.py) in Forge with the model `indigoVoidFurryFusedXL_noobaiV35_fp16` and the LoRA `charsheet_lora_v1` at 0.6 ([Civitai 2925755](https://civitai.com/models/2925755), trigger word `charsheet`), the prompt files [charsheet-toon.prompt.txt](charsheet-toon.prompt.txt) and [charsheet-toon.negative.txt](charsheet-toon.negative.txt), and the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) (`--edges --weight 0.6 --end 0.6`). Seed 1480935357. Finishing (palette, outlines, chest and background) is automatic.
+2. The guide comes from [fix_3pose_guide.py](../tools/fix_3pose_guide.py), which gives the side view an arm and a full tail and the back view a tail. Without the guide this model draws heads about 0.13 of his height and a realistic furry style.
+3. [fix_tail_rings.py](../tools/fix_tail_rings.py) with [v14_fix.json](v14_fix.json): repaints the side and back tails to four navy rings and turns the light gap under his left arm into background. The front tail is left as generated: its fourth ring is at the base, hidden behind his body.
+4. [fill_pupils.py](../tools/fill_pupils.py) with the same file: this model drew hollow pupils, so they're filled and coloured here. [color_eyes.py](../tools/color_eyes.py) does this for solid pupils, but on this sheet it took the nose for an eye.
+
+This model sometimes draws a grey raccoon even when asked for teal; the palette step then turns him mint. Regenerate when that happens. Anatomy words in the negative prompt can make it draw a censor mark on the lower back.
 
 These images are reference art. The final design is still the creative director's hand-drawn concept art (see [Art and audio](../../docs/08-art-audio.md)).
 
@@ -43,7 +46,7 @@ Check a new image against these. Within ±0.02 counts as a match.
 
 ## Eyes
 
-Same size and shape as generated: don't enlarge them. The pupil gets her red-brown `#8D3F4C` in its lower half, with the top staying black, as on her eyes. The finishing step adds this ([color_eyes.py](../tools/color_eyes.py)).
+Same size and shape as generated: don't enlarge them. The pupil gets her red-brown `#8D3F4C` in its lower half, with the top staying black, as on her eyes. The finishing step adds this ([color_eyes.py](../tools/color_eyes.py), or [fill_pupils.py](../tools/fill_pupils.py) when the pupils come out hollow).
 
 ## Face
 

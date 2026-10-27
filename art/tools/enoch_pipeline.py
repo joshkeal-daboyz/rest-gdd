@@ -28,11 +28,14 @@ RAW_LINE = (0, 3, 9)
 TARGET_LINE = 0.0033  # outline width as a fraction of figure height (hers is 0.33%)
 
 
-def generate(prompt, negative, count, w=1536, h=1024, guide=None, weight=0.6, end=0.6, edges=False):
+def generate(prompt, negative, count, w=1536, h=1024, guide=None, weight=0.6, end=0.6, edges=False, model=None):
     imgs = []
     for _ in range((count + 1) // 2):
         payload = {"prompt": prompt, "negative_prompt": negative, "width": w, "height": h, "steps": 30,
                    "cfg_scale": 6, "sampler_name": "Euler a", "batch_size": 2, "seed": -1}
+        if model:  # switch checkpoint for this request only
+            payload["override_settings"] = {"sd_model_checkpoint": model}
+            payload["override_settings_restore_afterwards"] = False
         if guide:
             # lock the body outline to the guide image's edges; the prompt controls everything else
             buf = io.BytesIO(); Image.open(guide).convert("RGB").resize((w, h)).save(buf, "PNG")
@@ -101,14 +104,20 @@ def main():
     ap.add_argument("--weight", type=float, default=0.6); ap.add_argument("--end", type=float, default=0.6)
     ap.add_argument("--refinish", action="store_true", help="skip generating; re-finish out_dir/raw")
     ap.add_argument("--edges", action="store_true", help="the guide is already an edge map (from square_guide.py)")
+    ap.add_argument("--model", help="Forge checkpoint name, e.g. indigoVoidFurryFusedXL_noobaiV35_fp16")
+    ap.add_argument("--lora", action="append", default=[], help="name:weight, added to the prompt (repeatable)")
+    ap.add_argument("--size", default="1536x1024", help="WxH")
     a = ap.parse_args()
     read = lambda f: pathlib.Path(f).read_text(encoding="utf-8-sig").strip()
+    w, h = map(int, a.size.lower().split("x"))
     out = pathlib.Path(a.out_dir); (out / "raw").mkdir(parents=True, exist_ok=True)
     rows = []
     if a.refinish:  # re-run the finishing steps on images already generated
         batch = [(p.stem, Image.open(p).convert("RGB")) for p in sorted((out / "raw").glob("*.png"))]
     else:
-        batch = generate(read(a.prompt), read(a.negative), a.count, guide=a.guide, weight=a.weight, end=a.end, edges=a.edges)
+        prompt = read(a.prompt) + "".join(f", <lora:{l}>" for l in a.lora)
+        batch = generate(prompt, read(a.negative), a.count, w=w, h=h, guide=a.guide, weight=a.weight, end=a.end,
+                         edges=a.edges, model=a.model)
     for seed, img in batch:
         img.save(out / "raw" / f"{seed}.png")
         f = out / f"enoch_{seed}.png"; finish(img).save(f)

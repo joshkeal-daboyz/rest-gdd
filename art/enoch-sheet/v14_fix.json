@@ -1,0 +1,14 @@
+{
+  "source": "indigo-g2-toon/enoch_1480935357.png",
+  "note": "front-view tail left as generated: its 4th navy ring is at the base, hidden behind the body",
+  "tails": [
+    {"centre": [[812, 488], [855, 540], [910, 605], [955, 675], [970, 740], [968, 822]]},
+    {"centre": [[1214, 502], [1225, 580], [1265, 660], [1335, 720], [1395, 758], [1455, 784]],
+     "cut": [[1186, 497], [1250, 497]]}
+  ],
+  "gaps": [[238, 500]],
+  "pupils": {
+    "rings": [[323, 155], [380, 158]],
+    "ellipses": [[696.5, 158.5, 5.5, 9.5]]
+  }
+}
