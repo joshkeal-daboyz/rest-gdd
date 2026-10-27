@@ -4,17 +4,32 @@
 
 The rules shared by every raccoon, and how males and females differ, are in the [raccoon style guide](../raccoon-style-guide.md).
 
-The rules for every image of Enoch. When an image breaks a rule, it gets regenerated, not patched by hand; the scripted fixes below are the only exceptions. To change how he looks, change a rule here and its prompt fragment in [enoch.prompt.txt](enoch.prompt.txt) and [enoch.negative.txt](enoch.negative.txt), then regenerate.
-
-How the approved sheet (v14) was made:
-1. [enoch_pipeline.py](../tools/enoch_pipeline.py) in Forge with the model `indigoVoidFurryFusedXL_noobaiV35_fp16` and the LoRA `charsheet_lora_v1` at 0.6 ([Civitai 2925755](https://civitai.com/models/2925755), trigger word `charsheet`), the prompt files [charsheet-toon.prompt.txt](charsheet-toon.prompt.txt) and [charsheet-toon.negative.txt](charsheet-toon.negative.txt), and the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) (`--edges --weight 0.6 --end 0.6`). Seed 1480935357. Finishing (palette, outlines, chest and background) is automatic.
-2. The guide comes from [fix_3pose_guide.py](../tools/fix_3pose_guide.py), which gives the side view an arm and a full tail and the back view a tail. Without the guide this model draws heads about 0.13 of his height and a realistic furry style.
-3. [fix_tail_rings.py](../tools/fix_tail_rings.py) with [v14_fix.json](v14_fix.json): repaints the side and back tails to four navy rings and turns the light gap under his left arm into background. The front tail is left as generated: its fourth ring is at the base, hidden behind his body.
-4. [fill_pupils.py](../tools/fill_pupils.py) with the same file: this model drew hollow pupils, so they're filled and coloured here. [color_eyes.py](../tools/color_eyes.py) does this for solid pupils, but on this sheet it took the nose for an eye.
-
-This model sometimes draws a grey raccoon even when asked for teal; the palette step then turns him mint. Regenerate when that happens. Anatomy words in the negative prompt can make it draw a censor mark on the lower back.
-
 These images are reference art. The final design is still the creative director's hand-drawn concept art (see [Art and audio](../../docs/08-art-audio.md)).
+
+The rules for every image of Enoch. When an image breaks a rule, it gets regenerated in Forge, never patched by hand or by a script. To change how he looks, change a rule here and its prompt fragment in [enoch-prompts.json](enoch-prompts.json), then make a new Forge job.
+
+## Making new images of Enoch
+
+Every new image or change goes through the Forge job pipeline in the [raccoon style guide](../raccoon-style-guide.md#making-and-changing-raccoon-art): a small job is drafted, reviewed independently, approved by Josh, and run in Forge. Images are kept exactly as Forge returns them. There is no palette, outline or pupil clean-up afterwards, so the prompt, guide and settings have to get these right in Forge.
+
+- **Model:** `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors`, as for every character.
+- **Character sheets:** add the LoRA `charsheet_lora_v1` at 0.6 ([Civitai 2925755](https://civitai.com/models/2925755)) with the trigger word `charsheet`, and start from the prompt files [charsheet-toon.prompt.txt](charsheet-toon.prompt.txt) and [charsheet-toon.negative.txt](charsheet-toon.negative.txt). The LoRA is only for sheets, never for single views or close-ups.
+- **Body shape:** use the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) as a canny ControlNet (`diffusion_pytorch_model_V2`, weight about 0.6, ending at 0.6). Without it this model draws heads about 0.13 of his height and a realistic furry style. If a new guide is needed, Josh makes it; guides aren't edited by script.
+- **A fix to the locked sheet** is a new job with [enoch_character_sheet.png](enoch_character_sheet.png) as its parent, usually an inpaint with a mask over just the part that's wrong. Josh makes the masks.
+
+Known problems with this model, and what to do in Forge:
+- **Grey instead of teal:** it sometimes draws a grey raccoon even when asked for teal. Regenerate, or strengthen the teal fur words and put `grey fur` and `charcoal grey` in the negative.
+- **Hollow pupils:** it can draw ring-shaped pupils. Ask for solid black pupils with a red-brown lower half, or inpaint the eyes.
+- **Censor mark:** anatomy words in the negative prompt can make it draw a censor mark on the lower back. Keep the negative to `nsfw` and general terms.
+
+### How v14 was made (history)
+
+The locked v14 sheet was made before the pipeline existed, and partly with scripts that edited pixels. Those scripts are no longer used for any image. v14 itself stays locked.
+
+1. Generated in Forge with the model, LoRA, prompt files and edge guide above, with seed 1480935357, through the old [enoch_pipeline.py](../tools/enoch_pipeline.py). That script also snapped colours to the palette and thickened outlines afterwards.
+2. The edge guide was made by script ([fix_3pose_guide.py](../tools/fix_3pose_guide.py)), adding an arm and a full tail to the side view and a tail to the back view.
+3. The side and back tails were repainted to four navy rings by script ([fix_tail_rings.py](../tools/fix_tail_rings.py) with [v14_fix.json](v14_fix.json)). The front tail was left as generated: its fourth ring is at the base, hidden behind his body.
+4. The pupils were filled and coloured by script ([fill_pupils.py](../tools/fill_pupils.py)), because the model drew them hollow.
 
 ## Identity
 
@@ -26,7 +41,7 @@ These images are reference art. The final design is still the creative director'
 - Lean and wiry, slightly muscular: toned arms and chest, not bulky.
 - Wide shoulders, narrow straight hips. No popping or swaying hips.
 - **Square body:** from shoulders to hips the sides of the torso run in a mostly straight line. No pinched waist and no hourglass curve. This is the main thing that makes him read as male.
-- **Shoulders nearly as wide as the thighs:** the sides run almost straight from shoulder to knee, easing out a little at the thighs. Widen the shoulders to get there; don't slim the thighs. Fully in line with the thighs was too wide; the guide ([square_guide.py](../tools/square_guide.py) `--preset shoulders`) sets them halfway between the original sheet and that.
+- **Shoulders nearly as wide as the thighs:** the sides run almost straight from shoulder to knee, easing out a little at the thighs. Widen the shoulders to get there; don't slim the thighs. Fully in line with the thighs was too wide; the edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) sets them halfway between the original sheet and that.
 - Upright, rigid posture: squared shoulders, weight on both feet, arms straight at his sides.
 
 ## Proportions
@@ -46,7 +61,7 @@ Check a new image against these. Within ±0.02 counts as a match.
 
 ## Eyes
 
-Same size and shape as generated: don't enlarge them. The pupil gets her red-brown `#8D3F4C` in its lower half, with the top staying black, as on her eyes. The finishing step adds this ([color_eyes.py](../tools/color_eyes.py), or [fill_pupils.py](../tools/fill_pupils.py) when the pupils come out hollow).
+Same size and shape as generated: don't enlarge them. The pupil gets her red-brown `#8D3F4C` in its lower half, with the top staying black, and a small white shine, as on her eyes. This has to come from Forge: through the prompt, or an inpaint job on the eyes when they come out wrong.
 
 ## Face
 

@@ -1,0 +1,23 @@
+﻿{
+  "_about": "Prompt fragments for Enoch, one per rule in enoch-rules.md. Change the rule there, then the fragment here.",
+  "style": "masterpiece, best quality, character design, flat colors, clean bold lineart, cartoon, solo, single character, full body, (white background:1.3), simple background",
+  "identity": "anthro raccoon, (young adult male:1.3)",
+  "build": "(lean wiry build:1.2), (slightly muscular:1.2), toned arms and chest, broad shoulders, (narrow straight hips:1.3)",
+  "posture": "(standing upright:1.2), rigid straight posture, squared shoulders, weight on both feet, arms straight at sides",
+  "face": "masculine face, (calm expression:1.3), slight smile",
+  "colors": "(muted teal fur:1.3), soft green-blue, (charcoal grey raccoon mask:1.2), white muzzle, white chest and belly, white ear tips, (charcoal grey hands:1.2), (charcoal grey lower legs:1.2)",
+  "feet": "(digitigrade legs:1.3), (standing on toes:1.2), raccoon hind paws",
+  "tail": "big fluffy raccoon tail, (ringed tail:1.5), (three thick charcoal grey bands on tail:1.4), (charcoal grey tail tip:1.4)",
+  "base_body": "(featureless:1.3), no clothes",
+  "views": {
+    "front": "(front view:1.4), facing the viewer, (tail curling out to one side so its rings are visible:1.2)",
+    "three_quarter": "(three-quarter view:1.4), body turned slightly to the left, tail visible behind",
+    "side": "(side view:1.5), (full body profile facing left:1.4), head in profile, mask band around the eye, tail behind him",
+    "back": "(back view:1.5), seen from behind, tail hanging down covering the rear",
+    "back_three_quarter": "(back view:1.4), seen from behind and slightly to the side, tail sweeping out to one side"
+  },
+  "negative": "(solid black tail:1.3), (brown:1.2), (red:1.2), (pink:1.2),(cyan:1.2), neon, oversaturated,grey background, gradient background, nsfw, nude, genitals, anus, nipples, sexual, suggestive, female, feminine, breasts, curvy, (wide hips:1.3), hip sway, contrapposto, eyelashes, (angry:1.3), frown, scowl, bodybuilder, bulky, fat, chibi, child, flat feet, plantigrade, shoes, clothes, accessories, props, (multiple views:1.3), (character sheet:1.2), turnaround, text, letters, color swatch, palette, icon, watermark, signature, lowres, worst quality, bad anatomy, bad hands, extra fingers, extra limbs, blurry, scenery",
+  "settings": { "width": 832, "height": 1216, "steps": 30, "cfg_scale": 6, "sampler_name": "Euler a" },
+  "reference": { "model": "ip-adapter-plus_sdxl_vit-h [bc449f62]", "module": "CLIP-ViT-H (IPAdapter)", "weight": 0.3, "control_mode": "My prompt is more important" }
+}
+
