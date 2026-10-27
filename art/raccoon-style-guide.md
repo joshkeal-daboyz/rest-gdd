@@ -93,14 +93,16 @@ Run each step from the repo root with `py art/tools/forge_jobs.py <step> <job>`.
 
 | Step | Who | What happens |
 | --- | --- | --- |
-| 1. `new` | Claude or Josh | Makes `art/jobs/<id>/job.json`. Fill in the **goal** (what should change) and the **why** (why these settings should do it). |
-| 2. `explain` | Claude | Writes `explain.md`: what Forge will do, the model, LoRAs, seed, the full prompt, and what changed since the last job. |
-| 3. `brief` | Claude | Writes `prompt-brief.md` for the reviewer. It opens with the reason for the change, then lists the rules, images and earlier jobs to check. |
+| 1. `new` | [forge-asset-generator](../.claude/agents/forge-asset-generator.md) agent | Makes `art/jobs/<id>/job.json`. Fill in the **goal** (what should change) and the **why** (why these settings should do it). |
+| 2. `explain` | forge-asset-generator | Writes `explain.md`: what Forge will do, the model, LoRAs, seed, the full prompt, and what changed since the last job. |
+| 3. `brief` | forge-asset-generator | Writes `prompt-brief.md` for the reviewer. It opens with the reason for the change, then lists the rules, images and earlier jobs to check. |
 | 4. Prompt review | [forge-prompt-reviewer](../.claude/agents/forge-prompt-reviewer.md) agent | Reviews the job independently against the stated reason and this guide, and writes `prompt-review.md`: will help, partly, won't help, or can't tell, with recommendations. |
 | 5. `respond` | Claude | Agrees or disagrees with the review, with a reason. **A disagreement goes to Josh** before anything else happens. |
 | 6. `approve` | Josh only, at a terminal | Shows the explanation, the review and Claude's response together. Josh types the job id to approve it. |
-| 7. `run` | Claude or Josh | Sends the job to Forge. Images are saved to `art/jobs/<id>/out/` exactly as Forge returns them. |
+| 7. `run` | forge-asset-generator | Sends the job to Forge. Images are saved to `art/jobs/<id>/out/` exactly as Forge returns them. The agent then checks each image against the goal and the checklist, as advice for Josh's verdict. |
 | 8. `verdict` | Josh | Marks the job **on-track** or **off-track**, with a note, after checking it against the checklist below. |
+
+The generator and the reviewer are separate agents, so no job reviews itself. The generator never reviews, approves, gives verdicts or edits pixels, including guides and masks: those come from Josh.
 
 Changing a job, its parent image or its mask after any step sends it back to `explain`, so a revised prompt always gets a fresh review. An upscale has no prompt, so it skips steps 3–5.
 

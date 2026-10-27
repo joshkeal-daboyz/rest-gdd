@@ -289,7 +289,14 @@ def explain_text(job_id, job):
         L.append(f"ControlNet `{c.get('module')}` / `{c.get('model')}` at weight {c.get('weight', 1)}, using "
                  f"`{c.get('image', 'the parent')}`. {c.get('purpose', '')}".rstrip())
     if mode != "upscale":
-        size = f"{s.get('width', '?')}x{s.get('height', '?')}" if mode == "txt2img" else "parent's size"
+        own = job.get("settings", {})
+        if mode == "txt2img":
+            size = f"{s.get('width', '?')}x{s.get('height', '?')}"
+        elif "width" in own:
+            crop = s.get("inpaint_full_res") and mode == "inpaint"
+            size = f"{own['width']}x{own.get('height', '?')}" + (" (the masked area is drawn at this size)" if crop else "")
+        else:
+            size = "parent's size"
         seed = s.get("seed", -1)
         L += ["", "## Settings",
               f"- Model: `{job.get('model') or 'whatever Forge has loaded now'}`",
@@ -346,7 +353,9 @@ def build_request(job):
     if mode == "txt2img":
         return "txt2img", payload
     w, h = png_size(ROOT / job["parent"])
-    payload.update({"init_images": [b64(job["parent"])], "width": w // 8 * 8, "height": h // 8 * 8, "resize_mode": 0})
+    own = job.get("settings", {})  # only the job's own size counts here, not the prompt file's txt2img size
+    payload.update({"init_images": [b64(job["parent"])], "width": own.get("width", w // 8 * 8),
+                    "height": own.get("height", h // 8 * 8), "resize_mode": 0})
     if mode == "inpaint":
         payload.update({"mask": b64(job["mask"]), "inpainting_fill": s.get("inpainting_fill", 1),
                         "mask_blur": s.get("mask_blur", 4), "inpaint_full_res": s.get("inpaint_full_res", False)})
