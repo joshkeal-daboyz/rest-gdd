@@ -119,6 +119,21 @@ Jobs may only use what's on the approved list in [tools/forge-approved.json](too
 
 Every job also states its `kind`: `character-sheet`, `single-character`, `prop` or `other`. The charsheet LoRA is refused on any job that isn't a `character-sheet`.
 
+### Known faults of the model
+
+Indigo Void has these faults with every raccoon, male or female. Images are kept exactly as Forge returns them, so each fault has to be prevented or fixed in Forge.
+
+| Fault | What to do in Forge |
+| --- | --- |
+| **Grey fur instead of teal**, even when teal is asked for | Strengthen the teal fur words, and put `grey fur` and `charcoal grey` in the negative. Use "navy", never "charcoal grey", for the markings. Regenerate when it still happens. |
+| **Small heads and a realistic furry style** without an edge guide (heads about 0.13 of height instead of 0.19–0.21) | Use a canny edge guide (`diffusion_pytorch_model_V2`) shaped for that character. A prompt alone doesn't fix it. |
+| **Censor mark on the lower back**, set off by anatomy words in the negative prompt | Keep the negative to `nsfw` and general terms. Don't list body parts. |
+| **Hollow, ring-shaped pupils** | Ask for solid black pupils with a red-brown lower half, or inpaint the eyes. |
+
+### Edge guides are per character
+
+An edge guide fixes the silhouette, so it has to match the character's sex and build. Enoch's guide ([enoch-sheet/shoulder_guide_3pose_v2.png](enoch-sheet/shoulder_guide_3pose_v2.png)) is male: a square torso and wide shoulders. **Use it only for Enoch.** On a female job it pushes her toward a male body. Until a female guide exists, a female sheet has no edge guide, so expect the small-head fault. Josh makes guides; they're never edited by script.
+
 ### Small jobs first
 
 - A **small** job makes up to 4 images, with no hires fix and no upscale. Each one should test a single change, so the results show what worked.

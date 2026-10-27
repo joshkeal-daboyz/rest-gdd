@@ -17,10 +17,7 @@ Every new image or change goes through the Forge job pipeline in the [raccoon st
 - **Body shape:** use the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) as a canny ControlNet (`diffusion_pytorch_model_V2`, weight about 0.6, ending at 0.6). Without it this model draws heads about 0.13 of his height and a realistic furry style. If a new guide is needed, Josh makes it; guides aren't edited by script.
 - **A fix to the locked sheet** is a new job with [enoch_character_sheet.png](enoch_character_sheet.png) as its parent, usually an inpaint with a mask over just the part that's wrong. Josh makes the masks.
 
-Known problems with this model, and what to do in Forge:
-- **Grey instead of teal:** it sometimes draws a grey raccoon even when asked for teal. Regenerate, or strengthen the teal fur words and put `grey fur` and `charcoal grey` in the negative.
-- **Hollow pupils:** it can draw ring-shaped pupils. Ask for solid black pupils with a red-brown lower half, or inpaint the eyes.
-- **Censor mark:** anatomy words in the negative prompt can make it draw a censor mark on the lower back. Keep the negative to `nsfw` and general terms.
+The model's known faults (grey fur, small heads without a guide, the censor mark, hollow pupils) affect every raccoon, so they're listed with their Forge fixes in the style guide's [Known faults of the model](../raccoon-style-guide.md#known-faults-of-the-model). The edge guide above is male-shaped and is for Enoch only.
 
 ### How v14 was made (history)
 
