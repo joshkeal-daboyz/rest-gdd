@@ -5,9 +5,12 @@
     "at": "2026-10-27T16:37:51"
   },
   "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506246.png": {
-    "status": "candidate",
-    "note": "Best of the less-human job (Josh: best images so far). Paw pads, heads 0.192, no stray marks; back views still have the human hip shape and the x spot.",
-    "at": "2026-10-27T17:56:12"
+    "status": "locked",
+    "note": "",
+    "words": "Lock it",
+    "at": "2026-10-27T18:29:59",
+    "job": "enoch-sheet-005-less-human",
+    "copy": "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png"
   },
   "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506249.png": {
     "status": "locked",
@@ -16,6 +19,14 @@
     "at": "2026-10-27T18:18:00",
     "job": "female-raccoon-003-img2img-sheet-recipe",
     "copy": "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png"
+  },
+  "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png": {
+    "status": "locked",
+    "note": "",
+    "words": "Lock it",
+    "at": "2026-10-27T18:29:59",
+    "job": "enoch-sheet-005-less-human",
+    "source": "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506246.png"
   },
   "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png": {
     "status": "locked",
