@@ -1,6 +1,8 @@
 # Female raccoon: character rules
 
-**Approved reference sheet:** [baseline-highres.png](baseline-highres.png). Every new image of the female raccoon should match it. It also sets the palette and art style for every raccoon.
+**Approved reference sheet:** [female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png](../locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png) (locked 2026-10-27, Josh's pick from job `female-raccoon-003-img2img-sheet-recipe`). Every new image of the female raccoon should match it. A change to it is a new job with this locked copy as its parent.
+
+The earlier sheet, [baseline-highres.png](baseline-highres.png), stays as history. The style guide's palette was sampled from it, and the proven sheet recipe below was first run on it.
 
 The rules shared by every raccoon are in the [raccoon style guide](../raccoon-style-guide.md). This file adds what's specific to her, and what her Forge jobs have taught us so far. When an image breaks a rule, it gets regenerated in Forge, never patched by hand or by a script.
 
@@ -22,9 +24,10 @@ Measured 2026-10-27 on her front (leftmost) figure, with the pipeline's read-onl
 | --- | --- | --- | --- |
 | [baseline-highres.png](baseline-highres.png) | 3064×2024 | **0.210** | **0.33%** (6.3 px on a 1943 px figure) |
 | [baseline.jpg](baseline.jpg) | 766×506 | **0.210** | 0.41% (2.0 px on a 486 px figure) |
+| [Locked sheet](../locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png) (the approved reference) | 1536×1016 | **0.210** | 0.20% (from `run`'s measurement) |
 
 - **Head:** 0.21 on both, and about 0.20 by eye. Outputs should land at 0.19–0.21. This is a measurement of the reference's front figure only; on sheets with loose head studies the script can pick the wrong figure.
-- **Line weight depends on image size.** Outlines can't get much thinner than about 2 px, so small images read heavier. 0.33% is the target for outputs about 1536 px wide and larger (a 6.3 px line at 3064 px is about 3 px at 1536 px). The 0.41% on the 766 px jpg comes from its small size, so don't use it as a target.
+- **Line weight depends on image size.** Outlines can't get much thinner than about 2 px, so small images read heavier. 0.33% is the target for outputs about 1536 px wide and larger (a 6.3 px line at 3064 px is about 3 px at 1536 px). The 0.41% on the 766 px jpg comes from its small size, so don't use it as a target. The locked sheet's lines are thinner, at 0.20%. The pipeline still targets 0.33% and flags anything under 0.25% as thin. Josh hasn't decided whether the thinner lines are acceptable.
 
 ## Face and eyes
 
@@ -57,7 +60,7 @@ Every new image goes through the Forge job pipeline in the [style guide](../racc
 
 Job [`female-raccoon-003-img2img-sheet-recipe`](../jobs/female-raccoon-003-img2img-sheet-recipe/job.json) is the first of her jobs Josh marked on-track ("this is wonderful", 2026-10-27). Start every new sheet of her from it (`new female-raccoon <track> <slug> --from female-raccoon-003-img2img-sheet-recipe`) and change one thing at a time.
 
-- **img2img, not txt2img.** Parent: her approved sheet [baseline-highres.png](baseline-highres.png), at denoise **0.65**, size 1536×1016 (her sheet's aspect ratio). The parent carries her cartoon body, head size and palette. All four txt2img jobs gave her a human body whatever the prompt said.
+- **img2img, not txt2img.** Parent: her approved sheet, at denoise **0.65**, size 1536×1016 (her sheet's aspect ratio). The recipe was proven with [baseline-highres.png](baseline-highres.png) as the parent. For changes to her sheet from now on, the parent is the locked sheet above. The parent carries her cartoon body, head size and palette. All four txt2img jobs gave her a human body whatever the prompt said.
 - **Prompt:** [female-sheet.prompt.txt](female-sheet.prompt.txt) and [female-sheet.negative.txt](female-sheet.negative.txt). The prompt is short tags in BREAK chunks, built like Enoch's on-track job `enoch-sheet-005-less-human`: style and layout, eyes, colours, markings and tail, fur and paws, build. The fur-and-paws chunk and the negative's `human, (human-like:1.2), human proportions, skin-tight` keep her a raccoon. There are no body-part words in the negative.
 - **Model and LoRA:** Indigo Void with `charsheet_lora_v1` at 0.6, trigger `charsheet` first. Euler a, 30 steps, CFG 6.
 - **No IP-Adapter and no canny guide.** The parent already carries her look, so an IP-Adapter on the same image only adds a second pull from one source.

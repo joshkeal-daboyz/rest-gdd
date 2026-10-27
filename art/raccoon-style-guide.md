@@ -4,8 +4,8 @@ How the raccoons of *Rest* look: the rules every raccoon follows, and what sets 
 
 | Female reference | Male reference: Enoch |
 | --- | --- |
-| ![Female raccoon reference sheet](female-raccoon/baseline-highres.png) | ![Enoch's character sheet](enoch-sheet/enoch_character_sheet.png) |
-| [female-raccoon/baseline-highres.png](female-raccoon/baseline-highres.png) | [enoch-sheet/enoch_character_sheet.png](enoch-sheet/enoch_character_sheet.png) |
+| ![Female raccoon reference sheet](locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png) | ![Enoch's character sheet](enoch-sheet/enoch_character_sheet.png) |
+| [locked/female-raccoon/…_331506249.png](locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png) (locked 2026-10-27) | [enoch-sheet/enoch_character_sheet.png](enoch-sheet/enoch_character_sheet.png) |
 
 Enoch's full rules, and how his sheet was made, are in [enoch-sheet/enoch-rules.md](enoch-sheet/enoch-rules.md). The female raccoon's rules, and what her Forge jobs have taught us, are in [female-raccoon/female-rules.md](female-raccoon/female-rules.md). New raccoon art is made through Forge jobs, each reviewed before it runs: see [Making and changing raccoon art](#making-and-changing-raccoon-art).
 
@@ -22,7 +22,7 @@ Every raccoon, male or female, follows these.
 
 ### Palette
 
-Sampled from flat areas of the female reference. Every raccoon uses exactly these colours.
+Sampled from flat areas of the original female sheet, [female-raccoon/baseline-highres.png](female-raccoon/baseline-highres.png). Every raccoon uses exactly these colours.
 
 | Part | Colour |
 | --- | --- |
