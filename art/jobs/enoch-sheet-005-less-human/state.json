@@ -1,0 +1,53 @@
+{
+  "explained_at": "2026-10-27T17:49:45",
+  "explained_hash": "df10dc0b22466e27",
+  "briefed_hash": "df10dc0b22466e27",
+  "briefed_at": "2026-10-27T17:49:45",
+  "review_rounds": [
+    {
+      "round": 1,
+      "job_hash": "b9e31c0aeb62cac1",
+      "assessment": "will help",
+      "must_fix": "0",
+      "response": null,
+      "response_note": null
+    }
+  ],
+  "response": "agree",
+  "response_note": "Agree: will help. The all-teal back view (optional rec 1) is Josh's earlier white-patch item and gets its own job, so this one stays a single test.",
+  "response_hash": "df10dc0b22466e27",
+  "responded_at": "2026-10-27T17:51:05",
+  "approved_at": "2026-10-27T17:52:23",
+  "approved_hash": "df10dc0b22466e27",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T17:54:22",
+  "outputs": [
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506246.png": {
+      "head": 0.192,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506247.png": {
+      "head": 0.19,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506248.png": {
+      "head": 0.196,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506249.png": {
+      "head": 0.194,
+      "line_pct": 0.38
+    }
+  },
+  "verdict": "on-track",
+  "verdict_note": "Josh called these the best images so far: paw hands, fewer muscle lines, heads in range; back views still read human.",
+  "verdict_words": "I think these are the best images so far",
+  "reviewed_at": "2026-10-27T17:56:11"
+}

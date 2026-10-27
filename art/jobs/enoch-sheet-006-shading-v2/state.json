@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T17:59:32",
+  "explained_hash": "8e170171189672b3",
+  "briefed_hash": "8e170171189672b3",
+  "briefed_at": "2026-10-27T17:59:33",
+  "response": "agree",
+  "response_note": "Agree: will help. IP-Adapter 0.2 stays so the flat reference doesn't wash out the shading; if the result is faint, the next job raises denoise to about 0.55.",
+  "response_hash": "8e170171189672b3",
+  "responded_at": "2026-10-27T18:00:58",
+  "approved_at": "2026-10-27T18:01:42",
+  "approved_hash": "8e170171189672b3",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T18:03:04",
+  "outputs": [
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506246.png": {
+      "head": 0.194,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506247.png": {
+      "head": 0.192,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506248.png": {
+      "head": 0.194,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-006-shading-v2/out/enoch-sheet_231506249.png": {
+      "head": 0.192,
+      "line_pct": 0.38
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "No shading came through at denoise 0.45; Josh asked for a retry at 0.55.",
+  "verdict_words": "Retry",
+  "reviewed_at": "2026-10-27T18:04:30"
+}

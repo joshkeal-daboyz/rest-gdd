@@ -1,0 +1,78 @@
+job: enoch-sheet-004-centred-tail
+job-hash: 0ffa9d9c61fcae4c
+
+# Reason for the change
+
+**What we're trying to change:** A new four-view sheet (front, side, back with tail, back without tail) in which the back view with tail has the tail hanging straight down the centre, so that view is left-right symmetrical; the front view and the tailless back are also symmetrical apart from the front view's tail. Keep the C2/246 look: brown irises with solid pupils, solid navy mask with white brow stripe, bright teal and navy, white chest and belly, square lean build, smooth linework, plain white background, digitigrade feet.
+
+**Why this job should do it:** Josh wants the tail on the back view centred so that view is symmetrical. img2img (jobs 1-3) keeps the tail where the parent had it, swept to one side, so this job is a fresh txt2img at 1536x768 (the sheet's 2:1 shape), 4 images, no hires fix, Euler a, 30 steps, CFG 6, fixed seed 231506246 counting up, charsheet_lora_v1 at 0.6, model Indigo Void, as in the C2 recipe without its hires pass. Prompt: job 3's prompt and negatives unchanged (symmetry tags, tail wording, jewelry negatives), except that the tail words now sit in their own BREAK chunk as tags: the existing tail words plus '(tail down:1.2), (straight tail:1.1), (symmetrical rear view:1.2)'. A separate chunk gives them full weight instead of leaving them at the end of a long chunk, and 'tail down' covers the hanging-straight-down wording, so the two longer phrases ('tail hanging straight down', 'tail centered behind him in the back view') are dropped. The negative gains '(curled tail:1.1), tail wrapped around leg', which blocks the tail curling round a leg as in the references' front view. No standalone 'ring' word is added. Caveat: the negative applies to the whole sheet, and the front view's tail is exempt from the symmetry goal, so it may still curl. Reference: IP-Adapter ip-adapter-plus_sdxl_vit-h (CLIP-ViT-H) with art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png (the C2-style sheet, instead of v14) at weight 0.45, starting at 0.2 and ending at 0.6, Resize and Fill so the whole 2:1 sheet is seen rather than a centre crop, Balanced. This reference carries the look Josh likes (brown eyes with solid pupils, navy mask with white brow stripe, bright teal and navy, white chest). The weight is a little above the parent recipe's 0.4 because with no guide the reference has to hold the look. It starts at 0.2, not 0, so the reference doesn't set the layout in the very first steps, where its back view's tail (swept to one side) would pull the tail sideways and the prompt's tail words set the pose; it ends at 0.6, so it still holds the look (face, colours) through the middle steps. Residual risk: the reference can still tug the tail sideways after step 20%, and the weight stays under 0.5 for that reason. Guide: I leave the cleared 4-pose guide out. Its back view has the tail swept to one side, its front view's hands and arms are not mirror images, and canny sets layout in the first steps, so even at a low weight or early end it would bring back the sideways tail and the lopsided hands this job is meant to remove. The cost is head size: this model draws heads small (about 0.13 of height against the 0.19-0.21 rule) without a guide. I accept that for this test because the symmetry result is the question; the IP-Adapter reference, whose heads are the right size, may help a little. Head size is something to check in the results, and if it fails the next job could need a symmetrical guide from Josh. Not used: no masks, no new guides, no pixel edits. Expectation: the centred tail is a layout choice the model often ignores, so the tail may still sit to one side in some of the four; I expect some of them to centre it, and the symmetry of the hands and hip wedges is likely to stay imperfect, as in job 3.
+
+Judge the job against this reason.
+
+# Rules to check
+- `art/raccoon-style-guide.md`
+- `art/enoch-sheet/enoch-rules.md`
+
+# Images to look at
+- ControlNet image: `art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png`
+- reference: `art/enoch-sheet/enoch_character_sheet.png`
+- earlier output of `enoch-sheet-001-tail-wording`: `art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png`
+- earlier output of `enoch-sheet-001-tail-wording`: `art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506247.png`
+- earlier output of `enoch-sheet-003-symmetry`: `art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506246.png`
+- earlier output of `enoch-sheet-003-symmetry`: `art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506247.png`
+
+# Earlier jobs on this track
+- `enoch-sheet-001-tail-rings`: goal "On the C2 candidate sheet (eyetest/C2/enoch_231506246.png), the side-view and back-view tails show exactly four navy rings, navy at the base and a navy tip (navy, teal, navy, teal, navy, teal, navy tip), instead of 5-6 thin bands, while the four views, brown eyes with solid pupils, solid navy mask with white brow stripe, bright teal/navy, square lean build, smooth linework, white background and the tailless back view's tail-base spot stay as they are."; reviewer said partly; Josh's verdict off-track: Off-track. Draft job 2 with the reviewer's wording 1 and the jewelry negatives.; measured head 0.195-0.198, line 0.38-0.42%
+- `enoch-sheet-001-tail-wording`: goal "On the C2 candidate sheet, remove the gold finger rings and grey tail-base disc that job 1 introduced, and get thicker, cleaner tail bands (ideally nearer four) on the side and back tails, by changing only the tail wording and the negative; the ring count is not expected to reach exactly four without a mask or guide."; reviewer said partly; Josh's verdict not run
+- `enoch-sheet-002-shading`: goal "Josh asked for this in chat ("Lets add shading."), deliberately overriding the style guide's flat-colour rule: add hard-edged cartoon cel shading (one shadow tone per colour) to the generator's and Claude's pick from job 1 (seed 231506246; Josh has not confirmed it yet), keeping the outlines, palette, face and plain white background."; reviewer said partly; Josh's verdict not run
+- `enoch-sheet-003-symmetry`: goal "In the front view, the back view with tail and the back view without tail, make the body left-right symmetrical (arms and hands, shoulders, legs and feet, and the white hip wedges and tail-base spot on the backs); the tail is exempt and the ring count is no longer a goal. The flat style stays as it is."; reviewer said partly; Josh's verdict not run
+
+# The job, explained
+
+# Forge job enoch-sheet-004-centred-tail
+
+**Asset:** enoch-sheet | **Track:** c2-refine | **Kind:** character-sheet | **Size:** small (4 images)
+
+## What we're trying to change
+A new four-view sheet (front, side, back with tail, back without tail) in which the back view with tail has the tail hanging straight down the centre, so that view is left-right symmetrical; the front view and the tailless back are also symmetrical apart from the front view's tail. Keep the C2/246 look: brown irises with solid pupils, solid navy mask with white brow stripe, bright teal and navy, white chest and belly, square lean build, smooth linework, plain white background, digitigrade feet.
+
+## Why this job should do it
+Josh wants the tail on the back view centred so that view is symmetrical. img2img (jobs 1-3) keeps the tail where the parent had it, swept to one side, so this job is a fresh txt2img at 1536x768 (the sheet's 2:1 shape), 4 images, no hires fix, Euler a, 30 steps, CFG 6, fixed seed 231506246 counting up, charsheet_lora_v1 at 0.6, model Indigo Void, as in the C2 recipe without its hires pass. Prompt: job 3's prompt and negatives unchanged (symmetry tags, tail wording, jewelry negatives), except that the tail words now sit in their own BREAK chunk as tags: the existing tail words plus '(tail down:1.2), (straight tail:1.1), (symmetrical rear view:1.2)'. A separate chunk gives them full weight instead of leaving them at the end of a long chunk, and 'tail down' covers the hanging-straight-down wording, so the two longer phrases ('tail hanging straight down', 'tail centered behind him in the back view') are dropped. The negative gains '(curled tail:1.1), tail wrapped around leg', which blocks the tail curling round a leg as in the references' front view. No standalone 'ring' word is added. Caveat: the negative applies to the whole sheet, and the front view's tail is exempt from the symmetry goal, so it may still curl. Reference: IP-Adapter ip-adapter-plus_sdxl_vit-h (CLIP-ViT-H) with art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png (the C2-style sheet, instead of v14) at weight 0.45, starting at 0.2 and ending at 0.6, Resize and Fill so the whole 2:1 sheet is seen rather than a centre crop, Balanced. This reference carries the look Josh likes (brown eyes with solid pupils, navy mask with white brow stripe, bright teal and navy, white chest). The weight is a little above the parent recipe's 0.4 because with no guide the reference has to hold the look. It starts at 0.2, not 0, so the reference doesn't set the layout in the very first steps, where its back view's tail (swept to one side) would pull the tail sideways and the prompt's tail words set the pose; it ends at 0.6, so it still holds the look (face, colours) through the middle steps. Residual risk: the reference can still tug the tail sideways after step 20%, and the weight stays under 0.5 for that reason. Guide: I leave the cleared 4-pose guide out. Its back view has the tail swept to one side, its front view's hands and arms are not mirror images, and canny sets layout in the first steps, so even at a low weight or early end it would bring back the sideways tail and the lopsided hands this job is meant to remove. The cost is head size: this model draws heads small (about 0.13 of height against the 0.19-0.21 rule) without a guide. I accept that for this test because the symmetry result is the question; the IP-Adapter reference, whose heads are the right size, may help a little. Head size is something to check in the results, and if it fails the next job could need a symmetrical guide from Josh. Not used: no masks, no new guides, no pixel edits. Expectation: the centred tail is a layout choice the model often ignores, so the tail may still sit to one side in some of the four; I expect some of them to centre it, and the symmetry of the hands and hip wedges is likely to stay imperfect, as in job 3.
+
+## What Forge will do
+Draw 4 new image(s) from the prompt, starting from noise.
+ControlNet `CLIP-ViT-H (IPAdapter)` / `ip-adapter-plus_sdxl_vit-h` at weight 0.45, using `art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png`. Reference image: carries the C2/246 look (brown eyes, navy mask with white brow stripe, teal and navy, white chest) into a fresh drawing without copying its layout.
+
+## Settings
+- Model: `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors`
+- LoRAs: `charsheet_lora_v1:0.6` (approved weight 0.6, trigger `charsheet`)
+- 30 steps, CFG 6, sampler Euler a, scheduler Automatic, size 1536x768
+- Fixed for every job: sd_vae Automatic, CLIP_stop_at_last_layers 1, eta_noise_seed_delta 0, randn_source GPU, token_merging_ratio 0
+- Seed: 231506246, counting up per image
+
+## Prompt
+Compared with job `enoch-sheet-003-symmetry`:
+- added: `BREAK raccoon tail`
+- added: `(tail down:1.2)`
+- added: `(straight tail:1.1)`
+- added: `(symmetrical rear view:1.2)`
+- added: `BREAK lean`
+- removed: `raccoon tail`
+- removed: `lean`
+
+```
+charsheet, masterpiece, best quality, newest, absurdres, safe, solo, male, anthro, furry, raccoon, multiple views, reference sheet, turnaround, front view, side view, rear view, back view, full body, standing, arms at sides, (symmetrical:1.2), symmetry, (symmetrical pose:1.2), digitigrade, simple background, white background, plain white background, flat color, cel shading, thick outlines
+BREAK (brown eyes:1.3), (red eyes:0.6), black pupils, (large pupils:1.1), eye shine, white sclera
+BREAK (teal body:1.3), (teal fur:1.2), (wide solid dark navy raccoon mask band across both eyes:1.3), (navy mask directly touching the eyes:1.2), (thin white stripe above the mask:1.2), smile, closed mouth
+BREAK white countershading, white muzzle, white belly, dark blue inner ears, gloves \(marking\), socks \(marking\), dark blue hands, dark blue lower legs
+BREAK raccoon tail, ringed tail, big fluffy tail, (thick tail stripes:1.2), (dark blue tail tip:1.2), teal tail, (tail down:1.2), (straight tail:1.1), (symmetrical rear view:1.2)
+BREAK lean, broad shoulders, flat chest, narrow hips, featureless crotch, <lora:charsheet_lora_v1:0.6>
+```
+
+Negative:
+```
+nsfw, worst quality, low quality, lowres, old, early, (text:1.3), english text, arrow \(symbol\), speech bubble, signature, watermark, color swatch, female, breasts, (wide hips:1.2), (hourglass figure:1.2), child, chibi, (grey fur:1.3), realistic, detailed fur, plantigrade, clothes, 3d, empty eyes, no pupils, blank eyes, hollow eyes, ringed eyes, white pupils, (blue eyes:1.3), (color palette:1.2), (multiple views of face:1.1), eye study, close-up, head only, disembodied hand, inset, pink background, grey background, blush, headband, headwear, hairband, (many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1), jewelry, (gold ring:1.2), finger ring, gold, (asymmetrical:1.2), (asymmetrical pose:1.2), uneven body, (curled tail:1.1), tail wrapped around leg
+```
+
+## Output
+Images go to `art/jobs/enoch-sheet-004-centred-tail/out/` exactly as Forge returns them. Nothing is edited afterwards; only the job id is written into each file's PNG notes.

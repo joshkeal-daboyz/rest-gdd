@@ -34,6 +34,8 @@ Sampled from flat areas of the original female sheet, [female-raccoon/baseline-h
 | Outlines | Near-black `#020304` |
 | Sheet background | Off-white `#FAF7EF` |
 
+Enoch differs in two places: his chest and belly are white, and his eyes have a brown iris with a solid dark pupil. See [enoch-rules.md](enoch-sheet/enoch-rules.md).
+
 ### Markings
 
 - **Mask:** a navy band across the eyes, edged above and below with a thin pale line.

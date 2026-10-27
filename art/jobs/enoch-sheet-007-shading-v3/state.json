@@ -1,0 +1,39 @@
+{
+  "explained_at": "2026-10-27T18:05:29",
+  "explained_hash": "5d7b1f14b254a66a",
+  "briefed_hash": "5d7b1f14b254a66a",
+  "briefed_at": "2026-10-27T18:05:30",
+  "response": "agree",
+  "response_note": "Agree: will help. Keeping anime coloring because Josh asked for anime-style cel shading, so this job deliberately changes denoise and that tag together.",
+  "response_hash": "5d7b1f14b254a66a",
+  "responded_at": "2026-10-27T18:06:54",
+  "approved_at": "2026-10-27T18:09:47",
+  "approved_hash": "5d7b1f14b254a66a",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T18:11:51",
+  "outputs": [
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506246.png": {
+      "head": 0.19,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506247.png": {
+      "head": 0.191,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506248.png": {
+      "head": 0.187,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-007-shading-v3/out/enoch-sheet_231506249.png": {
+      "head": 0.197,
+      "line_pct": 0.38
+    }
+  }
+}

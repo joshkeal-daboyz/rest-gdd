@@ -1,0 +1,37 @@
+{
+  "asset": "enoch-sheet",
+  "track": "c2-refine",
+  "kind": "character-sheet",
+  "goal": "A new four-view sheet (front, side, back with tail, back without tail) in which the back view with tail has the tail hanging straight down the centre, so that view is left-right symmetrical; the front view and the tailless back are also symmetrical apart from the front view's tail. Keep the C2/246 look: brown irises with solid pupils, solid navy mask with white brow stripe, bright teal and navy, white chest and belly, square lean build, smooth linework, plain white background, digitigrade feet.",
+  "why": "Josh wants the tail on the back view centred so that view is symmetrical. img2img (jobs 1-3) keeps the tail where the parent had it, swept to one side, so this job is a fresh txt2img at 1536x768 (the sheet's 2:1 shape), 4 images, no hires fix, Euler a, 30 steps, CFG 6, fixed seed 231506246 counting up, charsheet_lora_v1 at 0.6, model Indigo Void, as in the C2 recipe without its hires pass. Prompt: job 3's prompt and negatives unchanged (symmetry tags, tail wording, jewelry negatives), except that the tail words now sit in their own BREAK chunk as tags: the existing tail words plus '(tail down:1.2), (straight tail:1.1), (symmetrical rear view:1.2)'. A separate chunk gives them full weight instead of leaving them at the end of a long chunk, and 'tail down' covers the hanging-straight-down wording, so the two longer phrases ('tail hanging straight down', 'tail centered behind him in the back view') are dropped. The negative gains '(curled tail:1.1), tail wrapped around leg', which blocks the tail curling round a leg as in the references' front view. No standalone 'ring' word is added. Caveat: the negative applies to the whole sheet, and the front view's tail is exempt from the symmetry goal, so it may still curl. Reference: IP-Adapter ip-adapter-plus_sdxl_vit-h (CLIP-ViT-H) with art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png (the C2-style sheet, instead of v14) at weight 0.45, starting at 0.2 and ending at 0.6, Resize and Fill so the whole 2:1 sheet is seen rather than a centre crop, Balanced. This reference carries the look Josh likes (brown eyes with solid pupils, navy mask with white brow stripe, bright teal and navy, white chest). The weight is a little above the parent recipe's 0.4 because with no guide the reference has to hold the look. It starts at 0.2, not 0, so the reference doesn't set the layout in the very first steps, where its back view's tail (swept to one side) would pull the tail sideways and the prompt's tail words set the pose; it ends at 0.6, so it still holds the look (face, colours) through the middle steps. Residual risk: the reference can still tug the tail sideways after step 20%, and the weight stays under 0.5 for that reason. Guide: I leave the cleared 4-pose guide out. Its back view has the tail swept to one side, its front view's hands and arms are not mirror images, and canny sets layout in the first steps, so even at a low weight or early end it would bring back the sideways tail and the lopsided hands this job is meant to remove. The cost is head size: this model draws heads small (about 0.13 of height against the 0.19-0.21 rule) without a guide. I accept that for this test because the symmetry result is the question; the IP-Adapter reference, whose heads are the right size, may help a little. Head size is something to check in the results, and if it fails the next job could need a symmetrical guide from Josh. Not used: no masks, no new guides, no pixel edits. Expectation: the centred tail is a layout choice the model often ignores, so the tail may still sit to one side in some of the four; I expect some of them to centre it, and the symmetry of the hands and hip wedges is likely to stay imperfect, as in job 3.",
+  "mode": "txt2img",
+  "prompt": "charsheet, masterpiece, best quality, newest, absurdres, safe, solo, male, anthro, furry, raccoon, multiple views, reference sheet, turnaround, front view, side view, rear view, back view, full body, standing, arms at sides, (symmetrical:1.2), symmetry, (symmetrical pose:1.2), digitigrade, simple background, white background, plain white background, flat color, cel shading, thick outlines\nBREAK (brown eyes:1.3), (red eyes:0.6), black pupils, (large pupils:1.1), eye shine, white sclera\nBREAK (teal body:1.3), (teal fur:1.2), (wide solid dark navy raccoon mask band across both eyes:1.3), (navy mask directly touching the eyes:1.2), (thin white stripe above the mask:1.2), smile, closed mouth\nBREAK white countershading, white muzzle, white belly, dark blue inner ears, gloves \\(marking\\), socks \\(marking\\), dark blue hands, dark blue lower legs\nBREAK raccoon tail, ringed tail, big fluffy tail, (thick tail stripes:1.2), (dark blue tail tip:1.2), teal tail, (tail down:1.2), (straight tail:1.1), (symmetrical rear view:1.2)\nBREAK lean, broad shoulders, flat chest, narrow hips, featureless crotch",
+  "negative": "nsfw, worst quality, low quality, lowres, old, early, (text:1.3), english text, arrow \\(symbol\\), speech bubble, signature, watermark, color swatch, female, breasts, (wide hips:1.2), (hourglass figure:1.2), child, chibi, (grey fur:1.3), realistic, detailed fur, plantigrade, clothes, 3d, empty eyes, no pupils, blank eyes, hollow eyes, ringed eyes, white pupils, (blue eyes:1.3), (color palette:1.2), (multiple views of face:1.1), eye study, close-up, head only, disembodied hand, inset, pink background, grey background, blush, headband, headwear, hairband, (many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1), jewelry, (gold ring:1.2), finger ring, gold, (asymmetrical:1.2), (asymmetrical pose:1.2), uneven body, (curled tail:1.1), tail wrapped around leg",
+  "model": "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors",
+  "loras": [
+    "charsheet_lora_v1:0.6"
+  ],
+  "settings": {
+    "seed": 231506246,
+    "width": 1536,
+    "height": 768,
+    "steps": 30,
+    "cfg_scale": 6,
+    "sampler_name": "Euler a"
+  },
+  "controlnet": [
+    {
+      "module": "CLIP-ViT-H (IPAdapter)",
+      "model": "ip-adapter-plus_sdxl_vit-h",
+      "weight": 0.45,
+      "guidance_start": 0.2,
+      "guidance_end": 0.6,
+      "resize_mode": "Resize and Fill",
+      "control_mode": "Balanced",
+      "image": "art/jobs/enoch-sheet-001-tail-wording/out/enoch-sheet_231506246.png",
+      "purpose": "Reference image: carries the C2/246 look (brown eyes, navy mask with white brow stripe, teal and navy, white chest) into a fresh drawing without copying its layout."
+    }
+  ],
+  "count": 4,
+  "compare_to": "enoch-sheet-003-symmetry"
+}

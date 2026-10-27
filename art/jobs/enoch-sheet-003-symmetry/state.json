@@ -1,0 +1,25 @@
+{
+  "explained_at": "2026-10-27T17:09:04",
+  "explained_hash": "40cbe56f70f4eb5b",
+  "briefed_hash": "40cbe56f70f4eb5b",
+  "briefed_at": "2026-10-27T17:09:05",
+  "response": "agree",
+  "response_note": "Agree: a cheap test of symmetry tags; expect most asymmetry to remain. The white hip wedges are the white patch Josh already flagged (plan item 2), so whether to remove them goes to Josh.",
+  "response_hash": "40cbe56f70f4eb5b",
+  "responded_at": "2026-10-27T17:10:32",
+  "approved_at": "2026-10-27T17:23:07",
+  "approved_hash": "40cbe56f70f4eb5b",
+  "approved_via": "chat",
+  "approval_words": "Symmetry",
+  "ran_at": "2026-10-27T17:24:47",
+  "outputs": [
+    "art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-003-symmetry/out/enoch-sheet_231506249.png"
+  ],
+  "verdict": "on-track",
+  "verdict_note": "Josh judged the views symmetrical; the remaining problem is that the body reads too human, which is the next job.",
+  "verdict_words": "They're symmetrical. The problem is that they're too human.",
+  "reviewed_at": "2026-10-27T17:47:09"
+}

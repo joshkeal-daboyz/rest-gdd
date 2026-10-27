@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T17:30:40",
+  "explained_hash": "0ffa9d9c61fcae4c",
+  "briefed_hash": "0ffa9d9c61fcae4c",
+  "briefed_at": "2026-10-27T17:30:41",
+  "response": "agree",
+  "response_note": "Agree: a valid probe of the centred tail. Expect some, not all, of the four to centre it, and small heads without a guide. Seed choice goes to Josh.",
+  "response_hash": "0ffa9d9c61fcae4c",
+  "responded_at": "2026-10-27T17:32:14",
+  "approved_at": "2026-10-27T17:37:05",
+  "approved_hash": "0ffa9d9c61fcae4c",
+  "approved_via": "chat",
+  "approval_words": "Approve",
+  "ran_at": "2026-10-27T17:38:16",
+  "outputs": [
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506246.png": {
+      "head": 0.178,
+      "line_pct": 0.28
+    },
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506247.png": {
+      "head": 0.142,
+      "line_pct": 0.82
+    },
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506248.png": {
+      "head": 0.139,
+      "line_pct": 0.28
+    },
+    "art/jobs/enoch-sheet-004-centred-tail/out/enoch-sheet_231506249.png": {
+      "head": 0.171,
+      "line_pct": 0.28
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "No image centred the back tail; without a guide the sheets lost the 246 look, the four-view layout and the head size.",
+  "verdict_words": "Off",
+  "reviewed_at": "2026-10-27T17:43:39"
+}

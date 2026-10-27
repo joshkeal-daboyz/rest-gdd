@@ -14,7 +14,7 @@ Every new image or change goes through the Forge job pipeline in the [raccoon st
 
 - **Model:** `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors`, as for every character.
 - **Character sheets:** add the LoRA `charsheet_lora_v1` at 0.6 ([Civitai 2925755](https://civitai.com/models/2925755)) with the trigger word `charsheet`, and start from the prompt files [charsheet-toon.prompt.txt](charsheet-toon.prompt.txt) and [charsheet-toon.negative.txt](charsheet-toon.negative.txt). The LoRA is only for sheets, never for single views or close-ups.
-- **Body shape:** use the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) as a canny ControlNet (`diffusion_pytorch_model_V2`, weight about 0.6, ending at 0.6). Without it this model draws heads about 0.13 of his height and a realistic furry style. If a new guide is needed, Josh makes it; guides aren't edited by script.
+- **Body shape:** use the three-pose edge guide [shoulder_guide_3pose_v2.png](shoulder_guide_3pose_v2.png) as a canny ControlNet (`diffusion_pytorch_model_V2`, weight about 0.6, ending at 0.6). Without it this model draws heads about 0.13 of his height and a realistic furry style. If a new guide is needed, Josh makes it; guides aren't edited by script. The four-view guide [shoulder_guide_4pose.png](shoulder_guide_4pose.png) (front, side, back with tail, back without tail) is also cleared for jobs (Josh, 2026-10-27). Its tails have about 6–7 band lines, which likely pushes the model past four rings, so tail-ring jobs leave it out or keep its weight low.
 - **A fix to the locked sheet** is a new job with [enoch_character_sheet.png](enoch_character_sheet.png) as its parent, usually an inpaint with a mask over just the part that's wrong. Josh makes the masks.
 
 The model's known faults (grey fur, small heads without a guide, the censor mark, hollow pupils) affect every raccoon, so they're listed with their Forge fixes in the style guide's [Known faults of the model](../raccoon-style-guide.md#known-faults-of-the-model). The edge guide above is male-shaped and is for Enoch only.
@@ -58,7 +58,7 @@ Check a new image against these. Within ±0.02 counts as a match.
 
 ## Eyes
 
-Same size and shape as generated: don't enlarge them. The pupil gets her red-brown `#8D3F4C` in its lower half, with the top staying black, and a small white shine, as on her eyes. This has to come from Forge: through the prompt, or an inpaint job on the eyes when they come out wrong.
+Same size and shape as generated: don't enlarge them. Round white eyes with a brown iris and a solid dark pupil, as on the C2 candidate sheet ([eyetest/C2/enoch_231506246.png](eyetest/C2/enoch_231506246.png)). Josh chose this look over the old black pupil with a red-brown lower half on 2026-10-27. Pupils must be solid, not hollow. This has to come from Forge: through the prompt, or an inpaint job on the eyes when they come out wrong.
 
 ## Face
 
@@ -73,9 +73,9 @@ Sampled from the high-res favourite sheet, [art/female-raccoon/baseline-highres.
 | --- | --- |
 | Fur | Teal `#48C2C3` |
 | Mask, hands (to the wrist), lower legs (from mid-calf), tail rings and tip | Navy `#2A4365` |
-| Muzzle, chest, belly | Mint `#D0FFFA` |
+| Muzzle, chest, belly | White (Josh kept the C2 sheet's white over mint on 2026-10-27) |
 | Inner ears, eye whites | White |
-| Iris crescent | Red-brown `#8D3F4C` |
+| Iris | Brown, with a solid dark pupil |
 | Line work | Near-black `#020304`, about 0.33% of figure height |
 | Sheet background | Off-white `#FAF7EF` |
 
