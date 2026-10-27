@@ -106,6 +106,19 @@ The generator and the reviewer are separate agents, so no job reviews itself. Th
 
 Changing a job, its parent image or its mask after any step sends it back to `explain`, so a revised prompt always gets a fresh review. An upscale has no prompt, so it skips steps 3–5.
 
+### Models and LoRAs
+
+Jobs may only use what's on the approved list in [tools/forge-approved.json](tools/forge-approved.json). `explain` stops any job that names something else, or something Forge doesn't have installed. Only Josh adds to the list.
+
+| Type | Name | Use |
+| --- | --- | --- |
+| Model | `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors` | The required model for every character. Every job must set it. |
+| LoRA | `charsheet_lora_v1` at 0.6, trigger word `charsheet` | **Only for character sheet requests** (front, side and back on one sheet). Never for single views, close-ups or props. |
+| ControlNet | `diffusion_pytorch_model_V2` | Canny / edge guide: locks outline, pose and layout to a guide image. |
+| ControlNet | `ip-adapter-plus_sdxl_vit-h` | Reference image: carries a character's look and colours over without copying the layout. |
+
+Every job also states its `kind`: `character-sheet`, `single-character`, `prop` or `other`. The charsheet LoRA is refused on any job that isn't a `character-sheet`.
+
 ### Small jobs first
 
 - A **small** job makes up to 4 images, with no hires fix and no upscale. Each one should test a single change, so the results show what worked.

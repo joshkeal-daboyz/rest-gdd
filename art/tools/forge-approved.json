@@ -1,0 +1,18 @@
+{
+  "_about": "The only checkpoint, LoRAs and ControlNet models a Forge job may use. forge_jobs.py checks every job against this list and against what Forge has installed. Only Josh adds to it.",
+  "checkpoints": {
+    "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors": "The required model for every character."
+  },
+  "loras": {
+    "charsheet_lora_v1": {
+      "weight": 0.6,
+      "trigger": "charsheet",
+      "only_for": "character-sheet",
+      "use": "Only for character sheet requests (front, side and back views on one sheet). Put the trigger word in the prompt."
+    }
+  },
+  "controlnet": {
+    "diffusion_pytorch_model_V2": "Canny / edge guide: locks outline, pose and layout to a guide image.",
+    "ip-adapter-plus_sdxl_vit-h": "Reference image (module CLIP-ViT-H (IPAdapter)): carries a character's look and colours over without copying the layout."
+  }
+}

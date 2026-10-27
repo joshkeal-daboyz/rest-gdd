@@ -37,8 +37,9 @@ FORGE = "http://127.0.0.1:7860"
 SMALL_MAX = 4          # a small job makes at most this many images, with no hires fix and no upscale
 HARD_MAX = 32          # no job makes more than this
 MODES = ("txt2img", "img2img", "inpaint", "upscale")
+KINDS = ("character-sheet", "single-character", "prop", "other")  # what the job's image is
 STATUSES = ("exploration", "candidate", "locked", "rejected")
-JOB_KEYS = {"asset", "track", "goal", "why", "mode", "parent", "mask", "prompt", "negative", "model", "loras",
+JOB_KEYS = {"asset", "track", "kind", "goal", "why", "mode", "parent", "mask", "prompt", "negative", "model", "loras",
             "settings", "count", "hires", "controlnet", "upscale", "follows", "compare_to"}
 PROMPT_ORDER = ["style", "identity", "build", "posture", "face", "colors", "feet", "tail", "base_body"]
 
@@ -195,6 +196,70 @@ def tier(job):
     return "large" if big else "small"
 
 
+def base_name(name):
+    """'x.safetensors [hash]' and 'x' are the same model."""
+    name = str(name).split(" [")[0].strip()
+    for ext in (".safetensors", ".ckpt", ".pt", ".pth", ".bin"):
+        if name.lower().endswith(ext):
+            name = name[:-len(ext)]
+    return name.replace("\\", "/").rsplit("/", 1)[-1]
+
+
+_installed = None
+
+
+def forge_installed():
+    """What Forge has installed right now: {"checkpoints", "loras", "controlnet"} as sets of base names."""
+    global _installed
+    if _installed is None:
+        get = lambda path: json.load(urllib.request.urlopen(f"{FORGE}{path}", timeout=10))
+        try:
+            _installed = {
+                "checkpoints": {base_name(m["title"]) for m in get("/sdapi/v1/sd-models")},
+                "loras": {base_name(l["name"]) for l in get("/sdapi/v1/loras")},
+                "controlnet": {base_name(m) for m in get("/controlnet/model_list")["model_list"] if m != "None"}}
+        except Exception as e:
+            die(f"can't reach Forge at {FORGE} to check its installed models ({e}). Start Forge and try again.")
+    return _installed
+
+
+def approved():
+    return read_json(ROOT / "art/tools/forge-approved.json")
+
+
+def model_errors(job):
+    """The job may only use the approved checkpoint, LoRAs and ControlNet models, and only ones Forge has."""
+    ok, have, errs = approved(), forge_installed(), []
+    ok_ckpt = {base_name(n) for n in ok["checkpoints"]}
+    ok_lora = {base_name(n): v for n, v in ok["loras"].items()}
+    ok_cn = {base_name(n) for n in ok["controlnet"]}
+
+    def need(label, key, name, allowed):
+        if name not in allowed:
+            errs.append(f"{label} '{name}' isn't on the approved list (art/tools/forge-approved.json); only Josh adds to it")
+        elif name not in have[key]:
+            errs.append(f"{label} '{name}' is approved but Forge doesn't have it installed")
+
+    if job["mode"] != "upscale":
+        if not job.get("model"):
+            errs.append(f"set 'model' (the approved one is {', '.join(ok['checkpoints'])}); otherwise Forge uses whatever is loaded")
+        else:
+            need("model", "checkpoints", base_name(job["model"]), ok_ckpt)
+        prompt = prompt_parts(job)[0]
+        used = {base_name(t.split(":")[0]) for t in
+                (seg.split(">")[0] for seg in prompt.split("<lora:")[1:])}
+        for name in sorted(used):
+            need("LoRA", "loras", name, ok_lora)
+            only = ok_lora.get(name, {}).get("only_for")
+            if only and job.get("kind") != only:
+                errs.append(f"LoRA '{name}' is only for {only} jobs, and this job's kind is '{job.get('kind')}'")
+            if name in ok_lora and ok_lora[name].get("trigger") and ok_lora[name]["trigger"] not in prompt.replace(f"<lora:{name}", ""):
+                errs.append(f"LoRA '{name}' needs its trigger word '{ok_lora[name]['trigger']}' in the prompt")
+    for c in job.get("controlnet", []):
+        need("ControlNet model", "controlnet", base_name(c.get("model", "")), ok_cn)
+    return errs
+
+
 def check(job_id, job):
     """Everything that must be true before a job can be explained, approved or run."""
     errs = []
@@ -204,6 +269,8 @@ def check(job_id, job):
     for k in ("asset", "track", "goal", "why", "mode"):
         if not str(job.get(k, "")).strip() or str(job.get(k, "")).startswith("TODO"):
             errs.append(f"'{k}' must be filled in")
+    if job.get("kind") not in KINDS:
+        errs.append(f"'kind' must be one of {KINDS}")
     mode = job.get("mode")
     if mode not in MODES:
         errs.append(f"mode must be one of {MODES}")
@@ -233,6 +300,8 @@ def check(job_id, job):
                 errs.append(f"follows {f}, which is on a different asset or track")
             if fs.get("verdict") != "on-track":
                 errs.append(f"follows {f}, which doesn't have an on-track verdict (it has: {fs.get('verdict', 'none')})")
+    if mode in MODES:
+        errs += model_errors(job)
     if errs:
         die(f"job {job_id} isn't ready:\n  - " + "\n  - ".join(errs))
 
@@ -266,7 +335,7 @@ def explain_text(job_id, job):
     s = {**defaults, **job.get("settings", {})}
     mode, count = job["mode"], job.get("count", 1)
     L = [f"# Forge job {job_id}", "",
-         f"**Asset:** {job['asset']} | **Track:** {job['track']} | **Size:** {tier(job)} ({count} image{'s' * (count > 1)})", "",
+         f"**Asset:** {job['asset']} | **Track:** {job['track']} | **Kind:** {job['kind']} | **Size:** {tier(job)} ({count} image{'s' * (count > 1)})", "",
          "## What we're trying to change", job["goal"], "",
          "## Why this job should do it", job["why"], "",
          "## What Forge will do"]
@@ -301,7 +370,7 @@ def explain_text(job_id, job):
         seed = s.get("seed", -1)
         L += ["", "## Settings",
               f"- Model: `{job.get('model') or 'whatever Forge has loaded now'}`",
-              f"- LoRAs: {', '.join(f'`{l}`' for l in job.get('loras', [])) or 'none'}",
+              f"- LoRAs: {lora_words(job) or 'none'}",
               f"- {s.get('steps', '?')} steps, CFG {s.get('cfg_scale', '?')}, sampler {s.get('sampler_name', '?')}, size {size}",
               f"- Seed: {'random (the seeds used are saved with each image)' if seed == -1 else f'{seed}, counting up per image'}"]
         prev = previous_job(job)
@@ -321,6 +390,17 @@ def explain_text(job_id, job):
     L += ["", "## Output", f"Images go to `art/jobs/{job_id}/out/` exactly as Forge returns them. "
           "Nothing is edited afterwards; only the job id is written into each file's PNG notes."]
     return "\n".join(L) + "\n"
+
+
+def lora_words(job):
+    ok = {base_name(n): v for n, v in approved()["loras"].items()}
+    out = []
+    for l in job.get("loras", []):
+        name, _, w = l.partition(":")
+        a = ok.get(base_name(name), {})
+        note = f" (approved weight {a['weight']}, trigger `{a.get('trigger')}`)" if a.get("weight") is not None else ""
+        out.append(f"`{l}`{note}")
+    return ", ".join(out)
 
 
 def build_request(job):
@@ -386,8 +466,8 @@ def cmd_new(a):
     else:
         job = {"mode": "txt2img",
                "prompt": {"from": "art/enoch-sheet/enoch-prompts.json", "view": "front", "extra": ""},
-               "model": "indigoVoidFurryFusedXL_noobaiV35_fp16", "loras": [], "settings": {"seed": -1},
-               "count": 4, "goal": "TODO", "why": "TODO"}
+               "model": next(iter(approved()["checkpoints"])), "loras": [], "settings": {"seed": -1},
+               "count": 4, "kind": "TODO", "goal": "TODO", "why": "TODO"}
     job.update(asset=a.asset, track=a.track)
     (JOBS / job_id).mkdir()
     write_json(JOBS / job_id / "job.json", job)
