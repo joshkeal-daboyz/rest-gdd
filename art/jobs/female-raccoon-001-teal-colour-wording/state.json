@@ -1,10 +1,53 @@
 {
-  "explained_at": "2026-10-27T16:59:26",
-  "explained_hash": "a3627c743e9dc472",
-  "briefed_hash": "a3627c743e9dc472",
-  "briefed_at": "2026-10-27T16:59:26",
+  "explained_at": "2026-10-27T17:38:20",
+  "explained_hash": "a575de196e6cf0a7",
+  "briefed_hash": "a575de196e6cf0a7",
+  "briefed_at": "2026-10-27T17:38:23",
   "response": "agree",
-  "response_note": "Agree with the reviewer's findings. Revision cap reached, so taking it to Josh as it stands, but recommending recs 1-4 before running: 'white muzzle' (added in round 2) breaks the style-guide palette (muzzle is mint #D0FFFA), and bare 'navy' on hands/legs/rings is the near-black cause. Rec 5 optional.",
-  "response_hash": "a3627c743e9dc472",
-  "responded_at": "2026-10-27T17:01:15"
+  "response_note": "must-fix 0; ready to run. Could-improve 1 (white chest, black markings in the negative) deferred to the next job to limit changes. pastel colors: round 3 removed it, round 4 asked to restore it; I disagreed in round 4 (reviews oscillating, the run is the better test) and it stays out. Josh has not ruled on it; flagged to him.",
+  "response_hash": "a575de196e6cf0a7",
+  "responded_at": "2026-10-27T17:40:16",
+  "review_rounds": [
+    {
+      "round": 5,
+      "job_hash": "7452d2da09386494",
+      "assessment": "partly",
+      "must_fix": null,
+      "response": "agree",
+      "response_note": "Ready to run. Reference swap to baseline.jpg confirmed as a near-neutral change. Recs 1-2 (black markings / white chest in negative, weighted mask) fit female-rules.md but are small; I'd run now and fold them into the next job if chest or markings miss. Josh may choose to apply them first."
+    }
+  ],
+  "approved_at": "2026-10-27T17:42:07",
+  "approved_hash": "a575de196e6cf0a7",
+  "approved_via": "chat",
+  "approval_words": "Runnit",
+  "ran_at": "2026-10-27T17:43:31",
+  "outputs": [
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261027.png",
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261028.png",
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261029.png",
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261030.png"
+  ],
+  "measurements": {
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261027.png": {
+      "head": 0.17,
+      "line_pct": 0.21
+    },
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261028.png": {
+      "head": 0.21,
+      "line_pct": 0.22
+    },
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261029.png": {
+      "head": 0.156,
+      "line_pct": 0.21
+    },
+    "art/jobs/female-raccoon-001-teal-colour-wording/out/female-raccoon_20261030.png": {
+      "head": 0.347,
+      "line_pct": 0.21
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Body too human (lanky pin-up proportions, human buttocks/torso) vs the reference's stockier cartoon raccoon body; also fur overshot to sky blue, chest white, heads ~0.16, canny guide had little visible effect.",
+  "verdict_words": "Off track, the body is too human.",
+  "reviewed_at": "2026-10-27T17:45:43"
 }

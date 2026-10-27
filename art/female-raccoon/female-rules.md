@@ -52,6 +52,12 @@ From the `female-raccoon-001` jobs (IP-Adapter at 0.5 and 0.8, no edge guide), a
 - **Stray objects fill the empty space** around the figures: hourglasses, arrows, hooks, tiaras, devil tails, limb studies, logo tiles. The hourglasses are probably the prompt's `hourglass figure` being drawn literally. Describe her shape instead ("narrow waist, wide hips, full thighs"), and put `props`, `objects`, `symbols`, `icons` and `extra drawings` in the negative.
 - **Head size** hasn't been tested yet. The next job should add the canny edge guide on her reference sheet.
 
+From `female-raccoon-001-teal-colour-wording` (IP-Adapter 0.8 on baseline.jpg, canny 0.6 ending at 0.6 on baseline-highres.png), off-track. Josh: "the body is too human."
+
+- **Body too human.** Lanky pin-up proportions, long human legs and a detailed human backside and torso, far from the reference's stockier cartoon raccoon body. The curvy wording (`narrow waist`, `wide hips`, `full thighs`) probably pushes this.
+- **Colour overshoots.** `(teal fur:1.3)` plus `(turquoise fur:1.1)` turned the fur sky or cyan blue. `navy blue` on every marking fixed the navy. The chest came out white rather than mint.
+- **The canny guide barely shaped the figures.** Forge recorded the canny unit as applied, but the poses and layout followed the seed, not the reference, and heads stayed about 0.16. Why is still unknown.
+
 Add a line here after each verdict on her jobs, so the next job starts from what was learned.
 
 ## Review checklist
