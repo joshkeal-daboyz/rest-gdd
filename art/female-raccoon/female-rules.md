@@ -6,8 +6,9 @@ The rules shared by every raccoon are in the [raccoon style guide](../raccoon-st
 
 ## Body
 
-- **Hourglass torso:** the waist pinches in and the hips flare out wider than the waist. This is the main thing that makes her read as female.
-- Wide hips and full thighs. Shoulders narrower than the hips.
+- **A mild hourglass, as on her sheet:** the waist pinches in gently and the hips are a little wider than the waist. This is the main thing that makes her read as female.
+- A soft, simple cartoon raccoon body with tube-like limbs and no anatomical detail. Shoulders narrower than the hips.
+- **In prompts, say `mild waist, soft rounded body, wider hips`.** `hourglass figure`, `wide hips`, `full thighs`, `narrow waist` and `stocky` all gave her a human pin-up or chubby human body (see "What her jobs have taught us").
 - Adult proportions, as in the style guide: head about 0.19–0.21 of her height, fingertips at mid-thigh, legs nearly half her height.
 - **Height:** the baseline. Enoch is about 5% taller.
 - **Stance:** a softer pose; her weight can shift to one side.
@@ -23,7 +24,7 @@ Measured 2026-10-27 on her front (leftmost) figure, with the pipeline's read-onl
 | [baseline.jpg](baseline.jpg) | 766×506 | **0.210** | 0.41% (2.0 px on a 486 px figure) |
 
 - **Head:** 0.21 on both, and about 0.20 by eye. Outputs should land at 0.19–0.21. This is a measurement of the reference's front figure only; on sheets with loose head studies the script can pick the wrong figure.
-- **Line weight depends on image size.** Outlines can't get much thinner than about 2 px, so small images read heavier. Judge an output against a reference of similar size: 0.33% is the target at full resolution, and outputs near 1536 px wide should land roughly between 0.33% and 0.41%.
+- **Line weight depends on image size.** Outlines can't get much thinner than about 2 px, so small images read heavier. 0.33% is the target for outputs about 1536 px wide and larger (a 6.3 px line at 3064 px is about 3 px at 1536 px). The 0.41% on the 766 px jpg comes from its small size, so don't use it as a target.
 
 ## Face and eyes
 
@@ -52,9 +53,20 @@ Her sheet is where the style guide's palette was sampled, so she uses it exactly
 Every new image goes through the Forge job pipeline in the [style guide](../raccoon-style-guide.md#making-and-changing-raccoon-art). Use asset names starting with `female-raccoon` so the brief finds this file.
 
 - **Model:** `indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors`, as for every character.
-- **Character sheets:** add `charsheet_lora_v1` at 0.6 with the trigger word `charsheet`. Start from [female.prompt.txt](female.prompt.txt) and [female.negative.txt](female.negative.txt).
-- **Reference:** IP-Adapter (`ip-adapter-plus_sdxl_vit-h`, module `CLIP-ViT-H (IPAdapter)`) on [baseline-highres.png](baseline-highres.png) carries her overall look. On its own it doesn't hold the colours (see below).
-- **Edge guide:** her own reference sheet (Josh's decision, 2026-10-27). Run the canny ControlNet (`diffusion_pytorch_model_V2`, module `canny`) on [baseline-highres.png](baseline-highres.png), so Forge takes her outlines from it at generation time. Nothing is drawn or edited. Start around weight 0.6, ending at 0.6, as for Enoch's guide. This should fix head size and proportions; it also copies the reference's layout and poses, so it suits reruns of her sheet rather than new poses. Not yet tested in a job. Never use Enoch's guide: it's male-shaped and pushes her toward a square torso.
+### Character sheets: the proven recipe
+
+Job [`female-raccoon-003-img2img-sheet-recipe`](../jobs/female-raccoon-003-img2img-sheet-recipe/job.json) is the first of her jobs Josh marked on-track ("this is wonderful", 2026-10-27). Start every new sheet of her from it (`new female-raccoon <track> <slug> --from female-raccoon-003-img2img-sheet-recipe`) and change one thing at a time.
+
+- **img2img, not txt2img.** Parent: her approved sheet [baseline-highres.png](baseline-highres.png), at denoise **0.65**, size 1536×1016 (her sheet's aspect ratio). The parent carries her cartoon body, head size and palette. All four txt2img jobs gave her a human body whatever the prompt said.
+- **Prompt:** [female-sheet.prompt.txt](female-sheet.prompt.txt) and [female-sheet.negative.txt](female-sheet.negative.txt). The prompt is short tags in BREAK chunks, built like Enoch's on-track job `enoch-sheet-005-less-human`: style and layout, eyes, colours, markings and tail, fur and paws, build. The fur-and-paws chunk and the negative's `human, (human-like:1.2), human proportions, skin-tight` keep her a raccoon. There are no body-part words in the negative.
+- **Model and LoRA:** Indigo Void with `charsheet_lora_v1` at 0.6, trigger `charsheet` first. Euler a, 30 steps, CFG 6.
+- **No IP-Adapter and no canny guide.** The parent already carries her look, so an IP-Adapter on the same image only adds a second pull from one source.
+- The old [female.prompt.txt](female.prompt.txt) and [female.negative.txt](female.negative.txt) are the long txt2img prompts that failed. Don't start from them.
+
+### Other tools, and how they did
+
+- **Reference (IP-Adapter)** `ip-adapter-plus_sdxl_vit-h`, module `CLIP-ViT-H (IPAdapter)`. In txt2img at 0.5 and 0.8 it didn't hold her colours, and at 0.8 it copied the sheet's swatches, bust and extra figures. If one is needed, use Enoch's settings: 0.4, ending at 0.6, resize mode "Resize and Fill".
+- **Edge guide:** canny (`diffusion_pytorch_model_V2`, module `canny`) on her own sheet, at weight 0.6 ending at 0.6. Tested in two txt2img jobs, it didn't visibly shape the figures, and why is still unknown. The proven recipe doesn't use it. Never use Enoch's guide: it's male-shaped and pushes her toward a square torso.
 
 ## What her jobs have taught us
 
@@ -76,13 +88,18 @@ From `female-raccoon-002-stocky-cartoon-body` (only the body wording changed: st
 - **`detailed anatomy` in the negative** probably drew the lower-back censor mark on one image. Keep anatomy words out of the negative.
 - The canny guide at 0.6 (ending at 0.6) still didn't visibly shape the figures.
 
+From `female-raccoon-003-img2img-sheet-recipe` (img2img of baseline-highres.png at denoise 0.65, Enoch 005's tag recipe, no ControlNet), **on-track**. Josh: "this is wonderful."
+
+- **Start from a sheet that already has the right body.** img2img kept her cartoon body and head size (0.206–0.210). The fur-and-paws chunk gave paw hands, and the plain colour tags held teal, mint and navy blue with no overshoot. This is the recipe above.
+- **What's left:** the back views drew a heart-shaped rump with a cleft line, more human than her sheet, and a small dark mark at the tail base (her sheet has a similar oval there). Lines measured about 0.20%, against her 0.33%. The swatches turned brown. The eyes and smile are a little more glamorous than her sheet's. Fix these one at a time, starting from this job.
+
 Add a line here after each verdict on her jobs, so the next job starts from what was learned.
 
 ## Review checklist
 
 Check every image of her against the style guide's checklist, plus:
 
-1. Hourglass torso: waist pinched in, hips wider than the waist, shoulders narrower than the hips.
+1. Cartoon raccoon body, not a human one: a mild waist, hips a little wider than the waist, shoulders narrower than the hips, paw hands, and a back view without a human-shaped rump.
 2. Flat, even sleeve edges.
 3. Eyelashes, large dark pupils with a red-brown lower half.
 4. Mint (not cream) chest, belly, muzzle and back-of-hips patch; navy that reads as blue.

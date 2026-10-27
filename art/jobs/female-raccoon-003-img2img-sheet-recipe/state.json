@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T18:04:33",
+  "explained_hash": "5107922f751eb76d",
+  "briefed_hash": "5107922f751eb76d",
+  "briefed_at": "2026-10-27T18:04:35",
+  "response": "agree",
+  "response_note": "must-fix 0; ready. Applies Enoch 005's on-track recipe (img2img from a sheet with the right body, tag/BREAK prompt, fur-and-paws chunk). Optional teal-weight cut offered to Josh; if colour overshoots, that is the next single change, then denoise.",
+  "response_hash": "5107922f751eb76d",
+  "responded_at": "2026-10-27T18:06:55",
+  "approved_at": "2026-10-27T18:09:23",
+  "approved_hash": "5107922f751eb76d",
+  "approved_via": "chat",
+  "approval_words": "As is",
+  "ran_at": "2026-10-27T18:10:26",
+  "outputs": [
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506246.png",
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506247.png",
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506248.png",
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506249.png"
+  ],
+  "measurements": {
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506246.png": {
+      "head": 0.206,
+      "line_pct": 0.21
+    },
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506247.png": {
+      "head": 0.207,
+      "line_pct": 0.21
+    },
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506248.png": {
+      "head": 0.21,
+      "line_pct": 0.2
+    },
+    "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506249.png": {
+      "head": 0.206,
+      "line_pct": 0.2
+    }
+  },
+  "verdict": "on-track",
+  "verdict_note": "img2img of her own sheet with Enoch 005's tag/BREAK recipe gave a cartoon raccoon in her exact palette: teal fur, mint chest, blue navy, paw hands, heads 0.21; back-view rump still slightly human, lines thin (0.20%).",
+  "verdict_words": "ONTRACK this is wonderful, update as a success and make all required changes to ensure future success.",
+  "reviewed_at": "2026-10-27T18:15:02"
+}

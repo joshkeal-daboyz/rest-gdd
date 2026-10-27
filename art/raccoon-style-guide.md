@@ -71,8 +71,8 @@ Everything above is shared. These features are what make a raccoon read as femal
 
 | Feature | Female | Male |
 | --- | --- | --- |
-| **Torso** | Hourglass: the waist pinches in, and the hips flare out wider than the waist. | **Square:** the sides run in a mostly straight line from shoulders to hips. No waist. |
-| **Hips and thighs** | Wide hips and full thighs. | Narrow, straight hips. |
+| **Torso** | A mild hourglass: the waist pinches in gently, and the hips are a little wider than the waist. A simple cartoon body, never a pin-up. | **Square:** the sides run in a mostly straight line from shoulders to hips. No waist. |
+| **Hips and thighs** | Hips a little wider than the waist. In prompts say `mild waist, soft rounded body, wider hips`, not `hourglass figure`, `wide hips` or `full thighs` (see [female-rules.md](female-raccoon/female-rules.md)). | Narrow, straight hips. |
 | **Shoulders** | Narrower than the hips. | **Wide:** nearly as wide as the thighs. The sides run almost straight from shoulder to knee, easing out a little at the thighs. |
 | **Sleeves** (where the navy on the arm meets the teal) | A flat, even edge. | A zigzag fur edge. |
 | **Height** | The baseline. | About 5% taller than the female. |
@@ -126,13 +126,14 @@ Indigo Void has these faults with every raccoon, male or female. Images are kept
 | Fault | What to do in Forge |
 | --- | --- |
 | **Grey fur instead of teal**, even when teal is asked for | Strengthen the teal fur words, and put `grey fur` and `charcoal grey` in the negative. Use "navy", never "charcoal grey", for the markings. Regenerate when it still happens. |
-| **Small heads and a realistic furry style** without an edge guide (heads about 0.13 of height instead of 0.19–0.21) | Use a canny edge guide (`diffusion_pytorch_model_V2`) shaped for that character. A prompt alone doesn't fix it. |
+| **Small heads and a realistic furry style** without an edge guide (heads about 0.13 of height instead of 0.19–0.21) | Use img2img from an approved sheet with the right head size (the female recipe kept heads at 0.21), or a canny edge guide (`diffusion_pytorch_model_V2`) shaped for that character. A prompt alone doesn't fix it. |
+| **A human body** (pin-up or chubby human proportions, human hands, a human backside) in txt2img sheets, whatever the body wording says | For a sheet, use **img2img from an approved sheet** that already has the right body, at denoise 0.6–0.7. Add a fur-and-paws chunk (`fluffy fur, shoulder fur tufts, raccoon paws, paw-like hands with short stubby fingers, soft furry silhouette, simple shapes, minimal interior lines`) and put `human, (human-like:1.2), human proportions, skin-tight` in the negative. This worked for Enoch (`enoch-sheet-005-less-human`) and for her (`female-raccoon-003-img2img-sheet-recipe`). |
 | **Censor mark on the lower back**, set off by anatomy words in the negative prompt | Keep the negative to `nsfw` and general terms. Don't list body parts. |
 | **Hollow, ring-shaped pupils** | Ask for solid black pupils with a red-brown lower half, or inpaint the eyes. |
 
 ### Edge guides are per character
 
-An edge guide fixes the silhouette, so it has to match the character's sex and build. Enoch's guide ([enoch-sheet/shoulder_guide_3pose_v2.png](enoch-sheet/shoulder_guide_3pose_v2.png)) is male: a square torso and wide shoulders. **Use it only for Enoch.** On a female job it pushes her toward a male body. The female raccoon's guide is her own reference sheet: the canny ControlNet runs on it at generation time (see [female-raccoon/female-rules.md](female-raccoon/female-rules.md)). Without any guide, expect the small-head fault. Josh makes guides; they're never edited by script.
+An edge guide fixes the silhouette, so it has to match the character's sex and build. Enoch's guide ([enoch-sheet/shoulder_guide_3pose_v2.png](enoch-sheet/shoulder_guide_3pose_v2.png)) is male: a square torso and wide shoulders. **Use it only for Enoch.** On a female job it pushes her toward a male body. The female raccoon's guide is her own reference sheet: the canny ControlNet runs on it at generation time. In two txt2img jobs it didn't visibly shape her figures, and her proven sheet recipe uses img2img from her sheet instead (see [female-raccoon/female-rules.md](female-raccoon/female-rules.md)). In txt2img without any guide, expect the small-head fault. Josh makes guides; they're never edited by script.
 
 ### Small jobs first
 
@@ -156,5 +157,5 @@ Check every new raccoon image against this before it's used.
 4. Tail: four navy rings from base to tip.
 5. Shoulder tufts, and a mint chest with a fur flick.
 6. Eyes: red-brown lower pupil with a white shine.
-7. Body matches the sex: hourglass and flat sleeve edges for female; square torso, shoulders nearly as wide as the thighs, and zigzag sleeve edges for male.
+7. A cartoon raccoon body, not a human one, that matches the sex: a mild hourglass and flat sleeve edges for female; square torso, shoulders nearly as wide as the thighs, and zigzag sleeve edges for male.
 8. Clean, flat style with nothing extra on the sheet.
