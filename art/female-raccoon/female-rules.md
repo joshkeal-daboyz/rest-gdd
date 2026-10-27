@@ -58,6 +58,12 @@ From `female-raccoon-001-teal-colour-wording` (IP-Adapter 0.8 on baseline.jpg, c
 - **Colour overshoots.** `(teal fur:1.3)` plus `(turquoise fur:1.1)` turned the fur sky or cyan blue. `navy blue` on every marking fixed the navy. The chest came out white rather than mint.
 - **The canny guide barely shaped the figures.** Forge recorded the canny unit as applied, but the poses and layout followed the seed, not the reference, and heads stayed about 0.16. Why is still unknown.
 
+From `female-raccoon-002-stocky-cartoon-body` (only the body wording changed: stocky, thick limbs, mild waist; `human proportions`, `pin-up`, `lanky`, `detailed anatomy` in the negative), off-track. Josh: "it looks like a chubby woman with a raccoon head."
+
+- **Body wording alone doesn't make her a cartoon raccoon.** The stocky words added flesh to a human body: breasts, a belly and a human backside. They didn't give her the reference's simple cartoon shape. The human body probably comes from the model, the LoRA or the IP-Adapter, not the prompt alone.
+- **`detailed anatomy` in the negative** probably drew the lower-back censor mark on one image. Keep anatomy words out of the negative.
+- The canny guide at 0.6 (ending at 0.6) still didn't visibly shape the figures.
+
 Add a line here after each verdict on her jobs, so the next job starts from what was learned.
 
 ## Review checklist

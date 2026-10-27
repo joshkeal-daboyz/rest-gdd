@@ -1,0 +1,46 @@
+{
+  "asset": "female-raccoon",
+  "track": "female-baseline",
+  "kind": "character-sheet",
+  "goal": "Change only the body wording so her body matches the reference's stocky cartoon raccoon (big round head, thick (not short) limbs, simple soft torso, mild waist) instead of lanky human pin-up proportions, with the same seeds (20261027, 4 images).",
+  "why": "BASE: female-raccoon-001-teal-colour-wording (Josh: off-track, 'the body is too human'). ONE change: body wording. Removed (adult proportions:1.1), (narrow waist:1.1), (wide hips:1.1), full thighs, which probably pushed the lanky curvy pin-up build, and 'slender raccoon hands'. Added (cartoon animal proportions:1.3), (stocky:1.1), big round head, thick arms, (thick legs:1.1), simple soft torso, thick raccoon hands (thick but not short: the reference's legs are about 0.44 of her height), so the body follows the reference's stocky cartoon shape. Female read kept with (mild waist:1.1), (wider hips:1.1), (narrow shoulders:1.1), (adult woman), (female:1.4), eyelashes; (featureless body:1.3) and smooth fur body stay. Negative adds (human proportions:1.3), (thin legs:1.2), (thin arms:1.1), (lanky:1.2) (replacing long legs, so thin limbs are pushed away without asking for short ones), (pin-up:1.2), (detailed anatomy:1.2), (tall:1.1) to push away the human body. Butt/backside terms were NOT put in the negative: the style guide's known faults say anatomy words in the negative set off a censor mark on the lower back. COLOUR IS DELIBERATELY UNTOUCHED this round: the teal/turquoise wording, navy, pale-cyan words and colour negatives are identical to the base even though the fur overshot to sky blue, so the body change is judged on its own. IP-Adapter (baseline.jpg, 0.8), canny (baseline-highres.png, 0.6, end 0.6), LoRA, seeds, size, steps, CFG and sampler are unchanged. Judge body shape and proportions only.",
+  "mode": "txt2img",
+  "prompt": "charsheet, masterpiece, best quality, (character reference sheet:1.3), (turnaround:1.2), front view, side view, back view, same character three times, (three views:1.2), (toon style:1.2), thick outlines, simple shapes, minimal fur detail, flat colors, (vivid colors:1.1), clean bold outlines, cartoon, full body, standing, relaxed pose, weight on one leg, arms slightly away from body, solo, furry, anthro raccoon, (teal fur:1.3), (turquoise fur:1.1), (adult woman:1.2), (female:1.4), (feminine:1.2), round face, wide friendly smile, (cartoon animal proportions:1.3), (stocky:1.1), big round head, thick arms, (thick legs:1.1), simple soft torso, (mild waist:1.1), (wider hips:1.1), (narrow shoulders:1.1), big round eyes, large dark pupils, red-brown eyes, eyelashes, flat chest, (featureless body:1.3), smooth fur body, navy blue raccoon mask markings, pale cyan muzzle, white inner ears, (pale cyan chest and belly:1.1), small spiky fur tufts on shoulders, navy blue hands, (flat even fur edge on forearms:1.2), navy blue lower legs, (pale cyan patch across back of hips:1.1), big ringed striped tail, (four navy blue rings:1.1), navy blue ring at the tail base, (navy blue tail tip:1.3), (digitigrade legs:1.3), (standing on toes:1.2), raccoon hind paws, thick raccoon hands, plain off-white background, concept art",
+  "negative": "(teal tail tip:1.3), (white tail tip:1.3), (zigzag tail rings:1.2), (child:1.3), (chibi:1.3), (skinny:1.2), (human proportions:1.3), (thin legs:1.2), (thin arms:1.1), (lanky:1.2), (pin-up:1.2), (detailed anatomy:1.2), (tall:1.1), (thigh highs:1.4), stockings, nsfw, sexual, suggestive, seductive, (male:1.4), (masculine:1.3), square jaw, (square body:1.3), (wide shoulders:1.3), (zigzag fur edge on forearms:1.2), angry, scowling, lipstick, makeup, muscular, (color swatches:1.3), lowres, worst quality, bad anatomy, bad hands, extra fingers, extra limbs, flat feet, plantigrade, shoes, clothes, apron, bag, accessories, jewelry, tiara, human, text, watermark, signature, blurry, scenery, gradient shading, (grey fur:1.2), charcoal grey, muted colors, desaturated, (cream fur:1.2), beige, (green fur:1.2), mint green, (black fur:1.1), purple, (realistic:1.3), (detailed fur:1.2), (color palette:1.3), (multiple heads:1.3), head studies, bust, close-up, (props:1.3), objects, (hourglass:1.3), (arrows:1.2), symbols, icons, logo, (sketches:1.2), (extra tails:1.2), (devil tail:1.2)",
+  "model": "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors",
+  "loras": [
+    "charsheet_lora_v1:0.6"
+  ],
+  "settings": {
+    "seed": 20261027,
+    "width": 1536,
+    "height": 1024,
+    "steps": 30,
+    "cfg_scale": 6,
+    "sampler_name": "Euler a"
+  },
+  "controlnet": [
+    {
+      "module": "CLIP-ViT-H (IPAdapter)",
+      "model": "ip-adapter-plus_sdxl_vit-h",
+      "weight": 0.8,
+      "control_mode": "Balanced",
+      "image": "art/female-raccoon/baseline.jpg",
+      "purpose": "Reference image: carries the female baseline's look, palette and flat style without copying its layout."
+    },
+    {
+      "module": "canny",
+      "model": "diffusion_pytorch_model_V2",
+      "weight": 0.6,
+      "guidance_start": 0.0,
+      "guidance_end": 0.6,
+      "control_mode": "Balanced",
+      "resize_mode": "Crop and Resize",
+      "pixel_perfect": true,
+      "image": "art/female-raccoon/baseline-highres.png",
+      "purpose": "Edge guide from her own reference sheet (Josh, 2026-10-27): Forge takes the outlines at generation time to fix head size and proportions. Nothing is drawn or edited."
+    }
+  ],
+  "count": 4,
+  "compare_to": "female-raccoon-001-teal-colour-wording"
+}

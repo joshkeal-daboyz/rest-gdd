@@ -1,0 +1,53 @@
+{
+  "explained_at": "2026-10-27T17:48:38",
+  "explained_hash": "37f30b2e63c94401",
+  "briefed_hash": "37f30b2e63c94401",
+  "briefed_at": "2026-10-27T17:48:38",
+  "review_rounds": [
+    {
+      "round": 1,
+      "job_hash": "0eb7540efadc0530",
+      "assessment": "partly",
+      "must_fix": "1",
+      "response": null,
+      "response_note": null
+    }
+  ],
+  "response": "agree",
+  "response_note": "must-fix 0; ready. Round 1 must-fix (thick not short limbs) and could-improve 1 (drop chubby, stocky 1.1) applied. Optional toony/tall/canny-strength left for later jobs to keep this a body-wording-only test.",
+  "response_hash": "37f30b2e63c94401",
+  "responded_at": "2026-10-27T17:50:24",
+  "approved_at": "2026-10-27T17:51:13",
+  "approved_hash": "37f30b2e63c94401",
+  "approved_via": "chat",
+  "approval_words": "Run it independently of a female role. I want to see how it looks",
+  "ran_at": "2026-10-27T17:52:36",
+  "outputs": [
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261027.png",
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261028.png",
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261029.png",
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261030.png"
+  ],
+  "measurements": {
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261027.png": {
+      "head": 0.177,
+      "line_pct": 0.21
+    },
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261028.png": {
+      "head": 0.194,
+      "line_pct": 0.23
+    },
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261029.png": {
+      "head": 0.175,
+      "line_pct": 0.2
+    },
+    "art/jobs/female-raccoon-002-stocky-cartoon-body/out/female-raccoon_20261030.png": {
+      "head": 0.216,
+      "line_pct": 0.21
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Stocky/cartoon body wording made her a chubby human woman with a raccoon head (breasts, belly, human backside), not the reference's cartoon raccoon body; canny guide still not visibly shaping figures; censor mark on 20261027.",
+  "verdict_words": "Off track, it looks like a chubby woman with a raccoon head.",
+  "reviewed_at": "2026-10-27T17:54:56"
+}
