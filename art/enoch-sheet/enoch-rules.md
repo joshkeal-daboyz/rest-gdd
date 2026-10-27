@@ -23,7 +23,7 @@ These images are reference art. The final design is still the creative director'
 - Lean and wiry, slightly muscular: toned arms and chest, not bulky.
 - Wide shoulders, narrow straight hips. No popping or swaying hips.
 - **Square body:** from shoulders to hips the sides of the torso run in a mostly straight line. No pinched waist and no hourglass curve. This is the main thing that makes him read as male.
-- **Shoulders as wide as the thighs:** the shoulders line up with the outer edge of the thighs, so one straight line runs from shoulder to knee. Widen the shoulders to get there; don't slim the thighs.
+- **Shoulders nearly as wide as the thighs:** the sides run almost straight from shoulder to knee, easing out a little at the thighs. Widen the shoulders to get there; don't slim the thighs. Fully in line with the thighs was too wide; the guide ([square_guide.py](../tools/square_guide.py) `--preset shoulders`) sets them halfway between the original sheet and that.
 - Upright, rigid posture: squared shoulders, weight on both feet, arms straight at his sides.
 
 ## Proportions
@@ -91,7 +91,7 @@ Sampled from flat areas of her sheet, not averaged over the whole image (averagi
 
 ## Sheet layout
 
-- Four poses: front, three-quarter, side (facing left), back.
+- Three poses: front, side (facing left, with the tail showing), back. The side view sits in the centre of the sheet. A second side view without the tail was dropped: it repeated the same angle.
 - One figure per pose, each clearly separated by empty space. Nothing overlaps.
 - Plain light background. No text, color swatches, icons, or props.
 
@@ -100,7 +100,7 @@ Sampled from flat areas of her sheet, not averaged over the whole image (averagi
 Check every image before it's used:
 
 1. Calm face, slight smile, not angry.
-2. Square body: sides straight from shoulders to hips, no waist, and shoulders as wide as the thighs.
+2. Square body: sides straight from shoulders to hips, no waist, and shoulders nearly as wide as the thighs.
 3. Adult proportions: head about 0.19 of his height, short arms, long legs (see Proportions).
 4. On his toes, not flat-footed.
 5. Tail: four navy rings, from a navy base to a navy tip.

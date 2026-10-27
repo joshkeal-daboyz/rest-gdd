@@ -61,7 +61,7 @@ Sampled from flat areas of the female reference. Every raccoon uses exactly thes
 
 ### Sheet layout
 
-- Front, side, and back views. Each figure is clearly separated, with nothing overlapping.
+- Three views: front, side (with the tail showing), and back, with the side view in the centre. One side view only. Each figure is clearly separated, with nothing overlapping.
 - Plain off-white background. No text, props, or clothing on a base-body sheet.
 - A plain cartoon body with no anatomical detail.
 
@@ -73,7 +73,7 @@ Everything above is shared. These features are what make a raccoon read as femal
 | --- | --- | --- |
 | **Torso** | Hourglass: the waist pinches in, and the hips flare out wider than the waist. | **Square:** the sides run in a mostly straight line from shoulders to hips. No waist. |
 | **Hips and thighs** | Wide hips and full thighs. | Narrow, straight hips. |
-| **Shoulders** | Narrower than the hips. | **Wide: the shoulders line up with the outer edge of the thighs**, so one straight line runs from shoulder to knee. |
+| **Shoulders** | Narrower than the hips. | **Wide:** nearly as wide as the thighs. The sides run almost straight from shoulder to knee, easing out a little at the thighs. |
 | **Sleeves** (where the navy on the arm meets the teal) | A flat, even edge. | A zigzag fur edge. |
 | **Height** | The baseline. | About 5% taller than the female. |
 | **Eyes** | Large dark pupils with eyelashes on the upper lids. | Smaller pupils. No eyelashes. |
@@ -93,5 +93,5 @@ Check every new raccoon image against this before it's used.
 4. Tail: four navy rings from base to tip.
 5. Shoulder tufts, and a mint chest with a fur flick.
 6. Eyes: red-brown lower pupil with a white shine.
-7. Body matches the sex: hourglass and flat sleeve edges for female; square torso, shoulders as wide as the thighs, and zigzag sleeve edges for male.
+7. Body matches the sex: hourglass and flat sleeve edges for female; square torso, shoulders nearly as wide as the thighs, and zigzag sleeve edges for male.
 8. Clean, flat style with nothing extra on the sheet.

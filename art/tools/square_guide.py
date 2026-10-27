@@ -9,7 +9,8 @@ Presets:
   thighs  for enoch_character_sheet.png: straight sides from the armpits down to the knees, so the
           thighs line up with the shoulders instead of flaring out at the hips.
   shoulders  for enoch_character_sheet.png: the other way round. Keeps the thighs, moves each arm
-          outward and runs the torso sides straight down from the wider shoulders to the thighs.
+          outward and runs the torso sides straight down from wider shoulders, easing out to the
+          thighs. Set halfway between the original sheet and shoulders fully in line with the thighs.
 
 usage:
   python square_guide.py <sheet.png> <guide_out.png> <preview_out.png> [--preset torso|thighs]
@@ -48,24 +49,24 @@ SHIFTS = {
     "shoulders": [
         # front view
         ([(140, 262), (252, 262), (262, 300), (262, 400), (256, 450), (246, 490), (232, 530), (224, 545),
-          (224, 665), (140, 665)], -40),
+          (224, 665), (140, 665)], -20),
         ([(398, 262), (520, 262), (520, 665), (436, 665), (436, 545), (426, 530), (420, 490), (412, 450),
-          (400, 400), (398, 300)], 35),
+          (400, 400), (398, 300)], 18),
         # back view
         ([(1100, 262), (1205, 262), (1207, 300), (1207, 400), (1200, 450), (1190, 490), (1176, 530),
-          (1168, 545), (1168, 665), (1100, 665)], -25),
+          (1168, 545), (1168, 665), (1100, 665)], -12),
         ([(1345, 262), (1460, 262), (1460, 665), (1380, 665), (1380, 545), (1372, 530), (1360, 490),
-          (1352, 450), (1345, 400), (1345, 300)], 25),
+          (1352, 450), (1345, 400), (1345, 300)], 12),
     ],
 }
 PRESETS["shoulders"] = [
     # front view: old torso sides and belly patch out, straight sides from shoulder to thigh in
-    ((228, 300, 272, 545), [(227, 296), (227, 600)]),
-    ((388, 300, 431, 545), [(432, 296), (432, 600)]),
+    ((246, 300, 272, 545), [(245, 296), (245, 560), (230, 610)]),
+    ((388, 300, 414, 545), [(415, 296), (415, 560), (430, 610)]),
     ((272, 330, 388, 560), None),
     # back view
-    ((1186, 295, 1215, 545), [(1185, 292), (1185, 610)]),
-    ((1336, 295, 1364, 545), [(1365, 292), (1365, 610)]),
+    ((1197, 295, 1215, 545), [(1196, 292), (1196, 560), (1182, 620)]),
+    ((1336, 295, 1354, 545), [(1355, 292), (1355, 560), (1368, 620)]),
 ]
 
 
