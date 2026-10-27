@@ -85,11 +85,11 @@ The most important male rule is the **square torso**. Without it, male raccoons 
 
 ## Making and changing raccoon art
 
-Every raccoon image is made or changed in Forge, through the job pipeline in [tools/forge_jobs.py](tools/forge_jobs.py). No image is fixed by hand or by a script that edits pixels. If an image breaks a rule, change the prompt, mask, guide or settings and generate it again.
+Every raccoon image is made or changed in Forge, through the job pipeline in [tools/forge_jobs.py](tools/forge_jobs.py). Josh only has to ask for the change: Claude runs every step below and stops only for his approval and his verdict (see [CLAUDE.md](../CLAUDE.md)). No image is fixed by hand or by a script that edits pixels. If an image breaks a rule, change the prompt, mask, guide or settings and generate it again.
 
 ### Steps for every job
 
-Run each step from the repo root with `py art/tools/forge_jobs.py <step> <job>`.
+Each step is `py art/tools/forge_jobs.py <step> <job>`, run from the repo root by the agent or by Claude.
 
 | Step | Who | What happens |
 | --- | --- | --- |
@@ -98,9 +98,9 @@ Run each step from the repo root with `py art/tools/forge_jobs.py <step> <job>`.
 | 3. `brief` | forge-asset-generator | Writes `prompt-brief.md` for the reviewer. It opens with the reason for the change, then lists the rules, images and earlier jobs to check. |
 | 4. Prompt review | [forge-prompt-reviewer](../.claude/agents/forge-prompt-reviewer.md) agent | Reviews the job independently against the stated reason and this guide, and writes `prompt-review.md`: will help, partly, won't help, or can't tell, with recommendations. |
 | 5. `respond` | Claude | Agrees or disagrees with the review, with a reason. **A disagreement goes to Josh** before anything else happens. |
-| 6. `approve` | Josh only, at a terminal | Shows the explanation, the review and Claude's response together. Josh types the job id to approve it. |
+| 6. `approve` | Josh, in chat | Claude sums up the job, the review and its response. Josh replies to approve, and Claude records his exact words with `--chat`. Approval never comes from an agent. |
 | 7. `run` | forge-asset-generator | Sends the job to Forge. Images are saved to `art/jobs/<id>/out/` exactly as Forge returns them. The agent then checks each image against the goal and the checklist, as advice for Josh's verdict. |
-| 8. `verdict` | Josh | Marks the job **on-track** or **off-track**, with a note, after checking it against the checklist below. |
+| 8. `verdict` | Josh, in chat | Josh says **on-track** or **off-track** after checking the images against the checklist below. Claude records it with his words. |
 
 The generator and the reviewer are separate agents, so no job reviews itself. The generator never reviews, approves, gives verdicts or edits pixels, including guides and masks: those come from Josh.
 

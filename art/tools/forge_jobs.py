@@ -5,10 +5,11 @@ Rules this script enforces:
     The script never edits pixels. It only adds a text note (the job id) to each PNG Forge returns.
   * Before Josh can approve a job, it must be explained (`explain`), reviewed independently by the
     forge-prompt-reviewer agent (`brief`, then the agent writes prompt-review.md), and answered by
-    Claude (`respond agree|disagree`). A disagreement goes to Josh. Approval (`approve`) happens only
-    at a terminal. Editing the job, its parent image or its mask cancels every step after it.
+    Claude (`respond agree|disagree`). A disagreement goes to Josh. Approval (`approve`) comes only from
+    Josh: he replies in chat and Claude records his exact words with --chat, or he types it at a
+    terminal. Editing the job, its parent image or its mask cancels every step after it.
   * Small jobs come first. A large job (more than SMALL_MAX images, hires fix, or an upscale) only runs
-    if it follows a small job on the same asset and track that was reviewed as "on-track".
+    if it follows a small job on the same asset and track that Josh gave an "on-track" verdict.
 
 Jobs live in art/jobs/<id>/: job.json (what to do), explain.md, state.json, out/ (Forge's images).
 
@@ -17,7 +18,7 @@ usage (run from the repo root with `py art/tools/forge_jobs.py ...`):
   explain <job>                             check the job and write a plain-English explanation
   brief <job>                               write prompt-brief.md for the forge-prompt-reviewer agent
   respond <job> agree|disagree "note"       Claude's answer to the reviewer (disagree = talk to Josh)
-  approve <job>                             Josh only, at a terminal: approve the reviewed job
+  approve <job> [--chat "Josh's words"]     record Josh's approval (from chat, or typed at a terminal)
   run <job>                                 send an approved job to Forge
   verdict <job> on-track|off-track [note]   Josh: is a small job heading the right way?
   status <image.png> exploration|candidate|locked|rejected [note]
@@ -405,7 +406,7 @@ def cmd_explain(a):
     if needs_prompt_review(job):
         print(f"--- next: py art/tools/forge_jobs.py brief {a.job}   (then the forge-prompt-reviewer agent)")
     else:
-        print(f"--- no prompt to review; Josh approves at a terminal:  py art/tools/forge_jobs.py approve {a.job}")
+        print(f"--- no prompt to review; ask Josh to approve in chat; then: approve {a.job} --chat \"<his exact words>\"")
 
 
 def needs_prompt_review(job):
@@ -500,7 +501,7 @@ def cmd_respond(a):
     if a.response == "disagree":
         print("--- DISAGREEMENT: talk it through with Josh before he approves.")
     else:
-        print(f"--- Josh approves at a terminal:  py art/tools/forge_jobs.py approve {a.job}")
+        print(f"--- ask Josh to approve in chat; then: approve {a.job} --chat \"<his exact words>\"")
 
 
 def cmd_approve(a):
@@ -513,8 +514,16 @@ def cmd_approve(a):
             die("the forge-prompt-reviewer agent hasn't reviewed the job as it stands now")
         if st.get("response_hash") != rv["job-hash"]:
             die("Claude hasn't responded to the prompt review yet (respond agree|disagree)")
+    if a.chat is not None:
+        # Josh approved in chat; Claude records his exact words. Only ever from Josh's own message.
+        if not a.chat.strip():
+            die("--chat needs Josh's exact words of approval")
+        st.update(approved_at=now(), approved_hash=st["explained_hash"], approved_via="chat",
+                  approval_words=a.chat.strip()); save_state(a.job, st)
+        print(f"approved in chat by Josh: \"{a.chat.strip()}\". Run it with:  py art/tools/forge_jobs.py run {a.job}")
+        return
     if not real_console():
-        die("approve only works when typed at a terminal by Josh, so a job can't approve itself")
+        die("approve needs Josh: either typed at a terminal, or --chat \"<his exact words>\" after he approves in chat")
     print((JOBS / a.job / "explain.md").read_text(encoding="utf-8"))
     if needs_prompt_review(job):
         print("\n========== independent prompt review ==========\n")
@@ -528,7 +537,7 @@ def cmd_approve(a):
         typed = ""
     if typed != a.job:
         die("not approved")
-    st.update(approved_at=now(), approved_hash=st["explained_hash"]); save_state(a.job, st)
+    st.update(approved_at=now(), approved_hash=st["explained_hash"], approved_via="terminal"); save_state(a.job, st)
     print(f"approved. Run it with:  py art/tools/forge_jobs.py run {a.job}")
 
 
@@ -722,8 +731,10 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("new"); p.add_argument("asset"); p.add_argument("track"); p.add_argument("slug")
     p.add_argument("--from", help="copy settings from this job")
-    for name in ("explain", "brief", "approve"):
+    for name in ("explain", "brief"):
         sub.add_parser(name).add_argument("job")
+    p = sub.add_parser("approve"); p.add_argument("job")
+    p.add_argument("--chat", help="Josh's exact words when he approved in chat")
     p = sub.add_parser("respond"); p.add_argument("job"); p.add_argument("response", choices=["agree", "disagree"])
     p.add_argument("note")
     p = sub.add_parser("run"); p.add_argument("job"); p.add_argument("--again", action="store_true")
