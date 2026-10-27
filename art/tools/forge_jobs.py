@@ -493,14 +493,40 @@ def needs_prompt_review(job):
     return job["mode"] != "upscale"
 
 
+# Each character's rules file and reference sheet, found by the start of the job's asset name
+# ("enoch", "enoch-sheet" and "enoch-tail" all match "enoch").
+CHARACTERS = {
+    "enoch": {"rules": "art/enoch-sheet/enoch-rules.md", "reference": "art/enoch-sheet/enoch_character_sheet.png"},
+    "female": {"rules": None, "reference": "art/female-raccoon/baseline-highres.png"},
+}
+HISTORY_JOBS, HISTORY_OUTPUTS = 2, 2  # earlier jobs on the track whose images the reviewer looks at
+
+
+def character(job):
+    asset = job["asset"].lower()
+    return next((c for k, c in CHARACTERS.items() if asset == k or asset.startswith(k + "-")), None)
+
+
 def rule_files(job):
     files = ["art/raccoon-style-guide.md"]
-    files += [rel(f) for f in sorted(ART.rglob(f"{job['asset']}-rules.md"))]
+    c = character(job)
+    if c and c["rules"]:
+        files.append(c["rules"])
+    files += [rel(f) for f in sorted(ART.rglob(f"{job['asset']}-rules.md")) if rel(f) not in files]
     return files
 
 
-def reference_images():
-    return ["art/female-raccoon/baseline-highres.png", "art/enoch-sheet/enoch_character_sheet.png"]
+def reference_images(job):
+    """Only the reference sheet for this job's character. An unknown character gets both sheets;
+    a prop or other non-character job gets none."""
+    c = character(job)
+    if c:
+        refs = [c["reference"]]
+    elif job.get("kind") in ("character-sheet", "single-character"):
+        refs = [v["reference"] for v in CHARACTERS.values()]
+    else:
+        refs = []
+    return [r for r in refs if r != job.get("parent")]  # the parent is already listed
 
 
 def track_history(job_id, job):
@@ -539,10 +565,13 @@ def cmd_brief(a):
     imgs = [f"- parent: `{job['parent']}`"] if job.get("parent") else []
     imgs += [f"- mask (white = redrawn): `{job['mask']}`"] if job.get("mask") else []
     imgs += [f"- ControlNet image: `{c['image']}`" for c in job.get("controlnet", []) if c.get("image")]
-    imgs += [f"- reference: `{r}`" for r in reference_images()]
+    imgs += [f"- reference: `{r}`" for r in reference_images(job)]
     hist = []
-    for j, oj, ost, rv in track_history(a.job, job):
-        imgs += [f"- earlier output of `{j}`: `{o}`" for o in ost.get("outputs", [])[:4]]
+    rows = track_history(a.job, job)
+    recent = [j for j, _, ost, _ in rows if ost.get("outputs")][-HISTORY_JOBS:]
+    for j, oj, ost, rv in rows:
+        if j in recent:  # images only for the latest jobs; older ones stay as text below
+            imgs += [f"- earlier output of `{j}`: `{o}`" for o in ost["outputs"][:HISTORY_OUTPUTS]]
         note = f": {ost['verdict_note']}" if ost.get("verdict_note") else ""
         hist.append(f"- `{j}`: goal \"{oj.get('goal', '')}\"; reviewer said {rv.get('assessment', 'n/a')}; "
                     f"Josh's verdict {ost.get('verdict', 'not run')}{note}")
