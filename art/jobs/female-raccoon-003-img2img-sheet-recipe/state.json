@@ -39,5 +39,8 @@
   "verdict": "on-track",
   "verdict_note": "img2img of her own sheet with Enoch 005's tag/BREAK recipe gave a cartoon raccoon in her exact palette: teal fur, mint chest, blue navy, paw hands, heads 0.21; back-view rump still slightly human, lines thin (0.20%).",
   "verdict_words": "ONTRACK this is wonderful, update as a success and make all required changes to ensure future success.",
-  "reviewed_at": "2026-10-27T18:15:02"
+  "reviewed_at": "2026-10-27T18:15:02",
+  "locked": [
+    "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png"
+  ]
 }

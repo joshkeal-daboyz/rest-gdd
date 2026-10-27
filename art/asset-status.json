@@ -1,0 +1,28 @@
+{
+  "art/enoch-sheet/eyetest/C2/enoch_231506246.png": {
+    "status": "candidate",
+    "note": "Made outside the job pipeline (art/tools/enoch_pipeline.py --raw-only --ref, uncommitted IP-Adapter/hires/raw-only options). txt2img 1536x768 + hires fix 1.5x (R-ESRGAN 4x+ Anime6B, denoise 0.35, 15 hires steps, hr_additional_modules ['Use same choices']) -> 2304x1152; Euler a, 30 steps, CFG 6, seed 231506246; model indigoVoidFurryFusedXL_noobaiV35_fp16; LoRA charsheet_lora_v1 at 0.5 (trigger charsheet); ControlNet canny diffusion_pytorch_model_V2 from art/enoch-sheet/shoulder_guide_4pose.png (module None, weight 0.6, end 0.6); IP-Adapter ip-adapter-plus_sdxl_vit-h (CLIP-ViT-H) ref art/enoch-sheet/enoch_sheet_v14.png weight 0.4 start 0 end 0.6 Resize and Fill; prompt art/enoch-sheet/charsheet-eyes-c.prompt.txt; negative art/enoch-sheet/charsheet-eyes-c2.negative.txt. Raw Forge output, no pixel edits.",
+    "at": "2026-10-27T16:37:51"
+  },
+  "art/jobs/enoch-sheet-005-less-human/out/enoch-sheet_231506246.png": {
+    "status": "candidate",
+    "note": "Best of the less-human job (Josh: best images so far). Paw pads, heads 0.192, no stray marks; back views still have the human hip shape and the x spot.",
+    "at": "2026-10-27T17:56:12"
+  },
+  "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506249.png": {
+    "status": "locked",
+    "note": "Josh's pick from the first on-track female sheet job",
+    "words": "Lock it in, commit and push",
+    "at": "2026-10-27T18:18:00",
+    "job": "female-raccoon-003-img2img-sheet-recipe",
+    "copy": "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png"
+  },
+  "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png": {
+    "status": "locked",
+    "note": "Josh's pick from the first on-track female sheet job",
+    "words": "Lock it in, commit and push",
+    "at": "2026-10-27T18:18:00",
+    "job": "female-raccoon-003-img2img-sheet-recipe",
+    "source": "art/jobs/female-raccoon-003-img2img-sheet-recipe/out/female-raccoon_331506249.png"
+  }
+}
