@@ -5,9 +5,12 @@
     "at": "2026-10-27T19:33:14"
   },
   "art/enoch-sheet/edits/enoch-sheet-010-248_ps.png": {
-    "status": "candidate",
-    "note": "Josh's Photoshop edit (Downloads/image-1793146151252_edit.png, copied byte for byte). Base: enoch-sheet-010-shading-fix-faults seed 231506248 (shaded, no charsheet LoRA); Josh repainted view 3's head to face away. Not raw Forge output.",
-    "at": "2026-10-27T20:15:34"
+    "status": "locked",
+    "note": "Josh's Photoshop edit of enoch-sheet-010-shading-fix-faults seed 231506248: view 3's head repainted to face away. Shaded, no charsheet LoRA.",
+    "words": "Change lock so it can lock my Photoshop edits, then lock the sheet.",
+    "at": "2026-10-27T20:17:33",
+    "job": null,
+    "copy": "art/locked/enoch-sheet/edit_enoch-sheet-010-248_ps.png"
   },
   "art/enoch-sheet/eyetest/C2/enoch_231506246.png": {
     "status": "candidate",
@@ -29,6 +32,14 @@
     "at": "2026-10-27T18:18:00",
     "job": "female-raccoon-003-img2img-sheet-recipe",
     "copy": "art/locked/female-raccoon/female-raccoon-003-img2img-sheet-recipe_female-raccoon_331506249.png"
+  },
+  "art/locked/enoch-sheet/edit_enoch-sheet-010-248_ps.png": {
+    "status": "locked",
+    "note": "Josh's Photoshop edit of enoch-sheet-010-shading-fix-faults seed 231506248: view 3's head repainted to face away. Shaded, no charsheet LoRA.",
+    "words": "Change lock so it can lock my Photoshop edits, then lock the sheet.",
+    "at": "2026-10-27T20:17:33",
+    "job": null,
+    "source": "art/enoch-sheet/edits/enoch-sheet-010-248_ps.png"
   },
   "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png": {
     "status": "locked",
