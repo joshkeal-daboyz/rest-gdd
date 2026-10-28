@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T19:14:00",
+  "explained_hash": "1206859544f2c81a",
+  "briefed_hash": "1206859544f2c81a",
+  "briefed_at": "2026-10-27T19:14:01",
+  "response": "agree",
+  "response_note": "Agree: will help, a clean single change against 010. Will check the third-view head in 247 and 248 and the side view against their 010 twins.",
+  "response_hash": "1206859544f2c81a",
+  "responded_at": "2026-10-27T19:15:00",
+  "approved_at": "2026-10-27T19:16:44",
+  "approved_hash": "1206859544f2c81a",
+  "approved_via": "chat",
+  "approval_words": "Yes approved",
+  "ran_at": "2026-10-27T19:18:29",
+  "outputs": [
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506246.png": {
+      "head": 0.194,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506247.png": {
+      "head": 0.183,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506248.png": {
+      "head": 0.189,
+      "line_pct": 0.19
+    },
+    "art/jobs/enoch-sheet-011-back-head-forward/out/enoch-sheet_231506249.png": {
+      "head": 0.189,
+      "line_pct": 0.27
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Seed 248's back-view head still turned; turn-away negatives did not fix it, and three heads fell just under the size rule.",
+  "verdict_words": "Turn fix did not work",
+  "reviewed_at": "2026-10-27T19:28:05"
+}

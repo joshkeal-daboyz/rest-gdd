@@ -1,0 +1,35 @@
+{
+  "asset": "enoch-sheet",
+  "track": "c2-refine",
+  "kind": "character-sheet",
+  "goal": "Keep the shading that job 009 produced (seed 249 was on-track) and remove its faults: stray head objects (sunglasses, goggles, straps, headband, collar) and half-closed eyes, by adding fault negatives only.",
+  "why": "Josh marked job 009 on-track and said: \"Its on track with #1 but the faults not good. Update the promt and run again.\" #1 is seed 231506249, the first image he was shown. 009 (the charsheet LoRA removed from 008, denoise 0.7) was the first job with visible shading, in 248 and 249. Its faults, per image: 246 had no shading and no stray objects; 247 was flat, with a headband on the front view, goggles on the back view with the tail, a black collar on the tailless back, and half-lidded eyes; 248 had the most shading, but a grey animal-face lump with a strap on the head in the back view with the tail, a grey muzzle there, the head turned sideways (symmetry lost), a head ratio of 0.186 and thin line (0.19%); 249 had soft shading, a goggle strap on the head in the side and back views, half-lidded eyes, a pink-grey belly tint and a head ratio of 0.188. This is one change: fault negatives only. The positive prompt is exactly 009's, with no shadow words weighted up (that is a separate later job). Negative changes: (1) '(headband:1.2), (headwear:1.2)' replace the plain 'headband, headwear' already there, to raise their weight; (2) added 'eyewear, sunglasses, eyewear on head, goggles, goggles on head, strap, collar' for the objects on the head and neck; (3) added '(half-closed eyes:1.2)' to the negative rather than adding 'wide eyes' to the prompt, because a prompt change would alter the positive and this job is negatives only, and the eye chunk already asks for large pupils. The known-faults table is followed: all added words name objects or an eye state, no body parts, to avoid the lower-back censor mark. The grey muzzle (248) is left alone: 'grey fur' and 'charcoal grey' are already in the negative and I see no clear fix. The pink-grey belly tint and the thin lines are also not addressed here. Everything else is exactly as in 009, so each image compares with its 009 twin: no charsheet LoRA, denoise 0.7, IP-Adapter ip-adapter-plus_sdxl_vit-h on the locked copy at 0.25 ending at 0.5, the locked less-human 246 parent, seeds 231506246-249 (4 images), Euler a, 30 steps, CFG 6, no hires. Check: the faults gone, the shading kept, symmetry, head ratio, face and mask. No masks, guides or pixel edits.",
+  "mode": "img2img",
+  "parent": "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png",
+  "prompt": "masterpiece, best quality, newest, absurdres, (cel shading:1.3), (anime coloring:1.1), (simple shading:1.1), shaded, shadow, sidelighting, safe, solo, male, anthro, furry, raccoon, multiple views, reference sheet, turnaround, front view, side view, rear view, back view, full body, standing, arms at sides, (symmetrical:1.2), symmetry, (symmetrical pose:1.2), digitigrade, simple background, white background, plain white background, thick outlines\nBREAK (brown eyes:1.3), (red eyes:0.6), black pupils, (large pupils:1.1), eye shine, white sclera\nBREAK (teal body:1.3), (teal fur:1.2), (wide solid dark navy raccoon mask band across both eyes:1.3), (navy mask directly touching the eyes:1.2), (thin white stripe above the mask:1.2), smile, closed mouth\nBREAK white countershading, white muzzle, white belly, dark blue inner ears, gloves \\(marking\\), socks \\(marking\\), dark blue hands, dark blue lower legs, raccoon tail, ringed tail, big fluffy tail, (thick tail stripes:1.2), (dark blue tail tip:1.2), teal tail\nBREAK (fluffy fur:1.2), (shoulder fur tufts:1.2), hip fur tufts, fluffy cheek fur, (raccoon paws:1.2), (paw-like hands with short stubby fingers:1.2), soft furry silhouette\nBREAK lean, broad shoulders, flat chest, narrow hips, featureless crotch",
+  "negative": "nsfw, worst quality, low quality, lowres, old, early, (text:1.3), english text, arrow \\(symbol\\), speech bubble, signature, watermark, color swatch, female, breasts, (wide hips:1.2), (hourglass figure:1.2), child, chibi, (grey fur:1.3), realistic, detailed fur, plantigrade, clothes, 3d, empty eyes, no pupils, blank eyes, hollow eyes, ringed eyes, white pupils, (blue eyes:1.3), (color palette:1.2), (multiple views of face:1.1), eye study, close-up, head only, disembodied hand, inset, pink background, grey background, blush, (headband:1.2), (headwear:1.2), hairband, (many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1), jewelry, (gold ring:1.2), finger ring, gold, (asymmetrical:1.2), (asymmetrical pose:1.2), uneven body, human, (human-like:1.2), human proportions, skin-tight, sketchy lines, (painterly:1.2), airbrush, drop shadow, charcoal grey, flat colors, eyewear, sunglasses, eyewear on head, goggles, goggles on head, strap, collar, (half-closed eyes:1.2)",
+  "model": "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors",
+  "loras": [],
+  "settings": {
+    "seed": 231506246,
+    "steps": 30,
+    "cfg_scale": 6,
+    "sampler_name": "Euler a",
+    "denoising_strength": 0.7
+  },
+  "controlnet": [
+    {
+      "module": "CLIP-ViT-H (IPAdapter)",
+      "model": "ip-adapter-plus_sdxl_vit-h",
+      "weight": 0.25,
+      "guidance_start": 0.0,
+      "guidance_end": 0.5,
+      "resize_mode": "Resize and Fill",
+      "control_mode": "Balanced",
+      "image": "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png",
+      "purpose": "Reference image: the locked less-human 246 sheet, so colours, paws and head carry over; weight kept low because the locked image is flat-coloured and would pull the result back to flat."
+    }
+  ],
+  "count": 4,
+  "compare_to": "enoch-sheet-009-shading-no-lora"
+}

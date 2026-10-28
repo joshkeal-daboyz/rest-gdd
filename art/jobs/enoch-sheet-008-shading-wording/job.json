@@ -1,0 +1,37 @@
+{
+  "asset": "enoch-sheet",
+  "track": "c2-refine",
+  "kind": "character-sheet",
+  "goal": "Get visible anime-style cel shading (hard-edged shadow shapes, one shadow tone per colour) on the locked less-human 246 sheet by removing flat-colour wording and the flat v14 reference, adding shading words, and raising denoise to 0.7, while keeping its paws, heads, symmetry, four views, palette and plain white background.",
+  "why": "Josh asked for shading (\"Lets add shading.\", \"I would like you to apply anime style cell shading\") and locked less-human 246 as the parent. He then said: \"It sounds like flat colors is getting in way\", \"I think you should use img2img\", \"Use the new locked image as the reference\". Shading overrides the style guide's flat-colour rule; the rule and palette get updated with shadow tones if he calls this job on-track. Jobs 006 (denoise 0.45) and 007 (0.55, plus anime coloring) both gave no visible shading: all eight images stayed flat, with only paw pads drifting browner. Likely causes: (a) flat-colour wording in the prompt and negative, and a flat v14 reference at IP-Adapter 0.2, held every fill flat; (b) denoise too low to repaint fills. Job 005 at denoise 0.7 showed that 0.7 kept the four-view layout and heads but 2 of 4 images had stray marks, so 0.7 carries that risk and the marks must be checked. Changes against job 007: (1) Parent is the locked copy art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png, img2img, no canny or edge map. (2) Denoise 0.55 to 0.7, enough to repaint fills with a shadow tone. (3) Prompt: adds 'shaded, shadow, sidelighting' after the shading tags to give the shadows a direction and a reason to exist; removes 'simple shapes, minimal interior lines' (they asked for fewer marks and so work against added shadow shapes); keeps '(cel shading:1.3), (anime coloring:1.1), (simple shading:1.1)'. No flat-colour words are in the prompt. (4) Negative: adds 'flat colors' so the model avoids flat fills; removes '(gradient:1.1)' because it contradicts the shadow wording; keeps '(grey fur:1.3)', 'charcoal grey', '(painterly:1.2)', 'airbrush' and the rest so shadows stay hard-edged and teal does not go grey. (5) IP-Adapter ip-adapter-plus_sdxl_vit-h now uses the locked image as reference in place of v14, at weight 0.25, end 0.5. The reference carries the colours, paws and head so they don't drift at 0.7, but the locked image is flat too, so a low weight and early end (guidance stops at half the steps) leave the later steps free to add shadow tones. This is my choice of weight; it is lower than the 0.4 used before, and higher than 007's 0.2 since the reference is now the exact character rather than the old v14 sheet. Same as 007: seeds 231506246-249 (4 images), Euler a, 30 steps, CFG 6, charsheet_lora_v1 at 0.6, no hires. Check: shading, paws and heads, symmetry, four views, pupils and mask, grey teal, paw-pad drift and stray marks. No masks, guides or pixel edits.",
+  "mode": "img2img",
+  "parent": "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png",
+  "prompt": "charsheet, masterpiece, best quality, newest, absurdres, (cel shading:1.3), (anime coloring:1.1), (simple shading:1.1), shaded, shadow, sidelighting, safe, solo, male, anthro, furry, raccoon, multiple views, reference sheet, turnaround, front view, side view, rear view, back view, full body, standing, arms at sides, (symmetrical:1.2), symmetry, (symmetrical pose:1.2), digitigrade, simple background, white background, plain white background, thick outlines\nBREAK (brown eyes:1.3), (red eyes:0.6), black pupils, (large pupils:1.1), eye shine, white sclera\nBREAK (teal body:1.3), (teal fur:1.2), (wide solid dark navy raccoon mask band across both eyes:1.3), (navy mask directly touching the eyes:1.2), (thin white stripe above the mask:1.2), smile, closed mouth\nBREAK white countershading, white muzzle, white belly, dark blue inner ears, gloves \\(marking\\), socks \\(marking\\), dark blue hands, dark blue lower legs, raccoon tail, ringed tail, big fluffy tail, (thick tail stripes:1.2), (dark blue tail tip:1.2), teal tail\nBREAK (fluffy fur:1.2), (shoulder fur tufts:1.2), hip fur tufts, fluffy cheek fur, (raccoon paws:1.2), (paw-like hands with short stubby fingers:1.2), soft furry silhouette\nBREAK lean, broad shoulders, flat chest, narrow hips, featureless crotch",
+  "negative": "nsfw, worst quality, low quality, lowres, old, early, (text:1.3), english text, arrow \\(symbol\\), speech bubble, signature, watermark, color swatch, female, breasts, (wide hips:1.2), (hourglass figure:1.2), child, chibi, (grey fur:1.3), realistic, detailed fur, plantigrade, clothes, 3d, empty eyes, no pupils, blank eyes, hollow eyes, ringed eyes, white pupils, (blue eyes:1.3), (color palette:1.2), (multiple views of face:1.1), eye study, close-up, head only, disembodied hand, inset, pink background, grey background, blush, headband, headwear, hairband, (many thin tail bands:1.3), (zigzag tail rings:1.2), (light tail tip:1.1), jewelry, (gold ring:1.2), finger ring, gold, (asymmetrical:1.2), (asymmetrical pose:1.2), uneven body, human, (human-like:1.2), human proportions, skin-tight, sketchy lines, (painterly:1.2), airbrush, drop shadow, charcoal grey, flat colors",
+  "model": "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors",
+  "loras": [
+    "charsheet_lora_v1:0.6"
+  ],
+  "settings": {
+    "seed": 231506246,
+    "steps": 30,
+    "cfg_scale": 6,
+    "sampler_name": "Euler a",
+    "denoising_strength": 0.7
+  },
+  "controlnet": [
+    {
+      "module": "CLIP-ViT-H (IPAdapter)",
+      "model": "ip-adapter-plus_sdxl_vit-h",
+      "weight": 0.25,
+      "guidance_start": 0.0,
+      "guidance_end": 0.5,
+      "resize_mode": "Resize and Fill",
+      "control_mode": "Balanced",
+      "image": "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png",
+      "purpose": "Reference image: the locked less-human 246 sheet, so colours, paws and head carry over; weight kept low because the locked image is flat-coloured and would pull the result back to flat."
+    }
+  ],
+  "count": 4,
+  "compare_to": "enoch-sheet-007-shading-v3"
+}

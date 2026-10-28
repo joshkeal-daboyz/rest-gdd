@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T19:48:50",
+  "explained_hash": "a52573cce528c90e",
+  "briefed_hash": "a52573cce528c90e",
+  "briefed_at": "2026-10-27T19:48:50",
+  "response": "agree",
+  "response_note": "Agree: will help, no must-fix. Running as Josh approved; ear-colour wording and teal weight held for a follow-up if the ears or fur come out wrong.",
+  "response_hash": "a52573cce528c90e",
+  "responded_at": "2026-10-27T19:50:24",
+  "approved_at": "2026-10-27T19:50:25",
+  "approved_hash": "a52573cce528c90e",
+  "approved_via": "chat",
+  "approval_words": "Approved",
+  "ran_at": "2026-10-27T19:51:14",
+  "outputs": [
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506246.png": {
+      "head": 0.192,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506247.png": {
+      "head": 0.192,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506248.png": {
+      "head": 0.192,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-013-back-head-inpaint/out/enoch-sheet_231506249.png": {
+      "head": 0.192,
+      "line_pct": 0.27
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Head now faces away, but the inpainted head has no outline, paler teal, black ear tips and a visible seam at the shoulders.",
+  "verdict_words": "Off",
+  "reviewed_at": "2026-10-27T20:09:39"
+}

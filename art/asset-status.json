@@ -1,4 +1,14 @@
 {
+  "art/enoch-sheet/edits/enoch-sheet-010-248_back-head-swap.png": {
+    "status": "rejected",
+    "note": "Josh: 'the head swap looks bad'. Pixel-edit exception result; Josh is redoing the head in Photoshop from the Forge original.",
+    "at": "2026-10-27T19:33:14"
+  },
+  "art/enoch-sheet/edits/enoch-sheet-010-248_ps.png": {
+    "status": "candidate",
+    "note": "Josh's Photoshop edit (Downloads/image-1793146151252_edit.png, copied byte for byte). Base: enoch-sheet-010-shading-fix-faults seed 231506248 (shaded, no charsheet LoRA); Josh repainted view 3's head to face away. Not raw Forge output.",
+    "at": "2026-10-27T20:15:34"
+  },
   "art/enoch-sheet/eyetest/C2/enoch_231506246.png": {
     "status": "candidate",
     "note": "Made outside the job pipeline (art/tools/enoch_pipeline.py --raw-only --ref, uncommitted IP-Adapter/hires/raw-only options). txt2img 1536x768 + hires fix 1.5x (R-ESRGAN 4x+ Anime6B, denoise 0.35, 15 hires steps, hr_additional_modules ['Use same choices']) -> 2304x1152; Euler a, 30 steps, CFG 6, seed 231506246; model indigoVoidFurryFusedXL_noobaiV35_fp16; LoRA charsheet_lora_v1 at 0.5 (trigger charsheet); ControlNet canny diffusion_pytorch_model_V2 from art/enoch-sheet/shoulder_guide_4pose.png (module None, weight 0.6, end 0.6); IP-Adapter ip-adapter-plus_sdxl_vit-h (CLIP-ViT-H) ref art/enoch-sheet/enoch_sheet_v14.png weight 0.4 start 0 end 0.6 Resize and Fill; prompt art/enoch-sheet/charsheet-eyes-c.prompt.txt; negative art/enoch-sheet/charsheet-eyes-c2.negative.txt. Raw Forge output, no pixel edits.",

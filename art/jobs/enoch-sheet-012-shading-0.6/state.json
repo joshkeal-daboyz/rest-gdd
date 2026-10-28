@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T19:38:21",
+  "explained_hash": "0dc37d57c9f37526",
+  "briefed_hash": "0dc37d57c9f37526",
+  "briefed_at": "2026-10-27T19:38:22",
+  "response": "agree",
+  "response_note": "Agree: will help, a clean single change from 010. If the pose holds but the shading fades, the next change is the shading words at 0.6.",
+  "response_hash": "0dc37d57c9f37526",
+  "responded_at": "2026-10-27T19:39:32",
+  "approved_at": "2026-10-27T19:39:57",
+  "approved_hash": "0dc37d57c9f37526",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T19:41:31",
+  "outputs": [
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506246.png": {
+      "head": 0.199,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506247.png": {
+      "head": 0.188,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506248.png": {
+      "head": 0.188,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-012-shading-0.6/out/enoch-sheet_231506249.png": {
+      "head": 0.192,
+      "line_pct": 0.38
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Denoise 0.6 fixed the head turn and stray objects but lost all the shading.",
+  "verdict_words": "It lost its shading, so NO",
+  "reviewed_at": "2026-10-27T19:47:36"
+}

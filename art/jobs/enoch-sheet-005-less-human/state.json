@@ -49,5 +49,8 @@
   "verdict": "on-track",
   "verdict_note": "Josh called these the best images so far: paw hands, fewer muscle lines, heads in range; back views still read human.",
   "verdict_words": "I think these are the best images so far",
-  "reviewed_at": "2026-10-27T17:56:11"
+  "reviewed_at": "2026-10-27T17:56:11",
+  "locked": [
+    "art/locked/enoch-sheet/enoch-sheet-005-less-human_enoch-sheet_231506246.png"
+  ]
 }

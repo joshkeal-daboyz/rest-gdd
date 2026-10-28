@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T18:58:11",
+  "explained_hash": "aad0763d64e6ca37",
+  "briefed_hash": "aad0763d64e6ca37",
+  "briefed_at": "2026-10-27T18:58:12",
+  "response": "agree",
+  "response_note": "Agree: will help, and it is a single change (no charsheet LoRA) as Josh asked. Stray-object negatives left for a later job to keep one change at a time.",
+  "response_hash": "aad0763d64e6ca37",
+  "responded_at": "2026-10-27T18:59:27",
+  "approved_at": "2026-10-27T19:00:22",
+  "approved_hash": "aad0763d64e6ca37",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T19:02:44",
+  "outputs": [
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506246.png": {
+      "head": 0.197,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506247.png": {
+      "head": 0.191,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506248.png": {
+      "head": 0.186,
+      "line_pct": 0.19
+    },
+    "art/jobs/enoch-sheet-009-shading-no-lora/out/enoch-sheet_231506249.png": {
+      "head": 0.188,
+      "line_pct": 0.27
+    }
+  },
+  "verdict": "on-track",
+  "verdict_note": "Removing the charsheet LoRA gave the first shading (best: seed 231506249); faults to fix: sunglasses/straps on the head, half-closed eyes, slightly small heads.",
+  "verdict_words": "Its on track with #1 but the faults not good. Update the promt and run again.",
+  "reviewed_at": "2026-10-27T19:05:50"
+}

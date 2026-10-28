@@ -1,0 +1,44 @@
+{
+  "asset": "enoch-sheet",
+  "track": "c2-refine",
+  "kind": "character-sheet",
+  "goal": "Repaint only the head in view 3 (back view with tail) of 010's seed 248 so it faces away like view 4 (back of the head and ears, no face, muzzle or eye), keeping everything outside the mask exactly as it is.",
+  "why": "Josh said: \"I have given you permission to create masks, lets try and use inpaint to fix the problem with the side ways head\". Job 010 (on-track) has good shading, but in seed 248 the head in view 3 (back view with tail) is turned over the shoulder with the mask and eye showing. Job 011 (turn-away negatives, img2img) did not fix it, and 012 (denoise 0.6) fixed the head but lost all the shading, so a whole-image redraw cannot do both. Inpainting only the head leaves the shading elsewhere unchanged. Parent: art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506248.png (2304x1152). Mask, made with forge_jobs.py mask: one ellipse centred (1368,170), radii 150x125, grown by 16 px, so about x 1202-1534, y 29-311 (about 2.9% of the sheet). Josh looked at the first mask preview (a 118x97 ellipse grown by 8) and said: \"Its going to need to be larger\". View 3's head spans about x 1253-1482, y 67-262, the narrowest neck is y 262 and the shoulders start around y 290, so this mask has generous margins beyond the ears, the top and the muzzle side, and reaches down over the neck onto the top of the shoulders so the new head can blend in. It stays in view 3: its right edge (x 1534) is well short of view 4's head (x 1744 and up) and its left edge (x 1202) is clear of view 2. Prompt (a plain string, written for the back of a head): 'rear view, back view, from behind, facing away, (back of head:1.3), teal fur, teal head fur, fur tufts, rounded ears with navy outer tips and white inner rim', plus the sheet's shading words '(cel shading:1.3), (anime coloring:1.1), (simple shading:1.1), shaded, shadow, sidelighting, thick outlines' and the white background, so the new head matches the shaded style; no eye, mask or smile words. Negative: '(face:1.4), (eyes:1.3), (muzzle:1.3), (snout:1.3), nose, mouth, (looking back:1.3), looking over shoulder, (head turned:1.3), profile, three-quarter view, front view, (mask:1.2), raccoon mask' against any face, plus 010's stray-object negatives (headband, headwear, eyewear, sunglasses, goggles, strap, collar), 'grey fur, charcoal grey', 'flat colors' and the general style negatives. The known-faults table warns against body-part words in the negative because of the lower-back censor mark; here every word names the head, and the lower back is outside the mask and so cannot change. Settings: inpaint, no charsheet LoRA (as in 010), seeds 231506246-249 over 4 images, Euler a, 30 steps, CFG 6. Denoise 0.9: a pose change (face turned to face away) needs most of the masked area to be redrawn, and 0.75-0.9 is the usual range; 0.9 still starts from the original, so the teal, outlines and neck join carry over. inpainting_fill is 1 (original); if a face survives, the next job can try fill 2 (latent noise). inpaint_full_res is on with 64 px of padding, so Forge draws the crop (a crop of head, neck and top of the shoulders) at 1024x1024 for detail and sees the neck and shoulders for context. Mask blur 8 softens the seam so the new head blends into the old neck. The IP-Adapter is left out on purpose: the locked reference's front and side heads show faces and could pull the new head to face forward. Everything outside the mask is kept as it is. Check: is the head facing away, with no face, muzzle or eye; do the ears, fur and outline match view 4's head; is the seam at the neck clean; is the rest of the sheet unchanged. No guides, no pixel edits.",
+  "mode": "inpaint",
+  "parent": "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506248.png",
+  "prompt": "masterpiece, best quality, newest, absurdres, safe, solo, anthro, furry, raccoon, rear view, back view, from behind, facing away, back of head, (back of head:1.3), teal fur, teal head fur, fur tufts, rounded ears with navy outer tips and white inner rim, (cel shading:1.3), (anime coloring:1.1), (simple shading:1.1), shaded, shadow, sidelighting, thick outlines, simple background, white background, plain white background",
+  "negative": "nsfw, worst quality, low quality, lowres, (text:1.3), watermark, signature, (face:1.4), (eyes:1.3), (muzzle:1.3), (snout:1.3), nose, mouth, (looking back:1.3), looking over shoulder, (head turned:1.3), profile, three-quarter view, front view, (mask:1.2), raccoon mask, (grey fur:1.3), charcoal grey, (headband:1.2), (headwear:1.2), eyewear, sunglasses, goggles, strap, collar, jewelry, (painterly:1.2), airbrush, flat colors, human, 3d, realistic",
+  "model": "indigoVoidFurryFusedXL_noobaiV35_fp16.safetensors",
+  "loras": [],
+  "settings": {
+    "seed": 231506246,
+    "steps": 30,
+    "cfg_scale": 6,
+    "sampler_name": "Euler a",
+    "denoising_strength": 0.9,
+    "inpaint_full_res": true,
+    "inpaint_full_res_padding": 64,
+    "mask_blur": 8,
+    "inpainting_fill": 1,
+    "width": 1024,
+    "height": 1024
+  },
+  "controlnet": [],
+  "count": 4,
+  "compare_to": "enoch-sheet-010-shading-fix-faults",
+  "follows": "enoch-sheet-010-shading-fix-faults",
+  "mask": "art/jobs/enoch-sheet-013-back-head-inpaint/mask.png",
+  "mask_shapes": {
+    "ellipses": [
+      [
+        1368.0,
+        170.0,
+        150.0,
+        125.0
+      ]
+    ],
+    "rects": [],
+    "polys": [],
+    "grow": 16
+  }
+}

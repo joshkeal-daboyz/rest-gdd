@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T18:52:11",
+  "explained_hash": "3abdc912d5e2f32d",
+  "briefed_hash": "3abdc912d5e2f32d",
+  "briefed_at": "2026-10-27T18:52:12",
+  "response": "agree",
+  "response_note": "Agree: will help. Not re-adding gradient, since the earlier blocker review found it suppresses shading; paw-pad and floor-shadow negatives held for a later job if those show up.",
+  "response_hash": "3abdc912d5e2f32d",
+  "responded_at": "2026-10-27T18:53:39",
+  "approved_at": "2026-10-27T18:54:02",
+  "approved_hash": "3abdc912d5e2f32d",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T18:55:55",
+  "outputs": [
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506246.png": {
+      "head": 0.198,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506247.png": {
+      "head": 0.2,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506248.png": {
+      "head": 0.195,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-008-shading-wording/out/enoch-sheet_231506249.png": {
+      "head": 0.191,
+      "line_pct": 0.38
+    }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Still flat at denoise 0.7 with shading wording and the locked image as reference; 3 of 4 grew stray objects.",
+  "verdict_words": "There is no shading",
+  "reviewed_at": "2026-10-27T18:57:00"
+}

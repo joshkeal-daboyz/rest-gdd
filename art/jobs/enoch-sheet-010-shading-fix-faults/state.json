@@ -1,0 +1,43 @@
+{
+  "explained_at": "2026-10-27T19:06:23",
+  "explained_hash": "3e2d72ccedf34bf5",
+  "briefed_hash": "3e2d72ccedf34bf5",
+  "briefed_at": "2026-10-27T19:06:23",
+  "response": "agree",
+  "response_note": "Agree: will help, a clean single change against 009. Extra negatives (headset, hood, smug) held in reserve if the faults persist; head size and line weight are a later job.",
+  "response_hash": "3e2d72ccedf34bf5",
+  "responded_at": "2026-10-27T19:07:42",
+  "approved_at": "2026-10-27T19:08:50",
+  "approved_hash": "3e2d72ccedf34bf5",
+  "approved_via": "chat",
+  "approval_words": "Yes",
+  "ran_at": "2026-10-27T19:10:44",
+  "outputs": [
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506246.png",
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506247.png",
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506248.png",
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506249.png"
+  ],
+  "measurements": {
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506246.png": {
+      "head": 0.196,
+      "line_pct": 0.38
+    },
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506247.png": {
+      "head": 0.193,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506248.png": {
+      "head": 0.192,
+      "line_pct": 0.27
+    },
+    "art/jobs/enoch-sheet-010-shading-fix-faults/out/enoch-sheet_231506249.png": {
+      "head": 0.193,
+      "line_pct": 0.38
+    }
+  },
+  "verdict": "on-track",
+  "verdict_note": "Eyes fixed, heads in range, shading kept in 248/249; 248's back view with tail has the head turned over the shoulder, to fix next.",
+  "verdict_words": "On-track the third image should not have its head turned. Fix.it",
+  "reviewed_at": "2026-10-27T19:13:40"
+}

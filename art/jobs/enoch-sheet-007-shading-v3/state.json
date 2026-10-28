@@ -35,5 +35,9 @@
       "head": 0.197,
       "line_pct": 0.38
     }
-  }
+  },
+  "verdict": "off-track",
+  "verdict_note": "Still flat at denoise 0.55 with anime coloring; no shading came through.",
+  "verdict_words": "It was off",
+  "reviewed_at": "2026-10-27T18:52:19"
 }
